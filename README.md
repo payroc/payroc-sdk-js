@@ -1,14 +1,9 @@
-# payroc-sdk-js
-Payroc SDK for JavaScript
+# Payroc API JavaScript/TypeScript SDK
 
-Repository Branching Strategy:
-https://payroc.atlassian.net/wiki/spaces/BRE/pages/2269512743/Branching+Strategy+3.0
+The Payroc API JS SDK provides convenient access to the Payroc API from JavaScript/TypeScript.
 
-Naming Standards for Artifacts and more: 
-https://payroc.atlassian.net/wiki/spaces/BRE/pages/735871452/Naming+Standards#Containers-(Artifacts)
+## References
 
-Semver Tool
-https://payroc.atlassian.net/wiki/spaces/BRE/pages/2397765897/Cookbook+Using+Payroc+SemVer+Extension+v3
+The Payroc API SDK is generated via [Fern](https://www.buildwithfern.com/).
 
-Tagger 
-https://payroc.atlassian.net/wiki/spaces/BRE/pages/2384887881/Cookbook+Using+Payroc+Tagger+Extension
+[![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-Built%20with%20Fern-brightgreen)](https://buildwithfern.com?utm_source=github&utm_medium=github&utm_campaign=readme&utm_source=https%3A%2F%2Fgithub.com%2Fpayroc%2Fpayroc-sdk-dotnet)
