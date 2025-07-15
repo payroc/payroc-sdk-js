@@ -24,13 +24,17 @@ paths:
     get:
       tags:
       - Owners
-      summary: Retrieve an owner
+      summary: Retrieve owner
       description: |
-        If you have the ownerId, you can use this method to retrieve the details of the owner. The response includes the owner's contact details and information about the owner's relationship to the business.  
+        Use this method to retrieve details about an owner of a processing account or an owner associated with a funding recipient.  
 
-        If you don't have the ownerId, you can use the following methods to retrieve the owner's information:
-          - **Owners of processing accounts** - Use the HATEOAS links that we send you when you [Retrieve a processing account](https://docs.payroc.com/api/schema/boarding/processing-accounts/get) or [List merchant platform's processing accounts](https://docs.payroc.com/api/schema/boarding/merchant-platforms/list-processing-accounts).
-          - **Owners of funding recipients** - Use the [List funding recipient owners](https://docs.payroc.com/api/schema/funding/funding-recipients/list-owners) method. 
+        To retrieve an owner, you need their ownerId. Our gateway returned the ownerId in the response of the [Create Processing Account](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create-processing-account) method or the [Create Funding Recipient Owner](https://docs.payroc.com/api/schema/funding/funding-recipients/create-owner) method.  
+
+        **Note:** If you don't have the ownerId, use the [Retrieve Processing Account](https://docs.payroc.com/api/schema/boarding/processing-accounts/retrieve) method if you are searching for a processing account owner, or use the [List Funding Recipient Owners](https://docs.payroc.com/api/schema/funding/funding-recipients/list-owners) method if you are searching for a funding recipient owner.  
+        Our gateway returns the following information about an owner:  
+        - Name, date of birth, and address.  
+        - Contact details, including their email address.  
+        - Relationship to the business, including whether they are a control prong.
       operationId: getOwner
       parameters:
       - $ref: './parameters-v1.yaml#/components/parameters/ownerId'
