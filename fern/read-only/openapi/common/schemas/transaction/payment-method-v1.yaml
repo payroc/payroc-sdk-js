@@ -31,7 +31,10 @@ components:
             - savings
         serviceProvider:
           type: string
-          description: Provider of the digital wallet.
+          description: |
+            Provider of the digital wallet. Send one of the following values:
+            - `apple` - For more information about how to integrate with Apple Pay, go to [Apple Pay®](/guides/integrate/apple-pay).
+            - `google` - For more information about how to integrate with google Pay, go to [Google Pay®](/guides/integrate/google-pay).
           enum:
           - apple
           - google
@@ -72,6 +75,7 @@ components:
           example: checking
         cardDetails:
           type: object
+          description: Object that contains the details of the payment card.
           discriminator:
             propertyName: entryMethod
             mapping:
@@ -117,7 +121,7 @@ components:
       properties:
         type:
           type: string
-          description: Method that the payment device used to take the payment.
+          description: Method that the terminal used to take the payment.
           enum:
             - secureToken
           example: secureToken
@@ -139,12 +143,12 @@ components:
         secCode:
           type: string
           description: |
-            Indicates the type of authorization for the transaction. The field is mandatory for ACH secure token.  
+            Indicates how the customer authorized the ACH transaction. Send one of the following values:  
+
             - `web` – Online transaction.  
             - `tel` – Telephone transaction.  
             - `ccd` – Corporate credit card or debit card transaction.  
-            - `ppd` – Pre-arranged transaction.
-            
+            - `ppd` – Pre-arranged transaction. 
           enum:
             - web
             - tel
@@ -163,7 +167,7 @@ components:
       properties:
         type:
           type: string
-          description: Method that the payment device used to take the payment.
+          description: Method that the terminal used to take the payment.
           enum:
             - singleUseToken
           example: singleUseToken
@@ -197,12 +201,12 @@ components:
         secCode:
           type: string
           description: |
-            Indicates the type of authorization for the transaction. The field is mandatory for ACH secure token. 
+            Indicates how the customer authorized the ACH transaction. Send one of the following values:  
+
             - `web` – Online transaction.  
             - `tel` – Telephone transaction.  
             - `ccd` – Corporate credit card or debit card transaction.  
-            - `ppd` – Pre-arranged transaction.
-            
+            - `ppd` – Pre-arranged transaction. 
           enum:
             - web
             - tel
@@ -221,7 +225,7 @@ components:
       properties:
         entryMethod:
           type: string
-          description: Method that the device used to capture the card details.
+          description: Method that the terminal used to capture the card details.
           enum:
             - raw
           example: raw
@@ -245,7 +249,7 @@ components:
           example: A1B2C3D4E5F67890ABCD1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF
         cardholderSignature:
           type: string
-          description: Cardholder's signature in the format described in the [Special Fields and Parameters](https://worldnet.payroc.com/selfcare:api_specification:special_fields_and_parameters#the_signature_field_format) section.
+          description: Cardholder's signature. For more information about how to format the signature, go to [How to send a signature to our gateway](/knowledge/basic-concepts/signature-capture).
           example: a1b1c012345678a000b000c0012345d0e0f010g10061a031i001j071k0a1b0c1d0e1234567890120f1g0h1i0j1k0a1b0123451c012d0e1f0g1h0i1j123k1a1b1c1d1e1f1g123h1i1j1k1a1b1c1d1e1f1g123h123i1j123k12340a120a12345b012c0123012d0d1e0f1g0h1i123j123k10000
 
     iccCardDetails:
@@ -259,7 +263,7 @@ components:
       properties:
         entryMethod:
           type: string
-          description: Method that the device used to capture the card details.
+          description: Method that the terminal used to capture the card details.
           enum:
             - icc
           example: icc
@@ -277,7 +281,7 @@ components:
         iccData:
           type: string
           format: hexadecimal
-          description: EMV tags in Tag-Length-Value (TLV) format.
+          description: Cardholder data from the ICC. The data consists of EMV tags in Tag-Length-Value (TLV) format.
           example: '5A08476173921001010F'
         firstDigitOfPan:
           maxLength: 1
@@ -287,7 +291,7 @@ components:
           example: '4'
         cardholderSignature:
           type: string
-          description: Cardholder’s signature. For more information about the format of the signature, see Special Fields and Parameters.
+          description: Cardholder's signature. For more information about how to format the signature, go to [How to send a signature to our gateway](/knowledge/basic-concepts/signature-capture).
           example: '012345678a000b000c0012345d0e0f010g10061a031i001j071k0a1b0c1d0e1234567890120f1g0h1i0j1k0a1b0123451c012d0e1f0g1h0i1j123k1a1b1c1d1e1f1g123h1i1j1k1a1b1c1d1e1f1g123h123i1j123k12340a120a12345b012c0123012d0d1e0f1g0h1i123j123k1a1b1c0000'
 
     keyedCardDetails:
@@ -300,7 +304,7 @@ components:
       properties:
         entryMethod:
           type: string
-          description: Method that the device used to capture the card details.
+          description: Method that the terminal used to capture the card details.
           enum:
             - keyed
           example: keyed
@@ -324,7 +328,7 @@ components:
           example: Sarah Hazel Hopper
         cardholderSignature:
           type: string
-          description: Cardholder’s signature. For more information about the format of the signature, see Special Fields and Parameters.
+          description: Cardholder's signature. For more information about how to format the signature, go to [How to send a signature to our gateway](/knowledge/basic-concepts/signature-capture).
           example: a1b1c012345678a000b000c0012345d0e0f010g10061a031i001j071k0a1b0c1d0e1234567890120f1g0h1i0j1k0a1b0123451c012d0e1f0g1h0i1j123k1a1b1c1d1e1f1g123h1i1j1k1a1b1c1d1e1f1g123h123i1j123k12340a120a12345b012c0123012d0d1e0f1g0h1i123j123k10000
         pinDetails:
           type: object
@@ -347,7 +351,7 @@ components:
       properties:
         entryMethod:
           type: string
-          description: Method that the device used to capture the card details.
+          description: Method that the terminal used to capture the card details.
           enum:
             - swiped
           example: swiped
@@ -378,7 +382,7 @@ components:
           example: Sarah Hazel Hopper
         cardholderSignature:
           type: string
-          description: Cardholder’s signature. For more information about the format of the signature, see Special Fields and Parameters.
+          description: Cardholder's signature. For more information about how to format the signature, go to [How to send a signature to our gateway](/knowledge/basic-concepts/signature-capture).
           example: a1b1c012345678a000b000c0012345d0e0f010g10061a031i001j071k0a1b0c1d0e1234567890120f1g0h1i0j1k0a1b0123451c012d0e1f0g1h0i1j123k1a1b1c1d1e1f1g123h1i1j1k1a1b1c1d1e1f1g123h123i1j123k12340a120a12345b012c0123012d0d1e0f1g0h1i123j123k10000
         pinDetails:
           type: object
@@ -422,7 +426,7 @@ components:
           type: string
           description: | 
             Expiry date of the customer’s card.  
-            **Note:** This field is required for most BIN lookups or electronic voucher transactions.
+            **Note:** We require you to send an expiry date for most BIN lookups and electronic voucher transactions.
           example: '1225'          
         cvv:
           pattern: "[0-9]{3,4}"
@@ -539,9 +543,7 @@ components:
       properties:
         dataFormat:
           type: string
-          description: |
-            Indicates the method the customer’s card data is encrypted.
-            Send swiped card data in encrypted format or `plainText` format.
+          description: Format of the card data. 
           enum:
             - encrypted
           example: encrypted
@@ -562,11 +564,11 @@ components:
           example: '4'
         fallback:
           type: boolean
-          description: Indicates a technical issue with the ICC transaction that resulted in the terminal falling back to a magnetic stripe transaction.
+          description: Indicates that this is a fallback transaction. For example, if there was a technical issue with the chip on the customer's card and the merchant then swiped the card.
           example: true
         fallbackReason:
           type: string
-          description: Explains the reason for the fallback.
+          description: Reason for the fallback.
           enum:
             - technical
             - repeatFallback
@@ -600,11 +602,11 @@ components:
           example: '1234567890123456789012345678901234567890'
         fallback:
           type: boolean
-          description: Indicates a technical issue with the ICC transaction that resulted in the terminal falling back to a magnetic stripe transaction.
+          description: Indicates that this is a fallback transaction. For example, if there was a technical issue with the chip on the customer's card and the merchant then swiped the card.
           example: true
         fallbackReason:
           type: string
-          description: Explains the reason for the fallback.
+          description: Reason for the fallback.
           enum:
             - technical
             - repeatFallback
@@ -640,11 +642,12 @@ components:
         secCode:
           type: string
           description: |
-           Indicates the type of authorization for the transaction.  
-           - `web` – Online transaction.  
-           - `tel` – Telephone transaction.  
-           - `ccd` – Corporate credit card or debit card transaction.  
-           - `ppd` – Pre-arranged transaction.
+            Indicates how the customer authorized the ACH transaction. Send one of the following values:  
+
+            - `web` – Online transaction.  
+            - `tel` – Telephone transaction.  
+            - `ccd` – Corporate credit card or debit card transaction.  
+            - `ppd` – Pre-arranged transaction. 
           enum:
           - web
           - tel
@@ -688,7 +691,7 @@ components:
       properties:
         type:
           type: string
-          description: Method that the payment device used to take the payment.
+          description: Method that the terminal used to take the payment.
           enum:
             - pad
           example: pad

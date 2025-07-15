@@ -38,11 +38,11 @@ components:
         customFieldNames:
           - yourCustomField
     patchPaymentPlanRealistic:
-      summary: Partially update payment plan
+      summary: Update payment plan
       description: | 
-        Partially update an existing payment plan.
+        Make changes to an existing payment plan.
 
-        Structure your request to follow the RFC 6902 standard.
+        Structure your request to follow the [RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902) standard.
       value:
         - op: replace
           path: /currency

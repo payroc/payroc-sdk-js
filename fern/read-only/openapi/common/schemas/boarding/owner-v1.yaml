@@ -61,7 +61,7 @@ components:
           type: array
           xml:
             wrapped: true
-          description: Array of identifier objects.
+          description: Array of IDs.
           example:
           - type: nationalId
             value: xxxxx4320

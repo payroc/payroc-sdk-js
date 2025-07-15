@@ -10,7 +10,7 @@ components:
       name: processingTerminalId
       in: query
       required: true
-      description: Filter payments by the unique identifier that our gateway assigned to the terminal.
+      description: Filter results by the unique identifier that we assigned to the terminal.
       schema:
         maxLength: 50
         minLength: 4
@@ -20,7 +20,7 @@ components:
     bankTransferPaymentsOrderId:
       name: orderId
       in: query
-      description: Filter payments by the order ID.
+      description: Filter results by the order ID of the payment. 
       schema:
         maxLength: 24
         minLength: 1
@@ -30,7 +30,7 @@ components:
     bankTransferPaymentsNameOnAccount:
       name: nameOnAccount
       in: query
-      description: Filter payments by the account holder's name.
+      description: Filter results by the account holder's name. 
       schema:
         maxLength: 50
         minLength: 1
@@ -40,7 +40,7 @@ components:
     bankTransferPaymentsLast4:
       name: last4
       in: query
-      description: Filter payments by the last four digits of the account number.
+      description: Filter results by the last four digits of the account number.
       schema:
         pattern: '[0-9]{4}'
         type: string
@@ -49,7 +49,7 @@ components:
     bankTransferPaymentsType:
       name: type
       in: query
-      description: Filter payments by transaction type.
+      description: Filter results by transaction type.
       schema:
         type: array
         items:
@@ -63,7 +63,7 @@ components:
     bankTransferPaymentsStatus:
       name: status
       in: query
-      description: Filter by the status of the payment.
+      description: Filter results by the status of the payment.
       schema:
         type: array
         items:
@@ -82,7 +82,7 @@ components:
     bankTransferPaymentsDateFrom:
       name: dateFrom
       in: query
-      description: Filter by payments that the merchant ran after a specific date. The date follows the ISO 8601 standard.
+      description: Filter results by payments that the merchant ran after a specific date. The value follows the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) standard.
       schema:
         type: string
         format: date-time
@@ -91,7 +91,7 @@ components:
     bankTransferPaymentsDateTo:
       name: dateTo
       in: query
-      description: Filter by payments that the merchant ran before a specific date. The date follows the ISO 8601 standard.
+      description: Filter results by payments that the merchant ran before a specific date. The value follows the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) standard.
       schema:
         type: string
         format: date-time
@@ -100,7 +100,7 @@ components:
     bankTransferPaymentsSettlementState:
       name: settlementState
       in: query
-      description: Filter by the settlement status of the payment.
+      description: Filter results by the settlement status.
       schema:
         type: string
         enum:
@@ -111,7 +111,7 @@ components:
     bankTransferPaymentsSettlementDate:
       name: settlementDate
       in: query
-      description: Filter by payments settled on a specific date. The format is in **YYYY-MM-DD**.
+      description: Filter results by the settlement date. Send a value in **YYYY-MM-DD** format. 
       schema:
         type: string
         format: date
@@ -131,7 +131,7 @@ components:
     paymentLinkId:
       name: paymentLinkId
       in: query
-      description: Unique identifier that our gateway assigned to the payment link.
+      description: Filter results by the paymentLinkId. 
       schema:
         maxLength: 10
         minLength: 10

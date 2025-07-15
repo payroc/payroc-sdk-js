@@ -336,7 +336,7 @@ components:
           example: privateCorporation
         countryOfOperation:
           type: string
-          description: Two-digit country code for the country that the business operates in. The format follows the ISO-3166 standard.
+          description: Two-digit country code for the country that the business operates in. The format follows the [ISO-3166](https://www.iso.org/iso-3166-country-codes.html) standard.
           enum:
             - US    
           example: US
@@ -344,7 +344,7 @@ components:
           type: array
           minItems: 1
           uniqueItems: true
-          description: Array of address objects. 
+          description: Type of address. 
           items:
             oneOf:
               - $ref: '../../../common/schemas/boarding/legal-address-v1.yaml#/components/schemas/legalAddress'
@@ -352,7 +352,7 @@ components:
           type: array
           minItems: 1
           uniqueItems: true
-          description: An array of contactMethod objects. Email should always be provided.
+          description: Array of contactMethod objects. One contact method must be an email address. 
           items:
             $ref: '../../../common/schemas/common/contact-method-v1.yaml#/components/schemas/contactMethod'
     createMerchantAccount:

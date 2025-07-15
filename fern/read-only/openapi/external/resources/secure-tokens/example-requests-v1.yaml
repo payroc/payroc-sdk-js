@@ -57,11 +57,11 @@ components:
             value: abc123
       
     patchSecureTokenRealistic:
-      summary: Partially update secure token
+      summary: Update secure token
       description: | 
-        Partially update an existing secure token.
+        Update the customer's payment details that are represented by the secure token.
 
-        Structure your request to follow the RFC 6902 standard.
+        Structure your request to follow the [RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902) standard.
       value:
         - op: replace
           path: /customer/lastName
@@ -74,7 +74,7 @@ components:
           value: Sarah Reed
 
     accountUpdateRequest:
-      summary: Account update request
+      summary: Update account details
       description: Account update request by single use token
       value:
         type: singleUseToken

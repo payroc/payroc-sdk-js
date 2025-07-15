@@ -13,7 +13,7 @@ components:
         - expiryDate
         - type
       type: object
-      description: Object that contains information about the card.
+      description: Object that contains the details of the payment card. 
       properties:
         type:
           type: string
@@ -50,7 +50,7 @@ components:
         expiryDate:
           pattern: "[0-9]{4}"
           type: string
-          description: Expiration date of the card. The format of this value is **MMYY**.
+          description: Expiry date of the customer's card. The format is in **MMYY**. 
           example: '0725'
         secureToken:
           $ref: "../../../common/schemas/transaction/summary-v1.yaml#/components/schemas/secureTokenSummary"
@@ -69,10 +69,7 @@ components:
               value: '0840'
         balances:
           type: array
-          description: |
-            Array of cardBalance objects.  
-            Our gateway returns this array only when the customer uses an Electronic Benefit Transfer (EBT) card.  
-            **Note:** This field reflects the remaining balance on the card after deducting the amount of this transaction.
+          description: Array of cardBalance objects. Our gateway returns this array only when the customer uses an Electronic Benefit Transfer (EBT) card.
           items:
             $ref: "#/components/schemas/cardBalance"
           example:
@@ -197,7 +194,7 @@ components:
         country:
           type: string
           format: iso-3166-1
-          description: Country of the issuing bank.
+          description: Country of the issuing bank. The value for the country follows the [ISO-3166-1](https://www.iso.org/iso-3166-country-codes.html) standard.
         currency:
           $ref: '../../../common/schemas/common/currency-v1.yaml#/components/schemas/currency'
         debit:
@@ -241,7 +238,7 @@ components:
           example: '1225'
         cardType:
           type: string
-          description: The card type.
+          description: Card brand of the payment card, for example, Visa. 
         currency:
           $ref: '../../../common/schemas/common/currency-v1.yaml#/components/schemas/currency'
         debit:
@@ -267,7 +264,7 @@ components:
           format: int64
           description: |
             Surcharge amount to add to the transaction.  
-            **Note:** Our gateway returns **amount** only if the request contained an example transaction amount.
+            **Note:** Our gateway returns the surcharge amount only if you include a transaction amount in the request.
           example: 87
         percentage:
           maximum: 100
@@ -280,5 +277,5 @@ components:
           example: 3.0
         disclosure:
           type: string
-          description: Statement used to disclose the surcharge fee to the customer.
+          description: Statement that informs the customer about the surcharge fee.
           example: "A 3% surcharge is applied to cover processing fees."

@@ -32,7 +32,7 @@ groups:
   csharp-sdk:
     generators:
       - name: fernapi/fern-csharp-sdk
-        version: 1.18.1
+        version: 2.1.0
         github:
           repository: payroc/payroc-sdk-dotnet
           mode: pull-request
@@ -50,13 +50,9 @@ groups:
           base-api-exception-class-name: PayrocApiException
           environment-class-name: PayrocEnvironment
           explicit-namespaces: true
-          generate-mock-server-tests: true
-          inline-path-parameters: true
           custom-pager-name: PayrocPager
           include-exception-handler: true
-          experimental-enable-forward-compatible-enums: true
-          use-discriminated-unions: true
-          generate-wire-tests: true
+
   ts-sdk:
     generators:
       - name: fernapi/fern-typescript-node-sdk

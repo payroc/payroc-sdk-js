@@ -24,11 +24,14 @@ components:
         secCode:
           type: string
           description: |
-            SEC code for the transaction.
-            - `web` - Online transaction.
-            - `tel` - Telephone transaction.
-            - `ccd` - Corporate credit or debit transaction.
-            - `ppd` - Pre-arranged transaction.
+            Indicates the type of authorization for the transaction.  
+            
+            **Note:** The field is mandatory for ACH secure token.  
+
+            - `web` – Online transaction.  
+            - `tel` – Telephone transaction.  
+            - `ccd` – Corporate credit card or debit card transaction.  
+            - `ppd` – Pre-arranged transaction.
           enum:
             - web
             - tel
@@ -51,7 +54,10 @@ components:
           maxLength: 9
           minLength: 9
           type: string
-          description: Routing number of the customer’s account.
+          description: |
+            Routing number of the customer’s account.
+
+            **Note:** In responses, our gateway shows only the last four digits of the account's routing number, for example, *****4162. 
           example: '123456789'
         secureToken:
           $ref: "./summary-v1.yaml#/components/schemas/secureTokenSummary"

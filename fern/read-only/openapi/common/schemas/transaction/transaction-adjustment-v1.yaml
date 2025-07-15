@@ -83,7 +83,7 @@ components:
           example: status
         toStatus:
           type: string
-          description: Status of the transaction.
+          description: Status that you want to change the transaction to.
           enum:
             - ready
             - pending

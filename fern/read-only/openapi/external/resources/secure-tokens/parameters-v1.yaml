@@ -20,7 +20,7 @@ components:
     secureTokenIdInQuery:
       name: secureTokenId
       in: query
-      description: Filter by the unique secure token.
+      description: Unique identifier that the merchant assigned to the secure token.
       schema:
         maxLength: 200
         minLength: 1

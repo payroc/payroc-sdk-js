@@ -74,7 +74,7 @@ components:
           maxLength: 48
           minLength: 1
           type: string
-          description: Description of the response from the processor.
+          description: Response description from the processor.
           example: Transaction approved
         link:
           $ref: ../../../common/schemas/common/link/link-v1.yaml#/components/schemas/link

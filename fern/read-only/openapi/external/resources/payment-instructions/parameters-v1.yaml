@@ -23,7 +23,7 @@ components:
       in: path
       required: true
       schema:
-        maxLength: 45
+        maxLength: 64
         minLength: 1
         type: string
       example: '1850010868'

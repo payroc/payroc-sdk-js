@@ -75,9 +75,12 @@ paths:
     post:
       tags:
         - Cards
-      summary: Balance inquiry
+      summary: View EBT balance
       operationId: balanceCard
-      description: Request the balance of an Electronic Benefit Transfer (EBT) card.
+      description: |
+        Use this method to view the balance of an Electronic Benefit Transfer (EBT) card.  
+        
+        If the request is successful, our gateway returns the current balance of an EBT card. 
       requestBody:
         content:
           application/json:
@@ -117,8 +120,15 @@ paths:
     post:
       tags:
         - Cards
-      summary: Lookup BIN information
-      description: Perform a BIN (Bank Identification Number) lookup to retrieve information about a card.
+      summary: Look up BIN information
+      description: | 
+        Use this method to retrieve information about a debit card, a credit card, or an EBT card. If you apply surcharges to transactions, you can also check if the card supports surcharging.  
+
+        In the response, our gateway returns the following information about the card:  
+
+        - **Card details** - Information about the card, for example, the issuing bank and the masked card number.  
+
+        - **Surcharging information** - If you apply a surcharge to transactions, our gateway checks that the card supports surcharging and returns information about the surcharge. For more information about surcharging, go to [Credit card surcharging](/knowledge/card-payments/credit-card-surcharging). 
       operationId: binLookup
       requestBody:
         content:
@@ -321,7 +331,7 @@ components:
           maxLength: 48
           minLength: 1
           type: string
-          description: 'Response description from the payment processor. For example, "Refer to Card Issuer".'
+          description: Response description from the payment processor, for example, Refer to Card Issuer.
           example: Refer to Card Issuer
     binLookup:
       required:
@@ -339,9 +349,7 @@ components:
           exclusiveMinimum: true
           type: integer
           format: int64
-          description: |
-            The amount in the currency's lowest denomination.  
-            If the card is eligible for surcharging, sending this field will allow the gateway to calculate and return the surcharge amount.
+          description: Transaction amount that you send to check the surcharge amount. The value is in the currency's lowest denomination, for example, cents. 
           # example: 4999 # Linting won't allow explicit value
         currency:
           $ref: '../../../common/schemas/common/currency-v1.yaml#/components/schemas/currency'        

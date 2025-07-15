@@ -149,7 +149,14 @@ components:
           properties:
             data:
               type: array
-              description: Array of fundingAccount objects.
+              description: | 
+                Array of funding account objects for the processing account. Each processing account must have:  
+
+                - One funding account that accepts both credits to the account and debits from the account.  
+
+                OR  
+
+                - Two funding accounts - one for credits to the account, and another account for debits from the account.  
               items:
                 $ref: '../../../common/schemas/boarding/funding-account-v1.yaml#/components/schemas/fundingAccount'
           required: [data]

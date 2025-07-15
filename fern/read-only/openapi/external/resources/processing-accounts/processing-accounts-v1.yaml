@@ -64,7 +64,14 @@ paths:
             application/json:
               schema:
                 type: array
-                description: Array of fundingAccount objects.
+                description: | 
+                  Array of funding account objects for the processing account. Each processing account must have:  
+
+                  - One funding account that accepts both credits to the account and debits from the account.  
+
+                  OR  
+
+                  - Two funding accounts - one for credits to the account, and another account for debits from the account.  
                 items:
                   $ref: '../../../common/schemas/boarding/funding-account-v1.yaml#/components/schemas/fundingAccount'
               examples:
@@ -716,7 +723,7 @@ components:
         categoryCode:
           type: integer
           format: int32
-          description: Category code for the type of business.
+          description: Merchant Category Code (MCC) for the type of business. 
           maxLength: 4
           example: 5999
         merchandiseOrServiceSold:
@@ -748,15 +755,7 @@ components:
         pricing: 
           $ref: '#/components/schemas/pricing'
         signature:
-          type: string
-          description: | 
-            Method used to capture the owner's signature.  
-
-            **Note:** If you request the owner’s signature by email and they don’t respond, use our Reminders endpoint to create a reminder and to send another email.
-          enum:
-            - requestedViaEmail
-            - requestedViaDirectLink
-          example: requestedViaEmail
+          $ref: '#/components/schemas/signature'
         contacts:
           type: array
           description: Array of contact objects.
@@ -766,7 +765,7 @@ components:
           type: object
           additionalProperties:
             type: string
-          description: Object that you can send to include custom data in the request.
+          description: Object that you can send to include custom data in the request. For more information about how to use metadata, go to [Metadata](/api/metadata).
           example:
             customerId: '2345'
     processingAccount:
@@ -900,7 +899,7 @@ components:
           type: integer
           format: int32
           example: 5999
-          description: Category code for the type of business.
+          description: Merchant Category Code (MCC) for the type of business. 
           maxLength: 4
         merchandiseOrServiceSold:
           type: string
@@ -990,7 +989,7 @@ components:
           type: object
           additionalProperties:
             type: string
-          description: Object that you can send to include custom data in the request.
+          description: Object that you can send to include custom data in the request. For more information about how to use metadata, go to [Metadata](/api/metadata).
           example:
             customerId: '2345'
         links:
@@ -1014,7 +1013,7 @@ components:
 
     funding:
       type: object
-      description: Object that contains funding information.
+      description: Object that contains funding information for the processing account, including funding schedules, funding fees, and details of funding accounts.
       allOf:
         - $ref: '#/components/schemas/commonFunding'
         - type: object
@@ -1056,7 +1055,10 @@ components:
           type: string
           description: |
             Indicates when funds are sent to the funding account.  
-            **Note:** If you send a value of `sameday`, funding includes all transactions the merchant ran before the ACH cut-off time.
+
+            If you send a value of `sameDay` or `nextDay`, provide a value for acceleratedFundingFee.  
+
+            **Note:** If you send a value of `sameday`, funding includes all transactions the merchant ran before the ACH cut-off time. 
           enum:
             - standard
             - nextday
@@ -1065,12 +1067,15 @@ components:
           default: standard
         acceleratedFundingFee:
           type: integer
-          description: Monthly fee in cents for accelerated funding. We apply this fee if the value for fundingSchedule is `sameday` or `nextday`.
+          description: |
+            Monthly fee in cents for accelerated funding. The value is in the currency's lowest denomination, for example, cents.  
+                        
+            We apply this fee if the value for fundingSchedule is `sameday` or `nextday`.  
           example: 1999
           default: 0
         dailyDiscount:
           type: boolean
-          description: Indicator if fees should be taken on a daily basis.
+          description: Indicates if we should collect fees from the merchant's account each day. 
           example: false
     paginatedContacts:
       type: object

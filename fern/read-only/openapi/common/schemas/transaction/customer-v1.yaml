@@ -8,7 +8,7 @@ components:
   schemas:
     customer:
       type: object
-      description: Customer contact and address details.
+      description: Object that contains the customer's contact details and address information.
       properties:
         firstName:
           type: string
@@ -37,6 +37,7 @@ components:
           minLength: 0
           example: CustomerCode234567
         billingAddress:
+          description: Object that contains information about the address that the card is registered to. 
           $ref: ../common/address-v1.yaml#/components/schemas/address
         shippingAddress:
           $ref: "#/components/schemas/shipping"
@@ -50,9 +51,7 @@ components:
           type: string
           format: iso-639-1
           description: |
-            Language that the customer uses for notifications. 
-
-            This code follows the ISO 639-1 alpha-2 standard.
+            Language that the customer uses for notifications. This code follows the [ISO 639-1](https://www.iso.org/iso-639-language-code) alpha-2 standard. 
           enum:
             - en
             - fr

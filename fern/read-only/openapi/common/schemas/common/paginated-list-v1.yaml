@@ -35,7 +35,7 @@ components:
           example: false
         links:
           type: array
-          description: Reference links to navigate to the previous page of results, or to the next page of results.
+          description: Reference links to navigate to the previous page of results or to the next page of results.
           example:
           - rel: previous
             method: get

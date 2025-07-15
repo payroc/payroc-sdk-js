@@ -61,7 +61,7 @@ components:
           - phone
         value:
           type: string
-          description: Phone Number.
+          description: Phone number.
           maxLength: 15
           example: '2025550164'
     contactMethodMobile:
@@ -78,7 +78,7 @@ components:
           - mobile
         value:
           type: string
-          description: Mobile Number.
+          description: Mobile number.
           maxLength: 15
           example: '8445557624'
     contactMethodFax:
@@ -95,6 +95,6 @@ components:
           - fax
         value:
           type: string
-          description: Fax Number.
+          description: Fax number.
           maxLength: 15
           example: '2025550110'
