@@ -199,7 +199,7 @@ paths:
     patch:
       tags:
         - Subscriptions
-      summary: Update subscription
+      summary: Partially update subscription
       description: | 
         Use this method to partially update a subscription. Structure your request to follow the [RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902) standard.  
 

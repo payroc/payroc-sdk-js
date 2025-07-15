@@ -184,7 +184,7 @@ paths:
     patch:
       tags:
         - Secure tokens
-      summary: Update secure token
+      summary: Partially update secure token
       description: | 
         Use this method to partially update a secure token. Structure your request to follow the [RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902) standard.  
 

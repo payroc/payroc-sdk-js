@@ -183,7 +183,7 @@ paths:
     patch:
       tags:
         - Payment plans
-      summary: Update payment plan
+      summary: Partially update payment plan
       description: | 
         Use this method to partially update a payment plan. Structure your request to follow the [RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902) standard.  
 
