@@ -136,7 +136,8 @@ components:
             pricing:
               type: intent
               pricingIntentId: 6123
-            signature: requestedViaDirectLink
+            signature:
+              type: requestedViaDirectLink
             contacts:
               - type: manager
                 firstName: Jane
@@ -265,7 +266,8 @@ components:
         pricing:
           type: intent
           pricingIntentId: 6123
-        signature: requestedViaDirectLink
+        signature:
+          type: requestedViaDirectLink
         contacts:
           - type: manager
             firstName: Jane

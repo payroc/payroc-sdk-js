@@ -19,7 +19,7 @@ components:
   schemas:
     unitOfMeasure:
       type: string
-      description: Measurement for each unit of item, for example, 'GRM' (grams).
+      description: Unit of measurement for the item. For more information about units of measurement, go to [Units of measurement](/knowledge/basic-concepts/units-of-measurement).
       example: QAN
       enum:
         - ACR

@@ -86,8 +86,7 @@ components:
               type: integer
               format: int64
               description: |
-                Value of duties or fees for the transaction in the currency's
-                lowest denomination, for example, cents.
+                Amount of duties or fees that apply to the order. The value is in the currency's lowest denomination, for example, cents. 
               example: 0
             freightAmount:
               type: integer
@@ -99,6 +98,7 @@ components:
               $ref: '#/components/schemas/convenienceFee'
             items:
               type: array
+              description: Array of objects that contain information about each item that the customer purchased. 
               items:
                 $ref: '#/components/schemas/lineItem'
                 description: Array of 'lineItem' objects. Each object contains information about the items in the transaction.
@@ -169,7 +169,7 @@ components:
           example: 5.0
         taxes:
           type: array
-          description: List of taxes to be applied to the item.
+          description: Array of objects that contain information about each tax that applies to the item. 
           items:
             $ref: '#/components/schemas/tax'
     
@@ -269,8 +269,7 @@ components:
         - amount
       type: object
       description: |
-        The choice rate.  
-        **Note:** This field is required if dual pricing was offered.
+        Object that contains information about the choice rate. We return this only if the value for offered was `true`.
       readOnly: true
       properties:
         applied:

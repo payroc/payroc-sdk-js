@@ -8,8 +8,8 @@ components:
   examples:
 
     singleUseTokenResponse:
-      summary: Single Use Token Response
-      description: Single Use Token Response
+      summary: Create single-use token
+      description: Create a single-use token. The token expires after 30 minutes. 
       value:
         processingTerminalId: '1234001'
         token: fa2e9e51bc5265a33a5ca41449524d53d1def596ffd8c0904f222183a71a65cdb58835120a65196a48a6375abc4deafe2b7e948689ab9d6aba919e860f32e247

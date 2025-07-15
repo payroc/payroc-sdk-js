@@ -30,17 +30,17 @@ components:
       properties:
         address1:
           type: string
-          description: Address Line.
+          description: Address line 1.
           example: 1 Example Ave.
           maxLength: 150
         address2:
           type: string
-          description: Address Line.
+          description: Address line 2.
           example: Example Address Line 2
           maxLength: 150
         address3:
           type: string
-          description: Address Line.
+          description: Address line 3.
           example:  Example Address Line 3
           maxLength: 150
         city:
@@ -50,17 +50,17 @@ components:
           maxLength: 50
         state:
           type: string
-          description: Name or postal abbreviation of the state.
+          description: Name of the state or state abbreviation.
           example: Illinois
           maxLength: 50
         country:
           maxLength: 2
           minLength: 2
           type: string
-          description: Two letter ISO 3166-1 country code.
+          description: Two-digit country code for the country that the business operates in. The format follows the [ISO-3166-1](https://www.iso.org/iso-3166-country-codes.html) standard.
           example: US
         postalCode:
           type: string
-          description: Zip Code or Postcode.
+          description: Zip code or postal code.
           example: '60056'
           maxLength: 10

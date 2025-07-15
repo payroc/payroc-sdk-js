@@ -7,8 +7,8 @@ paths: {}
 components:
   examples:
     singleUseTokenRequest:
-      summary: Single Use Token
-      description: Single Use Token
+      summary: Create single-use token 
+      description: Create a single-use token. The token expires after 30 minutes. 
       value:
         channel: web
         operator: Jane

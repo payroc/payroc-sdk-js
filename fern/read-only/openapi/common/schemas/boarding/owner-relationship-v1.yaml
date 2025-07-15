@@ -26,19 +26,19 @@ components:
       properties:
         equityPercentage:
           type: number
-          description: Percentage of the business that the owner holds.
+          description: Percentage equity stake that the owner holds in the business.
           format: percentage
           example: 48.5
           default: 0.0
         title:
           type: string
-          description: Owner's job title within the business.
+          description: Owner's job title.
           example: CFO
         isControlProng:
           type: boolean
-          description: Indicates if the owner is a control prong within the business. Only one control prong should be identified.
+          description: Indicates if the owner is a control prong. You can identify only one control prong for a business. 
           example: true
         isAuthorizedSignatory:
           type: boolean
-          description: Indicates if the owner is an authorized signatory within the business.
+          description: Indicates if the owner is an authorized signatory.
           example: false

@@ -43,7 +43,7 @@ components:
           example: thirdParty
         eci:
           type: string
-          description: E-commerce indicator (ECI) is the result of the authentication check on the payment by the 3-D Secure service.
+          description: E-commerce indicator (ECI) result of a the 3-D Secure check. 
           enum:
           - fullyAuthenticated
           - attemptedAuthentication
@@ -58,12 +58,12 @@ components:
           maxLength: 50
           minLength: 0
           type: string
-          description: Cardholder Authentication Value is a cryptographic value that the card issuer sends to prove an online transaction was authorized.
+          description: Cardholder Authentication Verification Value (CAVV) that the card issuer provided to prove that they authorized the online payment.
           example: QWxhZGRpbjpvcGVuIHNlc2FtZQ==
         dsTransactionId:
           maxLength: 36
           minLength: 0
           type: string
-          description: Directory Server Transaction ID is a unique identifier that the processor assigned to the request.
+          description: Directory Server Transaction ID that the processor assigned to the request.
           example: '123e4567-e89b-12d3-a456-426614174000'
   

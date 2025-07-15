@@ -19,14 +19,17 @@ components:
   schemas:
     link:
       type: object
-      description: Object that contains information about a HATEOAS link. If we can't match a dispute to a transaction, we don't return a 'link' object.
+      description: Object that contains HATEOAS links for the resource. 
       properties:
         rel:
           type: string
+          description: Indicates the relationship between the current resource and the target resource. 
         method:
           type: string
+          description: HTTP method that you need to use with the target resource. 
         href:
           type: string
+          description: URL of the target resource. 
       required:
       - href
       - method

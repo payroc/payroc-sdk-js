@@ -13,12 +13,15 @@ components:
         - fxRate
         - markup
       type: object
-      description: Object that contains the exchange rates offer for a foreign card.
+      description: |
+        Object that contains information about the dynamic currency conversion (DCC) offer.  
+          
+        For more information about DCC, go to [Dynamic currency conversion](/knowledge/card-payments/dynamic-currency-conversion).
       properties:
         accepted:
           type: boolean
           writeOnly: true
-          description: Indicates if the cardholder accepted the dynamic currency conversion (DCC) offer.
+          description: Indicates if the cardholder accepted DCC offer.
           example: true
         offerReference:
           type: string

@@ -23,7 +23,15 @@ paths:
       tags:
         - Single use tokens
       summary: Create single use token
-      description: Create a single-use token. The token expires after 30 minutes. 
+      description: |
+        Use this method to create a single-use token that represents a customer’s payment details.  
+
+        A single-use token expires after 30 minutes and merchants can use them only once.  
+
+        **Note:** To create a reusable permanent token, go to [Create Secure Token](https://docs.payroc.com/api/schema/payments/secure-tokens/create).  
+
+        In the request, send the customer’s payment details. If the request is successful, our gateway returns a token that you can use in a follow-on action, for example, [run a sale](https://docs.payroc.com/api/schema/payments/create).
+
       operationId: createSingleUseToken
       parameters:
         - $ref: '../../../common/parameters/idempotency-key-v1.yaml#/components/parameters/idempotencyKey'
@@ -157,7 +165,7 @@ components:
           type: string
           format: date-time
           readOnly: true
-          description: Date and time that the token expires. We return this value in the ISO 8601 format.
+          description: Date and time that the token expires. We return this value in the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
           example: '2024-07-02T16:00:00Z'
         source:
           description: Object that contains information about the payment method that we tokenized.

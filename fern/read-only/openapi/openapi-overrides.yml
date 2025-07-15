@@ -11,7 +11,7 @@ paths:
       x-fern-sdk-group-name:
         - boarding
         - contacts
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
     put:
       x-fern-sdk-group-name:
         - boarding
@@ -41,7 +41,7 @@ paths:
       x-fern-sdk-group-name:
         - boarding
         - merchantPlatforms
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
   /merchant-platforms/{merchantPlatformId}/processing-accounts:
     get:
       x-fern-sdk-group-name:
@@ -62,7 +62,7 @@ paths:
       x-fern-sdk-group-name:
         - boarding
         - owners
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
     put:
       x-fern-sdk-group-name:
         - boarding
@@ -92,7 +92,7 @@ paths:
       x-fern-sdk-group-name:
         - boarding
         - pricingIntents
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
     put:
       x-fern-sdk-group-name:
         - boarding
@@ -107,7 +107,7 @@ paths:
       x-fern-sdk-group-name:
         - boarding
         - pricingIntents
-      x-fern-sdk-method-name: patch
+      x-fern-sdk-method-name: partiallyUpdate
 
 # boarding - processing accounts
   /processing-accounts/{processingAccountId}:
@@ -115,26 +115,26 @@ paths:
       x-fern-sdk-group-name:
         - boarding
         - processingAccounts
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
   /processing-accounts/{processingAccountId}/funding-accounts:
     get:
       x-fern-sdk-group-name:
         - boarding
         - processingAccounts
-      x-fern-sdk-method-name: listFundingAccounts
+      x-fern-sdk-method-name: listProcessingAccountFundingAccounts
       x-fern-request-name: ListProcessingAccountFundingAccountsRequest
   /processing-accounts/{processingAccountId}/contacts:
     get:
       x-fern-sdk-group-name:
         - boarding
         - processingAccounts
-      x-fern-sdk-method-name: contacts
+      x-fern-sdk-method-name: listContacts
   /processing-accounts/{processingAccountId}/pricing:
     get:
       x-fern-sdk-group-name:
         - boarding
         - processingAccounts
-      x-fern-sdk-method-name: pricing
+      x-fern-sdk-method-name: getProcessingAccountPricingAgreement
       responses:
         '200':
           content:
@@ -166,11 +166,10 @@ paths:
         - boarding
         - processingAccounts
       x-fern-sdk-method-name: listTerminalOrders
-      # x-fern-pagination: true # Doesn't work as field is called `orderItems` rather than `data`
-      #Add once Fern bug is fixed, and CLI can be updated
-      #x-fern-pagination:
-      #  type: custom
-      #  results: $response.orderItems      
+      # x-fern-pagination: true # Doesn't work as field is called `$response.orderItems` rather than `data`
+      # It is not a proper paginated result - no Next() etc.
+      # Therefore leave this as x-fern-pagination: false
+      # As user can iterate theTask< IEnumerable<T>> as necessary
   /processing-accounts/{processingAccountId}/processing-terminals:
     get:
       x-fern-sdk-group-name:
@@ -185,13 +184,13 @@ paths:
       x-fern-sdk-group-name:
         - boarding
         - processingTerminals
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
   /processing-terminals/{processingTerminalId}/host-configurations:
     get:
       x-fern-sdk-group-name:
         - boarding
         - processingTerminals
-      x-fern-sdk-method-name: getHostConfiguration
+      x-fern-sdk-method-name: retrieveHostConfiguration
 
 # boarding - terminal orders
   /terminal-orders/{terminalOrderId}:
@@ -199,7 +198,7 @@ paths:
       x-fern-sdk-group-name:
         - boarding
         - terminalOrders
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
 
 # funding
 # funding - funding accounts
@@ -215,7 +214,7 @@ paths:
       x-fern-sdk-group-name:
         - funding
         - fundingAccounts
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
     put:
       x-fern-sdk-group-name:
         - funding
@@ -233,13 +232,14 @@ paths:
       x-fern-sdk-group-name:
         - funding
         - fundingActivity
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: list
+      x-fern-pagination: true
   /funding-balance:
     get:
       x-fern-sdk-group-name:
         - funding
         - fundingActivity
-      x-fern-sdk-method-name: getBalance
+      x-fern-sdk-method-name: retrieveBalance
 
 # funding - funding instructions
   /funding-instructions:
@@ -259,7 +259,7 @@ paths:
       x-fern-sdk-group-name:
         - funding
         - fundingInstructions
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
     put:
       x-fern-sdk-group-name:
         - funding
@@ -289,7 +289,7 @@ paths:
       x-fern-sdk-group-name:
         - funding
         - fundingRecipients
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
     put:
       x-fern-sdk-group-name:
         - funding
@@ -353,7 +353,7 @@ paths:
       x-fern-sdk-group-name:
         - payments
         - bankTransferPayments
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
   /bank-transfer-payments/{paymentId}/reverse:
     post:
       x-fern-sdk-group-name:
@@ -391,7 +391,7 @@ paths:
       x-fern-sdk-group-name:
         - payments
         - bankTransferRefunds
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
   /bank-transfer-refunds/{refundId}/reverse:
     post:
       x-fern-sdk-group-name:
@@ -411,13 +411,13 @@ paths:
       x-fern-sdk-group-name:
         - payments
         - cards
-      x-fern-sdk-method-name: balance
+      x-fern-sdk-method-name: viewBalance
   /cards/bin-lookup:
     post:
       x-fern-sdk-group-name:
         - payments
         - cards
-      x-fern-sdk-method-name: binLookup
+      x-fern-sdk-method-name: lookupBin
 
 # payments - currency conversion
   /fx-rates:
@@ -425,7 +425,42 @@ paths:
       x-fern-sdk-group-name:
         - payments
         - currencyConversion
-      x-fern-sdk-method-name: getFxRates
+      x-fern-sdk-method-name: retrieveFxRates
+
+# notifications - event subscriptions
+  /event-subscriptions:
+    get:
+      x-fern-sdk-group-name:
+        - notifications
+        - eventSubscriptions
+      x-fern-sdk-method-name: list
+      x-fern-pagination: true
+    post:
+      x-fern-sdk-group-name:
+        - notifications
+        - eventSubscriptions
+      x-fern-sdk-method-name: create
+  /event-subscriptions/{subscriptionId}:      
+    get:
+      x-fern-sdk-group-name:
+        - notifications
+        - eventSubscriptions
+      x-fern-sdk-method-name: retrieve
+    put:
+      x-fern-sdk-group-name:
+        - notifications
+        - eventSubscriptions
+      x-fern-sdk-method-name: update
+    delete:
+      x-fern-sdk-group-name:
+        - notifications
+        - eventSubscriptions
+      x-fern-sdk-method-name: delete
+    patch:
+      x-fern-sdk-group-name:
+        - notifications
+        - eventSubscriptions
+      x-fern-sdk-method-name: partiallyUpdate
 
 # payments - hosted fields
   /processing-terminals/{processingTerminalId}/hosted-fields-sessions:
@@ -453,12 +488,12 @@ paths:
       x-fern-sdk-group-name:
         - payments
         - paymentLinks
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
     patch:
       x-fern-sdk-group-name:
         - payments
         - paymentLinks
-      x-fern-sdk-method-name: update
+      x-fern-sdk-method-name: partiallyUpdate
   /payment-links/{paymentLinkId}/deactivate:
     post:
       x-fern-sdk-group-name:
@@ -480,13 +515,15 @@ paths:
         - sharingEvents
       x-fern-sdk-method-name: share
 
-# payments - payment plans
+# payments - apple pay sessions
   /processing-terminals/{processingTerminalId}/apple-pay-sessions:
     post:
       x-fern-sdk-group-name:
         - payments
         - applePaySessions
       x-fern-sdk-method-name: create
+
+# payments - payment plans
   /processing-terminals/{processingTerminalId}/payment-plans:
     get:
       x-fern-sdk-group-name:
@@ -504,7 +541,7 @@ paths:
       x-fern-sdk-group-name:
         - payments
         - paymentPlans
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
     delete:
       x-fern-sdk-group-name:
         - payments
@@ -514,7 +551,7 @@ paths:
       x-fern-sdk-group-name:
         - payments
         - paymentPlans
-      x-fern-sdk-method-name: update
+      x-fern-sdk-method-name: partiallyUpdate
 
 # payments - payments
   /payments:
@@ -531,7 +568,7 @@ paths:
     get:
       x-fern-sdk-group-name:
         - payments
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
   /payments/{paymentId}/adjust:
     post:
       x-fern-sdk-group-name:
@@ -571,7 +608,7 @@ paths:
       x-fern-sdk-group-name:
         - payments
         - refunds
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
   /refunds/{refundId}/adjust:
     post:
       x-fern-sdk-group-name:
@@ -603,7 +640,7 @@ paths:
       x-fern-sdk-group-name:
         - payments
         - secureTokens
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
     delete:
       x-fern-sdk-group-name:
         - payments
@@ -613,13 +650,13 @@ paths:
       x-fern-sdk-group-name:
         - payments
         - secureTokens
-      x-fern-sdk-method-name: update
+      x-fern-sdk-method-name: partiallyUpdate
   /processing-terminals/{processingTerminalId}/secure-tokens/{secureTokenId}/update-account:
     post:
       x-fern-sdk-group-name:
         - payments
         - secureTokens
-      x-fern-sdk-method-name: accountUpdate
+      x-fern-sdk-method-name: updateAccount
 
 # payments - single use tokens
   /processing-terminals/{processingTerminalId}/single-use-tokens:
@@ -647,12 +684,12 @@ paths:
       x-fern-sdk-group-name:
         - payments
         - subscriptions
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
     patch:
       x-fern-sdk-group-name:
         - payments
         - subscriptions
-      x-fern-sdk-method-name: update
+      x-fern-sdk-method-name: partiallyUpdate
   /processing-terminals/{processingTerminalId}/subscriptions/{subscriptionId}/deactivate:
     post:
       x-fern-sdk-group-name:
@@ -679,13 +716,13 @@ paths:
       x-fern-sdk-group-name:
         - payroc cloud
         - paymentInstructions
-      x-fern-sdk-method-name: send
+      x-fern-sdk-method-name: submit
   /payment-instructions/{paymentInstructionId}:
     get:
       x-fern-sdk-group-name:
         - payroc cloud
         - paymentInstructions
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
 
 # payroc cloud - refund instructions
   /devices/{serialNumber}/refund-instructions:
@@ -693,13 +730,13 @@ paths:
       x-fern-sdk-group-name:
         - payroc cloud
         - refundInstructions
-      x-fern-sdk-method-name: send
+      x-fern-sdk-method-name: submit
   /refund-instructions/{refundInstructionId}:
     get:
       x-fern-sdk-group-name:
         - payroc cloud
         - refundInstructions
-      x-fern-sdk-method-name: get
+      x-fern-sdk-method-name: retrieve
 
 # reporting - settlement
   /batches:
@@ -715,7 +752,7 @@ paths:
       x-fern-sdk-group-name:
         - reporting
         - settlement
-      x-fern-sdk-method-name: getBatch
+      x-fern-sdk-method-name: retrieveBatch
   /transactions:
     get:
       x-fern-sdk-group-name:
@@ -729,7 +766,7 @@ paths:
       x-fern-sdk-group-name:
         - reporting
         - settlement
-      x-fern-sdk-method-name: getTransaction
+      x-fern-sdk-method-name: retrieveTransaction
   /authorizations:
     get:
       x-fern-sdk-group-name:
@@ -743,7 +780,7 @@ paths:
       x-fern-sdk-group-name:
         - reporting
         - settlement
-      x-fern-sdk-method-name: getAuthorization
+      x-fern-sdk-method-name: retrieveAuthorization
   /disputes:
     get:
       x-fern-sdk-group-name:
@@ -757,7 +794,7 @@ paths:
       x-fern-sdk-group-name:
         - reporting
         - settlement
-      x-fern-sdk-method-name: getDisputesStatuses
+      x-fern-sdk-method-name: listDisputesStatuses
   /ach-deposits:
     get:
       x-fern-sdk-group-name:
@@ -771,7 +808,7 @@ paths:
       x-fern-sdk-group-name:
         - reporting
         - settlement
-      x-fern-sdk-method-name: getAchDeposit
+      x-fern-sdk-method-name: retrieveAchDeposit
   /ach-deposit-fees:
     get:
       x-fern-sdk-group-name:
@@ -790,7 +827,7 @@ paths:
         - Authentication
       x-fern-sdk-group-name:
         - auth
-      x-fern-sdk-method-name: getToken
+      x-fern-sdk-method-name: retrieveToken
       x-fern-server-name: identity
       parameters:
         - in: header

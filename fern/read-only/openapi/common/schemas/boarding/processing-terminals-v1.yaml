@@ -403,6 +403,7 @@ components:
               description: Authenticates the terminal's identity with the host processor.
               minLength: 6
               maxLength: 10
+              example: 'A1B2C3'
             sharingGroups:
               type: string
               description: Indicates the direct debit networks and EBT networks that the terminal can use.

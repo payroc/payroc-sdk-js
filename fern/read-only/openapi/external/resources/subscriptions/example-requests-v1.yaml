@@ -62,11 +62,11 @@ components:
             value: abc123
   
     patchSubscriptionRealistic:
-      summary: Partially update subscription
+      summary: Update subscription
       description: | 
-        Partially update an existing subscription.
+        Make changes to a subscription.
 
-        Structure your request to follow the RFC 6902 standard.
+        Structure your request to follow the [RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902) standard.
       value:
         - op: replace
           path: /setupOrder/amount

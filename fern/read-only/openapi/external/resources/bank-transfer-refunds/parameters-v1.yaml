@@ -10,7 +10,7 @@ components:
       name: processingTerminalId
       in: query
       required: true
-      description: Filter by the unique identifier that our gateway assigned to the terminal.
+      description: Filter results by the unique identifier that we assigned to the terminal.
       schema:
         maxLength: 50
         minLength: 4
@@ -20,7 +20,7 @@ components:
     bankTransferRefundOrderId:
       name: orderId
       in: query
-      description: Filter by the order ID.
+      description: Filter results by the order ID of the refund.
       schema:
         maxLength: 24
         minLength: 1
@@ -30,7 +30,7 @@ components:
     bankTransferRefundNameOnAccount:
       name: nameOnAccount
       in: query
-      description: Filter by the account holder's name.
+      description: Filter results by the accountholder's name.
       schema:
         maxLength: 50
         minLength: 1
@@ -40,7 +40,7 @@ components:
     bankTransferRefundLast4:
       name: last4
       in: query
-      description: Filter by the last four digits of the account number.
+      description: Filter results by the last four digits of the account number.
       schema:
         pattern: '[0-9]{4}'
         type: string
@@ -48,7 +48,7 @@ components:
 
     bankTransferRefundType:
       name: type
-      description: Filter refunds by transaction type.
+      description: Filter results by transaction type.
       in: query
       schema:
         type: array
@@ -63,7 +63,7 @@ components:
     bankTransferRefundStatus:
       name: status
       in: query
-      description: Filter by the status of the refund.
+      description: Filter results by the status of the refund.
       schema:
         type: array
         items:
@@ -82,7 +82,7 @@ components:
     bankTransferRefundDateFrom:
       name: dateFrom
       in: query
-      description: Filter by refunds that the merchant ran after a specific date. The date format follows the ISO-8601 standard.
+      description: Filter results by refunds that the merchant ran after a specific date. The value follows the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) standard.
       schema:
         type: string
         format: date-time
@@ -91,7 +91,7 @@ components:
     bankTransferRefundDateTo:
       name: dateTo
       in: query
-      description: Filter by the refunds that the merchant ran before a specific date. The date format follows the ISO-8601 standard.
+      description: Filter results by refunds that the merchant ran before a specific date. The value follows the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) standard.
       schema:
         type: string
         format: date-time
@@ -100,7 +100,7 @@ components:
     bankTransferRefundSettlementState:
       name: settlementState
       in: query
-      description: Filter by the settlement status of the refund.
+      description: Filter results by the settlement status.
       schema:
         type: string
         enum:
@@ -111,7 +111,7 @@ components:
     bankTransferRefundSettlementDate:
       name: settlementDate
       in: query
-      description: Filter by refund transactions settled on a specific date. The date format is **YYYY-MM-DD**.
+      description: Filter results by the settlement date. Send a value in **YYYY-MM-DD** format.
       schema:
         type: string
         format: date
