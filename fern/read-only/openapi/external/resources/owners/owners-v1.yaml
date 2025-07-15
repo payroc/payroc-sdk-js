@@ -29,8 +29,8 @@ paths:
         If you have the ownerId, you can use this method to retrieve the details of the owner. The response includes the owner's contact details and information about the owner's relationship to the business.  
 
         If you don't have the ownerId, you can use the following methods to retrieve the owner's information:
-          - **Owners of processing accounts** - Use the HATEOAS links that we send you when you [Retrieve a processing account](/api/schema/boarding/processing-accounts/get) or [List merchant platform's processing accounts](/api/schema/boarding/merchant-platforms/list-processing-accounts).
-          - **Owners of funding recipients** - Use the [List funding recipient owners](/api/schema/funding/funding-recipients/list-owners) method. 
+          - **Owners of processing accounts** - Use the HATEOAS links that we send you when you [Retrieve a processing account](https://docs.payroc.com/api/schema/boarding/processing-accounts/get) or [List merchant platform's processing accounts](https://docs.payroc.com/api/schema/boarding/merchant-platforms/list-processing-accounts).
+          - **Owners of funding recipients** - Use the [List funding recipient owners](https://docs.payroc.com/api/schema/funding/funding-recipients/list-owners) method. 
       operationId: getOwner
       parameters:
       - $ref: './parameters-v1.yaml#/components/parameters/ownerId'
@@ -63,7 +63,7 @@ paths:
 
         Use this method to update the details of a funding recipient owner such as their contact details and their relationship to the business.  
 
-        Include the ownerId in the path parameter of your request. If you don’t know the ownerId, you can [Retrieve the funding recipient](/api/schema/funding/funding-recipients/get), [List funding recipients](/api/schema/funding/funding-recipients/list), or [List funding recipient owners](/api/schema/funding/funding-recipients/list-owners) to locate the ownerId. 
+        Include the ownerId in the path parameter of your request. If you don’t know the ownerId, you can [Retrieve the funding recipient](https://docs.payroc.com/api/schema/funding/funding-recipients/retrieve), [List funding recipients](https://docs.payroc.com/api/schema/funding/funding-recipients/list), or [List funding recipient owners](https://docs.payroc.com/api/schema/funding/funding-recipients/list-owners) to locate the ownerId. 
       operationId: updateOwner
       parameters:
       - $ref: './parameters-v1.yaml#/components/parameters/ownerId'
@@ -102,13 +102,15 @@ paths:
     delete:
       tags:
       - Owners
-      summary: Delete an owner
+      summary: Delete owner
       description: |
-        > **Important:** You cannot delete the owner of a processing account. 
+        > **Important:** You can't delete an owner of a processing account. 
 
-        Use this method to delete an owner from a funding recipient. You can delete an owner only if the funding recipient has more than one owner.  
+        Use this method to delete an owner associated with a funding recipient. You can delete an owner only if the funding recipient has more than one owner.  
 
-        Include the ownerId in the path parameter of your request. If you don’t know the ownerId, you can [Retrieve the funding recipient](/api/schema/funding/funding-recipients/get), [List funding recipients](/api/schema/funding/funding-recipients/list), or [List funding recipient owners](/api/schema/funding/funding-recipients/list-owners) to locate the ownerId.
+        To delete an owner, you need their ownerId. Our gateway returned the ownerId in the response of the [Create Funding Recipient](https://docs.payroc.com/api/schema/funding/funding-recipients/create) method and the [Create Funding Recipient Owner](https://docs.payroc.com/api/schema/funding/funding-recipients/create-owner) method.  
+
+        **Note:** If you don't have the ownerId, use the [List Funding Recipient Owners](https://docs.payroc.com/api/schema/funding/funding-recipients/list-owners) method, the [Retrieve Funding Recipient](https://docs.payroc.com/api/schema/funding/funding-recipients/retrieve) method, or the [List Funding Recipients](https://docs.payroc.com/api/schema/funding/funding-recipients/list) method to search for the funding recipient owner.  
       operationId: deleteOwner
       parameters:
       - $ref: './parameters-v1.yaml#/components/parameters/ownerId'

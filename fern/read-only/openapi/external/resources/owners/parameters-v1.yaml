@@ -9,7 +9,7 @@ components:
     ownerId:
       name: ownerId
       in: path
-      description: Unique identifier for the owner.
+      description: Unique identifier that we assigned to the owner.
       required: true
       style: simple
       explode: false
