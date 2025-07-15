@@ -174,7 +174,7 @@ paths:
     patch:
       tags:
         - Payment links
-      summary: Update payment link
+      summary: Partially update payment link
       description: | 
         Use this method to partially update a payment link. Structure your request to follow the [RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902) standard.
         
