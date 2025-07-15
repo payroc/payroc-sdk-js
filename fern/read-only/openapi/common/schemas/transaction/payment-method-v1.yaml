@@ -25,7 +25,8 @@ components:
           type: string
           description: |
             Indicates the customer’s account type.  
-            **Note:** Credit card transactions don't require **accountType**.
+
+            **Note:** For bank account details, send a value for accountType.
           enum:
             - checking
             - savings
@@ -68,7 +69,8 @@ components:
           type: string
           description: |
             Indicates the customer’s account type.  
-            **Note:** Credit card transactions don't require **accountType**.
+
+            **Note:** For bank account details, send a value for accountType.
           enum:
             - checking
             - savings
@@ -129,7 +131,8 @@ components:
           type: string
           description: |
             Indicates the customer’s account type.  
-            **Note:** Credit card transactions don't require **accountType**.
+            
+            **Note:** For bank account details, send a value for accountType.
           enum:
             - checking
             - savings
@@ -175,7 +178,8 @@ components:
           type: string
           description: |
             Indicates the customer’s account type.  
-            **Note:** Credit card transactions don't require **accountType**.
+
+            **Note:** For bank account details, send a value for accountType.
           enum:
             - checking
             - savings
@@ -634,7 +638,8 @@ components:
           type: string
           description: |
             Indicates the customer’s account type.  
-            **Note:** Credit card transactions don't require **accountType**.
+
+            **Note:** For bank account details, send a value for accountType.
           enum:
             - checking
             - savings
@@ -674,7 +679,7 @@ components:
           minLength: 9
           pattern: ^[0-9]*$
           type: string
-          description: Routing number of the customer’s account.
+          description: Nine-digit number that identifies the customer's bank.
           example: '123456789'
 
     padPayload:
@@ -699,7 +704,8 @@ components:
           type: string
           description: |
             Indicates the customer’s account type.  
-            **Note:** Credit card transactions don't require **accountType**.
+
+            **Note:** For bank account details, send a value for accountType.
           enum:
             - checking
             - savings
@@ -724,13 +730,13 @@ components:
           minLength: 5
           pattern: ^[0-9]*$
           type: string
-          description: Five-digit code that represents the customer’s bank branch.
+          description: Five-digit number that identifies the customer's bank branch.
           example: '76543'
         institutionNumber:
           maxLength: 3
           minLength: 3
           pattern: ^[0-9]*$
           type: string
-          description: Three-digit code that represents the customer’s bank.
+          description: Three-digit number that identifies the customer's bank.
           example: '543'
   

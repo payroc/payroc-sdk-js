@@ -20,9 +20,9 @@ paths:
     post:
       tags:
         - Bank accounts
-      summary: Verify a bank account
+      summary: Verify bank account
       operationId: verifyBankAccount
-      description: Verify the customer's bank account details.
+      description: Use this method to verify a customer's bank account details.  
       parameters:
         - $ref: ../../../common/parameters/idempotency-key-v1.yaml#/components/parameters/idempotencyKey
       requestBody:
