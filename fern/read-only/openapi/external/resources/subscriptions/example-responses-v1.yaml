@@ -6,9 +6,9 @@ paths: {}
 
 components:
   examples:
-    subscriptionResponse:
-      summary: Subscription
-      description: Subscription
+    subscriptionWithSurchargeResponse:
+      summary: Subscription with surcharge
+      description: Subscription with surcharge
       value:
         subscriptionId: SubRef7654
         processingTerminalId: '1234001'
@@ -54,6 +54,67 @@ components:
             surcharge:
               amount: 217
               percentage: 5.0
+        currentState:
+          status: active
+          nextDueDate: '2024-08-02'
+          paidInvoices: 0
+          outstandingInvoices: 3
+        startDate: '2024-07-02'
+        endDate: '2025-07-01'
+        length: 12
+        type: automatic
+        frequency: monthly
+        pauseCollectionFor: 0
+        customFields:
+          - name: yourCustomField
+            value: abc123
+
+    subscriptionWithConvenienceFeeResponse:
+      summary: Subscription with convenience fee
+      description: Subscription with convenience fee
+      value:
+        subscriptionId: SubRef7654
+        processingTerminalId: '1234001'
+        paymentPlan:
+          paymentPlanId: PlanRef8765
+          name: Monthly Premium Club subscription
+          link:
+            rel: self
+            method: GET
+            href: https://api.payroc.com/v1/processing-terminals/1234001/payment-plans/PlanRef8765
+        secureToken:
+          secureTokenId: MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa
+          customerName: Sarah Hazel Hopper
+          token: '296753123456'
+          status: notValidated
+          link:
+            rel: self
+            method: GET
+            href: https://api.payroc.com/v1/processing-terminals/1234001/secure-tokens/MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa
+        name: Premium Club
+        description: Premium Club subscription
+        currency: USD
+        setupOrder:
+          orderId: OrderRef6543
+          amount: 4999
+          description: Initial setup fee for Premium Club subscription
+          breakdown:
+            subtotal: 4347
+            taxes:
+              - name: Sales Tax
+                rate: 5.0
+            convenienceFee:
+              amount: 217
+        recurringOrder:
+          amount: 4999
+          description: Premium Club subscription
+          breakdown:
+            subtotal: 4347
+            taxes:
+              - name: Sales Tax
+                rate: 5.0
+            convenienceFee:
+              amount: 217
         currentState:
           status: active
           nextDueDate: '2024-08-02'
