@@ -23,7 +23,12 @@ paths:
       tags:
         - Apple Pay session
       summary: Start Apple Pay session
-      description: Use this method to start an Apple Pay session for your merchant. In the response, we return the startSessionObject that you send to Apple when you retrieve the cardholder's encrypted payment details.  
+      description: |
+        Use this method to start an Apple Pay session for your merchant.  
+        
+        In the response, we return the startSessionObject that you send to Apple when you retrieve the cardholder's encrypted payment details.  
+
+        **Note:** For more information about how to integrate with Apple Pay, go to [Apple Pay](https://docs.payroc.com/guides/integrate/apple-pay).
       operationId: applePaySessions
       parameters:
         - $ref: ../../../common/parameters/processing-terminal-id-v1.yaml#/components/parameters/processingTerminalIdPath
@@ -81,7 +86,11 @@ components:
       properties:
         startSessionResponse:
           type: string
-          description: Object that Apple returns when they start the merchant's Apple Pay session. Use this object to retrieve the cardholder's encrypted payment details from Apple.
+          description: | 
+            Object that Apple returns when they start the merchant's Apple Pay session.  
+            
+            Send the content in this object to Apple to retrieve the cardholder's encrypted payment details.  
+
           example: |
             {
               "epochTimestamp": 1736264582447,
