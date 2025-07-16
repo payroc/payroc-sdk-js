@@ -149,9 +149,17 @@ paths:
       - Merchant platforms
       summary: Retrieve merchant platform
       description: |
-        Use this method to retrieve information about a merchant platform, including its legal information and processing accounts.  
-          
-        Include the merchantPlatformId that we sent you when you created the merchant platform.  
+        Use this method to retrieve information about a merchant platform.  
+
+        To retrieve a merchant platform, you need its merchantPlatformId. Our gateway returned the merchantPlatformId in the response of the [Create Merchant Platform](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create) method.  
+
+        **Note:** If you don't have the merchantPlatformId, use our [List Merchant Platforms](https://docs.payroc.com/api/schema/boarding/merchant-platforms/list) method to search for the merchant platform.
+        
+        Our gateway returns the following information about the merchant platform:
+        -	Legal information, including its legal name and address.
+        -	Contact information, including the email address for the business. 
+        -	Processing account information, including the processingAccountId and status of each processing account that's linked to the merchant platform.  
+
       operationId: getMerchantAcccounts
       parameters:
       - $ref: './parameters-v1.yaml#/components/parameters/merchantPlatformId'
