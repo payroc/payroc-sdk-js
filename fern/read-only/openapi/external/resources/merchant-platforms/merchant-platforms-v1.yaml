@@ -117,7 +117,17 @@ paths:
       tags:
       - Merchant platforms
       summary: List merchant platforms
-      description: Use this method to retrieve a [paginated](/api/pagination) list of the merchant platforms that are linked to the ISV's account.
+      description: |
+         Use this method to retrieve a [paginated](https://docs.payroc.com/api/pagination) list of merchant platforms that are linked to your ISV account.  
+         
+         **Note**: If you want to view the details of a specific merchant platform and you have its merchantPlatformId, use our [Retrieve Merchant Platform](https://docs.payroc.com/api/schema/boarding/merchant-platforms/retrieve) method.  
+
+         Our gateway returns the following information about each merchant platform in the list:  
+         - Legal information, including its legal name and address.  
+         - Contact information, including the email address for the business.  
+         - Processing  account information, including the processingAccountId and status of each processing account that's linked to the merchant platform.  
+
+         For each merchant platform, we also return its merchantPlatformId and its linked processingAccountIds, which you can use to perform follow-on actions.  
       operationId: listMerchantPlatforms
       parameters:
         - $ref: '../../../common/parameters/before-v1.yaml#/components/parameters/before'
