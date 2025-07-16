@@ -18,13 +18,13 @@ components:
           maxLength: 24
           minLength: 1
           type: string
-          description: A unique identifier assigned by the merchant.
+          description: Unique identifier that the merchant assigns to the transaction.
           example: OrderRef6543
         dateTime:
           type: string
           format: date-time
           readOnly: true
-          description: Date and time that the processor processed the transaction. Our gateway returns this value in the ISO 8601 format.
+          description: Date and time that the processor processed the transaction. Our gateway returns this value in the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
           example: 2024-07-02T15:30:00Z
         description:
           maxLength: 1024
@@ -108,7 +108,7 @@ components:
         - amount
       type: object
       readOnly: true
-      description: Object that contains convenience fee information for the transaction.
+      description: Object that contains information about the convenience fee for the transaction.
       properties:
         amount:
           minimum: 0

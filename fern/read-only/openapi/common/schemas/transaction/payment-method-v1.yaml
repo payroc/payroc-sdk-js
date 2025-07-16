@@ -26,7 +26,7 @@ components:
           description: |
             Indicates the customer’s account type.  
 
-            **Note:** For bank account details, send a value for accountType.
+            **Note:** Send a value for accountType only for bank account details.
           enum:
             - checking
             - savings
@@ -69,8 +69,8 @@ components:
           type: string
           description: |
             Indicates the customer’s account type.  
-
-            **Note:** For bank account details, send a value for accountType.
+            
+            **Note:** Send a value for accountType only for bank account details.
           enum:
             - checking
             - savings
@@ -131,8 +131,8 @@ components:
           type: string
           description: |
             Indicates the customer’s account type.  
-            
-            **Note:** For bank account details, send a value for accountType.
+
+            **Note:** Send a value for accountType only if the secure token represents bank account details.
           enum:
             - checking
             - savings
@@ -179,7 +179,7 @@ components:
           description: |
             Indicates the customer’s account type.  
 
-            **Note:** For bank account details, send a value for accountType.
+            **Note:** Send a value for accountType only if the single-use token represents bank account details.
           enum:
             - checking
             - savings
@@ -722,7 +722,8 @@ components:
           pattern: ^[0-9]*$
           type: string
           description: |
-           Customer’s account number.  
+           Customer's account number.  
+           
            **Note:** In responses, our gateway shows only the last four digits of the account number. For example, `*****5929`.
           example: '1234567890'
         transitNumber:
