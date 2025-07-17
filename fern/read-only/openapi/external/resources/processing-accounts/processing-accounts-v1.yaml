@@ -318,7 +318,7 @@ paths:
     get:
       summary: List processing terminals
       description: |
-        Use this method to retrieve a [paginated](/api/pagination) list of processing terminals associated with a processing account.  
+        Use this method to retrieve a [paginated](https://docs.payroc.com/api/pagination) list of processing terminals associated with a processing account.  
         Send the processingAccountId in the path parameter of your request.  
         > **Note**: If you don't know the processingAccountId, go to [List merchant platform's processing accounts](#listMerchantLocations).
       operationId: listProcessingAccountsProcessingTerminals
@@ -765,7 +765,7 @@ components:
           type: object
           additionalProperties:
             type: string
-          description: Object that you can send to include custom data in the request. For more information about how to use metadata, go to [Metadata](/api/metadata).
+          description: Object that you can send to include custom data in the request. For more information about how to use metadata, go to [Metadata](https://docs.payroc.com/api/metadata).
           example:
             customerId: '2345'
     processingAccount:
@@ -989,7 +989,7 @@ components:
           type: object
           additionalProperties:
             type: string
-          description: Object that you can send to include custom data in the request. For more information about how to use metadata, go to [Metadata](/api/metadata).
+          description: Object that you can send to include custom data in the request. For more information about how to use metadata, go to [Metadata](https://docs.payroc.com/api/metadata).
           example:
             customerId: '2345'
         links:

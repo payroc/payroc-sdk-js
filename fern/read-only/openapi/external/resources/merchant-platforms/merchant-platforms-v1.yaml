@@ -34,7 +34,7 @@ paths:
       description: |
         Use this method to create the entity that represents a business, including its legal information and all its processing accounts.  
 
-        > **Note:** To add a processing account to an existing merchant platform, go to [Create a processing account](/api/schema/boarding/merchant-platforms/create-processing-account).  
+        > **Note:** To add a processing account to an existing merchant platform, go to [Create a processing account](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create-processing-account).  
           
         The response contains some fields that we require for other methods:  
         - **merchantPlatformId** - Unique identifier that we assign to the merchant platform. Use the merchantPlatformId to retrieve and update information about the merchant platform.  

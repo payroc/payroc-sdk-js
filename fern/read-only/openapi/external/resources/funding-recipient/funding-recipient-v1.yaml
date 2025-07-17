@@ -451,7 +451,7 @@ components:
           type: object
           additionalProperties:
             type: string
-          description: '[Metadata](/api/metadata) object you can use to include custom data with your request.'
+          description: '[Metadata](https://docs.payroc.com/api/metadata) object you can use to include custom data with your request.'
           example:
             yourCustomField: abc123
         owners:
@@ -557,7 +557,7 @@ components:
           type: object
           additionalProperties:
             type: string
-          description: '[Metadata](/api/metadata) object you can use to include custom data with your request.'
+          description: '[Metadata](https://docs.payroc.com/api/metadata) object you can use to include custom data with your request.'
           example:
             yourCustomField: abc123
         owners:

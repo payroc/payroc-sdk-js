@@ -225,7 +225,7 @@ components:
         metadata:
           type: object
           title: metadata
-          description: '[Metadata](/api/metadata) object you can use to include custom data with your request.'
+          description: '[Metadata](https://docs.payroc.com/api/metadata) object you can use to include custom data with your request.'
           additionalProperties:
             type: object
             properties:
