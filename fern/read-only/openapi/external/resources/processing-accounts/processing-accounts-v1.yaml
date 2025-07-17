@@ -698,8 +698,8 @@ components:
         owners:
           description: |
             Collection of individuals that are responsible for a processing account. When you create a processing account, you must indicate at least one owner as either of the following:
-            - Control prong - An individual who has a significant equity stake in the business and can make decisions for the processing account. You can add only one control prong to a processing account.
-            - Authorized signatory - An individual who doesn't have an equity stake in the business but can make decisions for the processing account.
+            - **Control prong** - An individual who has a significant equity stake in the business and can make decisions for the processing account. You can add only one control prong to a processing account.
+            - **Authorized signatory** - An individual who doesn't have an equity stake in the business but can make decisions for the processing account.
           minItems: 1
           type: array
           items:
@@ -1099,6 +1099,9 @@ components:
       properties:
         type: 
           type: string
+          description: |
+            Type of pricing for the processing account.  
+            **Note**: To create a pricing intent, go to [Create Pricing Intent](https://docs.payroc.com/api/schema/boarding/pricing-intents/create).  
           enum: 
             - intent
           example: intent
@@ -1111,6 +1114,7 @@ components:
       title: Pricing agreement
       allOf: 
       -  type: object 
+         description: Type of pricing for the processing account.
          properties: 
            type: 
              type: string
@@ -1123,7 +1127,7 @@ components:
         - $ref: '../pricing-intents/pricing-intents-v1.yaml#/components/schemas/pricingAgreementUs5.0'
     signature:
       type: object
-      description: Object containing the method we used to capture the owner's signature.
+      description: Object that includes information about how we captured the owner's signature.
       discriminator: 
         propertyName: type
         mapping: 
@@ -1162,7 +1166,7 @@ components:
           allOf:
             - type: object
               readOnly: true
-              description: Link to sign agreement
+              description: Object that contains links to the signed contract.
             - $ref: '../../../common/schemas/common/link/link-v1.yaml#/components/schemas/link'
           example: 
             rel: agreement
@@ -1230,7 +1234,7 @@ components:
               $ref: '../../../common/schemas/boarding/owner-v1.yaml#/components/schemas/owner'
 
     timezone:
-      description: The timezone for the processing account
+      description: Time zone for the processing account.
       enum:
         - Pacific/Midway
         - Pacific/Honolulu

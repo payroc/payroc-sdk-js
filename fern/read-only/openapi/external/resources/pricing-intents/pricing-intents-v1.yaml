@@ -1490,7 +1490,7 @@ components:
 
     servicesUs5.0:
       title: US version 5.0 services array
-      description: Services version 5.0
+      description: Object that contains information about our additional services that the merchant can sign up for.
       type: array
       items: 
         $ref: '#/components/schemas/serviceUs5.0'
@@ -1508,14 +1508,16 @@ components:
 
     hardwareAdvantagePlan:
       type: object
+      description: Object that contains information about the Hardware Advantage Plan.
       properties:
         name:
           type: string
+          description: Name of the service.
           enum:
             - hardwareAdvantagePlan
           example: hardwareAdvantagePlan
         enabled:
-          description: Indicates if the pricing agreement includes the hardware advantage plan.
+          description: Indicates if the merchant has signed up for the Hardware Advantage Plan.
           type: boolean
           default: true
           example: true
