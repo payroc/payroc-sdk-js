@@ -27,11 +27,11 @@ paths:
 
         In the response, our gateway returns information about the card payment and a paymentId, which you need for the following methods:
         
-        -	[Retrieve payment](/api/schema/payments/get) - View the details of the card payment.
-        -	[Adjust payment](/api/schema/payments/adjust) - Update the details of the card payment.
-        -	[Capture payment](/api/schema/payments/capture)  - Capture the pre-authorization.
-        -	[Reverse payment](/api/schema/payments/reverse)  - Cancel the card payment if it's in an open batch.
-        -	[Refund payment](/api/schema/payments/refund)  - Run a referenced refund to return funds to the payment card.
+        -	[Retrieve payment](https://docs.payroc.com/api/schema/payments/get) - View the details of the card payment.
+        -	[Adjust payment](https://docs.payroc.com/api/schema/payments/adjust) - Update the details of the card payment.
+        -	[Capture payment](https://docs.payroc.com/api/schema/payments/capture)  - Capture the pre-authorization.
+        -	[Reverse payment](https://docs.payroc.com/api/schema/payments/reverse)  - Cancel the card payment if it's in an open batch.
+        -	[Refund payment](https://docs.payroc.com/api/schema/payments/refund)  - Run a referenced refund to return funds to the payment card.
 
         **Payment methods** 
 
@@ -110,9 +110,9 @@ paths:
         - Payments
       summary: List payments
       description: |
-        Use this method to return a [paginated](/api/pagination) list of payments. 
+        Use this method to return a [paginated](https://docs.payroc.com/api/pagination) list of payments. 
 
-        **Note:** If you want to view a specific payment and you have its paymentId, use our [Retrieve Payment](/api/schema/payments/get) method.  
+        **Note:** If you want to view a specific payment and you have its paymentId, use our [Retrieve Payment](https://docs.payroc.com/api/schema/payments/get) method.  
 
         Use query parameters to filter the list of results that we return, for example, to search for payments for a customer, a tip mode, or a date range.  
 
@@ -175,9 +175,9 @@ paths:
       description: |
         Use this method to retrieve information about a card payment.  
 
-        To retrieve a payment, you need its paymentId. Our gateway returned the paymentId in the response of the [Create Payment](/api/schema/payments/create) method.  
+        To retrieve a payment, you need its paymentId. Our gateway returned the paymentId in the response of the [Create Payment](https://docs.payroc.com/api/schema/payments/create) method.  
 
-        **Note:** If you don't have the paymentId, use our [List Payments](/api/schema/payments/list) method to search for the payment.  
+        **Note:** If you don't have the paymentId, use our [List Payments](https://docs.payroc.com/api/schema/payments/list) method to search for the payment.  
 
         Our gateway returns the following information about the payment:  
 
@@ -220,9 +220,9 @@ paths:
       description: | 
         Use this method to adjust a payment in an open batch. 
 
-        To adjust a payment, you need its paymentId. Our gateway returned the paymentId in the response of the [Create Payment](/api/schema/payments/create) method.
+        To adjust a payment, you need its paymentId. Our gateway returned the paymentId in the response of the [Create Payment](https://docs.payroc.com/api/schema/payments/create) method.
 
-        **Note:** If you don't have the paymentId, use our [List Payments](/api/schema/payments/list) method to search for the payment. 
+        **Note:** If you don't have the paymentId, use our [List Payments](https://docs.payroc.com/api/schema/payments/list) method to search for the payment. 
 
         You can adjust the following details of the payment:
         - Sale amount and tip amount
@@ -289,14 +289,14 @@ paths:
       description: |
         Use this method to capture a pre-authorization. 
 
-        To capture a pre-authorization, you need its paymentId. Our gateway returned the paymentId in the response of the [Create Payment](/api/schema/payments/create) method.
+        To capture a pre-authorization, you need its paymentId. Our gateway returned the paymentId in the response of the [Create Payment](https://docs.payroc.com/api/schema/payments/create) method.
 
-        **Note:** If you don't have the paymentId, use our [List Payments](/api/schema/payments/list) method to search for the payment.
+        **Note:** If you don't have the paymentId, use our [List Payments](https://docs.payroc.com/api/schema/payments/list) method to search for the payment.
 
         Depending on the amount you want to capture, complete the following:
         -	**Capture the full amount of the pre-authorization** - Don't send a value for the amount parameter in your request.
         -	**Capture less than the amount of the pre-authorization** - Send a value for the amount parameter in your request. 
-        -	**Capture more than the amount of the pre-authorization** - Adjust the pre-authorization before you capture it. For more information about adjusting a pre-authorization, go to [Adjust Payment](/api/schema/payments/adjust).
+        -	**Capture more than the amount of the pre-authorization** - Adjust the pre-authorization before you capture it. For more information about adjusting a pre-authorization, go to [Adjust Payment](https://docs.payroc.com/api/schema/payments/adjust).
 
         If your request is successful, our gateway takes the amount from the payment card. 
 
@@ -358,9 +358,9 @@ paths:
       description: | 
         Use this method to cancel or to partially cancel a payment in an open batch. This is also known as voiding a payment.  
 
-        To cancel a payment, you need its paymentId. Our gateway returned the paymentId in the response of the [Create Payment](/api/schema/payments/create) method.  
+        To cancel a payment, you need its paymentId. Our gateway returned the paymentId in the response of the [Create Payment](https://docs.payroc.com/api/schema/payments/create) method.  
 
-        **Note:** If you don't have the paymentId, use our [List Payments](/api/schema/payments/list) method to search for the payment.  
+        **Note:** If you don't have the paymentId, use our [List Payments](https://docs.payroc.com/api/schema/payments/list) method to search for the payment.  
 
         If your request is successful, our gateway removes the payment from the merchant's open batch and no funds are taken from the cardholder's account. 
       
@@ -421,16 +421,16 @@ paths:
       description: |
         Use this method to refund a payment that is in a closed batch.  
 
-        To refund a payment, you need its paymentId. Our gateway returned the paymentId in the response of the [Create Payment](/api/schema/payments/create) method.  
+        To refund a payment, you need its paymentId. Our gateway returned the paymentId in the response of the [Create Payment](https://docs.payroc.com/api/schema/payments/create) method.  
 
-        **Note:** If you don't have the paymentId, use our [List Payments](/api/schema/payments/list) method to search for the payment.  
+        **Note:** If you don't have the paymentId, use our [List Payments](https://docs.payroc.com/api/schema/payments/list) method to search for the payment.  
         
         If your refund is successful, our gateway returns the payment amount to the cardholder's account.  
 
         **Things to consider**  
 
         - If the merchant refunds a payment that is in an open batch, our gateway reverses the payment.
-        - Some merchants can run unreferenced refunds, which means that they don't need a paymentId to return an amount to a customer. For more information about how to run an unreferenced refund, go to [Create Refund](/api/schema/payments/refunds/create).
+        - Some merchants can run unreferenced refunds, which means that they don't need a paymentId to return an amount to a customer. For more information about how to run an unreferenced refund, go to [Create Refund](https://docs.payroc.com/api/schema/payments/refunds/create).
       parameters:
       - $ref: ../../../common/parameters/idempotency-key-v1.yaml#/components/parameters/idempotencyKey
       - $ref: './parameters-v1.yaml#/components/parameters/paymentId'

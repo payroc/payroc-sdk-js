@@ -296,7 +296,7 @@ components:
           type: object
           additionalProperties:
             type: string
-          description: '[Metadata](/api/metadata) object that contains your custom data.'
+          description: '[Metadata](https://docs.payroc.com/api/metadata) object that contains your custom data.'
           example:
             yourCustomField: abc123
       required:
