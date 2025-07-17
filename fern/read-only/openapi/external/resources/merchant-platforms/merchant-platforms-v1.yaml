@@ -32,16 +32,20 @@ paths:
       - Merchant platforms
       summary: Create merchant platform
       description: |
-        Use this method to create the entity that represents a business, including its legal information and all its processing accounts.  
+        Use this method to board a merchant with Payroc.  
 
-        > **Note:** To add a processing account to an existing merchant platform, go to [Create a processing account](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create-processing-account).  
-          
-        The response contains some fields that we require for other methods:  
-        - **merchantPlatformId** - Unique identifier that we assign to the merchant platform. Use the merchantPlatformId to retrieve and update information about the merchant platform.  
-          
-        - **processingAccountId**- Unique identifier that we assign to each processing account. Use the processingAccountId to retrieve and update information about the processing account.  
-          <br/>
-        For more information about how to create a merchant platform, go to [Create a merchant platform.](/guides/integrate/boarding/merchant-platform)
+        **Note**: This method is part of our Boarding solution. To help you understand how this method works with other Boarding methods, go to [Board a Merchant](https://docs.payroc.com/guides/integrate/boarding).  
+
+        In the request, include the following information:  
+        - Legal information, including its legal name and address.  
+        - Contact information, including the email address for the business.  
+        - Processing account information, including the pricing model, owners, and contacts for the processing account.  
+
+        When you send a successful request, we review the merchant's information. After we complete our review and approve the merchant, we assign:  
+        - **merchantPlatformId** - Unique identifier for the merchant platform.  
+        - **processingAccountId** - Unique identifier for each processing account linked to the merchant platform.  
+
+        You need to keep these to perform follow-on actions, for example, you need the processingAccountId to [order terminals](https://docs.payroc.com/api/schema/boarding/processing-accounts/create-terminal-order) for the processing account.
 
       operationId: createMerchant
       parameters:
@@ -365,7 +369,7 @@ components:
           example: privateCorporation
         countryOfOperation:
           type: string
-          description: Two-digit country code for the country that the business operates in. The format follows the [ISO-3166](https://www.iso.org/iso-3166-country-codes.html) standard.
+          description: Two-digit code for the country that the business operates in. The format follows the [ISO-3166](https://www.iso.org/iso-3166-country-codes.html) standard.
           enum:
             - US    
           example: US
@@ -373,7 +377,7 @@ components:
           type: array
           minItems: 1
           uniqueItems: true
-          description: Type of address. 
+          description: Object that contains the addresses for the business. 
           items:
             oneOf:
               - $ref: '../../../common/schemas/boarding/legal-address-v1.yaml#/components/schemas/legalAddress'
@@ -416,25 +420,25 @@ components:
         merchantPlatformId:
           type: string
           readOnly: true
-          description: Unique identifier of the merchant platform.
+          description: Unique identifier that we assigned to the merchant platform.
           example: '12345'
         createdDate:
           type: string
           format: date-time
           example: '2024-07-02T12:00:00.000Z'
           readOnly: true
-          description: Date that the merchant platform was created.
+          description: Date that the merchant platform was created. We return this value in the [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
         lastModifiedDate:
           type: string
           format: date-time
           example: '2024-07-02T12:00:00.000Z'
           readOnly: true
-          description: Date that the merchant platform was last modified.
+          description: Date that the merchant platform was last modified. We return this value in the [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
         business:
           $ref: '#/components/schemas/business'
         processingAccounts:
           readOnly: true
-          description: Array of processingAccount objects
+          description: Array of processingAccount objects.
           required:
           #  - processingAccountId
            - doingBusinessAs
@@ -446,7 +450,7 @@ components:
             properties:
               processingAccountId:
                 type: string
-                description: Unique identifier of the processing account.
+                description: Unique identifier that we assigned to the processing account.
                 example: '38765'
               doingBusinessAs:
                 type: string
@@ -465,7 +469,9 @@ components:
                   - `rejected` - We rejected the application for the processing account.  
                   - `terminated` - Processing account is closed.  
                   - `cancelled` - Merchant withdrew the application for the processing account.
-                  - `failed` - An error occurred while we were setting up the processing account.
+                  - `failed` - An error occurred while we were setting up the processing account.  
+
+                  **Note**: You can subscribe to our processingAccount.status.changed event to get notifications when we update the status of a processing account. For more information about how to subscribe to events, go to [Events List](https://docs.payroc.com/knowledge/events/events-list).
                 readOnly: true
                 enum:
                   - entered
@@ -507,7 +513,7 @@ components:
         links:
           readOnly: true
           type: array
-          description: Array of useful links related to your request
+          description: Array of useful links related to your request.
           items:
             $ref: '../../../common/schemas/common/link/link-v1.yaml#/components/schemas/link'
 
