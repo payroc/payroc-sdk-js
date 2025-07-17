@@ -201,11 +201,18 @@ paths:
       - Merchant platforms
       summary: List merchant platform's processing accounts
       description: |  
-        Use this method to retrieve a paginated list of processing accounts associated with a merchant platform.  
-          
-        When you created the merchant platform, we sent you its merchantPlatformId in the response. Send this merchantPlatformId as a path parameter in your endpoint.  
-          
-        > **Note:** By default, we return only open processing accounts. To include closed processing accounts, send a value of `true` for the includeClosed query parameter.  
+        Use this method to retrieve a [paginated](https://docs.payroc.com/api/pagination) list of processing accounts linked to a merchant platform.  
+
+        **Note**: If you want to view the details of a specific processing account and you have its processingAccountId, use our [Retrieve Processing Account](https://docs.payroc.com/api/schema/boarding/processing-accounts/retrieve) method.  
+
+        Use the query parameters to filter the list of results that we return, for example, to search for only closed processing accounts.  
+
+        Our gateway returns the following information about eahc processing account in the list:  
+        - Business details, including its status, time zone, and address.  
+        - Owners' details, including their contact details.  
+        - Funding, pricing, and processing information, including its pricing model and funding accounts.  
+
+        For each processing account, we also return its processingAccountId, which you can use to perform follow-on actions.  
       operationId: listMerchantLocations
       parameters:
         - $ref: './parameters-v1.yaml#/components/parameters/merchantPlatformId' 
@@ -240,16 +247,20 @@ paths:
       - Merchant platforms
       summary: Create processing account
       description: |
-        Use this method to create a processing account and add it to a merchant platform.  
-            > **Note:** You can create and add a processing account only to an existing merchant platform. If you have not already created a merchant platform, go to [Create a merchant platform.](/api/schema/boarding/merchant-platforms/create)  
-          
-        In the response we return a processingAccountId for the processing account, which you need for the following methods.  
-        - [Retrieve processing account](/api/schema/boarding/processing-accounts/get)  
-        - [List processing account's funding accounts](/api/schema/boarding/processing-accounts/list-funding-accounts)  
-        - [List contacts](/api/schema/boarding/processing-accounts/contacts)  
-        - [Get a processing account pricing agreement](/api/schema/boarding/processing-accounts/pricing)  
-        - [List owners](/api/schema/boarding/processing-accounts/list-owners)  
-        - [Create reminder for processing account](/api/schema/boarding/processing-accounts/create-reminder)  
+        Use this method to add an additional processing account to a merchant platform.  
+
+        To add a processing account to a merchant platform, you need the merchantPlatformId. Our gateway returned the merchantPlatformId in the response of the [Create Merchant Platform](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create) method.  
+
+        **Note**: If you don't have the merchantPlatformId, use our [List Merchant Platforms](https://docs.payroc.com/api/schema/boarding/merchant-platforms/list) method to search for the merchant platform.  
+
+        In the request, include the following information:  
+        - Business details, including its business type, time zone, and address.  
+        - Owners' details, including their contact details.  
+        - Funding, pricing, and processing information, including its pricing model and funding accounts.  
+
+        When you send a successful request, we review the information about the processing account. After we complete our review and approve the processing account, we assign a processingAccountId, which you need to perform follow-on actions.  
+
+        **Note**: You can subscribe to our processingAccount.status.changed event to get notifications when we update the status of a processing account. For more information about how to subscribe to events, go to [Events List](https://docs.payroc.com/knowledge/events/events-list).
       operationId: createProcessingAccount
       parameters:
       - $ref: './parameters-v1.yaml#/components/parameters/merchantPlatformId'

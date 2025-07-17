@@ -20,7 +20,9 @@ components:
     includeClosed:
       name: includeClosed
       in: query          
-      description: Indicates if you want to return closed processing accounts. This includes processing accounts that have a status of `terminated`, `cancelled`, or `rejected`.
+      description: |
+        Indicates if you want to return closed processing accounts. This includes processing accounts that have a status of `terminated`, `cancelled`, or `rejected`.  
+        **Note**: By default, we return only open processing accounts.  
       required: false
       schema:
         type: boolean
