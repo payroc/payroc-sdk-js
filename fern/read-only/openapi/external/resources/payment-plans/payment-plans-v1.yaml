@@ -28,8 +28,8 @@ paths:
 
         When you create a payment plan you need to provide a unique paymentPlanId that you use to run follow-on actions:  
 
-        -	[Retrieve Payment Plan](https://docs.payroc.com/api/schema/payments/payment-plans/get)  - View the details of the payment plan.  
-        -	[Update Payment Plan](https://docs.payroc.com/api/schema/payments/payment-plans/update)  - Update the details of the payment plan.  
+        -	[Retrieve Payment Plan](https://docs.payroc.com/api/schema/payments/payment-plans/retrieve)  - View the details of the payment plan.  
+        -	[Update Payment Plan](https://docs.payroc.com/api/schema/payments/payment-plans/partially-update)  - Update the details of the payment plan.  
         -	[Delete Payment Plan](https://docs.payroc.com/api/schema/payments/payment-plans/delete)  - Delete the payment plan.  
         -	[Create Subscription](https://docs.payroc.com/api/schema/payments/subscriptions/create)  - Subscribe a customer to the payment plan.  
 
@@ -98,7 +98,7 @@ paths:
       description: |
         Use this method to retrieve a [paginated](https://docs.payroc.com/api/pagination) list of payment plans for a processing terminal.  
 
-        **Note:** If you want to view a specific payment plan and you have its paymentPlanId, use our [Retrieve Payment Plan](https://docs.payroc.com/api/schema/payments/payment-plans/get) method.  
+        **Note:** If you want to view a specific payment plan and you have its paymentPlanId, use our [Retrieve Payment Plan](https://docs.payroc.com/api/schema/payments/payment-plans/retrieve) method.  
         
         Our gateway returns the following information about each payment plan in the list:  
 
