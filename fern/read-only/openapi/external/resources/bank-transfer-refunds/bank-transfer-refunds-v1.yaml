@@ -33,7 +33,7 @@ paths:
 
         In the response, our gateway returns information about the refund and a refundId, which you need for the following methods:  
 
-        -	[Retrieve refund](https://docs.payroc.com/api/schema/payments/bank-transfer-refunds/get) – View the details of the refund.  
+        -	[Retrieve refund](https://docs.payroc.com/api/schema/payments/bank-transfer-refunds/retrieve) – View the details of the refund.  
         -	[Reverse refund](https://docs.payroc.com/api/schema/payments/bank-transfer-refunds/reverse) – Cancel the refund if it’s in an open batch.  
       requestBody:
         content:

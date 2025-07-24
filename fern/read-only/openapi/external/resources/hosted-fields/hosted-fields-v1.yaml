@@ -17,7 +17,7 @@ security:
 - bearerAuth: []
 
 tags:
-  - name: Hosted Fields
+  - name: Hosted Fields 
     description: Create a session token for Hosted Fields.
 
 paths:
@@ -25,13 +25,16 @@ paths:
     post:
       tags:
         - Hosted Fields
-      summary: Create session
+      summary: Create Hosted Fields session
       description: | 
-        Use this method to create a session token that you use to authenticate a Hosted Fields session. When you create an instance of Hosted Fields on a webpage, include the session token in the config object.  
-      
-        For more information about how to set up Hosted Fields, see [Set up Hosted Fields](https://docs.payroc.com/guides/integrate/hosted-fields/set-up-hosted-fields).  
+        Use this method to create a Hosted Fields session token. You need to generate a new session token each time you load Hosted Fields on a webpage.  
 
-        **Note:** You need to generate a new session token each time you load Hosted Fields on a webpage.
+        In your request, you need to indicate whether the merchant is using Hosted Fields to run a sale, save payment details, or update saved payment details.  
+
+        In the response, our gateway returns the session token and the time that it expires. You need the session token when you configure the JavaScript for Hosted Fields.  
+
+        For more information about adding Hosted Fields to a webpage, go to [Hosted Fields](https://docs.payroc.com/guides/integrate/hosted-fields). 
+        
       operationId: createSession
       parameters:
         - $ref: ../../../common/parameters/idempotency-key-v1.yaml#/components/parameters/idempotencyKey
@@ -110,7 +113,8 @@ components:
             - tokenization
           description: | 
             Indicates if a merchant wants to take a payment or tokenize a customer's payment details:  
-            - `payment` - The merchant wants to take a payment immediately.  
+
+            - `payment` - The merchant wants to run a sale or run a sale and tokenize in the same transaction.  
             - `tokenization` - The merchant wants to save the customer's payment details to take a payment later or to update a customer's payment details that they've already saved.  
 
           example: payment
@@ -149,8 +153,7 @@ components:
           type: string
           format: date-time
           readOnly: true
-          description: Date and time that the token expires. We return this value in the
-            ISO 8601 format.
+          description: Date and time that the token expires. We return this value in the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
           example: '2025-07-02T15:30:00.000+02:00'
     
   securitySchemes:
