@@ -17,7 +17,18 @@ paths:
     summary: Provides capabilities to list and create pricing intents.
     get:
       summary: List pricing intents
-      description: Retrieve a list of pricing intents.
+      description: |  
+       Use this method to return a [paginated](https://docs.payroc.com/api/pagination) list of pricing intents associated with the ISV.  
+
+       **Note:** If you want to view a specific pricing intent and you have its pricingIntentId, use our [Retrieve Pricing Intent](https://docs.payroc.com/api/schema/boarding/pricing-intents/retrieve) method.  
+
+       Our gateway returns the following information about each pricing intent in the list:  
+       
+       - Information about the fees, including the base fees, gateway fees, and processor fees.  
+       - Status of the pricing intent, including whether we approved the pricing intent.  
+
+       For each pricing intent, we also return its pricingIntentId which you can use to perform follow-on actions.  
+
       operationId: listPricingIntents
       tags: [ Pricing intents ]
       parameters:
@@ -123,7 +134,18 @@ paths:
       - $ref: './parameters-v1.yaml#/components/parameters/pricingIntentId'
     get:
       summary: Retrieve pricing intent
-      description: Retrieve a specific pricing intent.
+      description: |
+        Use this method to retrieve information about a pricing intent.  
+
+        To retrieve a pricing intent, you need its pricingIntentId. Our gateway returned the pricingIntentId in the response of the [Create Pricing Intent](https://docs.payroc.com/api/schema/boarding/pricing-intents/create) method.  
+
+        **Note:** If you don't have the pricingIntentId, use our [List Pricing Intents](https://docs.payroc.com/api/schema/boarding/pricing-intents/list) method to search for the pricing intent.  
+
+        Our gateway returns the following information about the pricing intent:  
+
+        - Information about the fees, including the base fees, gateway fees, and processor fees.  
+        - Status of the pricing intent, including whether we approved the pricing intent.  
+
       operationId: getPricingIntent
       tags: [ Pricing intents ]
       responses:
@@ -269,13 +291,13 @@ components:
           type: string
           example: '2024-07-02T09:00:00'
           format: date-time
-          description: Date and time that we received your request to create the pricing intent in our system.
+          description: Date and time that we received your request to create the pricing intent. We return this value in the [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
           readOnly: True
         lastUpdatedDate:
           type: string
           example: '2024-07-02T09:00:00'
           format: date-time
-          description: Date and time that the pricing intent was last modified.
+          description: Date and time that the pricing intent was last modified. We return this value in the [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
           readOnly: True
         status: 
           type: string
@@ -329,7 +351,7 @@ components:
       properties:
         country:
           type: string
-          description: Indicates the country that the pricing intent applies to.
+          description: Two-digit code for the country that the pricing intent applies to. The format follows the [ISO-3166-1](https://www.iso.org/iso-3166-country-codes.html) standard.
           enum:
             - US
         version:
@@ -385,7 +407,7 @@ components:
       properties:
         country:
           type: string
-          description: Indicates the country that the pricing intent applies to.
+          description: Two-digit code for the country that the pricing intent applies to. The format follows the [ISO-3166-1](https://www.iso.org/iso-3166-country-codes.html) standard.
           enum:
             - US
         version:
