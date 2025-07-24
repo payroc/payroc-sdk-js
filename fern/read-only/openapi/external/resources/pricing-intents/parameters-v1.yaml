@@ -10,7 +10,7 @@ components:
       in: path
       name: pricingIntentId
       required: true
-      description: Unique identifier of the pricing intent.
+      description: Unique identifier that we assigned to the pricing intent.
       schema:
         type: string
       example: '5'
