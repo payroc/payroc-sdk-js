@@ -16,7 +16,7 @@ components:
       description: |
         Object that contains information about the dynamic currency conversion (DCC) offer.  
           
-        For more information about DCC, go to [Dynamic currency conversion](/knowledge/card-payments/dynamic-currency-conversion).
+        For more information about DCC, go to [Dynamic Currency Conversion](/knowledge/card-payments/dynamic-currency-conversion).
       properties:
         accepted:
           type: boolean
@@ -25,7 +25,7 @@ components:
           example: true
         offerReference:
           type: string
-          description: Identifier of the DCC offer.
+          description: Unique identifier of the DCC offer.
           example: DCC123456789
         fxAmount:
           type: integer
@@ -33,13 +33,15 @@ components:
           description: Amount in the cardholder’s currency in the currency’s lowest denomination, for example, cents.
           example: 3955
         fxCurrency:
-          $ref: '../../../common/schemas/common/currency-v1.yaml#/components/schemas/currency'
+          description: Currency of the transaction in the card’s currency. The value for the currency follows the [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) standard.  
+          allOf:
+            - $ref: '../../../common/schemas/common/currency-v1.yaml#/components/schemas/currency'
         fxCurrencyCode:
           maxLength: 3
           minLength: 3
           type: string
           readOnly: true
-          description: Three-digit currency code for the cardholder’s account. This code follows the ISO 4217 standard.
+          description: Three-digit currency code for the card. This code follows the [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) standard.
           example: CAD
         fxCurrencyExponent:
           type: integer
@@ -53,18 +55,18 @@ components:
           example: 2
         fxRate:
           type: number
-          description: Foreign exchange rate for the currency.
+          description: Foreign exchange rate for the card's currency.
           format: double
           example: 1.37
         markup:
           type: number
-          description: Mark-up percentage rate that the DCC provider applies to the foreign exchange rate.
+          description: Markup percentage rate that the DCC provider applies to the foreign exchange rate.
           format: double
           example: 3.5
         markupText:
           type: string
           readOnly: true
-          description: Supporting text for the mark-up rate.
+          description: Supporting text for the markup rate.
           example: '3.5% mark-up applied.'
         provider:
           type: string
@@ -74,5 +76,5 @@ components:
         source:
           type: string
           readOnly: true
-          description: Source that the DCC provider uses to get the foreign exchange rates.
+          description: Source that the DCC provider used to get the foreign exchange rates.
           example: European Central Bank
