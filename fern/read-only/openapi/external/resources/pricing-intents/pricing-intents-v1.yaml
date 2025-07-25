@@ -17,7 +17,18 @@ paths:
     summary: Provides capabilities to list and create pricing intents.
     get:
       summary: List pricing intents
-      description: Retrieve a list of pricing intents.
+      description: |  
+       Use this method to return a [paginated](https://docs.payroc.com/api/pagination) list of pricing intents associated with the ISV.  
+
+       **Note:** If you want to view a specific pricing intent and you have its pricingIntentId, use our [Retrieve Pricing Intent](https://docs.payroc.com/api/schema/boarding/pricing-intents/retrieve) method.  
+
+       Our gateway returns the following information about each pricing intent in the list:  
+       
+       - Information about the fees, including the base fees, gateway fees, and processor fees.  
+       - Status of the pricing intent, including whether we approved the pricing intent.  
+
+       For each pricing intent, we also return its pricingIntentId which you can use to perform follow-on actions.  
+
       operationId: listPricingIntents
       tags: [ Pricing intents ]
       parameters:
@@ -46,7 +57,23 @@ paths:
           $ref: '../../../common/responses/errors/500-v1.yaml#/components/responses/500'
     post:
       summary: Create pricing intent
-      description: Create a pricing intent.
+      description: | 
+        Use this method to create a pricing intent that you can assign to a processing account.  
+
+        In the request, you must provide the following:
+        -	Processing fees, including the pricing program and the fee to process each transaction.
+        -	Gateway fees, including the fee for each transaction handled by our gateway.
+        -	Base fees, including maintenance and PCI fees.
+
+        In the response, our gateway returns information about the pricing intent and the pricingIntentId, which you need for the following methods:
+        -	[Create Merchant Platform](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create) - Assign the pricing intent to a processing account, when you create the merchant platform and its processing accounts.
+        -	[Create Processing Account](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create-processing-account) - Assign the pricing intent to a processing account.
+        -	[Retrieve Pricing Intent](https://docs.payroc.com/api/schema/boarding/pricing-intents/retrieve) - Retrieve information about a pricing intent.
+        -	[Update Pricing Intent](https://docs.payroc.com/api/schema/boarding/pricing-intents/update) - Update the details of a pricing intent. 
+        -	[Delete Pricing Intent](https://docs.payroc.com/api/schema/boarding/pricing-intents/delete) - Delete a pricing intent.
+        -	[Partially Update Pricing Intent](https://docs.payroc.com/api/schema/boarding/pricing-intents/partially-update) - Partially update the details of a pricing intent.
+
+
       tags: [ Pricing intents ]
       operationId: createPricingIntent
       parameters:
@@ -123,7 +150,18 @@ paths:
       - $ref: './parameters-v1.yaml#/components/parameters/pricingIntentId'
     get:
       summary: Retrieve pricing intent
-      description: Retrieve a specific pricing intent.
+      description: |
+        Use this method to retrieve information about a pricing intent.  
+
+        To retrieve a pricing intent, you need its pricingIntentId. Our gateway returned the pricingIntentId in the response of the [Create Pricing Intent](https://docs.payroc.com/api/schema/boarding/pricing-intents/create) method.  
+
+        **Note:** If you don't have the pricingIntentId, use our [List Pricing Intents](https://docs.payroc.com/api/schema/boarding/pricing-intents/list) method to search for the pricing intent.  
+
+        Our gateway returns the following information about the pricing intent:  
+
+        - Information about the fees, including the base fees, gateway fees, and processor fees.  
+        - Status of the pricing intent, including whether we approved the pricing intent.  
+
       operationId: getPricingIntent
       tags: [ Pricing intents ]
       responses:
@@ -148,7 +186,19 @@ paths:
           $ref: '../../../common/responses/errors/500-v1.yaml#/components/responses/500'     
     put:
       summary: Update pricing intent
-      description: Update a pricing intent.
+      description: |
+        Use this method to update the details of a pricing intent. If you update a pricing intent, it won't affect merchant that you've previously onboarded.  
+
+        To update a pricing intent, you need its pricingIntentId. Our gateway returned the pricingIntentId in the response of the [Create Pricing Intent](https://docs.payroc.com/api/schema/boarding/pricing-intents/create) method.  
+
+        **Note:** If you don't have the pricingIntentId, use our [List Pricing Intents](https://docs.payroc.com/api/schema/boarding/pricing-intents/list) to search for the pricing intent.  
+
+        You can update the following details about a pricing intent:  
+
+        - Fees, including the base fees, processor fees, and gateway fees.  
+        - Custom name for the pricing intent.  
+        - Additional services that merchants can sign up for.  
+
       operationId: updatePricingIntent
       tags: [ Pricing intents ]
       requestBody:
@@ -218,7 +268,15 @@ paths:
           $ref: '../../../common/responses/errors/500-v1.yaml#/components/responses/500'       
     delete:
       summary: Delete pricing intent
-      description: Delete a pricing intent.
+      description: | 
+        Use this method to delete a pricing intent.  
+
+        > **Important:** When you delete a pricing intent, you can't recover it. You also won't be able to assign the pricing intent to a merchant's boarding application.  
+
+        To delete a pricing intent, you need its pricingIntentId. Our gateway returned the pricingIntentId in the response of the [Create Pricing Intent](https://docs.payroc.com/api/schema/boarding/pricing-intents/create) method.  
+
+        **Note:** If you don't have the pricingIntentId, use our [List Pricing Intents](https://docs.payroc.com/api/schema/boarding/pricing-intents/list) method to search for the pricing intent.
+
       operationId: deletePricingIntent
       tags: [ Pricing intents ]
       responses:
@@ -269,13 +327,13 @@ components:
           type: string
           example: '2024-07-02T09:00:00'
           format: date-time
-          description: Date and time that we received your request to create the pricing intent in our system.
+          description: Date and time that we received your request to create the pricing intent. We return this value in the [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
           readOnly: True
         lastUpdatedDate:
           type: string
           example: '2024-07-02T09:00:00'
           format: date-time
-          description: Date and time that the pricing intent was last modified.
+          description: Date and time that the pricing intent was last modified. We return this value in the [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
           readOnly: True
         status: 
           type: string
@@ -291,7 +349,7 @@ components:
             - rejected
         key:
           type: string
-          description: Unique identifier that you use to connect a merchant to the pricing intent.
+          description: Unique identifier that you can assign to the pricing intent for your own records.
         metadata:
           type: object
           additionalProperties:
@@ -329,7 +387,7 @@ components:
       properties:
         country:
           type: string
-          description: Indicates the country that the pricing intent applies to.
+          description: Two-digit code for the country that the pricing intent applies to. The format follows the [ISO-3166-1](https://www.iso.org/iso-3166-country-codes.html) standard.
           enum:
             - US
         version:
@@ -346,7 +404,7 @@ components:
           properties:
             card:
               type: object
-              description: Object that contains information about card fees.
+              description: Object that contains the fees for card transactions.
               discriminator:
                 propertyName: planType
                 mapping:
@@ -385,7 +443,7 @@ components:
       properties:
         country:
           type: string
-          description: Indicates the country that the pricing intent applies to.
+          description: Two-digit code for the country that the pricing intent applies to. The format follows the [ISO-3166-1](https://www.iso.org/iso-3166-country-codes.html) standard.
           enum:
             - US
         version:
@@ -483,7 +541,7 @@ components:
           properties:
             billInMonth:
               type: string
-              description: Indicates the month in which we collect the annual fee.
+              description: Indicates whether we collect the annual fee in June or December.
               default: december
               enum:
                 - june
@@ -504,7 +562,7 @@ components:
           nullable: true
         pciNonCompliance:
           type: integer
-          description: Monthly fee for PCI noncompliance. The value is in the currency's lowest denomination, for example, cents.
+          description: Fee that we apply each month if you aren't compliant with PCI standards. The value is in the currency's lowest denomination, for example, cents.
           minimum: 0
           example: 7495
           default: 7495
@@ -667,6 +725,7 @@ components:
       properties:
         type:
           type: string
+          description: Type of American Express program.
           enum:
             - optBlue
         volume:
@@ -687,6 +746,7 @@ components:
       properties:
         type:
           type: string
+          description: Type of American Express program.
           enum:
             - direct
         transaction:
@@ -709,8 +769,10 @@ components:
           type: object
           properties:
             mastercardVisaDiscover:
+              description: Object that contains the fees for Mastercard, Visa, and Discover transactions.
               $ref: '#/components/schemas/processorFee'
             amex:
+              description: Object that contains the fees for American Express transactions.
               discriminator:
                 propertyName: type
                 mapping:
@@ -744,13 +806,17 @@ components:
       properties:
         type:
           type: string
+          description: Type of American Express program.
           enum:
             - optBlue
         qualifiedRate:
+          description: Object that contains the fees for a qualified transaction.
           $ref: '#/components/schemas/processorFee'
         midQualRate:
+          description: Object that contains the fees for a mid-qualified transaction.
           $ref: '#/components/schemas/processorFee'
         nonQualRate:
+          description: Object that contains the fees for a non-qualified transaction.
           $ref: '#/components/schemas/processorFee'
 
     interchangePlusTiered3AmexDirect:
@@ -762,6 +828,7 @@ components:
       properties:
         type:
           type: string
+          description: Type of American Express program.
           enum:
             - direct
         transaction:
@@ -784,8 +851,10 @@ components:
           description: Object that contains information about the fees.
           properties:
             mastercardVisaDiscover:
+              description: Object that contains the fees for Mastercard, Visa, and Discover transactions.
               $ref: '#/components/schemas/qualRates'
             amex:
+              description: Object that contains the fees for American Express transactions.
               discriminator:
                 propertyName: type
                 mapping:
@@ -822,13 +891,17 @@ components:
       properties:
         type:
           type: string
+          description: Type of American Express program.
           enum:
             - optBlue
         qualifiedRate:
+          description: Object that contains the fees for a qualified transaction.
           $ref: '#/components/schemas/processorFee'
         midQualRate:
+          description: Object that contains the fees for a mid-qualified transaction.
           $ref: '#/components/schemas/processorFee'
         nonQualRate:
+          description: Object that contains the fees for a non-qualified transaction.
           $ref: '#/components/schemas/processorFee'
 
     interchangePlusPlusAmexDirect:
@@ -840,6 +913,7 @@ components:
       properties:
         type:
           type: string
+          description: Type of American Express program.
           enum:
             - direct
         transaction:
@@ -862,8 +936,10 @@ components:
           description: Object that contains information about the fees.
           properties:
             mastercardVisaDiscover:
+              description: Object that contains the fees for Mastercard, Visa, and Discover transactions.
               $ref: '#/components/schemas/qualRates'
             amex:
+              description: Object that contains the fees for American Express transactions.
               discriminator:
                 propertyName: type
                 mapping:
@@ -897,13 +973,17 @@ components:
       properties:
         type:
           type: string
+          description: Type of American Express program.
           enum:
             - optBlue
         qualifiedRate:
+          description: Object that contains the fees for a qualified transaction.
           $ref: '#/components/schemas/processorFee'
         midQualRate:
+          description: Object that contains the fees for a mid-qualified transaction.
           $ref: '#/components/schemas/processorFee'
         nonQualRate:
+          description: Object that contains the fees for a non-qualified transaction.
           $ref: '#/components/schemas/processorFee' 
 
     tiered3AmexDirect:
@@ -915,6 +995,7 @@ components:
       properties:
         type:
           type: string
+          description: Type of American Express program.
           enum:
             - direct
         transaction:
@@ -937,8 +1018,10 @@ components:
           description: Object that contains information about the fees.
           properties:
             mastercardVisaDiscover:
+              description: Object that contains the fees for Mastercard, Visa, and Discover transactions.
               $ref: '#/components/schemas/qualRates'
             amex:
+              description: Object that contains the fees for American Express transactions.
               discriminator:
                 propertyName: type
                 mapping:
@@ -970,13 +1053,17 @@ components:
       properties:
         type:
           type: string
+          description: Type of American Express program.
           enum:
             - optBlue
         qualifiedRate:
+          description: Object that contains the fees for a qualified transaction.
           $ref: '#/components/schemas/processorFee'
         midQualRate:
+          description: Object that contains the fees for a mid-qualified transaction.
           $ref: '#/components/schemas/processorFee'
         nonQualRate:
+          description: Object that contains the fees for a non-qualified transaction.
           $ref: '#/components/schemas/processorFee'
 
     tiered4AmexDirect:
@@ -988,6 +1075,7 @@ components:
       properties:
         type:
           type: string
+          description: Type of American Express program.
           enum:
             - direct
         transaction:
@@ -1010,8 +1098,10 @@ components:
           description: Object that contains information about the fees.
           properties:
             mastercardVisaDiscover:
+              description: Object that contains the fees for Mastercard, Visa, and Discover transactions.
               $ref: '#/components/schemas/qualRatesWithPremium'
             amex:
+              description: Object that contains the fees for American Express transactions.
               discriminator:
                 propertyName: type
                 mapping:
@@ -1043,13 +1133,17 @@ components:
       properties:
         type:
           type: string
+          description: Type of American Express program.
           enum:
             - optBlue
         qualifiedRate:
+          description: Object that contains the fees for a qualified transaction.
           $ref: '#/components/schemas/processorFee'
         midQualRate:
+          description: Object that contains the fees for a mid-qualified transaction.
           $ref: '#/components/schemas/processorFee'
         nonQualRate:
+          description: Object that contains the fees for a non-qualified transaction.
           $ref: '#/components/schemas/processorFee'
 
     tiered6AmexDirect:
@@ -1061,6 +1155,7 @@ components:
       properties:
         type:
           type: string
+          description: Type of American Express program.
           enum:
             - direct
         transaction:
@@ -1083,8 +1178,10 @@ components:
           description: Object that contains information about the fees.
           properties:
             mastercardVisaDiscover:
+              description: Object that contains the fees for Mastercard, Visa, and Discover transactions.
               $ref: '#/components/schemas/qualRatesWithPremiumAndRegulated'
             amex:
+              description: Object that contains the fees for American Express transactions.
               discriminator:
                 propertyName: type
                 mapping:
@@ -1120,7 +1217,7 @@ components:
           description: Object that contains information about the fees.
           properties:
             monthlySubscription:
-              description: Fee for the monthly subscription. The value is in the currency's lowest denomination, for example, cents.
+              description: Fee for the monthly subscription for the processing plan. The value is in the currency's lowest denomination, for example, cents.
               allOf:
                 - $ref: '#/components/schemas/amount'
             volume:
@@ -1155,7 +1252,7 @@ components:
           description: Object that contains information about the fees.
           properties:
             monthlySubscription:
-              description: Fee for the monthly subscription. The value is in the currency's lowest denomination, for example, cents.
+              description: Fee for the monthly subscription for the processing plan. The value is in the currency's lowest denomination, for example, cents.
               allOf:
                 - $ref: '#/components/schemas/amount' 
             cardChargePercentage:
@@ -1208,13 +1305,14 @@ components:
           description: Object that contains information about the fees.
           properties:
             monthlySubscription:
-              description: Fee for the monthly subscription. The value is in the currency's lowest denomination, for example, cents.
+              description: Fee for the monthly subscription for the processing plan. The value is in the currency's lowest denomination, for example, cents.
               allOf:
                 - $ref: '#/components/schemas/amount' 
             debit:
               description: Object that contains information about fees for debit transactions.
               properties:
                 option:
+                  description: Indicates if debit transactions should be charged at interchange plus or flat rate pricing.
                   type: string
                   enum:
                     - interchangePlus
@@ -1278,6 +1376,7 @@ components:
       properties:
         type:
           type: string
+          description: Type of American Express program.
           enum:
             - direct
         transaction:
@@ -1300,8 +1399,10 @@ components:
           type: object
           properties:
             standardCards:
+              description: Object that contains the fees for standard card transactions.
               $ref: '#/components/schemas/processorFee'
             amex:
+              description: Object that contains the fees for American Express transactions.
               discriminator:
                 propertyName: type
                 mapping:
@@ -1322,6 +1423,7 @@ components:
 
     pinDebit:
       type: object
+      description: Object that contains the fees for PIN-debit transactions.
       required:
         - additionalDiscount 
         - transaction
@@ -1342,6 +1444,7 @@ components:
 
     electronicBenefitsTransfer:
       type: object
+      description: Object that contains the fees for EBT transactions.
       required:
         - transaction
       properties:
@@ -1352,6 +1455,7 @@ components:
 
     enhancedInterchange:
       type: object
+      description: Object that contains the fees for enhanced interchange services.
       required:
         - enrollment
         - creditToMerchant
@@ -1367,6 +1471,7 @@ components:
     
     specialityCards:
       type: object
+      description: Object that contains the fees for speciality cards.
       required:
         - transaction
       properties:
@@ -1383,10 +1488,13 @@ components:
         - nonQualRate
       properties:
         qualifiedRate:
+          description: Object that contains the fees for a qualified transaction.
           $ref: '#/components/schemas/processorFee'
         midQualRate:
+          description: Object that contains the fees for a mid-qualified transaction.
           $ref: '#/components/schemas/processorFee'
         nonQualRate:
+          description: Object that contains the fees for a non-qualified transaction.
           $ref: '#/components/schemas/processorFee'
 
     qualRatesWithPremium:
@@ -1398,6 +1506,7 @@ components:
             - premiumRate
           properties:
             premiumRate:
+              description: Object that contains the fees for a premium rate transaction.
               $ref: '#/components/schemas/processorFee'
     
     qualRatesWithPremiumAndRegulated:
@@ -1410,8 +1519,10 @@ components:
             - unregulatedCheckCard
           properties:
             regulatedCheckCard:
+              description: Object that contains the fees for a regulated debit-card transaction.
               $ref: '#/components/schemas/processorFee'
             unregulatedCheckCard:
+              description: Object that contains the fees for an unregulated debit-card transaction.
               $ref: '#/components/schemas/processorFee'
   
     processorFee:
@@ -1430,6 +1541,7 @@ components:
 
     ach:
       type: object
+      description: Object that contains the fees for ACH transactions.
       properties:
         fees:
           type: object
@@ -1499,6 +1611,7 @@ components:
     serviceUs5.0:
       title: US version 5.0 service
       type: object
+      description: Object that contains information about the Hardware Advantage Plan.
       discriminator:
         propertyName: name
         mapping:
