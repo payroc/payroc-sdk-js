@@ -47,13 +47,57 @@ paths:
           $ref: ../../../common/responses/errors/406-v1.yaml#/components/responses/406
         '500':
           $ref: ../../../common/responses/errors/500-v1.yaml#/components/responses/500
+    delete:
+      tags:
+        - Payment instructions
+      summary: Cancel payment instruction
+      operationId: deletePaymentInstruction
+      description: | 
+        Use this method to cancel a payment instruction.  
+
+        To cancel a payment instruction, you need its paymentInstructionId. Our gateway returned the paymentInstructionId in the response of the [Submit payment instruction](https://docs.payroc.com/api/schema/payroc-cloud/payment-instructions/submit) method.
+
+      parameters:
+        - $ref: './parameters-v1.yaml#/components/parameters/paymentInstructionId'
+      responses:
+        '204':
+          description: Successful request. We canceled the payment instruction.
+        '400':
+          $ref: ../../../common/responses/errors/400-v1.yaml#/components/responses/400
+        '401':
+          $ref: ../../../common/responses/errors/401-v1.yaml#/components/responses/401
+        '403':
+          $ref: ../../../common/responses/errors/403-v1.yaml#/components/responses/403
+        '404':
+          $ref: ../../../common/responses/errors/404-v1.yaml#/components/responses/404
+        '406':
+          $ref: ../../../common/responses/errors/406-v1.yaml#/components/responses/406
+        '409':
+          description: Conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '../../../common/responses/errors/409-v1.yaml#/components/schemas/409'             
+              examples:
+                paymentInstructionCompleted:
+                  $ref: './example-responses-v1.yaml#/components/examples/paymentInstructionCompleted'
+                paymentInstructionFailed:
+                  $ref: './example-responses-v1.yaml#/components/examples/paymentInstructionFailed'
+        '500':
+          $ref: ../../../common/responses/errors/500-v1.yaml#/components/responses/500
   /devices/{serialNumber}/payment-instructions:
     post:
       tags:
         - Payment instructions
       summary: Submit payment instruction
       operationId: sendPaymentInstruction
-      description: Submit an instruction request to initiate a sale on a payment device.
+      description: | 
+        Submit an instruction request to initiate a sale on a payment device.  
+
+        In the response, our gateway returns information about the payment instruction and a paymentInstructionId, which you need for the following methods:
+        - [Retrieve payment instruction](https://docs.payroc.com/api/schema/payroc-cloud/payment-instructions/retrieve) - View the details of the payment instruction.
+        - [Cancel payment instruction](https://docs.payroc.com/api/schema/payroc-cloud/payment-instructions/delete) - Cancel the payment instruction.
+
       parameters:
         - $ref: './parameters-v1.yaml#/components/parameters/serialNumber'
         - $ref: ../../../common/parameters/idempotency-key-v1.yaml#/components/parameters/idempotencyKey
