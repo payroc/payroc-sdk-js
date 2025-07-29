@@ -439,13 +439,13 @@ components:
         processingAccounts:
           readOnly: true
           description: Array of processingAccount objects.
-          required:
-          #  - processingAccountId
-           - doingBusinessAs
-           - status
           type: array
           items:
             type: object
+            required:
+            #  - processingAccountId
+              - doingBusinessAs
+              - status
             title: processingAccount
             properties:
               processingAccountId:

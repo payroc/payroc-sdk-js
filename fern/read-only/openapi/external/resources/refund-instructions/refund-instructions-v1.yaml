@@ -49,6 +49,44 @@ paths:
           $ref: '../../../common/responses/errors/406-v1.yaml#/components/responses/406'
         '500':
           $ref: '../../../common/responses/errors/500-v1.yaml#/components/responses/500'
+    delete:
+      tags:
+        - Refund instructions
+      summary: Cancel refund instruction
+      operationId: deleteRefundInstruction
+      description: | 
+        Use this method to cancel a refund instruction.  
+
+        To cancel a refund instruction, you need its refundInstructionId. Our gateway returned the refundInstructionId in the response of the [Submit Refund Instruction](https://docs.payroc.com/api/schema/payroc-cloud/refund-instructions/submit) method.   
+
+      parameters:
+        - $ref: './parameters-v1.yaml#/components/parameters/refundInstructionId'
+      responses:
+        '204':
+          description: Successful request. We canceled the refund instruction.
+        '400':
+          $ref: ../../../common/responses/errors/400-v1.yaml#/components/responses/400
+        '401':
+          $ref: ../../../common/responses/errors/401-v1.yaml#/components/responses/401
+        '403':
+          $ref: ../../../common/responses/errors/403-v1.yaml#/components/responses/403
+        '404':
+          $ref: ../../../common/responses/errors/404-v1.yaml#/components/responses/404
+        '406':
+          $ref: ../../../common/responses/errors/406-v1.yaml#/components/responses/406
+        '409':
+          description: Conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '../../../common/responses/errors/409-v1.yaml#/components/schemas/409'             
+              examples:
+                refundInstructionCompleted:
+                  $ref: './example-responses-v1.yaml#/components/examples/refundInstructionCompleted'
+                refundInstructionFailed:  
+                  $ref: './example-responses-v1.yaml#/components/examples/refundInstructionFailed'
+        '500':
+          $ref: ../../../common/responses/errors/500-v1.yaml#/components/responses/500
 
   /devices/{serialNumber}/refund-instructions:
     post:
@@ -56,7 +94,13 @@ paths:
         - Refund instructions
       summary: Submit refund instruction
       operationId: sendRefundInstruction
-      description: Submit an instruction request to initiate a refund on a payment device.
+      description: | 
+        Submit an instruction request to initiate a refund on a payment device.  
+
+        In the response, our gateway returns information about the refund instruction and a refundInstructionId, which you need for the following methods:
+        - [Retrieve refund instruction](https://docs.payroc.com/api/schema/payroc-cloud/refund-instructions/retrieve) - View the details of the refund instruction.
+        - [Cancel refund instruction](https://docs.payroc.com/api/schema/payroc-cloud/refund-instructions/delete) - Cancel the refund instruction.
+
       parameters:
         - $ref: './parameters-v1.yaml#/components/parameters/serialNumber'
         - $ref: '../../../common/parameters/idempotency-key-v1.yaml#/components/parameters/idempotencyKey'

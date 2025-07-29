@@ -26,3 +26,29 @@ components:
           rel: self
           method: GET
           href: https://api.payroc.com/v1/payment-instructions/a37439165d134678a9100ebba3b29597
+    paymentInstructionCompleted:
+      summary: Payment instruction already completed
+      description: Payment instruction already completed
+      value:
+        type: https://docs.payroc.com/api/errors#cannot-be-deleted
+        title: Cannot be deleted
+        status: 409
+        detail: "You cannot delete this resource in its current state"
+        errors:
+        - parameter: paymentInstructionId
+          message: Completed instruction cannot be deleted
+        link:
+          rel: payment
+          method: GET
+          href: https://api.payroc.com/v1/payments/M2MJOG6O2Y
+    paymentInstructionFailed:
+      summary: Payment instruction failed
+      description: Payment instruction failed
+      value:
+        type: https://docs.payroc.com/api/errors#cannot-be-deleted
+        title: Cannot be deleted
+        status: 409
+        detail: "You cannot delete this resource in its current state"        
+        errors:
+        - parameter: paymentInstructionId
+          message: Failed instruction cannot be deleted

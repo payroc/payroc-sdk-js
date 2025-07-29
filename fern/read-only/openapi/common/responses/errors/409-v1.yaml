@@ -51,6 +51,25 @@ components:
           type: string
           description: Resource path to the existing resource
           example: "https://api.payroc.com/v1/webhook/3"
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              parameter:
+                type: string
+                description: The parameter or field causing the issues
+                example: start_time
+              detail:
+                type: string
+                description: Short detail of the validation errors
+                example: invalid date
+              message:
+                type: string
+                description: Error message
+                example: "Expected time, got '' for start_time"  
+        link:
+          $ref: '../../schemas/common/link/link-v1.yaml#/components/schemas/link'      
       required:
         - type
         - title
@@ -92,6 +111,14 @@ components:
         title: "Cannot be modified"
         status: 409
         detail: "You cannot modify this resource in its current state"
+    canNotBeDeleted:
+      summary: Cannot be deleted
+      description: Resource cannot be deleted.
+      value:
+        type: "https://docs.payroc.com/api/errors#cannot-be-deleted"
+        title: "Cannot be deleted"
+        status: 409
+        detail: "You cannot delete this resource in its current state"
     taxIdInUse:
       summary: Tax ID in use
       description: The tax ID supplied is already in use.
