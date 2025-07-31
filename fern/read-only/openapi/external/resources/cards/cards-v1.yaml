@@ -199,7 +199,7 @@ components:
             - $ref: '../../../common/schemas/transaction/payment-method-v1.yaml#/components/schemas/cardPayload'
     cardVerificationResult:
       required:
-        - card
+        #- card # Property does not exist
         - processingTerminalId
         - verified
       type: object

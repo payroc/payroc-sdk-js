@@ -27,7 +27,7 @@ paths:
 
         In the response, our gateway returns information about the card payment and a paymentId, which you need for the following methods:
         
-        -	[Retrieve payment](https://docs.payroc.com/api/schema/payments/get) - View the details of the card payment.
+        -	[Retrieve payment](https://docs.payroc.com/api/schema/payments/retrieve) - View the details of the card payment.
         -	[Adjust payment](https://docs.payroc.com/api/schema/payments/adjust) - Update the details of the card payment.
         -	[Capture payment](https://docs.payroc.com/api/schema/payments/capture)  - Capture the pre-authorization.
         -	[Reverse payment](https://docs.payroc.com/api/schema/payments/reverse)  - Cancel the card payment if it's in an open batch.
@@ -112,7 +112,7 @@ paths:
       description: |
         Use this method to return a [paginated](https://docs.payroc.com/api/pagination) list of payments. 
 
-        **Note:** If you want to view a specific payment and you have its paymentId, use our [Retrieve Payment](https://docs.payroc.com/api/schema/payments/get) method.  
+        **Note:** If you want to view a specific payment and you have its paymentId, use our [Retrieve Payment](https://docs.payroc.com/api/schema/payments/retrieve) method.  
 
         Use query parameters to filter the list of results that we return, for example, to search for payments for a customer, a tip mode, or a date range.  
 

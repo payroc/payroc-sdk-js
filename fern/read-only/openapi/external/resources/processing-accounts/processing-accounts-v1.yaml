@@ -1163,10 +1163,8 @@ components:
             - requestedViaDirectLink
           example: requestedViaDirectLink
         link:
+          description: Object that contains links to the signed contract.
           allOf:
-            - type: object
-              readOnly: true
-              description: Object that contains links to the signed contract.
             - $ref: '../../../common/schemas/common/link/link-v1.yaml#/components/schemas/link'
           example: 
             rel: agreement

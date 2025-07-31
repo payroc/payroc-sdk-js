@@ -26,7 +26,7 @@ paths:
         Use this method to run a sale with a customer's bank account details.  
 
         In the response, our gateway returns information about the bank transfer payment and a paymentId, which you need for the following methods:  
-        -	[Retrieve payment](https://docs.payroc.com/api/schema/payments/bank-transfer-payments/get) - View the details of the bank transfer payment.
+        -	[Retrieve payment](https://docs.payroc.com/api/schema/payments/bank-transfer-payments/retrieve) - View the details of the bank transfer payment.
         -	[Reverse payment](https://docs.payroc.com/api/schema/payments/bank-transfer-payments/reverse) - Cancel the bank transfer payment if it's an open batch.
         -	[Refund payment](https://docs.payroc.com/api/schema/payments/bank-transfer-payments/refund) - Run a referenced refund to return funds to the customer's bank account.
 
@@ -95,7 +95,7 @@ paths:
       description: |
         Use this method to return a [paginated](https://docs.payroc.com/api/pagination) list of payments.  
 
-        **Note:** If you want to view a specific payment and you have its paymentId, use our [Retrieve Payment](https://docs.payroc.com/api/schema/payments/bank-transfer-payments/get) method.  
+        **Note:** If you want to view a specific payment and you have its paymentId, use our [Retrieve Payment](https://docs.payroc.com/api/schema/payments/bank-transfer-payments/retrieve) method.  
 
         Use query parameters to filter the list of results that we return, for example, to search for payments for a customer, a date range, or a settlement state.  
 
@@ -322,8 +322,8 @@ paths:
 
         To re-present a payment, you need the paymentId of the return. To get the paymentId of the return, complete the following steps:  
 
-        1.	Use our [Retrieve Payment](https://docs.payroc.com/api/schema/payments/bank-transfer-payments/get) method  to view the details of the original payment.  
-        2.	From the [returns object](https://docs.payroc.com/api/schema/payments/bank-transfer-payments/get#response.body.returns) in the response, get the paymentId of the return.  
+        1.	Use our [Retrieve Payment](https://docs.payroc.com/api/schema/payments/bank-transfer-payments/retrieve) method  to view the details of the original payment.  
+        2.	From the [returns object](https://docs.payroc.com/api/schema/payments/bank-transfer-payments/retrieve#response.body.returns) in the response, get the paymentId of the return.  
 
         Our gateway uses the bank account details from the original payment. If you want to update the customer's bank account details, send the new bank account details in the request.  
 

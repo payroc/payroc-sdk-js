@@ -130,7 +130,7 @@ components:
       description: List of funding accounts associated with a processing account.
       value:
         - fundingAccountId: 123
-          createdDate: 2024-07-02T12:00:00.000Z'
+          createdDate: '2024-07-02T12:00:00.000Z'
           lastModifiedDate: '2024-07-02T12:00:00.000Z'
           status: approved
           type: checking

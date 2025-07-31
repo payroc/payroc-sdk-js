@@ -19,6 +19,7 @@ components:
   schemas:
     link:
       type: object
+      readOnly: true
       description: Object that contains HATEOAS links for the resource. 
       properties:
         rel:
