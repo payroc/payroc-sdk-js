@@ -1,6 +1,4 @@
-openapi: 3.0.3
-
-paths: {}
+openapi: 3.1.0
 
 info:
   title: Common Domain Models
@@ -11,18 +9,22 @@ info:
     url: https://www.payroc.com/help
     email: helpdesk@payroc.com
 
+paths: {}
+
 tags:
   - name: Common parameters
-    description: Common parameters that can be resued
+    description: Common parameters that can be reused
 
 components:
-    parameters:
-      limit:
-        name: limit
-        in: query
-        description: States the total amount of results the response is limited to.
-        schema:
-          type: integer
-          default: 10
-          maximum: 100
-        example: 25
+  parameters:
+    limit:
+      name: limit
+      in: query
+      description: States the total amount of results the response is limited to.
+      schema:
+        type: integer
+        default: 10
+        maximum: 100
+      examples:
+        example:
+          value: 25
