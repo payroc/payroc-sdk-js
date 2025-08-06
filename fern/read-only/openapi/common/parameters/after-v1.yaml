@@ -1,6 +1,4 @@
-openapi: 3.0.3
-
-paths: {}
+openapi: 3.1.0
 
 info:
   title: Common Domain Models
@@ -11,16 +9,20 @@ info:
     url: https://www.payroc.com/help
     email: helpdesk@payroc.com
 
+paths: {}
+
 tags:
   - name: Common parameters
-    description: Common parameters that can be resued
+    description: Common parameters that can be reused
 
 components:
-    parameters:
-      after:  
-        name: after
-        in: query
-        description: Points to the resource identifier that you want to receive your results after. Typically, this is the last resource on the previous page.
-        schema:
-          type: string
-        example: '8516'
+  parameters:
+    after:  
+      name: after
+      in: query
+      description: Points to the resource identifier that you want to receive your results after. Typically, this is the last resource on the previous page.
+      schema:
+        type: string
+      examples:
+        example:
+          value: '8516'

@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Payroc API
   version: '1'
@@ -14,7 +14,9 @@ components:
         maxLength: 24
         minLength: 1
         type: string
-      example: OrderRef6543
+      examples:
+        example:
+          value: OrderRef6543
 
     operator:
       name: operator
@@ -24,7 +26,9 @@ components:
         maxLength: 50
         minLength: 1
         type: string
-      example: Jane
+      examples:
+        example:
+          value: Jane
 
     cardholderName:
       name: cardholderName
@@ -34,7 +38,9 @@ components:
         maxLength: 50
         minLength: 1
         type: string
-      example: Sarah%20Hazel%20Hopper
+      examples:
+        example:
+          value: Sarah%20Hazel%20Hopper
 
     first6:
       name: first6
@@ -43,7 +49,9 @@ components:
       schema:
         pattern: '[0-9]{6}'
         type: string
-      example: '453985'
+      examples:
+        example:
+          value: '453985'
 
     last4:
       name: last4
@@ -52,7 +60,9 @@ components:
       schema:
         pattern: '[0-9]{4}'
         type: string
-      example: '7062'
+      examples:
+        example:
+          value: '7062'
 
     tender:
       name: tender
@@ -63,7 +73,9 @@ components:
         enum:
           - ebt
           - creditDebit
-      example: ebt
+      examples:
+        example:
+          value: ebt
 
     tipMode:
       name: tipMode
@@ -77,7 +89,9 @@ components:
             - noTip
             - prompted
             - adjusted
-      example:
+      examples:
+        example:
+          value:
             - noTip
             - prompted
 
@@ -93,7 +107,9 @@ components:
             - sale
             - preAuthorization
             - preAuthorizationCompletion
-      example: 
+      examples:
+        example:
+          value:
             - sale
             - preAuthorization
 
@@ -116,7 +132,9 @@ components:
             - admin
             - expired
             - accepted
-      example:
+      examples:
+        example:
+          value:
             - accepted
             - ready
             - complete
@@ -128,7 +146,9 @@ components:
       schema:
         type: string
         format: date-time
-      example: '2024-07-01T15:30:00Z'
+      examples:
+        example:
+          value: '2024-07-01T15:30:00Z'
 
     dateTo:
       name: dateTo
@@ -137,7 +157,9 @@ components:
       schema:
         type: string
         format: date-time
-      example: '2024-07-03T15:30:00Z'
+      examples:
+        example:
+          value: '2024-07-03T15:30:00Z'
 
     settlementState:
       name: settlementState
@@ -148,7 +170,9 @@ components:
         enum:
           - settled
           - unsettled
-      example: settled
+      examples:
+        example:
+          value: settled
 
     settlementDate:
       name: settlementDate
@@ -157,7 +181,9 @@ components:
       schema:
         type: string
         format: date
-      example: '2024-07-02'
+      examples:
+        example:
+          value: '2024-07-02'
 
     paymentId:
       name: paymentId
@@ -168,7 +194,9 @@ components:
         maxLength: 10
         minLength: 10
         type: string
-      example: M2MJOG6O2Y
+      examples:
+        example:
+          value: M2MJOG6O2Y
 
     paymentLinkId:
       name: paymentLinkId
@@ -178,4 +206,6 @@ components:
         maxLength: 10
         minLength: 10
         type: string
-        example: JZURRJBUPS
+      examples:
+        example:
+          value: JZURRJBUPS
