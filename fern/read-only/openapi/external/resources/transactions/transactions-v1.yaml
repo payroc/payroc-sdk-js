@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Settlement
   description: Settlement
@@ -168,10 +168,9 @@ components:
       description: Object that contains information about the transaction.
       properties:
         transactionId:
-          type: integer
+          type: [integer, 'null']
           description: Unique identifier of the transaction. If we can't match a dispute to a transaction, we don't return 'transactionID' or a 'link' object.
           example: 442233
-          nullable: true
         type:
           type: string
           description: Indicates the type of transaction. 
@@ -189,9 +188,8 @@ components:
           description: Transaction amount. We return the value in the currency's lowest denomination, for example, cents.
           example: 4999
         entryMethod:
-          type: string
+          type: [string, 'null']
           description: Describes how the merchant received the payment details. If we can't match a dispute to a transaction, we don't return an 'entryMethod' object.
-          nullable: true
           enum:
             - barcodeRead
             - smartChipRead
