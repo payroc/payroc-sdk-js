@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 
 paths: {}
 
@@ -36,7 +36,7 @@ components:
               type: string
             method:
               type: string
-          description: Array of links related to your request. For more information about HATEOAS, go to [Hypermedia as the engine of application state.](https://docs.payroc.com/knowledge/basic-concepts/HATEOAS).
+          description: Array of links related to your request. For more information about HATEOAS, go to [Hypermedia as the engine of application state.](https://docs.payroc.com/knowledge/basic-concepts/hypermedia-as-the-engine-of-application-state-hateoas).
       required:
         - processingTerminalId
         - link
@@ -50,7 +50,7 @@ components:
         properties:
           data:
             type: array
-            description: An array of processing terminal objects.
+            description: Array of processing terminal objects.
             items:
               $ref: '#/components/schemas/processingTerminal'
 
@@ -59,7 +59,7 @@ components:
       properties:
         processingTerminalId:
           type: string
-          description: Unique identifier that our gateway assigned to the terminal.
+          description: Unique identifier that we assigned to the processing terminal.
           example: '011234001'
         status:
           type: string
@@ -255,6 +255,7 @@ components:
               description: Indicates if the terminal can send receipts by text message.
         devices:
           type: array
+          description: Array of device objects. Each object contains information about a device using the processing terminal's configuration.
           items:
             type: object
             description: Object that contains the details of the device.
@@ -283,7 +284,7 @@ components:
         - processingTerminalId
         - status
         - timezone
-        - application
+        - applicationSettings
         - batchClosure
         - features
 

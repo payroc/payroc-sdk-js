@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 
 paths: {}
 
@@ -23,10 +23,9 @@ components:
       description: Object that contains summary information about the transaction.
       properties:
         transactionId:
-          type: integer
+          type: [integer, 'null']
           description: Unique identifier of the transaction. If we can't match a dispute to a transaction, we don't return 'transactionID' or a 'link' object.
           example: 12345
-          nullable: true 
         type:
           type: string
           description: Indicates the type of transaction. 
@@ -39,9 +38,8 @@ components:
           description: Date of the transaction. The format of this value is **YYYY-MM-DD**.
           example: '2024-07-02'
         entryMethod:
-          type: string
+          type: [string, 'null']
           description: Describes how the merchant received the payment details. If we can't match a dispute to a transaction, we don't return an 'entryMethod' object.
-          nullable: true
           enum:
             - barcodeRead
             - smartChipRead
