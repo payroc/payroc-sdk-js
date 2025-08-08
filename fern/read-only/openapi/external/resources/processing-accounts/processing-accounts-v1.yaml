@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Processing accounts
   description: Create and manage processing accounts
@@ -198,8 +198,16 @@ paths:
     post:
       summary: Create terminal order
       description: |
-       Use this method to order and configure terminals for a processing account. When you create an order, you specify the gateway settings, device settings, and application settings for the terminals. 
-       **Note**: You need the ID of the merchant's processing account before you can create an order. If you don't know the processingAccountId, go to [Retrieve a Merchant Platform.](#getMerchantAcccounts)
+       Use this method to order and configure terminals for a processing account.  
+       
+       **Note**: You need the ID of the processing account before you can create an order. If you don't know the processingAccountId, go to the [Retrieve a Merchant Platform](https://docs.payroc.com/api/schema/boarding/merchant-platforms/retrieve) method.  
+
+       In the request, specify the gateway settings, device settings, and application settings for the terminal.  
+
+       In the response, our gateway returns information about the terminal order including its status and terminalOrderId that you can use to [retrieve the terminal order](https://docs.payroc.com/api/schema/boarding/terminal-orders/retrieve).  
+
+       **Note**: You can subscribe to the terminalOrder.status.changed event to get notifications when we update the status of a terminal order. For more information about how to subscribe to events, go to [Events Subscriptions](https://docs.payroc.com/guides/integrate/event-subscriptions).  
+       
       operationId: createTerminalOrder
       tags:
         - Processing accounts
@@ -245,9 +253,21 @@ paths:
     get:
       summary: List terminal orders
       description: |
-        Use this method to retrieve a list of terminal orders associated with a processing account.  
-        Send the processingAccountId in the path parameter of your request.
-        > **Note**: If you don't know the processingAccountId, go to [List merchant platform's processing accounts](#listMerchantLocations).
+        Use this method to retrieve a [paginated](https://docs.payroc.com/api/pagination) list of terminal orders associated with a processing account.  
+
+        **Note:** If you want to view a specific terminal order and you have its terminalOrderId, use our [Retrieve Terminal Order](https://docs.payroc.com/api/schema/boarding/terminal-orders/retrieve) method.  
+
+        Use the query parameters to filter the list of results that we return, for example, to search for terminal orders by their status.  
+
+        Our gateway returns the following information for each terminal order in the list:  
+
+        - Status of the order  
+        - Items in the order  
+        - Training provider  
+        - Shipping information  
+
+        For each terminal order, we also return its terminalOrderId, which you can use to perform follow-on actions.   
+
       operationId: listProcessingAccountsTerminalOrders
       tags:
       - Processing accounts
@@ -319,8 +339,17 @@ paths:
       summary: List processing terminals
       description: |
         Use this method to retrieve a [paginated](https://docs.payroc.com/api/pagination) list of processing terminals associated with a processing account.  
-        Send the processingAccountId in the path parameter of your request.  
-        > **Note**: If you don't know the processingAccountId, go to [List merchant platform's processing accounts](#listMerchantLocations).
+
+        **Note:** If you want to view the details of a specific processing terminal and you have its processingTerminalId, use our [Retrieve Processing Terminal](https://docs.payroc.com/api/schema/boarding/processing-terminals/retrieve) method.  
+
+        Our gateway returns the following information for each processing terminal in the list:  
+
+        - Status indicating whether the terminal is active or inactive.  
+        - Configuration settings, including gateway settings and application settings.  
+        - Features, receipt settings, and security settings.  
+        - Devices that use the processing terminal's configuration.  
+
+        For each processing terminal, we also return its processingTerminalId, which you can use to perform follow-on actions.  
       operationId: listProcessingAccountsProcessingTerminals
       tags:
       - Processing accounts
@@ -1163,10 +1192,8 @@ components:
             - requestedViaDirectLink
           example: requestedViaDirectLink
         link:
+          description: Object that contains links to the signed contract.
           allOf:
-            - type: object
-              readOnly: true
-              description: Object that contains links to the signed contract.
             - $ref: '../../../common/schemas/common/link/link-v1.yaml#/components/schemas/link'
           example: 
             rel: agreement

@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Payroc API
   version: '1'
@@ -14,7 +14,9 @@ components:
         maxLength: 50
         minLength: 1
         type: string
-      example: Sarah%20Hazel%20Hopper
+      examples:
+        example:
+          value: Sarah%20Hazel%20Hopper
 
     last4:
       name: last4
@@ -23,7 +25,9 @@ components:
       schema:
         pattern: "[0-9]{4}"
         type: string
-      example: '7062'
+      examples:
+        example:
+          value: '7062'
 
     paymentPlan:
       name: paymentPlan
@@ -33,7 +37,9 @@ components:
         maxLength: 128
         minLength: 1
         type: string
-      example: Premium%20Club
+      examples:
+        example:
+          value: Premium%20Club
 
     frequency:
       name: frequency
@@ -47,7 +53,9 @@ components:
           - monthly
           - quarterly
           - yearly
-      example: monthly
+      examples:
+        example:
+          value: monthly
 
     status:
       name: status
@@ -60,7 +68,9 @@ components:
           - completed
           - suspended
           - cancelled
-      example: active
+      examples:
+        example:
+          value: active
 
     endDate:
       name: endDate
@@ -71,7 +81,9 @@ components:
       schema:
         type: string
         format: date
-      example: '2025-07-01'
+      examples:
+        example:
+          value: '2025-07-01'
       
     nextDueDate:
       name: nextDueDate
@@ -82,7 +94,9 @@ components:
       schema:
         type: string
         format: date
-      example: '2024-08-01'
+      examples:
+        example:
+          value: '2024-08-01'
 
     subscriptionId:
       name: subscriptionId
@@ -93,4 +107,6 @@ components:
         maxLength: 48
         minLength: 1
         type: string
-      example: SubRef7654
+      examples:
+        example:
+          value: SubRef7654
