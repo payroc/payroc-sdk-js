@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 
 paths: {}
 
@@ -27,9 +27,8 @@ components:
           description: Card number. We mask the number except for the first six digits and the last four digits.
           example: 123456**********4124
         type:
-          type: string
+          type: [string, 'null']
           description: Card type. If we can't match a dispute to a transaction, we don't return a 'type' object.
-          nullable: true
           enum:
             - visa 
             - masterCard
