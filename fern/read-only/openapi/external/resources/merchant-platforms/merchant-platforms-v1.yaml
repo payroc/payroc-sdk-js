@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Merchant platforms
   description: Create and manage merchant plaforms
@@ -73,8 +73,6 @@ paths:
           headers:
             location:
               description: URI reference to the resource.
-              style: simple
-              explode: false
               schema:
                 type: string
         '400':
@@ -290,8 +288,6 @@ paths:
           headers:
             location:
               description: URI reference to the resource.
-              style: simple
-              explode: false
               schema:
                 type: string
         '400':
@@ -439,13 +435,13 @@ components:
         processingAccounts:
           readOnly: true
           description: Array of processingAccount objects.
-          required:
-          #  - processingAccountId
-           - doingBusinessAs
-           - status
           type: array
           items:
             type: object
+            required:
+            #  - processingAccountId
+              - doingBusinessAs
+              - status
             title: processingAccount
             properties:
               processingAccountId:
