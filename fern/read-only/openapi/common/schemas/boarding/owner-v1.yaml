@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 
 paths: {}
 
@@ -59,8 +59,6 @@ components:
         identifiers:
           minItems: 1
           type: array
-          xml:
-            wrapped: true
           description: Array of IDs.
           example:
           - type: nationalId

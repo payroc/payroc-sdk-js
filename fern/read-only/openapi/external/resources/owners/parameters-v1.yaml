@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Payroc API
   version: '1'
@@ -11,8 +11,8 @@ components:
       in: path
       description: Unique identifier that we assigned to the owner.
       required: true
-      style: simple
-      explode: false
       schema:
         type: integer
-      example: 4564
+      examples:
+        example:
+          value: 4564

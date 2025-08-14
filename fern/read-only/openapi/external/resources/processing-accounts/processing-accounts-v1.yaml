@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Processing accounts
   description: Create and manage processing accounts
@@ -21,7 +21,20 @@ paths:
       tags:
       - Processing accounts
       summary: Retrieve processing account
-      description: Retrieve a specific processing account.
+      description: |
+        Use this method to retrieve information about a specific processing account.  
+
+        To retrieve a processing account, you need its processingAccountId. Our gateway returned the processingAccountId in the response of the [Create Merchant Platform](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create) method or the [Create Processing Account](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create-processing-account) method.  
+
+        **Note:** If you don't have the processingAccountId, use our [List Merchant Platform's Processing Accounts](https://docs.payroc.com/api/schema/boarding/merchant-platforms/list-processing-accounts) method to search for the processing account.  
+
+        Our gateway returns the following information about the processing account:  
+
+        -	Business information, including the Merchant Category Code (MCC), status of the processing account, and address of the business.  
+        -	Processing information, including the merchant’s refund policies and card types that the merchant accepts.  
+        -	Funding information, including funding schedules, funding fees, and details for the merchant’s funding accounts.  
+        -	Pricing information, including [HATEOAS](https://docs.payroc.com/knowledge/basic-concepts/hypermedia-as-the-engine-of-application-state-hateoas) links to retrieve the pricing program for the processing account.  
+
       operationId: getProcessingAcccounts
       parameters:
       - $ref: './parameters-v1.yaml#/components/parameters/processingAccountId'
@@ -95,7 +108,20 @@ paths:
       tags:
       - Processing accounts
       summary: List contacts
-      description: Retrieve a list of contacts associated with a processing account.
+      description: |
+        Use this method to retrieve a list of contacts for a processing account.    
+
+        **Note:** If you want to view a specific contact and you have their contactId, go to our [Retrieve Contact](https://docs.payroc.com/api/schema/boarding/contacts/retrieve) method.  
+
+        To retrieve a list of contacts for a processing account, you need the processingAccountId. Our gateway returned the processingAccountId in the response of the [Create Merchant Platform](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create) method or the [Create Processing Account](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create-processing-account) method.  
+
+        Our gateway returns the following information about each contact:  
+
+        - Name and contact method, including their phone number or mobile number.  
+        - Role within the business, for example, if they are a manager.  
+
+        For each contact, we also return a contactId, which you can use to perform follow-on actions.  
+        
       operationId: listProcessingAccountContacts
       parameters:
         - $ref: './parameters-v1.yaml#/components/parameters/processingAccountId'
@@ -128,7 +154,19 @@ paths:
   /processing-accounts/{processingAccountId}/pricing:
     get: 
       summary: Get processing account pricing agreement 
-      description: Retrieve a pricing agreement for a processing account.
+      description: |
+        Use this method to retrieve the pricing agreement that we apply to a processing account.  
+
+        To retrieve the pricing agreement of a processing account, you need the processingAccountId. Our gateway returned the processingAccountId in the response to the [Create Merchant Platform](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create) method and [Create Processing Account](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create-processing-account) method.  
+
+        **Note:** If you don't have the processingAccountId, use our [List Merchant Platform’s Processing Accounts](https://docs.payroc.com/api/schema/boarding/merchant-platforms/list-processing-accounts) method to search for the processing account.  
+
+        Our gateway returns the following information about the pricing agreement that we apply to the processing account:  
+
+        - Base fees, including the annual fee and the fees for each chargeback and retrieval.  
+        - Processor fees, including the fees that we apply for processing card and ACH payments.  
+        - Gateway fees, including the setup fee and the fees for each transaction.  
+        - Service fees, including the fee that we apply if the merchant has signed up to a Hardware Advantage Plan.  
       operationId: retrieveProcessingAccountPricing
       tags:
       - Processing accounts
@@ -198,8 +236,16 @@ paths:
     post:
       summary: Create terminal order
       description: |
-       Use this method to order and configure terminals for a processing account. When you create an order, you specify the gateway settings, device settings, and application settings for the terminals. 
-       **Note**: You need the ID of the merchant's processing account before you can create an order. If you don't know the processingAccountId, go to [Retrieve a Merchant Platform.](#getMerchantAcccounts)
+       Use this method to order and configure terminals for a processing account.  
+       
+       **Note**: You need the ID of the processing account before you can create an order. If you don't know the processingAccountId, go to the [Retrieve a Merchant Platform](https://docs.payroc.com/api/schema/boarding/merchant-platforms/retrieve) method.  
+
+       In the request, specify the gateway settings, device settings, and application settings for the terminal.  
+
+       In the response, our gateway returns information about the terminal order including its status and terminalOrderId that you can use to [retrieve the terminal order](https://docs.payroc.com/api/schema/boarding/terminal-orders/retrieve).  
+
+       **Note**: You can subscribe to the terminalOrder.status.changed event to get notifications when we update the status of a terminal order. For more information about how to subscribe to events, go to [Events Subscriptions](https://docs.payroc.com/guides/integrate/event-subscriptions).  
+       
       operationId: createTerminalOrder
       tags:
         - Processing accounts
@@ -245,9 +291,21 @@ paths:
     get:
       summary: List terminal orders
       description: |
-        Use this method to retrieve a list of terminal orders associated with a processing account.  
-        Send the processingAccountId in the path parameter of your request.
-        > **Note**: If you don't know the processingAccountId, go to [List merchant platform's processing accounts](#listMerchantLocations).
+        Use this method to retrieve a [paginated](https://docs.payroc.com/api/pagination) list of terminal orders associated with a processing account.  
+
+        **Note:** If you want to view a specific terminal order and you have its terminalOrderId, use our [Retrieve Terminal Order](https://docs.payroc.com/api/schema/boarding/terminal-orders/retrieve) method.  
+
+        Use the query parameters to filter the list of results that we return, for example, to search for terminal orders by their status.  
+
+        Our gateway returns the following information for each terminal order in the list:  
+
+        - Status of the order  
+        - Items in the order  
+        - Training provider  
+        - Shipping information  
+
+        For each terminal order, we also return its terminalOrderId, which you can use to perform follow-on actions.   
+
       operationId: listProcessingAccountsTerminalOrders
       tags:
       - Processing accounts
@@ -319,8 +377,17 @@ paths:
       summary: List processing terminals
       description: |
         Use this method to retrieve a [paginated](https://docs.payroc.com/api/pagination) list of processing terminals associated with a processing account.  
-        Send the processingAccountId in the path parameter of your request.  
-        > **Note**: If you don't know the processingAccountId, go to [List merchant platform's processing accounts](#listMerchantLocations).
+
+        **Note:** If you want to view the details of a specific processing terminal and you have its processingTerminalId, use our [Retrieve Processing Terminal](https://docs.payroc.com/api/schema/boarding/processing-terminals/retrieve) method.  
+
+        Our gateway returns the following information for each processing terminal in the list:  
+
+        - Status indicating whether the terminal is active or inactive.  
+        - Configuration settings, including gateway settings and application settings.  
+        - Features, receipt settings, and security settings.  
+        - Devices that use the processing terminal's configuration.  
+
+        For each processing terminal, we also return its processingTerminalId, which you can use to perform follow-on actions.  
       operationId: listProcessingAccountsProcessingTerminals
       tags:
       - Processing accounts
@@ -358,10 +425,16 @@ paths:
         - Processing accounts
       summary: Create reminder for processing account
       description: | 
-        When you create a processing account, we send a copy of the pricing agreement to the merchant to sign. You can choose to send them a copy of the pricing agreement by email, or you can generate a link to the pricing agreement.<br/>  
-        If you requested the merchant's signature by email and they don't respond, use our Reminders endpoint to create a reminder and to send another email.<br/>  
-        **Note:** You can use the Reminders endpoint only if you request the merchant's signature by email. If you generate a link to the pricing agreement, you can't use the Reminders endpoint.  
- 
+        Use this method to prompt a merchant to sign their pricing agreement.  
+
+        You can create a reminder only if you requested the merchant’s signature by email when you created the processing account for the merchant.  
+
+        To create a reminder, you need the processingAccountId. Our gateway returned the processingAccountId in the response of the [Create Merchant Platform](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create) method or [Create Processing Account](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create-processing-account) method. 
+        
+        **Note:** If you don’t know the processingAccountId, use our [List Merchant Platform’s Processing Accounts](https://docs.payroc.com/api/schema/boarding/merchant-platforms/list-processing-accounts) method to search for the processing account.  
+
+        When you send a successful request, we send an email to the merchant that prompts them to sign their pricing agreement.  
+
       operationId: createReminder
       parameters:
         - $ref: './parameters-v1.yaml#/components/parameters/processingAccountId'
@@ -418,6 +491,7 @@ paths:
 components:
   schemas:
     processing:
+      description: Object that contains information about how we process transactions for the account. 
       type: object
       title: processing
       required:
@@ -519,6 +593,7 @@ components:
               - dec
           example: [jan, feb]
         ach: 
+          description: Object that contains information about Automated Clearing House (ACH) transactions. 
           type: object
           required:
             - refunds
@@ -536,6 +611,7 @@ components:
               description: Indicates if the business or its principals were previously turned down for ACH processing.
               example: false
             refunds:
+              description: Object that contains information about the ACH refund policy for the processing account. 
               type: object
               required:
                 - writtenRefundPolicy
@@ -555,6 +631,7 @@ components:
               description: Estimated maximum number of transactions that the merchant will process in a month.
               example: 3000
             limits:
+              description: Object that contains information about transaction limits for the processing account. 
               type: object
               required:
                 - singleTransaction
@@ -575,7 +652,7 @@ components:
                   example: 6000000 # TODO: Confirm if this is actually a Count
             transactionTypes:
               type: array
-              description: List of supported transaction types.
+              description: List of transaction types that the processing account supports. 
               uniqueItems: true
               items: 
                 type: string
@@ -595,7 +672,7 @@ components:
               example: anotherTransactionType
         cardAcceptance:
           type: object
-          description: Information around the type of cards that will be accepted.
+          description: Object that contains information about the types of cards that the processing account accepts. 
           properties:
             debitOnly:
               type: boolean
@@ -625,6 +702,7 @@ components:
               description: Information about the speciality cards that the merchant accepts.
               properties:
                 americanExpressDirect:
+                  description: Object that indicates if the merchant accepts American Express Direct cards and contains the merchant’s American Express merchant number. 
                   type: object
                   properties:
                     enabled:
@@ -638,6 +716,7 @@ components:
                       maxLength: 100
                       example: 'abc1234567'
                 electronicBenefitsTransfer:
+                  description: Object that indicates if the merchant accepts Electronic Benefits Transfer (EBT) cards and contains the merchant’s Food and Nutrition Services (FNS) number.
                   type: object
                   properties:
                     enabled:
@@ -651,6 +730,7 @@ components:
                       maxLength: 7
                       example: 'abc1234'
                 other: 
+                  description: Object that contains information about other speciality cards that the merchant accepts. 
                   type: object
                   properties:
                     wexMerchantNumber:
@@ -697,8 +777,9 @@ components:
           example: Pizza Doe
         owners:
           description: |
-            Collection of individuals that are responsible for a processing account. When you create a processing account, you must indicate at least one owner as either of the following:
-            - **Control prong** - An individual who has a significant equity stake in the business and can make decisions for the processing account. You can add only one control prong to a processing account.
+            Collection of individuals that are responsible for a processing account. When you create a processing account, you must indicate at least one owner as either of the following:  
+
+            - **Control prong** - An individual who has a significant equity stake in the business and can make decisions for the processing account. You can add only one control prong to a processing account.  
             - **Authorized signatory** - An individual who doesn't have an equity stake in the business but can make decisions for the processing account.
           minItems: 1
           type: array
@@ -856,28 +937,32 @@ components:
             title: owner
             properties:
               ownerId:
+                description: Unique identifier of the owner. 
                 type: integer
                 example: 4564
-              firstName: 
+              firstName:
+                description: Owner's first name.  
                 type: string
                 example: Jane
               lastName:
+                description: Owner's last name. 
                 type: string
                 example: Doe
               link:
+                description: HATEOAS links to the owners of the processing account. 
                 type: object
                 properties:
                   rel:
                     type: string
-                    description: The relationship to the parent resource.
+                    description: Indicates the relationship between the current resource and the target resource. 
                     example: owner
                   href:
                     type: string
-                    description: The link to the resource.
+                    description: URL of the target resource. 
                     example: 'https://api.payroc.com/v1/owners/1543'
                   method:
                     type: string
-                    description: HTTP method for retrieving the resource.
+                    description: HTTP method that you need to use with the target resource.
                     example: get
         website:
           type: string
@@ -920,7 +1005,7 @@ components:
         contactMethods:
           type: array
           minItems: 1
-          description: Array of contactMethods objects for the processing account. Atleast one contactMethod must be an email address.
+          description: Array of contactMethods objects for the processing account. At least one contactMethod must be an email address.
           items:
             $ref: '../../../common/schemas/common/contact-method-v1.yaml#/components/schemas/contactMethod'
         processing:
@@ -929,24 +1014,24 @@ components:
           $ref: '#/components/schemas/funding'
         pricing:
           type: object
-          description: Object that contains pricing information. 
+          description: Object that HATEOAS links to the pricing information that we apply to the processing account.
           properties:
             link:
               type: object
-              description: HATEOAS link for pricing information. 
+              description: Object that contains HATEOAS links to the pricing information for the processing account. 
               properties:
                 rel:
                   type: string
                   example: pricing
-                  description: Relationship to the parent resource.
+                  description: Indicates the relationship between the current resource and the target resource.
                 href:
                   type: string
                   example: 'https://api.payroc.com/v1/processing-accounts/38765/pricing'
-                  description: Link to the resource.
+                  description: URL of the target resource.
                 method:
                   type: string
                   example: get
-                  description: HTTP method you can use to retrieve the resource.
+                  description: HTTP method that you need to use with the target resource.
         contacts:
           readOnly: true
           description: Array of contact objects.
@@ -1001,7 +1086,7 @@ components:
 
     pricing:
       type: object
-      description: Object that contains pricing information.
+      description: Object that contains HATEOAS links to the pricing information that we apply to the processing account.
       discriminator: 
         propertyName: type
         mapping: 
@@ -1019,6 +1104,7 @@ components:
         - type: object
           properties:
             fundingAccounts:
+              description: Object that contains funding accounts associated with the processing account. 
               minItems: 1
               maxItems: 2
               readOnly: true
@@ -1075,7 +1161,7 @@ components:
           default: 0
         dailyDiscount:
           type: boolean
-          description: Indicates if we should collect fees from the merchant's account each day. 
+          description: Indicates if we collect fees from the merchant's account each day. 
           example: false
     paginatedContacts:
       type: object
@@ -1137,8 +1223,8 @@ components:
         - $ref: '#/components/schemas/signatureByDirectLink'
         - $ref: '#/components/schemas/signatureByEmail'
     signatureByEmail:
+      description: Object that contains signature information if we captured the merchant’s signature by email.  
       title: Signature by email
-      description: Owner's signature by email.
       type: object
       required:
         - type
@@ -1150,8 +1236,8 @@ components:
             - requestedViaEmail
           example: requestedViaEmail
     signatureByDirectLink:
+      description: Object that contains signature information if we captured the merchant’s signature by direct link. 
       title: Signature by direct link
-      description: We return a link to the pricing agreement in the response.
       type: object
       required:
         - type
@@ -1163,10 +1249,8 @@ components:
             - requestedViaDirectLink
           example: requestedViaDirectLink
         link:
+          description: Object that contains links to the signed contract.
           allOf:
-            - type: object
-              readOnly: true
-              description: Object that contains links to the signed contract.
             - $ref: '../../../common/schemas/common/link/link-v1.yaml#/components/schemas/link'
           example: 
             rel: agreement
@@ -1265,6 +1349,7 @@ components:
 
     # Deliberately duplicated from internal version, for internal/external separation
     pricingAgreementReminder:
+      description: Object that contains information about the pricing agreement reminder. 
       type: object
       required: 
         - type
