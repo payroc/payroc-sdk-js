@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Payroc API
   version: '1'
@@ -20,9 +20,6 @@ components:
       description: "A filter on existing merchant id, allows 
         \ searches through documents already attached to 
         \ merchant accounts"
-      required: false
-      style: form
-      explode: true
       schema:
         type: string
 
@@ -31,9 +28,6 @@ components:
       in: query
       description: "A filter on the result set, limiting the documents returned\
         \ to only those matching type `purpose`"
-      required: false
-      style: form
-      explode: true
       schema:
         type: string
         enum:
@@ -43,4 +37,3 @@ components:
           - signature
           - contract
           - verification
-  

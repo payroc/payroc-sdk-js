@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Processing terminals
   description: Retrieve processing terminals
@@ -27,9 +27,19 @@ paths:
       - Processing terminals
       summary: Retrieve processing terminal
       description: |
-        Use this method to retrieve the configuration for a processing terminal. The configuration includes the terminal's settings and details about how our gateway should handle transactions.
-        To get a processingTerminalId, go to [Retrieve Terminal Order](#getTerminalOrder) or [List Processing Terminals](#listProcessingAccountsProcessingTerminals).
-        > **Note**: If you want to retrieve the processor configuration for the processing terminal, go to [Retrieve Host Configuration](#getProcessingTerminalHostConfiguration). 
+        Use this method to retrieve information about a processing terminal.  
+
+        To retrieve a processing terminal, you need its processingTerminalId. Our gateway returned the processingTerminalId in the response of the [Create Terminal Order](https://docs.payroc.com/api/schema/boarding/processing-accounts/create-terminal-order) method.  
+
+        **Note:** If you don't have the processingTerminalId, use our [Retrieve Terminal Order](https://docs.payroc.com/api/schema/boarding/terminal-orders/retrieve) method or our [List Processing Terminals](https://docs.payroc.com/api/schema/boarding/processing-accounts/list-processing-terminals) method to search for the processing terminal.  
+
+        Our gateway returns the following information about the processing terminal:  
+
+        - Status indicating whether the terminal is active or inactive.  
+        - Configuration settings, including gateway settings and application settings.  
+        - Features, receipt settings, and security settings.  
+        - Devices that use the processing terminal's configuration.  
+          
       operationId: getProcessingTerminal
       parameters:
       - $ref: ../../../common/parameters/processing-terminal-id-v1.yaml#/components/parameters/processingTerminalIdPath
@@ -60,10 +70,11 @@ paths:
     get:
       tags:
       - Processing terminals
-      summary: Retrieve processing terminal's host processor configuration
+      summary: Retrieve host processor configuration
       description: |
-        Use this method to retrieve the host configuration of a processing terminal. You need this information to connect a third-party gateway to a merchant account.
-        > **Note**: If you need information about a merchant or a list of processing accounts associated with a merchant's account, go to [Retrieve Merchant Platform](#getMerchantAcccounts).
+        Use this method to retrieve the host processor configuration of a processing terminal. Integrate with this method only if you use your own gateway and want to validate the processor configuration.  
+        
+        Our gateway returns the configuration settings for the merchant and the payment terminal.
       operationId: getProcessingTerminalHostConfiguration
       parameters:
       - $ref: ../../../common/parameters/processing-terminal-id-v1.yaml#/components/parameters/processingTerminalIdPath
