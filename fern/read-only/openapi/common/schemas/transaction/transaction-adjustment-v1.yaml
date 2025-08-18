@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Payroc API
   version: '1'
@@ -51,12 +51,11 @@ components:
             - order
           example: order
         amount:
-          minimum: 0
-          exclusiveMinimum: true
+          exclusiveMinimum: 0
           type: integer
           format: int64
           description: Total amount of the transaction.
-          #example: 4999 # Linting won't allow explicit value due to ReDocly getting confused with exclusiveMinimum
+          example: 4999
         breakdown:
           $ref: '#/components/schemas/breakdownAdjustment'
 

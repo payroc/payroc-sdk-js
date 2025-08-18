@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: Transaction API
   version: '1'
@@ -199,7 +199,7 @@ components:
             - $ref: '../../../common/schemas/transaction/payment-method-v1.yaml#/components/schemas/cardPayload'
     cardVerificationResult:
       required:
-        - card
+        #- card # Property does not exist
         - processingTerminalId
         - verified
       type: object
@@ -345,8 +345,7 @@ components:
           description: Unique identifier that we assigned to the terminal.
           example: '1234001'
         amount:
-          minimum: 0
-          exclusiveMinimum: true
+          exclusiveMinimum: 0
           type: integer
           format: int64
           description: Transaction amount that you send to check the surcharge amount. The value is in the currency's lowest denomination, for example, cents. 
