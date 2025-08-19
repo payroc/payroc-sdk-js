@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Payroc API
   version: '1'
@@ -15,7 +15,9 @@ components:
         maxLength: 200
         minLength: 1
         type: string
-      example: MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa
+      examples:
+        example:
+          value: MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa
 
     secureTokenIdInQuery:
       name: secureTokenId
@@ -25,7 +27,9 @@ components:
         maxLength: 200
         minLength: 1
         type: string
-      example: MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa
+      examples:
+        example:
+          value: MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa
 
     customerName:
       name: customerName
@@ -35,7 +39,9 @@ components:
         maxLength: 50
         minLength: 1
         type: string
-      example: Sarah%20Hazel%20Hopper
+      examples:
+        example:
+          value: Sarah%20Hazel%20Hopper
 
     phone:
       name: phone
@@ -45,7 +51,9 @@ components:
         maxLength: 15
         minLength: 1
         type: string
-      example: '2025550165'
+      examples:
+        example:
+          value: '2025550165'
 
     email:
       name: email
@@ -55,7 +63,9 @@ components:
         maxLength: 100
         minLength: 1
         type: string
-      example: 'sarah.hopper@example.com'
+      examples:
+        example:
+          value: 'sarah.hopper@example.com'
 
     token:
       name: token
@@ -65,7 +75,9 @@ components:
         maxLength: 19
         minLength: 12
         type: string
-      example: '296753123456'
+      examples:
+        example:
+          value: '296753123456'
 
     first6:
       name: first6
@@ -74,7 +86,9 @@ components:
       schema:
         pattern: '[0-9]{6}'
         type: string
-      example: '453985'
+      examples:
+        example:
+          value: '453985'
 
     last4:
       name: last4
@@ -83,4 +97,6 @@ components:
       schema:
         pattern: '[0-9]{4}'
         type: string
-      example: '7062'
+      examples:
+        example:
+          value: '7062'
