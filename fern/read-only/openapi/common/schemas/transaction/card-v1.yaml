@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Payroc API
   version: '1'
@@ -258,8 +258,7 @@ components:
           description: Indicates if the merchant can add a surcharge when the customer uses this card.
           example: true
         amount:
-          minimum: 0
-          exclusiveMinimum: true
+          exclusiveMinimum: 0
           type: integer
           format: int64
           description: |
@@ -267,10 +266,8 @@ components:
             **Note:** Our gateway returns the surcharge amount only if you include a transaction amount in the request.
           example: 87
         percentage:
+          exclusiveMinimum: 0
           maximum: 100
-          exclusiveMaximum: false
-          minimum: 0
-          exclusiveMinimum: true
           type: number
           format: double
           description: Surcharge rate that the merchant configures on their account.
