@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Payroc API
   version: '1'
@@ -10,20 +10,22 @@ components:
       name: status
       in: query
       description: Filter event subscriptions by subscription status. 
-      required: false
       schema:
         type: string
         enum: [registered, suspended, failed]
-      example: registered
+      examples:
+        example:
+          value: registered
 
     event:
       name: event
       in: query
       description: Filter event subscriptions by event type. For a complete list of events, go to [Events](#https://docs.payroc.com/knowledge/basic-concepts/events). 
-      required: false
       schema:
         type: string
-      example: processingAccount.status.changed
+      examples:
+        example:
+          value: processingAccount.status.changed
 
     subscriptionId:
       name: subscriptionId
@@ -33,13 +35,14 @@ components:
       schema:
         type: integer
         format: int32
-      example: 7654
+      examples:
+        example:
+          value: 7654
 
     from:
       name: from
       in: query
       description: Filters the events to only those that have occurred since `from`
-      required: false
       schema:
         type: string
         format: date-time
@@ -48,7 +51,6 @@ components:
       name: to
       in: query
       description: Filters the events to only those that have occurred before `to`
-      required: false
       schema:
         type: string
         format: date-time
@@ -57,8 +59,9 @@ components:
       name: status
       in: query
       description: Filters the events to only those that have a `notified status` matching the specified `status`
-      required: false
       schema:
         type: string
         enum: [success, failed, pending]
-      example: success
+      examples:
+        example:
+          value: success

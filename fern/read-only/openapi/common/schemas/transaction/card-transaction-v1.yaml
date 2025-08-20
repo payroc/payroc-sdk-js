@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Payroc API
   version: '1'
@@ -20,7 +20,6 @@ components:
           - addSignature
           - setAsReady
           - setAsPending
-          - setAsDeclined
       description: |
         Array of operations that you can perform on the transaction.
         - `capture`                - Capture the payment.
@@ -32,7 +31,6 @@ components:
         - `addSignature`           - Add a signature to the payment.
         - `setAsReady`             - Set the transaction’s status to `ready`.
         - `setAsPending`           - Set the transaction’s status to `pending`.
-        - `setAsDeclined`          - Set the transaction’s status to `declined`.
       example:
         - capture
         - refund
@@ -43,14 +41,11 @@ components:
         - addSignature
         - setAsReady
         - setAsPending
-        - setAsDeclined        
 
     transactionResult:
       required:
-        - type
         - status
         - responseCode
-        - responseMessage
       type: object
       properties:
         type:
