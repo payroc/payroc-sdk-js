@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 
 paths: {}
 
@@ -21,12 +21,8 @@ components:
       uniqueItems: true
       type: array
       description: Array of PaymentMethodAch objects.
-      xml:
-        wrapped: true
       items:
         title: payment method
-        xml:
-          name: paymentMethod
         discriminator:
           propertyName: type
           mapping:
