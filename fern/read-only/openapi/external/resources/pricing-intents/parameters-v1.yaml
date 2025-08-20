@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Payroc API
   version: '1'
@@ -10,7 +10,9 @@ components:
       in: path
       name: pricingIntentId
       required: true
-      description: Unique identifier of the pricing intent.
+      description: Unique identifier that we assigned to the pricing intent.
       schema:
         type: string
-      example: '5'
+      examples:
+        example:
+          value: '5'

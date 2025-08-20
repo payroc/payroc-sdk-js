@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: Transaction API
   version: '1'
@@ -33,7 +33,7 @@ paths:
 
         In the response, our gateway returns information about the refund and a refundId, which you need for the following methods:  
 
-        -	[Retrieve refund](https://docs.payroc.com/api/schema/payments/bank-transfer-refunds/get) – View the details of the refund.  
+        -	[Retrieve refund](https://docs.payroc.com/api/schema/payments/bank-transfer-refunds/retrieve) – View the details of the refund.  
         -	[Reverse refund](https://docs.payroc.com/api/schema/payments/bank-transfer-refunds/reverse) – Cancel the refund if it’s in an open batch.  
       requestBody:
         content:
@@ -357,6 +357,8 @@ components:
           example: 52d9b7f7-3b39-4cd6-9acb-1050f8593ec6
         order:
           $ref: "#/components/schemas/bankTransferRefundOrder"
+        customer:
+          $ref: "../bank-transfer-payments/bank-transfer-payments-v1.yaml#/components/schemas/bankTransferCustomer"
         refundMethod:
           description: Object that contains information about how the merchant refunds the customer. 
           type: object
