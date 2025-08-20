@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: Transaction API
   version: '1'
@@ -22,7 +22,15 @@ paths:
         - Bank accounts
       summary: Verify bank account
       operationId: verifyBankAccount
-      description: Use this method to verify a customer's bank account details.  
+      description: |
+        Use this method to verify a customer's bank account details.  
+
+        In the request, send the customer's bank account details. Our gateway can verify the following types of bank details:  
+        - Automated Clearing House (ACH) details  
+        - Pre-Authorized Debit (PAD) details  
+
+        In the response, our gateway indicates if the account details are valid and if you should use them in follow-on actions.  
+          
       parameters:
         - $ref: ../../../common/parameters/idempotency-key-v1.yaml#/components/parameters/idempotencyKey
       requestBody:

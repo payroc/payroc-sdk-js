@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Payroc API
   version: '1'
@@ -14,7 +14,10 @@ components:
       schema:
         type: string
         format: date
-      example: '2024-07-02'
+      examples:
+        example:
+          value: '2024-07-02'
+
     dateTo:
       name: dateTo
       in: query
@@ -23,4 +26,6 @@ components:
       schema:
         type: string
         format: date
-      example: '2024-07-03'
+      examples:
+        example:
+          value: '2024-07-03'
