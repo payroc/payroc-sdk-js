@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Merchant platforms
   description: Create and manage merchant plaforms
@@ -73,8 +73,6 @@ paths:
           headers:
             location:
               description: URI reference to the resource.
-              style: simple
-              explode: false
               schema:
                 type: string
         '400':
@@ -211,6 +209,8 @@ paths:
 
         Use the query parameters to filter the list of results that we return, for example, to search for only closed processing accounts.  
 
+        To list the processing accounts for a merchant platform, you need its merchantPlatformId. If you don't have the merchantPlatformId, use our [List Merchant Platforms](https://docs.payroc.com/api/schema/boarding/merchant-platforms/list) method to search for the merchant platform.
+
         Our gateway returns the following information about eahc processing account in the list:  
         - Business details, including its status, time zone, and address.  
         - Owners' details, including their contact details.  
@@ -290,8 +290,6 @@ paths:
           headers:
             location:
               description: URI reference to the resource.
-              style: simple
-              explode: false
               schema:
                 type: string
         '400':
@@ -439,13 +437,13 @@ components:
         processingAccounts:
           readOnly: true
           description: Array of processingAccount objects.
-          required:
-          #  - processingAccountId
-           - doingBusinessAs
-           - status
           type: array
           items:
             type: object
+            required:
+            #  - processingAccountId
+              - doingBusinessAs
+              - status
             title: processingAccount
             properties:
               processingAccountId:

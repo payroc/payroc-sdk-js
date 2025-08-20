@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Payroc API
   version: '1'
@@ -111,8 +111,7 @@ components:
       description: Object that contains information about the convenience fee for the transaction.
       properties:
         amount:
-          minimum: 0
-          exclusiveMinimum: true
+          exclusiveMinimum: 0
           type: integer
           format: int64
           description: |
@@ -150,22 +149,19 @@ components:
         unitPrice:
           type: number
           description: Price of each unit.
-          minimum: 0
-          exclusiveMinimum: true
+          exclusiveMinimum: 0
           example: 2709
         quantity:
           type: number
           format: double
-          minimum: 0.0
-          exclusiveMinimum: true
+          exclusiveMinimum: 0.0
           description: Number of units.
           example: 1.0
         discountRate:
           type: number
           format: double
           description: Discount rate that the merchant applies to the item.
-          minimum: 0.0
-          exclusiveMinimum: true
+          exclusiveMinimum: 0.0
           example: 5.0
         taxes:
           type: array
@@ -190,17 +186,14 @@ components:
           format: double
           description: Tax percentage for the transaction.  
           maximum: 99.99999
-          exclusiveMaximum: false
           minimum: 0.0
-          exclusiveMinimum: false
           example: 7.0
         amount:
           type: integer
           format: int64
           readOnly: true
           description: Amount of tax that was applied to the transaction. The value is in the currency's lowest denomination, for example, cents.
-          minimum: 0
-          exclusiveMinimum: true
+          exclusiveMinimum: 0
           example: 190
   
     dualPricing:
@@ -242,8 +235,7 @@ components:
             `false` - The gateway adds the fee to the transaction.   
           example: false
         amount:
-          minimum: 0
-          exclusiveMinimum: true
+          exclusiveMinimum: 0
           type: integer
           format: int64
           readOnly: true
@@ -253,9 +245,7 @@ components:
           example: 50
         percentage:
           maximum: 100.0
-          exclusiveMaximum: false
-          minimum: 0.0
-          exclusiveMinimum: true
+          exclusiveMinimum: 0.0
           type: number
           format: double
           readOnly: true
@@ -287,9 +277,7 @@ components:
             If the customer used a card to pay for the transaction, this value indicates the percentage that our gateway added to the transaction amount.  
             **Note:** Our gateway returns a value for **rate** only if the value for **applied** in the request is `true`.
           maximum: 100.0
-          exclusiveMaximum: false
-          minimum: 0.0
-          exclusiveMinimum: true
+          exclusiveMinimum: 0.0
           example: 2.5
         amount:
           type: integer
@@ -297,8 +285,7 @@ components:
           description: |
             If the customer used a card to pay for the transaction, this value indicates the amount that our gateway added to the transaction amount. This value is in the currency’s lowest denomination, for example, cents.  
             **Note:** Our gateway returns a value for **amount** only if the value for **applied** in the request is `true`.
-          minimum: 0
-          exclusiveMinimum: true
+          exclusiveMinimum: 0
           example: 75
 
     tip:
@@ -328,19 +315,16 @@ components:
             - adjusted
           example: prompted
         amount:
-          minimum: 0
-          exclusiveMinimum: true
+          exclusiveMinimum: 0
           type: integer
           format: int64
           description: |
             If the value for **type** is `fixedAmount`, the value indicates the tip amount in the currency's lowest denomination, for example, cents.            
-          #example: 500 # Linting won't allow explicit value due to ReDocly getting confused with exclusiveMinimum
+          example: 500
         percentage:
           maximum: 100
-          exclusiveMaximum: false
-          minimum: 0
-          exclusiveMinimum: true
+          exclusiveMinimum: 0
           type: number
           format: double
           description: If the value for **type** is `percentage`, the value indicates the tip as a percentage.
-          #example: 10 # Linting won't allow explicit value due to ReDocly getting confused with exclusiveMinimum
+          example: 10

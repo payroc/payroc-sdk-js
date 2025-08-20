@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Payroc API
   version: '1'
@@ -299,7 +299,8 @@ components:
           amount: 4999
           currency: USD
           status: ready
-          responseCode: A
+          responseCode: A          
+          responseMessage: Transaction approved 
           link:
             rel: self
             method: GET
