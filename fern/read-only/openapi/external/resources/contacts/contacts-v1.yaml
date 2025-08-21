@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Contacts API
   description: Manage contacts.
@@ -25,7 +25,17 @@ paths:
       tags:
       - Contacts
       summary: Retrieve contact
-      description: Retrieve a specific contact.
+      description: |
+        Use this method to retrieve details about a contact.  
+
+        To retrieve a contact, you need its contactId. Our gateway returned the contactId in the [Create Processing Account](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create-processing-account) method.  
+
+        **Note:** If you don't have the contactId, use the [List Contacts](https://docs.payroc.com/api/schema/boarding/processing-accounts/list-contacts) method to search for the contact.  
+
+        Our gateway returns the following information about a contact:  
+        
+        -	Name and contact method, including their phone number or mobile number.  
+        -	Role within the business, for example, if they are a manager. 
       operationId: getContact
       parameters:
       - $ref: './parameters-v1.yaml#/components/parameters/contactId'
@@ -53,7 +63,19 @@ paths:
       tags:
       - Contacts
       summary: Update contact
-      description: Update a specific contact.
+      description: |
+        Use this method to update a contact of a processing account.  
+
+        To update a contact, you need its contactId. Our gateway returned the contactId in the response of the [Create Processing Account](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create-processing-account) method.  
+
+        **Note:** If you don't have the contactId, use our [List Contacts](https://docs.payroc.com/api/schema/boarding/processing-accounts/list-contacts) method to search for the contact.  
+
+        You can update the following details about a contact:  
+
+        -	First name and last name.  
+        -	Contact details, including their phone number or mobile number.  
+        -	Identification details, including their identification type and number.  
+        -	Role within the business, for example, if they are a manager.  
       operationId: updateContact
       parameters:
       - $ref: './parameters-v1.yaml#/components/parameters/contactId'
@@ -91,7 +113,12 @@ paths:
       tags:
       - Contacts
       summary: Delete contact
-      description: Delete a contact.
+      description: |
+        Use this method to delete a contact associated with a processing account.  
+
+        To delete a contact, you need their contactId. Our gateway returned the contactId in the response of the [Create Processing Account](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create-processing-account) method.  
+
+        **Note:** If you don’t have the contactId, use our [Retrieve Processing Account](https://docs.payroc.com/api/schema/boarding/processing-accounts/retrieve) method or our [List Contacts](https://docs.payroc.com/api/schema/boarding/processing-accounts/list-contacts) method to search for the contact.  
       operationId: deleteContact
       parameters:
       - $ref: './parameters-v1.yaml#/components/parameters/contactId'
