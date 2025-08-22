@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 
 paths: {}
 
@@ -22,11 +22,15 @@ components:
       properties:
         terminalOrderId:
           type: string
-          description: Unique identifier of the terminal order.
+          description: Unique identifier that we assigned to the terminal order.
           example: '12345'
         status:
           type: string
-          description: Status of the terminal order.
+          description: | 
+            Status of the terminal order.  
+
+            **Note**: You can subscribe to our terminalOrder.status.changed event to get notifications when we update the status of a terminal order. For more information about how to subscribe to events, go to [Event Subscriptions](https://docs.payroc.com/guides/integrate/event-subscriptions).  
+
           enum:
             - open
             - held
@@ -54,8 +58,8 @@ components:
                   type: string
                   description: |  
                     Shipping method for the terminal order. Send one of the following values:
-                      - 'nextDay'- We schedule the order to be delivered the next day.
-                      - 'ground' - We ship the order with ground shipping.
+                      - `nextDay` - We schedule the order to be delivered the next day.
+                      - `ground` - We ship the order with ground shipping.
                   enum:
                     - nextDay
                     - ground
@@ -126,13 +130,13 @@ components:
           type: string
           format: date-time
           readOnly: true
-          description: Date that we received the terminal order.
+          description: Date that we received the terminal order. We return this value in the [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
           example: 2020-09-08T12:00:00.000Z
         lastModifiedDate:
           type: string
           format: date-time
           readOnly: true
-          description: Date that the terminal order was last changed.
+          description: Date that the terminal order was last changed.  We return this value in the [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
           example: 2020-09-09T12:00:00.000Z
       required:
         - terminalOrderId
@@ -177,6 +181,8 @@ components:
             - `Ingenico - AXIUM Full Functional Base`
             - `Pax A920 Charging Base`
             - `Pax A920 Comms Base`
+            - `A920 Pro Ethernet`
+            - `Axium Bundle`
           maxLength: 100
         solutionQuantity:
           type: number
@@ -330,7 +336,7 @@ components:
           $ref: '#/components/schemas/terminalOrder/properties/shipping' 
         orderItems:
           type: array
-          description: One or more items to be ordered
+          description: Array of order items. Provide a minimum of 1 order item and a maximum of 10 order items.
           items:
             $ref: '#/components/schemas/orderItem'
           minItems: 1
@@ -353,7 +359,7 @@ components:
 
     links:
       type: object
-      description: Array of links related to your request. For more information about HATEOAS, go to [HATEOAS.](https://docs.payroc.com/knowledge/basic-concepts/HATEOAS)
+      description: Array of links related to your order items.
       properties:
         links:
           type: array
@@ -389,8 +395,8 @@ components:
           type: string
           description: |
             Indicates how the merchant batches their transactions. Send one of the following:
-              - 'automatic' - Terminal automatically closes the batch each day. To set the time the batch closes, send a value for the batchCloseTime parameter.
-              - 'manual' - Merchant manually closes their batch.
+              - `automatic` - Terminal automatically closes the batch each day. To set the time the batch closes, send a value for the batchCloseTime parameter.
+              - `manual` - Merchant manually closes their batch.
           enum:
             - automatic
         batchCloseTime:
@@ -409,8 +415,8 @@ components:
           type: string
           description: |
             Indicates how the merchant batches their transactions. Send one of the following:
-              - 'automatic' - Terminal automatically closes the batch each day. To set the time the batch closes, send a value for the batchCloseTime parameter.
-              - 'manual' - Merchant manually closes their batch.
+              - `automatic` - Terminal automatically closes the batch each day. To set the time the batch closes, send a value for the batchCloseTime parameter.
+              - `manual` - Merchant manually closes their batch.
           enum:
             - manual
       required: 
