@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Merchant platforms
   description: Create and manage merchant plaforms
@@ -17,7 +17,7 @@ tags:
       A merchant platform is an entity that represents a business and includes its legal information and all processing accounts.<br/><br/>
       After you create a merchant platform for a business, you can do the following:  
         - [Create and add an additional processing account to a merchant platform.](#createProcessingAccount)  
-        - [Retrieve a merchant platform.](#getMerchantAcccounts)  
+        - [Retrieve a merchant platform.](#getMerchantAccounts)  
         - [Retrieve a list of merchant platforms.](#listMerchantPlatforms)  
         - [Retrieve a list of open processing accounts that are linked to a merchant platform.](#listMerchantLocations)  
           
@@ -73,8 +73,6 @@ paths:
           headers:
             location:
               description: URI reference to the resource.
-              style: simple
-              explode: false
               schema:
                 type: string
         '400':
@@ -174,7 +172,7 @@ paths:
         -	Contact information, including the email address for the business. 
         -	Processing account information, including the processingAccountId and status of each processing account that's linked to the merchant platform.  
 
-      operationId: getMerchantAcccounts
+      operationId: getMerchantAccounts
       parameters:
       - $ref: './parameters-v1.yaml#/components/parameters/merchantPlatformId'
       responses:
@@ -210,6 +208,8 @@ paths:
         **Note**: If you want to view the details of a specific processing account and you have its processingAccountId, use our [Retrieve Processing Account](https://docs.payroc.com/api/schema/boarding/processing-accounts/retrieve) method.  
 
         Use the query parameters to filter the list of results that we return, for example, to search for only closed processing accounts.  
+
+        To list the processing accounts for a merchant platform, you need its merchantPlatformId. If you don't have the merchantPlatformId, use our [List Merchant Platforms](https://docs.payroc.com/api/schema/boarding/merchant-platforms/list) method to search for the merchant platform.
 
         Our gateway returns the following information about eahc processing account in the list:  
         - Business details, including its status, time zone, and address.  
@@ -290,8 +290,6 @@ paths:
           headers:
             location:
               description: URI reference to the resource.
-              style: simple
-              explode: false
               schema:
                 type: string
         '400':
@@ -439,13 +437,13 @@ components:
         processingAccounts:
           readOnly: true
           description: Array of processingAccount objects.
-          required:
-          #  - processingAccountId
-           - doingBusinessAs
-           - status
           type: array
           items:
             type: object
+            required:
+            #  - processingAccountId
+              - doingBusinessAs
+              - status
             title: processingAccount
             properties:
               processingAccountId:

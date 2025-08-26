@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 
 paths: {}
 
@@ -46,11 +46,11 @@ components:
         detail:
           type: string
           description: Explanation of the problem
-          example: Specified account was not found
+          example: Specified resource was not found
         resource:
           type: string
           description: Resource that was not found
-          example: Account
+          example: exampleResource
       required:
         - type
         - title

@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   version: '1'
   title: Event Subscriptions
@@ -33,7 +33,20 @@ paths:
       tags: [Event Subscriptions]
       summary: List event subscriptions
       description: | 
-        Use this method to retrieve a [paginated](https://docs.payroc.com/api/pagination) list of event subscriptions that are linked to the ISV's account. 
+        Use this method to retrieve a [paginated](https://docs.payroc.com/api/pagination) list of event subscriptions that are linked to your ISV account.  
+        
+        **Note:** If you want to view a specific event subscription and you have its id, use our [Retrieve Event Subscription](https://docs.payroc.com/api/schema/notifications/event-subscriptions/retrieve) method.  
+
+        Use query parameters to filter the list of results that we return, for example, to search for subscriptions with a specific status or an event type.  
+
+        Our gateway returns the following information about each subscription in the list:  
+        - Event types that you have subscribed to.  
+        - Whether you have enabled notifications for the subscription.  
+        - How we contact you when an event occurs, including the endpoint that send notifications to.  
+        - If there are any issues when we try to send you a notification, for example, if we can't contact your endpoint.  
+
+        For each event subscription, we also return its id, which you can use to perform follow-on actions.  
+
       operationId: listEventSubscriptions
       parameters:
         - $ref: './parameters-v1.yaml#/components/parameters/status'
@@ -60,14 +73,11 @@ paths:
       tags: [Event Subscriptions]
       summary: Create event subscription
       description: |
-        Use this method to subscribe to events that you want us to notify you about, for example, when we change the status of a processing account. You can subscribe to more than one event in the request. For a complete list of events you can subscribe to, go to [Events](https://docs.payroc.com/knowledge/basic-concepts/events).  
-        <br/>
-        In the response we return the ID of the event subscription, which you need for the following methods:  
-        - [Update event subscription](#updateEventSubscription)  
-        - [Partially update an event subscription](#patchEventSubscription)  
-        - [Retrieve an event subscription](#getEventSubscription)  
-        - [List event subscriptions](#listEventSubscriptions)  
-        - [Delete event subscription](#deleteEventSubscription)  
+        Use this method to create an event subscription that we use to notify you when an event occurs, for example, when we change the status of a processing account.  
+
+        In the request, include the events that you want to subscribe to and the public endpoint that we send event notifications to. For a complete list of events that you can subscribe to, go to [Events List](https://docs.payroc.com/knowledge/events/events-list).  
+
+        In the response, our gateway returns the id of the event subscription, which you can use to perform follow-on actions.  
       operationId: createEventSubscription
       parameters:
         - $ref: ../../../common/parameters/idempotency-key-v1.yaml#/components/parameters/idempotencyKey
@@ -138,14 +148,17 @@ paths:
       tags: [Event Subscriptions]
       summary: Update event subscription
       description: |
-        Use this method to update an event subscription.  
-        You can make the following updates to the event subscription:  
-          - **Event types** - Add or remove events that you have subscribed to.  
-          - **Notification methods** - Update information about your endpoint and who we email if we can't contact your endpoint.  
-            <br/>  
-        Include the subscriptionId that we sent you when you created the event subscription. We returned this in the id field.  
-          
-        **Note:** If you don't know the subscriptionId, go to [List event subscriptions](#listEventSubscriptions)
+        Use this method to update the details of an event subscription.  
+
+        To update an event subscription, you need its subscriptionId. Our gateway returned the subscriptionId in the response of the [Create Event Subscription](https://docs.payroc.com/api/schema/notifications/event-subscriptions/create) method.  
+
+        **Note:** If you don’t have the subscriptionId, use our [List Event Subscriptions](https://docs.payroc.com/api/schema/notifications/event-subscriptions/list) method to search for the event subscription.  
+
+        You can update the following details about an event subscription:  
+
+        - Status of the event subscription.  
+        - Events that you have subscribed to. For a list of events that you can subscribe to, go to [Events list](https://docs.payroc.com/knowledge/events/events-list).  
+        - Information about how we contact you when an event occurs.  
       operationId: updateEventSubscription
       requestBody:
         content:
@@ -172,14 +185,17 @@ paths:
       tags: [Event Subscriptions]
       summary: Partially update event subscription
       description: | 
-        Use this method to partially update an event subscription. You can make the following updates to the event subscription:  
-          - Add or remove events that you have subscribed to.  
-          - Update information about your endpoint and who we email if we can't contact your endpoint.  
-          - Turn on or turn off notifications for the event.  
-            <br/>  
-        Structure your request to follow the [RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902/) standard.  
-          
-        **Note:** You need the subscriptionId that we sent you when you created the event subscription. If you don't know the subscriptionId, go to [List event subscriptions](#listEventSubscriptions).
+        Use this method to partially update an event subscription. Structure your request to follow the [RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902) standard.  
+
+        To update an event subscription, you need its subscriptionId. Our gateway returned the subscriptionId in the id field in the response of the [Create Event Subscription](https://docs.payroc.com/api/schema/notifications/event-subscriptions/create) method.  
+
+        **Note:** If you don't have the subscriptionId, use our [List Event Subscriptions](https://docs.payroc.com/api/schema/notifications/event-subscriptions/list) method to search for the subscription.  
+
+        You can update the following properties of an event subscription:  
+        - **eventTypes** - Subscribe to new events or remove events that you are subscribed to.  
+        - **notifications** - Information about your endpoint and who we email if we can't contact your endpoint.  
+        - **enabled** - Turn on or turn off notifications for the subscription.  
+      
       operationId: patchEventSubscription
       requestBody:
         content:
@@ -212,7 +228,14 @@ paths:
     delete:
       tags: [Event Subscriptions]
       summary: Delete event subscription
-      description: Use this method to delete an event subscription. 
+      description: |
+        Use this method to delete an event subscription.  
+
+        > **Important:** After you delete an event subscription, you can’t recover it. You won't receive event notifications from the event subscription.  
+
+        To delete an event subscription, you need its subscriptionId. Our gateway returned the subscriptionId in the response of the [Create Event Subscription](https://docs.payroc.com/api/schema/notifications/event-subscriptions/create) method.  
+
+        If you want to stop receiving event notifications but don't want to delete the event subscription, use our [Update Event Subscription](https://docs.payroc.com/api/schema/notifications/event-subscriptions/update) method to deactivate it.  
       operationId: deleteEventSubscription
       responses:
         '204':
@@ -268,7 +291,7 @@ components:
         enabled:
           type: boolean
           description: |
-            Indicates if we should notify you if the event occurs. The value is one of the following:  
+            Indicates if we should notify you when the event occurs. The value is one of the following:  
             - `true` - We notify you when the event occurs.  
             - `false` - We don't notify you when the event occurs.  
           example: true
@@ -287,7 +310,7 @@ components:
           example: registered
         eventTypes:
           type: array
-          description: Array of eventTypes that you want to subscribe to. For a list of all events that you can subscribe to, go to [Events](https://docs.payroc.com/knowledge/basic-concepts/events). 
+          description: Array of events that you want to subscribe to. For a list of events, go to [Events List](https://docs.payroc.com/knowledge/events/events-list). 
           items:
             type: string
             minLength: 1
@@ -295,7 +318,7 @@ components:
           - processingAccount.status.changed
         notifications:
           type: array
-          description: Array of notifications, which includes information about how we contact you when an event occurs. 
+          description: Array of notifications objects. Each object contains information about how we contact you when an event occurs. 
           items:
             $ref: '#/components/schemas/notification'
         metadata:
@@ -395,8 +418,6 @@ components:
   headers:
     location:
       description: URI reference to created resource
-      style: simple
-      explode: false
       schema:
         type: string   
 
