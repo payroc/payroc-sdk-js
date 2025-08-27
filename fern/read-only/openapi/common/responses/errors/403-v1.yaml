@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 
 paths: {}
 
@@ -50,11 +50,11 @@ components:
         instance:
           type: string
           description: Resource path the action was attempted on
-          example: "https://api.payroc.com/v1/webhook/3"
+          example: "https://api.payroc.com/v1/example/3"
         resource:
           type: string
           description: Resource the action was attempted on
-          example: "webhook"
+          example: exampleResource
       required:
         - type
         - title
@@ -70,5 +70,5 @@ components:
         title: "Forbidden"
         status: 403
         detail: "You do not have the required permissions to perform this action"
-        instance: "https://api.payroc.com/v1/webhook/3"
-        resource: webhook
+        instance: "https://api.payroc.com/v1/exampleResource/3"
+        resource: exampleResource

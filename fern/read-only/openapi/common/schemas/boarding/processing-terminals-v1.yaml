@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 
 paths: {}
 
@@ -19,10 +19,11 @@ components:
   schemas:
     processingTerminalSummary:
       type: object
+      description: Object that contains information about the processing terminal.
       properties:
         processingTerminalId:
           type: string
-          description: Unique identifier of the processing terminal.
+          description: Unique identifier that we assigned to the processing terminal.
         link:
           required:
           - href
@@ -32,11 +33,14 @@ components:
           properties:
             href:
               type: string
+              description: URL of the target resource.
             rel:
               type: string
+              description: Indicates the relationship between the current resource and the target resource.
             method:
               type: string
-          description: Array of links related to your request. For more information about HATEOAS, go to [Hypermedia as the engine of application state.](https://docs.payroc.com/knowledge/basic-concepts/HATEOAS).
+              description: HTTP method that you need to use with the target resource.
+          description: Array of links related to your request. For more information about HATEOAS, go to [Hypermedia as the engine of application state](https://docs.payroc.com/knowledge/basic-concepts/hypermedia-as-the-engine-of-application-state-hateoas).
       required:
         - processingTerminalId
         - link
@@ -50,7 +54,7 @@ components:
         properties:
           data:
             type: array
-            description: An array of processing terminal objects.
+            description: Array of processing terminal objects.
             items:
               $ref: '#/components/schemas/processingTerminal'
 
@@ -59,7 +63,7 @@ components:
       properties:
         processingTerminalId:
           type: string
-          description: Unique identifier that our gateway assigned to the terminal.
+          description: Unique identifier that we assigned to the processing terminal.
           example: '011234001'
         status:
           type: string
@@ -120,6 +124,7 @@ components:
           description: Object that contains the feature settings for the terminal.
           properties:
             tips:
+              description: Object that contains the tip settings for the processing terminal.  
               discriminator:
                 propertyName: enabled
                 mapping:
@@ -255,6 +260,7 @@ components:
               description: Indicates if the terminal can send receipts by text message.
         devices:
           type: array
+          description: Array of device objects. Each object contains information about a device using the processing terminal's configuration.
           items:
             type: object
             description: Object that contains the details of the device.
@@ -283,7 +289,7 @@ components:
         - processingTerminalId
         - status
         - timezone
-        - application
+        - applicationSettings
         - batchClosure
         - features
 
@@ -314,9 +320,10 @@ components:
           example: '0123451001'
         processingAccountId:
           type: string
-          description: Unique identifier of the processing account.
+          description: Unique identifier that we assigned to the processing account. 
           example: '23451'
-        configuration:    
+        configuration: 
+          description: Object that contains the host processor configuration.    
           discriminator:
             propertyName: processor
             mapping:

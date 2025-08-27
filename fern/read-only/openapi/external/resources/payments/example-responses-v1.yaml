@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Payroc API
   version: '1'
@@ -89,6 +89,7 @@ components:
               cardholderName: Sarah Hopper
               cardNumber: '453985******7062'
               expiryDate: '1225'
+              entryMethod: keyed
               secureToken:
                 secureTokenId: MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa
                 customerName: Sarah Hopper
@@ -126,6 +127,7 @@ components:
               cardholderName: Sarah Hopper
               cardNumber: '453985******7062'
               expiryDate: '1225'
+              entryMethod: keyed
               secureToken:
                 secureTokenId: MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa
                 customerName: Sarah Hopper
@@ -241,7 +243,7 @@ components:
             address3: Example Address Line 3
             city: Chicago
             state: Illinois
-            country: USA
+            country: US
             postalCode: '60056'
           shippingAddress:
             recipientName: Sarah Hopper
@@ -328,6 +330,8 @@ components:
             amount: -4999
             currency: USD
             status: ready
+            responseCode: A
+            responseMessage: Transaction refunded            
             link:
               rel: self
               method: GET
