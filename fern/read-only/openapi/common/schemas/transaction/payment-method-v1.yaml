@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Payroc API
   version: '1'
@@ -630,7 +630,10 @@ components:
       properties:
         type:
           type: string
-          description: Method that the terminal used to take the payment.
+          description: |
+            Indicates the type of bank account details the customer is using:  
+            - **ACH** - Customer's bank account is in the United States.  
+            - **PAD** - Customer's bank account is in Canada.  
           enum:
             - ach
           example: ach
@@ -672,7 +675,7 @@ components:
           type: string
           description: |
            Customer’s bank account number.  
-           **Note:** In responses, our gateway shows only the last four digits of the account number. For example, `*****5929`.
+           **Note:** In responses, our gateway shows only the last four digits of the account number, for example, `*****5929`.
           example: '1234567890'
         routingNumber:
           maxLength: 9
@@ -696,7 +699,10 @@ components:
       properties:
         type:
           type: string
-          description: Method that the terminal used to take the payment.
+          description: |
+            Indicates the type of bank account details the customer is using:  
+            - **ACH** - Customer's bank account is in the United States.  
+            - **PAD** - Customer's bank account is in Canada.  
           enum:
             - pad
           example: pad
@@ -704,7 +710,6 @@ components:
           type: string
           description: |
             Indicates the customer’s account type.  
-
             **Note:** For bank account details, send a value for accountType.
           enum:
             - checking
@@ -723,8 +728,7 @@ components:
           type: string
           description: |
            Customer's account number.  
-           
-           **Note:** In responses, our gateway shows only the last four digits of the account number. For example, `*****5929`.
+           **Note:** In responses, our gateway shows only the last four digits of the account number, for example, `*****5929`.
           example: '1234567890'
         transitNumber:
           maxLength: 5

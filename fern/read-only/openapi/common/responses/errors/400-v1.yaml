@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 
 paths: {}
 
@@ -131,4 +131,4 @@ components:
         type: 'https://docs.payroc.com/api/errors#daily-discount-and-reward-pay-conflict'
         title: Cannot select Daily Discount and RewardPayChoice at the same time.
         status: 400
-        detail: "Choose a different pricing plan or don't select Daily Discount."
+        detail: Choose a different pricing plan or don't select Daily Discount.

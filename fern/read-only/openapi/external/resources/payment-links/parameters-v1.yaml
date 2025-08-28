@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Payroc API
   version: '1'
@@ -15,7 +15,9 @@ components:
         type: string
         minLength: 10
         maxLength: 10
-      example: JZURRJBUPS
+      examples:
+        example:
+          value: JZURRJBUPS
 
     merchantReference:
       name: merchantReference
@@ -25,7 +27,9 @@ components:
         type: string
         minLength: 1
         maxLength: 48
-      example: LinkRef6543
+      examples:
+        example:
+          value: LinkRef6543
 
     linkType:
       name: linkType
@@ -36,7 +40,9 @@ components:
         enum:
           - multiUse
           - singleUse
-      example: multiUse
+      examples:
+        example:
+          value: multiUse
 
     chargeType:
       name: chargeType
@@ -50,7 +56,9 @@ components:
         enum:
           - preset
           - prompt
-      example: prompt
+      examples:
+        example:
+          value: prompt
 
     payment-link-status:
       name: status
@@ -63,7 +71,9 @@ components:
           - completed
           - deactivated
           - expired
-      example: active
+      examples:
+        example:
+          value: active
 
     recipientName:
       name: recipientName
@@ -73,7 +83,9 @@ components:
         type: string
         minLength: 1
         maxLength: 48
-      example: Sarah Hazel Hopper
+      examples:
+        example:
+          value: Sarah Hazel Hopper
 
     recipientEmail:
       name: recipientEmail
@@ -83,7 +95,9 @@ components:
         type: string
         minLength: 6
         maxLength: 128
-      example: sarah.hopper@example.com
+      examples:
+        example:
+          value: sarah.hopper@example.com
 
     createdOn:
       name: createdOn
@@ -92,7 +106,9 @@ components:
       schema:
         type: string
         format: date
-      example: '2024-07-02'
+      examples:
+        example:
+          value: '2024-07-02'
 
     expiresOn:
       name: expiresOn
@@ -101,4 +117,6 @@ components:
       schema:
         type: string
         format: date
-      example: '2024-08-02'
+      examples:
+        example:
+          value: '2024-08-02'

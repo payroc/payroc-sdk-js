@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Settlement
   description: Settlement
@@ -19,7 +19,18 @@ paths:
     get:
       tags: [Settlement]
       summary: List batches
-      description: Retrieve batch data for a specific date.
+      description: |
+        Use this method to retrieve a [paginated](https://docs.payroc.com/api/pagination) list of your merchants’ batches that were submitted to the processor on a specific date.  
+
+        **Note:** If you want to view a specific batch and you have its batchId, use our [Retrieve Batch](https://docs.payroc.com/api/schema/reporting/settlement/retrieve-batch) method.  
+
+        In your request, include the date that the batch was submitted. You can also use a query parameter to view the batches of a specific merchant.  
+
+        Our gateway returns the following information about each batch in the list:  
+
+        -	Transaction information, including the number of transactions and total value of sales.
+        -	Merchant information, including the merchant ID (MID) and the processing account that the batch is associated with. 
+
       operationId: getbatches
       parameters:
         - $ref: '../../../common/parameters/before-v1.yaml#/components/parameters/before'
@@ -133,19 +144,19 @@ components:
           example: '2024-07-02'
         saleAmount:
           type: integer
-          description: Total value of sales. We return the value in the currency's lowest denomination, for example, cents.
+          description: Total value of sales in the batch. We return the value in the currency's lowest denomination, for example, cents.
         heldAmount:
           type: integer
-          description: Total value of authorizations. We return the value in the currency's lowest denomination, for example, cents.
+          description: Total value of authorizations in the batch. We return the value in the currency's lowest denomination, for example, cents.
         returnAmount:
           type: integer
-          description: Total value of returns. We return the value in the currency's lowest denomination, for example, cents.
+          description: Total value of returns in the batch. We return the value in the currency's lowest denomination, for example, cents.
         transactionCount:
           type: integer
           description: Total number of transactions in the batch.
         currency:
           type: string
-          description: Currency of the transactions.
+          description: Currency of the transactions in the batch. The value for the currency follows the [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) standard.
         merchant:
           $ref: '../../../common/schemas/settlement/merchant-summary-v1.yaml#/components/schemas/merchantSummary'
         links:
