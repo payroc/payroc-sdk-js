@@ -27,12 +27,18 @@ paths:
         - Payment links
       summary: Create payment link
       description: |  
-        Use this method to create a payment link that a customer can use to make a payment for goods or services. The request contains the following settings for the payment link:
+        Use this method to create a payment link that a customer can use to make a payment for goods or services.  
+
+        The request includes the following settings:
         - **type** - Indicates whether the link can be used only once or if it can be used multiple times.
         - **authType** - Indicates whether the transaction is a sale or a pre-authorization.
         - **paymentMethod** - Indicates the payment methods that the merchant accepts.
-        - **charge** - Indicates whether the merchant or the customer enters the amount for the transaction.
-        The response contains a paymentLinkId that you can use to [share the payment link](#sharePaymentLink) or to [retrieve information about the link](#retrievePaymentLink).
+        - **charge** - Indicates whether the merchant or the customer enters the amount for the transaction.  
+
+        If your request is successful, our gateway returns a paymentLinkId, which you can use to perform follow-on actions.  
+
+        **Note:** To share the payment link with a customer, use our [Share Payment Link](https://docs.payroc.com/api/schema/payments/payment-links/sharing-events/share) method.
+
       operationId: createPaymentLink
       parameters:
         - $ref: ../../../common/parameters/idempotency-key-v1.yaml#/components/parameters/idempotencyKey
@@ -410,7 +416,7 @@ components:
           type: array
           uniqueItems: true
           description: |  
-            Payment methods that the merchant accepts.
+            Payment methods that the merchant accepts.  
             **Note:** If a payment is a pre-authorization, the customer must pay by card.
           items:
             type: string
@@ -423,7 +429,7 @@ components:
           type: array
           uniqueItems: true
           description: |  
-            Array of customLabel objects.
+            Array of customLabel objects.  
             **Note:** You can change the label of the payment button only.
           items:
             $ref: '#/components/schemas/customLabel'
@@ -502,7 +508,7 @@ components:
           type: array
           uniqueItems: true
           description: |  
-            Payment methods that the merchant accepts.
+            Payment methods that the merchant accepts.  
             **Note:** If the payment is a pre-authorization, the customer must pay by card.
           items:
             type: string
@@ -515,7 +521,7 @@ components:
           type: array
           uniqueItems: true
           description: |  
-            Array of customLabel objects.
+            Array of customLabel objects.  
             **Note:** You can change the label of the payment button only.
           items:
             $ref: '#/components/schemas/customLabel'
@@ -611,6 +617,7 @@ components:
           example: Pie It Forward charitable trust donation
         charge:
           type: object
+          description: Indicates whether the merchant or the customer enters the amount for the transaction.
           oneOf:
             - $ref: '#/components/schemas/promptPaymentLinkCharge'
             - $ref: '#/components/schemas/presetPaymentLinkCharge'
@@ -635,6 +642,7 @@ components:
           example: Large Pepperoni Pizza
         charge:
           type: object
+          description: Indicates whether the merchant or the customer enters the amount for the transaction.
           oneOf:
             - $ref: '#/components/schemas/promptPaymentLinkCharge'
             - $ref: '#/components/schemas/presetPaymentLinkCharge'
@@ -796,7 +804,7 @@ components:
         amount:
           type: integer
           format: int64
-          description: Total amount of the transaction in the currency's lowest denomination, for example, cents.
+          description: Total amount of the transaction. The value is in the currency's lowest denomination, for example, cents.
           example: 4999
         currency:
           $ref: ../../../common/schemas/common/currency-v1.yaml#/components/schemas/currency
