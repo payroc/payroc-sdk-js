@@ -86,7 +86,15 @@ paths:
     get:
       tags: [Settlement]
       summary: Retrieve batch
-      description: Retrieve a specific batch.
+      description: |
+        Use this method to retrieve information about a batch.  
+
+        **Note:** To retrieve a batch, you need its batchId. If you don't have the batchId, use our [List Batches](https://docs.payroc.com/api/schema/reporting/settlement/list-batches) method to search for the batch.  
+
+        Our gateway returns the following information about the batch:  
+
+        -	Transaction information, including the number of transactions and total value of sales.  
+        -	Merchant information, including the merchant ID (MID) and the processing account that the batch is associated with.  
       operationId: getbatch
       parameters:
         - $ref: '../../../common/parameters/settlement-v1.yaml#/components/parameters/batchId'
@@ -125,7 +133,7 @@ components:
       properties:
         batchId:
           type: integer
-          description: Unique identifier of the batch.
+          description: Unique identifier that we assigned to the batch.
           example: 123
         date:
           type: string
