@@ -137,8 +137,6 @@ paths:
               schema:
                 $ref: '../../../common/responses/errors/409-v1.yaml#/components/schemas/409'
               examples:
-                idempotentKeyMissing:
-                  $ref: '../../../common/responses/errors/400-v1.yaml#/components/examples/idempotentKeyMissing'
                 idempotentKeyInUse:
                   $ref: '../../../common/responses/errors/409-v1.yaml#/components/examples/idempotentKeyInUse'         
         '500':
