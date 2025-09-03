@@ -27,12 +27,18 @@ paths:
         - Payment links
       summary: Create payment link
       description: |  
-        Use this method to create a payment link that a customer can use to make a payment for goods or services. The request contains the following settings for the payment link:
+        Use this method to create a payment link that a customer can use to make a payment for goods or services.  
+
+        The request includes the following settings:
         - **type** - Indicates whether the link can be used only once or if it can be used multiple times.
         - **authType** - Indicates whether the transaction is a sale or a pre-authorization.
         - **paymentMethod** - Indicates the payment methods that the merchant accepts.
-        - **charge** - Indicates whether the merchant or the customer enters the amount for the transaction.
-        The response contains a paymentLinkId that you can use to [share the payment link](#sharePaymentLink) or to [retrieve information about the link](#retrievePaymentLink).
+        - **charge** - Indicates whether the merchant or the customer enters the amount for the transaction.  
+
+        If your request is successful, our gateway returns a paymentLinkId, which you can use to perform follow-on actions.  
+
+        **Note:** To share the payment link with a customer, use our [Share Payment Link](https://docs.payroc.com/api/schema/payments/payment-links/sharing-events/share) method.
+
       operationId: createPaymentLink
       parameters:
         - $ref: ../../../common/parameters/idempotency-key-v1.yaml#/components/parameters/idempotencyKey
@@ -96,7 +102,22 @@ paths:
       tags:
         - Payment links
       summary: List payment links
-      description: Use this method to retrieve a [paginated](https://docs.payroc.com/api/pagination) list of payment links for a processing terminal.
+      description: |
+        Use this method to retrieve a [paginated](https://docs.payroc.com/api/pagination) list of payment links linked to a processing terminal.  
+
+        **Note:** If you want to view a specific payment link and you have its paymentLinkId, use our [Retrieve Payment Link](https://docs.payroc.com/api/schema/payments/payment-links/retrieve) method.  
+
+        Use query parameters to filter the list of results that we return, for example, to search for only active links or multi-use links.  
+
+        Our gateway returns the following information about each payment link in the list:  
+        - **type** - Indicates whether the link can be used only once or if it can be used multiple times.  
+        - **authType** - Indicates whether the transaction is a sale or a pre-authorization.  
+        - **paymentMethods** - Indicates the payment method that the merchant accepts.  
+        - **charge** - Indicates whether the merchant or the customer enters the amount for the transaction.  
+        - **status** - Indicates if the payment link is active.  
+
+        For each payment link, we also return a paymentLinkId, which you can use for follow-on actions. 
+
       operationId: listPaymentLinks
       parameters:
         - $ref: ../../../common/parameters/processing-terminal-id-v1.yaml#/components/parameters/processingTerminalIdPath
@@ -141,8 +162,19 @@ paths:
         - Payment links
       summary: Retrieve payment link
       description: |  
-        Use this method to retrieve information about a payment link.
-        You need the paymentLinkId that we sent to you when you created the payment link.
+        Use this method to retrieve information about a payment link.  
+
+        To retrieve a payment link, you its paymentLinkId. Our gateway returned the paymentLinkId in the response of the [Create Payment Link](https://docs.payroc.com/api/schema/payments/payment-links/create) method.  
+
+        **Note:** If you don't have the paymentLinkId, use our [List Payment Links](https://docs.payroc.com/api/schema/payments/payment-links/list) method to search for the payment link.  
+
+        Our gateway returns the following information about the payment link:  
+        - **type** - Indicates whether the link can be used only once or if it can be used multiple times.  
+        - **authType** - Indicates whether the transaction is a sale or a pre-authorization.  
+        - **paymentMethods** - Indicates the payment method that the merchant accepts.  
+        - **charge** - Indicates whether the merchant or the customer enters the amount for the transaction.
+        - **status** - Indicates if the payment link is active.  
+
       operationId: retrievePaymentLink
       parameters:
         - $ref: './parameters-v1.yaml#/components/parameters/paymentLinkId'
@@ -410,7 +442,7 @@ components:
           type: array
           uniqueItems: true
           description: |  
-            Payment methods that the merchant accepts.
+            Payment methods that the merchant accepts.  
             **Note:** If a payment is a pre-authorization, the customer must pay by card.
           items:
             type: string
@@ -423,7 +455,7 @@ components:
           type: array
           uniqueItems: true
           description: |  
-            Array of customLabel objects.
+            Array of customLabel objects.  
             **Note:** You can change the label of the payment button only.
           items:
             $ref: '#/components/schemas/customLabel'
@@ -502,7 +534,7 @@ components:
           type: array
           uniqueItems: true
           description: |  
-            Payment methods that the merchant accepts.
+            Payment methods that the merchant accepts.  
             **Note:** If the payment is a pre-authorization, the customer must pay by card.
           items:
             type: string
@@ -515,7 +547,7 @@ components:
           type: array
           uniqueItems: true
           description: |  
-            Array of customLabel objects.
+            Array of customLabel objects.  
             **Note:** You can change the label of the payment button only.
           items:
             $ref: '#/components/schemas/customLabel'
@@ -611,6 +643,7 @@ components:
           example: Pie It Forward charitable trust donation
         charge:
           type: object
+          description: Indicates whether the merchant or the customer enters the amount for the transaction.
           oneOf:
             - $ref: '#/components/schemas/promptPaymentLinkCharge'
             - $ref: '#/components/schemas/presetPaymentLinkCharge'
@@ -635,6 +668,7 @@ components:
           example: Large Pepperoni Pizza
         charge:
           type: object
+          description: Indicates whether the merchant or the customer enters the amount for the transaction.
           oneOf:
             - $ref: '#/components/schemas/promptPaymentLinkCharge'
             - $ref: '#/components/schemas/presetPaymentLinkCharge'
@@ -796,7 +830,7 @@ components:
         amount:
           type: integer
           format: int64
-          description: Total amount of the transaction in the currency's lowest denomination, for example, cents.
+          description: Total amount of the transaction. The value is in the currency's lowest denomination, for example, cents.
           example: 4999
         currency:
           $ref: ../../../common/schemas/common/currency-v1.yaml#/components/schemas/currency
