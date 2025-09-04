@@ -21,7 +21,7 @@ components:
       name: batchId
       in: path
       required: true
-      description: Unique identifier of the batch.
+      description: Unique identifier that we assigned to the batch.
       style: simple
       schema:
         type: integer
