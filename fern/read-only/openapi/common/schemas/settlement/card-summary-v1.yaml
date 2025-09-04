@@ -24,11 +24,14 @@ components:
       properties:
         cardNumber:
           type: string
-          description: Card number. We mask the number except for the first six digits and the last four digits.
-          example: 123456**********4124
+          description: Masked card number. Our gateway shows only the first six digits and the last four digits of the card number, for example, `500165******0000`.
+          example: 453985******7062
         type:
           type: [string, 'null']
-          description: Card type. If we can't match a dispute to a transaction, we don't return a 'type' object.
+          description: | 
+            Card type, for example, Visa.  
+
+            **Note:** If we can’t match a dispute to a transaction, we don’t return a type object. 
           enum:
             - visa 
             - masterCard
@@ -48,10 +51,10 @@ components:
             - unknown
         cvvPresenceIndicator:
           type: boolean
-          description: Indicates if the cardholder provided the CVV.
+          description: Indicates whether the cardholder provided the Card Verification Value (CVV). 
         avsRequest:
           type: boolean
-          description: Indicates if the AVS was used to verify the cardholder's address.
+          description: Indicates whether the merchant used the Address Verification Service (AVS) to verify the cardholder's address.  
         avsResponse:
           type: string
-          description: Response from the AVS.
+          description: Response from the Address Verification Service (AVS).
