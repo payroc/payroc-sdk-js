@@ -20,9 +20,14 @@ paths:
     post:
       tags:
         - Cards
-      summary: Verify a card
+      summary: Verify card
       operationId: verifyCard
-      description: Verify that a card is valid. For banks that do not support verification, we charge a micro deposit that we void immediately.
+      description: |
+        Use this method to verify a customer’s card details.  
+
+        In the request, send the customer’s card details.  
+
+        In the response, our gateway indicates if the card details are valid and if you should use them in follow-on actions.  
       parameters:
         - $ref: ../../../common/parameters/idempotency-key-v1.yaml#/components/parameters/idempotencyKey
       requestBody:
@@ -221,9 +226,10 @@ components:
         verified:
           type: boolean
           description: |
-            Indicates if we have verified the card details.
-            - `true` - The card details are valid.
-            - `false` - The card details are not valid.
+            Indicates if the card details are valid:  
+
+            - `true` - Card details are valid.
+            - `false` - Card details are not valid.
           example: true
         transactionResult:
           $ref: '../../../common/schemas/transaction/card-transaction-v1.yaml#/components/schemas/transactionResult'
