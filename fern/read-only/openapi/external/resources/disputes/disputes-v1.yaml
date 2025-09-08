@@ -19,7 +19,17 @@ paths:
     get:
       tags: [Settlement]
       summary: List disputes
-      description: Retrieve a list of disputes.
+      description: |
+        Use this method to return a [paginated](https://docs.payroc.com/api/pagination) list of disputes.  
+
+        Use query parameters to filter the list of results that we return, for example, to search for disputes linked to a specific merchant.  
+
+        > **Important:** You must provide a value for the date query parameter.  
+
+        Our gateway returns the following information about each dispute in the list:  
+        - Its status, type, and description.  
+        - Transaction that the dispute is linked to, including the transaction date, merchant who ran the transaction, and the payment method that the cardholder used.  
+
       operationId: getdisputes
       parameters:
         - $ref: '../../../common/parameters/before-v1.yaml#/components/parameters/before'
@@ -73,7 +83,12 @@ paths:
     get:
       tags: [Settlement]
       summary: List dispute statuses
-      description: Retrieve the status history for a specific dispute.
+      description: |
+        Use this method to return the status history of a dispute.  
+
+        To return the status history of a dispute, you need its disputeId. If you don't have the disputeId, use our [List Disputes](https://docs.payroc.com/api/schema/reporting/settlement/list-disputes) method to search for the dispute. 
+
+        Our gateway returns a list that contains each status change, the date it was changed, and its updated status.  
       operationId: getdisputesStatuses
       parameters:
         - $ref: './parameters-v1.yaml#/components/parameters/disputeId'
@@ -116,7 +131,7 @@ components:
       properties:
         disputeId:
           type: integer
-          description: Unique identifier of the dispute.
+          description: Unique identifier that we assigned to the dispute.
           example: 12345
         disputeType:
           type: string
@@ -127,6 +142,7 @@ components:
             - firstDisputeWithReversal
             - firstDispute
         currentStatus:
+          description: Object that contains information about the current status of the dispute. 
           allOf:
            - $ref: '#/components/schemas/disputeStatus'
            - type: object
@@ -166,10 +182,10 @@ components:
           example: true
         authorizationCode:
           type: string
-          description: Authorization code.
+          description: Authorization code of the transaction that the dispute is linked to. 
         currency:
           type: string
-          description: Currency of the dispute.
+          description: Currency of the transaction that the dispute is linked to. The value for the currency follows the [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) standard. 
         card:
           $ref: '../../../common/schemas/settlement/card-summary-v1.yaml#/components/schemas/cardSummary'
         merchant:
@@ -184,11 +200,14 @@ components:
       properties:
         disputeStatusId:
           type: integer
-          description: Unique identifier of the dispute status.
+          description: Unique identifier that we assigned to the status of the dispute.
           example: 12345
         status:
           type: string
-          description: Status of the dispute.
+          description: | 
+            Status of the dispute.  
+
+            **Note:** If you want to view the status history of the dispute, use our [List Dispute Statuses](https://docs.payroc.com/api/schema/reporting/settlement/list-disputes-statuses) method.  
           enum:
             - prearbitrationInProcess
             - prearbitrationAccepted
@@ -215,7 +234,7 @@ components:
         statusDate:
           type: string
           format: date
-          description: Date that the status changed. The format of this value is **YYYY-MM-DD**.
+          description: Date that the status of the dispute was last changed. The format of this value is **YYYY-MM-DD**.
           example: '2024-02-01'
   
   securitySchemes:
