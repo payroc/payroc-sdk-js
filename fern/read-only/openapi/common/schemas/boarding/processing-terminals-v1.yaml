@@ -130,7 +130,7 @@ components:
                 mapping:
                   true: '#/components/schemas/tipProcessingEnabled'
                   false: '#/components/schemas/tipProcessingDisabled'
-              oneOf:
+              anyOf:
                 - $ref: '#/components/schemas/tipProcessingEnabled'
                 - $ref: '#/components/schemas/tipProcessingDisabled'  
             enhancedProcessing:
@@ -480,7 +480,6 @@ components:
         enabled:
           type: boolean
           description: Indicates if the terminal can accept tips.
-          default: false
         tipPrompt:
           type: boolean
           description: Indicates if the terminal prompts for tips.

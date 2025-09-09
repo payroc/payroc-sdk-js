@@ -104,13 +104,31 @@ paths:
                 createdEventSubscription:
                   $ref: './example-responses-v1.yaml#/components/examples/eventSubscriptionCreated'
         '400':
-          $ref: '../../../common/responses/errors/400-v1.yaml#/components/responses/400'
+          description: Validation error
+          content:
+            application/problem+json:
+              schema:
+                $ref: '../../../common/responses/errors/400-v1.yaml#/components/schemas/400'
+              examples:
+                validationError:
+                  $ref: '../../../common/responses/errors/400-v1.yaml#/components/examples/validatorError'
+                idempotentKeyMissing:
+                  $ref: '../../../common/responses/errors/400-v1.yaml#/components/examples/idempotentKeyMissing'
         '401':
           $ref: '../../../common/responses/errors/401-v1.yaml#/components/responses/401'
         '404':
           $ref: '../../../common/responses/errors/404-v1.yaml#/components/responses/404'
         '406':
           $ref: '../../../common/responses/errors/406-v1.yaml#/components/responses/406'
+        '409':
+          description: Conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '../../../common/responses/errors/409-v1.yaml#/components/schemas/409'
+              examples:
+                idempotentKeyInUse:
+                  $ref: '../../../common/responses/errors/409-v1.yaml#/components/examples/idempotentKeyInUse'    
         '500':
           $ref: '../../../common/responses/errors/500-v1.yaml#/components/responses/500'           
   /event-subscriptions/{subscriptionId}:
@@ -197,6 +215,8 @@ paths:
         - **enabled** - Turn on or turn off notifications for the subscription.  
       
       operationId: patchEventSubscription
+      parameters:
+        - $ref: ../../../common/parameters/idempotency-key-v1.yaml#/components/parameters/idempotencyKey
       requestBody:
         content:
           application/json:
@@ -216,13 +236,31 @@ paths:
                 patchedEventSubscription:
                   $ref: './example-responses-v1.yaml#/components/examples/patchEventSubscription'
         '400':
-          $ref: '../../../common/responses/errors/400-v1.yaml#/components/responses/400'
+          description: Validation error
+          content:
+            application/problem+json:
+              schema:
+                $ref: '../../../common/responses/errors/400-v1.yaml#/components/schemas/400'
+              examples:
+                validationError:
+                  $ref: '../../../common/responses/errors/400-v1.yaml#/components/examples/validatorError'
+                idempotentKeyMissing:
+                  $ref: '../../../common/responses/errors/400-v1.yaml#/components/examples/idempotentKeyMissing'
         '401':
           $ref: '../../../common/responses/errors/401-v1.yaml#/components/responses/401'
         '404':
           $ref: '../../../common/responses/errors/404-v1.yaml#/components/responses/404'
         '406':
           $ref: '../../../common/responses/errors/406-v1.yaml#/components/responses/406'
+        '409':
+          description: Conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '../../../common/responses/errors/409-v1.yaml#/components/schemas/409'
+              examples:
+                idempotentKeyInUse:
+                  $ref: '../../../common/responses/errors/409-v1.yaml#/components/examples/idempotentKeyInUse'    
         '500':
           $ref: '../../../common/responses/errors/500-v1.yaml#/components/responses/500'       
     delete:
