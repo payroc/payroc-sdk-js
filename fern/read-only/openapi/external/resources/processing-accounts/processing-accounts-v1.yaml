@@ -770,10 +770,10 @@ components:
       type: object
       properties:
         processingAccountId:
-          type: integer
+          type: string
           description: Unique identifier of the processing account.
           readOnly: true
-          example: 38765
+          example: '38765'
         doingBusinessAs:
           type: string
           description: Trading name of the business.
@@ -1196,9 +1196,9 @@ components:
             - intent
           example: intent
         pricingIntentId:
-          type: integer
+          type: string
           description: Unique identifier of the pricing intent.
-          example: 6123
+          example: '6123'
     pricingAgreement:
       type: object
       title: Pricing agreement

@@ -135,7 +135,7 @@ components:
                     yourCustomField: abc123
             pricing:
               type: intent
-              pricingIntentId: 6123
+              pricingIntentId: '6123'
             signature:
               type: requestedViaDirectLink
             contacts:
@@ -265,7 +265,7 @@ components:
                 yourCustomField: abc123
         pricing:
           type: intent
-          pricingIntentId: 6123
+          pricingIntentId: '6123'
         signature:
           type: requestedViaDirectLink
         contacts:
