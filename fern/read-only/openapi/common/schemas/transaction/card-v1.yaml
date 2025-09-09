@@ -17,7 +17,7 @@ components:
       properties:
         type:
           type: string
-          description: Card brand that the card is linked to. For example, Visa.
+          description: Card brand of the card, for example, Visa. 
           example: Visa
         entryMethod:
           type: string
@@ -185,7 +185,7 @@ components:
       properties:
         type:
           type: string
-          description: Card brand, for example, Visa.
+          description: Card brand of the card, for example, Visa. 
         cardNumber:
           maxLength: 19
           minLength: 12
@@ -238,7 +238,7 @@ components:
           example: '1225'
         cardType:
           type: string
-          description: Card brand of the payment card, for example, Visa. 
+          description: Card brand of the card, for example, Visa.  
         currency:
           $ref: '../../../common/schemas/common/currency-v1.yaml#/components/schemas/currency'
         debit:

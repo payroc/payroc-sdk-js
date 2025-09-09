@@ -150,7 +150,7 @@ paths:
 
         **Note:** If you don't have the secureTokenId, use our [List Secure Tokens](https://docs.payroc.com/api/schema/payments/secure-tokens/list) method to search for the secure token.  
 
-        Our gateway returns information about the following for each secure token in the list:  
+        Our gateway returns the following information about the secure token:  
 
           -	Payment details that the secure token represents.  
           -	Customer details, including shipping and billing addresses.  
