@@ -84,7 +84,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/transaction'    
+                $ref: '#/components/schemas/transaction'  
+              example:
+                  $ref: './example-responses-v1.yaml#/components/examples/retrievedTransaction'  
         '400':
           description: Validation error
           content:
