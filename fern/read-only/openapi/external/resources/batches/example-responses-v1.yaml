@@ -80,3 +80,30 @@ components:
         - parameter: batchId
           detail: invalid value
           message: Expected integer, got abc
+    retrievedBatch:
+      summary: Retrieved batch
+      value: 
+            batchId: 65
+            date: '2024-07-02'
+            createdDate: '2024-07-02'
+            lastModifiedDate: '2024-07-02'
+            saleAmount: 100
+            heldAmount: 0
+            returnAmount: 0
+            transactionCount: 10
+            currency: USD
+            merchant: 
+              merchantId: '4525644354'
+              doingBusinessAs: Pizza Doe
+              processingAccountId: '38765'
+              link: 
+                rel: processingAccount
+                method: get
+                href: 'https://api.payroc.com/v1/processing-accounts/38765'
+            links:
+              - rel: transactions
+                method: get
+                href: 'https://api.payroc.com/v1/transactions?batchId=65'
+              - rel: authorizations
+                method: get
+                href: 'https://api.payroc.com/v1/authorizations?batchId=65' 

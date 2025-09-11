@@ -17,7 +17,7 @@ components:
       properties:
         type:
           type: string
-          description: Card brand that the card is linked to. For example, Visa.
+          description: Card brand of the card, for example, Visa. 
           example: Visa
         entryMethod:
           type: string
@@ -185,7 +185,7 @@ components:
       properties:
         type:
           type: string
-          description: Card brand, for example, Visa.
+          description: Card brand of the card, for example, Visa. 
         cardNumber:
           maxLength: 19
           minLength: 12
@@ -238,7 +238,7 @@ components:
           example: '1225'
         cardType:
           type: string
-          description: Card brand of the payment card, for example, Visa. 
+          description: Card brand of the card, for example, Visa.  
         currency:
           $ref: '../../../common/schemas/common/currency-v1.yaml#/components/schemas/currency'
         debit:
@@ -276,3 +276,76 @@ components:
           type: string
           description: Statement that informs the customer about the surcharge fee.
           example: "A 3% surcharge is applied to cover processing fees."
+
+    retrievedCard:
+      required:
+        - cardNumber
+        - expiryDate
+        - type
+      type: object
+      description: Object that contains the details of the payment card. 
+      properties:
+        type:
+          type: string
+          description: Card brand that the card is linked to. For example, Visa.
+          example: Visa
+        entryMethod:
+          type: string
+          description: Method that the device used to capture the card details.
+          enum:
+            - icc
+            - keyed
+            - swiped
+            - swipedFallback
+            - contactlessIcc
+            - contactlessMsr
+          example: contactlessIcc
+        cardholderName:
+          maxLength: 50
+          minLength: 1
+          type: string
+          description: Cardholder’s name.
+          example: Sarah Hazel Hopper
+        cardholderSignature:
+          type: string
+          description: Cardholder’s signature.
+          example: a1b1c012345678a000b000c0012345d0e0f010g10061a031i001j071k0a1b0c1d0e1234567890120f1g0h1i0j1k0a1b0123451c012d0e1f0g1h0i1j123k1a1b1c1d1e1f1g123h1i1j1k1a1b1c1d1e1f1g123h123i1j123k12340a120a12345b012c0123012d0d1e0f1g0h1i123j123k10000
+        cardNumber:
+          maxLength: 19
+          minLength: 12
+          type: string
+          description: |
+            Masked card number. Our gateway shows only the first six digits and the last four digits of the card number, for example, 548010******5929.
+          example: '4539858876047062'
+        expiryDate:
+          pattern: "[0-9]{4}"
+          type: string
+          description: Expiry date of the customer's card. The format is in **MMYY**. 
+          example: '0725'
+        secureToken:
+          $ref: "../../../common/schemas/transaction/summary-v1.yaml#/components/schemas/secureTokenSummary"
+        securityChecks:
+          $ref: '#/components/schemas/securityCheck'
+        emvTags:
+          type: array
+          uniqueItems: true
+          description: Array of emvTag objects.
+          items:
+            $ref: "#/components/schemas/emvTag"
+          example:
+            - hex: 9F36
+              value: '001234'
+            - hex: 5F2A
+              value: '0840'
+        balances:
+          type: array
+          description: Array of cardBalance objects. Our gateway returns this array only when the customer uses an Electronic Benefit Transfer (EBT) card.
+          items:
+            $ref: "#/components/schemas/cardBalance"
+          example:
+            - benefitCategory: cash
+              amount: 50000
+              currency: USD
+            - benefitCategory: foodStamp
+              amount: 10000
+              currency: USD

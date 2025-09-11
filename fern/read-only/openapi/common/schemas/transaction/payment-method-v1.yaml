@@ -30,6 +30,7 @@ components:
           enum:
             - checking
             - savings
+          example: checking
         serviceProvider:
           type: string
           description: |

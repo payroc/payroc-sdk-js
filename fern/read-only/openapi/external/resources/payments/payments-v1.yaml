@@ -150,7 +150,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/paymentPaginatedList'
+                $ref: '#/components/schemas/paymentPaginatedListForRead'
               examples:
                 paginatedResults:
                   $ref: './example-responses-v1.yaml#/components/examples/paginatedPayment'
@@ -195,7 +195,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/payment'
+                $ref: '#/components/schemas/retrievedPayment'
               examples:
                 createdPayment:
                   $ref: './example-responses-v1.yaml#/components/examples/paymentResponse'
@@ -799,3 +799,72 @@ components:
           format: date-time
           description: Date and time that the merchant ran the transaction. The date follows the ISO 8601 standard.
           example: '2024-07-02T15:30:00Z'
+
+    retrievedPayment:
+      required:
+        - card
+        - order
+        - paymentId
+        - processingTerminalId
+        - transactionResult
+      type: object
+      properties:
+        paymentId:
+          maxLength: 10
+          minLength: 10
+          type: string
+          description: Unique identifier that our gateway assigned to the transaction. 
+          example: M2MJOG6O2Y
+        processingTerminalId:
+          maxLength: 50
+          minLength: 4
+          type: string
+          description: Unique identifier of the terminal that initiated the transaction.
+          example: '1234001'
+        operator:
+          maxLength: 50
+          minLength: 0
+          type: string
+          description: Operator who initiated the request.
+          example: Jane
+        order:
+          $ref: '#/components/schemas/paymentOrder'
+        customer:
+          $ref: ../../../common/schemas/transaction/customer-v1.yaml#/components/schemas/customer
+        card:
+          $ref: ../../../common/schemas/transaction/card-v1.yaml#/components/schemas/retrievedCard
+        refunds:
+          type: array
+          uniqueItems: true
+          description: | 
+            Array of refundSummary objects. 
+            Each object contains information about refunds linked to the transaction.
+          items:
+            $ref: ../../../common/schemas/transaction/summary-v1.yaml#/components/schemas/refundSummary
+        supportedOperations:
+          $ref: ../../../common/schemas/transaction/card-transaction-v1.yaml#/components/schemas/supportedOperations
+        transactionResult:
+          $ref: ../../../common/schemas/transaction/card-transaction-v1.yaml#/components/schemas/transactionResult
+        customFields:
+          type: array
+          description: |
+            Array of customField objects.
+          items:
+            $ref: ../../../common/schemas/common/custom-field-v1.yaml#/components/schemas/customField
+
+    paymentPaginatedListForRead:
+      required:
+        - count
+        - data
+        - hasMore
+        - limit
+      type: object
+      allOf:
+      - $ref: ../../../common/schemas/common/paginated-list-v1.yaml#/components/schemas/paginatedList
+      - type: object
+        properties:
+          data:
+            type: array
+            description: Array of transactions.
+            items:
+              $ref: '#/components/schemas/retrievedPayment'
