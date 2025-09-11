@@ -91,6 +91,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/achDeposit'
+              example:
+                  $ref: './example-responses-v1.yaml#/components/examples/achDepositRetrieve'                
         400:
           description: Validation error
           content:

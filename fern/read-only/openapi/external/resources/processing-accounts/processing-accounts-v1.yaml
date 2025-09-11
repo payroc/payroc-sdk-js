@@ -202,7 +202,19 @@ paths:
       tags:
       - Processing accounts
       summary: List owners
-      description: Retrieve owners associated with a processing account.
+      description: |
+        Use this method to return a list of owners of a processing account.  
+
+        **Note:** If you want to retrieve the details of a specific owner and you have the ownerId, go to our [Retrieve Owner](https://docs.payroc.com/api/schema/boarding/owners/retrieve) method.  
+
+        To list the owners of a processing account, you need its processingAccountId. If you don't have the processingAccountId, use our [List Merchant Platform's Processing Accounts](https://docs.payroc.com/api/schema/boarding/merchant-platforms/list-processing-accounts) method to search for the processing account.  
+
+        Our gateway returns the following information about each owner in the list: 
+
+        - Name, date of birth, and address.  
+        - Contact details, including their email address.  
+        - Relationship to the business, including whether they are a control prong or authorized signatory, and their equity stake in the business.  
+        
       operationId: listMerchantOwners
       parameters:
         - $ref: './parameters-v1.yaml#/components/parameters/processingAccountId'
@@ -770,10 +782,10 @@ components:
       type: object
       properties:
         processingAccountId:
-          type: integer
+          type: string
           description: Unique identifier of the processing account.
           readOnly: true
-          example: 38765
+          example: '38765'
         doingBusinessAs:
           type: string
           description: Trading name of the business.
@@ -1196,9 +1208,9 @@ components:
             - intent
           example: intent
         pricingIntentId:
-          type: integer
+          type: string
           description: Unique identifier of the pricing intent.
-          example: 6123
+          example: '6123'
     pricingAgreement:
       type: object
       title: Pricing agreement
