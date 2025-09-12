@@ -24,7 +24,7 @@ components:
       properties:
         merchantId:
           type: string
-          description: Unique identifier that the processor assigned to the merchant. .
+          description: Unique identifier that the processor assigned to the merchant. 
           example: '4525644354'
         doingBusinessAs:
           type: string

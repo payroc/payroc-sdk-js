@@ -44,7 +44,7 @@ components:
               type: visa
               cvvPresenceIndicator: true 
               avsRequest: true 
-              avsResponse: ''
+              avsResponse: 'Y'
             transaction: 
               transactionId: 12345
               type: capture
@@ -55,3 +55,44 @@ components:
                 rel: transaction
                 method: get
                 href: https://api.payroc.com/v1/transactions/12345
+    retrievedAuthorization:
+          summary: Retrieve authorization
+          value: 
+              authorizationId: 65
+              createdDate: '2024-07-02'
+              lastModifiedDate: '2024-07-02'
+              authorizationResponse: successful
+              preauthorizationRequestAmount: 10000
+              currency: USD
+              merchant: 
+                merchantId: '4525644354'
+                doingBusinessAs: Pizza Doe
+                processingAccountId: '38765'
+                link: 
+                  rel: processingAccount
+                  method: get
+                  href: 'https://api.payroc.com/v1/processing-accounts/38765'
+              batch: 
+                batchId: 12
+                date: '2024-07-02'
+                cycle: am
+                link: 
+                  rel: batch
+                  method: get
+                  href: https://api.payroc.com/v1/batches/12
+              card:
+                cardNumber: '453985******7062'
+                type: visa
+                cvvPresenceIndicator: true 
+                avsRequest: true 
+                avsResponse: 'Y'
+              transaction: 
+                transactionId: 442233
+                type: capture
+                date: '2024-07-02'
+                entryMethod: swiped
+                amount: 100
+                link: 
+                  rel: transaction
+                  method: get
+                  href: https://api.payroc.com/v1/transactions/12345
