@@ -58,7 +58,7 @@ components:
             - preAuthorizationCompletion
         ebtType:
           type: string
-          description: Sub-type for EBT transactions
+          description: Indicates the subtype of EBT in the transaction. 
           enum:
             - cashPurchase
             - cashPurchaseWithCashback

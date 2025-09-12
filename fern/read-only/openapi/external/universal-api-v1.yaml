@@ -59,7 +59,7 @@ tags:
         - [Retrieve a list of open processing accounts that are linked to a merchant platform.](#listMerchantLocations)  
           
           
-      For more information about boarding a merchant, go to our [Board a merchant](/guides/integrate/boarding) guide. 
+      For more information about boarding a merchant, go to our [Board a merchant](https://docs.payroc.com/guides/integrate/boarding) guide. 
   - name: Owners
     description: Individuals who own or control the business.
   - name: Payment instructions

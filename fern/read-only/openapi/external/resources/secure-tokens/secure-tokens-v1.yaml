@@ -122,7 +122,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/secureTokenPaginatedList'
+                $ref: '#/components/schemas/secureTokenPaginatedListWithAccountType'
               examples:
                 paginatedResults:
                   $ref: './example-responses-v1.yaml#/components/examples/paginatedSecureToken'
@@ -150,7 +150,7 @@ paths:
 
         **Note:** If you don't have the secureTokenId, use our [List Secure Tokens](https://docs.payroc.com/api/schema/payments/secure-tokens/list) method to search for the secure token.  
 
-        Our gateway returns information about the following for each secure token in the list:  
+        Our gateway returns the following information about the secure token:  
 
           -	Payment details that the secure token represents.  
           -	Customer details, including shipping and billing addresses.  
@@ -165,7 +165,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/secureToken'
+                $ref: '#/components/schemas/secureTokenWithAccountType'
               examples:
                 secureToken:
                   $ref: './example-responses-v1.yaml#/components/examples/secureTokenResponse'
@@ -302,7 +302,7 @@ paths:
       description: | 
         Use this method to update a secure token if you have a single-use token from Hosted Fields.  
 
-        **Note:** If you don't have a single-use token, you can update saved payment details with our [Update Secure Token](https://docs.payroc.com/api/resources#updateSecureToken) method. For more information about our two options to update a secure token, go to [Update saved payment details](/guides/integrate/update-saved-payment-details).  
+        **Note:** If you don't have a single-use token, you can update saved payment details with our [Update Secure Token](https://docs.payroc.com/api/resources#updateSecureToken) method. For more information about our two options to update a secure token, go to [Update saved payment details](https://docs.payroc.com/guides/integrate/update-saved-payment-details).  
 
       operationId: accountUpdate
       parameters:
@@ -418,23 +418,6 @@ components:
           items:
             $ref: '../../../common/schemas/common/custom-field-v1.yaml#/components/schemas/customField'
 
-    secureTokenPaginatedList:
-      required:
-        - count
-        - data
-        - hasMore
-        - limit
-      type: object
-      allOf:
-        - $ref: '../../../common/schemas/common/paginated-list-v1.yaml#/components/schemas/paginatedList'
-        - type: object
-          properties:
-            data:
-              type: array
-              description: Array of saved payment details.
-              items:
-                $ref: '#/components/schemas/secureToken'
-
     secureToken:
       required:
         - processingTerminalId
@@ -544,3 +527,39 @@ components:
           minLength: 128
           type: string
           example: abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890
+
+    secureTokenWithAccountType:
+      allOf:
+        - $ref: '#/components/schemas/secureToken'
+        - type: object
+          properties:
+            source:
+              description: Object that contains information about the payment method that we tokenized.
+              type: object
+              discriminator:
+                propertyName: type
+                mapping:
+                  ach: '../../../common/schemas/transaction/bank-account-v1.yaml#/components/schemas/achSourceWithAccountType'
+                  pad: '../../../common/schemas/transaction/bank-account-v1.yaml#/components/schemas/padSourceWithAccountType'
+                  card: '../../../common/schemas/transaction/card-v1.yaml#/components/schemas/cardSource'
+              oneOf:
+                - $ref: '../../../common/schemas/transaction/bank-account-v1.yaml#/components/schemas/achSourceWithAccountType'
+                - $ref: '../../../common/schemas/transaction/bank-account-v1.yaml#/components/schemas/padSourceWithAccountType'
+                - $ref: '../../../common/schemas/transaction/card-v1.yaml#/components/schemas/cardSource'
+
+    secureTokenPaginatedListWithAccountType:
+      required:
+        - count
+        - data
+        - hasMore
+        - limit
+      type: object
+      allOf:
+        - $ref: '../../../common/schemas/common/paginated-list-v1.yaml#/components/schemas/paginatedList'
+        - type: object
+          properties:
+            data:
+              type: array
+              description: Array of saved payment details.
+              items:
+                $ref: '#/components/schemas/secureTokenWithAccountType'

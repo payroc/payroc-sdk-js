@@ -20,11 +20,11 @@ components:
     transactionSummary:
       type: object
       title: transaction summary
-      description: Object that contains summary information about the transaction.
+      description: Object that contains summary information about the transaction that the dispute is linked to.
       properties:
         transactionId:
           type: [integer, 'null']
-          description: Unique identifier of the transaction. If we can't match a dispute to a transaction, we don't return 'transactionID' or a 'link' object.
+          description: Unique identifier of the transaction. If we can't match a dispute to a transaction, we don't return the transactionId or link object.
           example: 12345
         type:
           type: string
@@ -39,7 +39,7 @@ components:
           example: '2024-07-02'
         entryMethod:
           type: [string, 'null']
-          description: Describes how the merchant received the payment details. If we can't match a dispute to a transaction, we don't return an 'entryMethod' object.
+          description: Describes how the merchant received the payment details. If we can't match a dispute to a transaction, we don't return an entryMethod object.
           enum:
             - barcodeRead
             - smartChipRead
@@ -56,7 +56,7 @@ components:
             - unknown
         amount:
           type: integer
-          description: Transaction amount. We return the value in the currency's lowest denomination, for example, cents.
+          description: Total amount of the transaction. The value is in the currency's lowest denomination, for example, cents. 
           example: 25000
         link:
           $ref: '../common/link/link-v1.yaml#/components/schemas/link'
