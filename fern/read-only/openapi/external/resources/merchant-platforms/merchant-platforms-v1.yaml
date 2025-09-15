@@ -22,7 +22,7 @@ tags:
         - [Retrieve a list of open processing accounts that are linked to a merchant platform.](#listMerchantLocations)  
           
           
-      For more information about boarding a merchant, go to our [Board a merchant](/guides/integrate/boarding) guide.
+      For more information about boarding a merchant, go to our [Board a merchant](https://docs.payroc.com/guides/integrate/boarding) guide.
 
 paths:
   /merchant-platforms:
@@ -120,7 +120,7 @@ paths:
       - Merchant platforms
       summary: List merchant platforms
       description: |
-         Use this method to retrieve a [paginated](https://docs.payroc.com/api/pagination) list of merchant platforms that are linked to your ISV account.  
+         Use this method to return a [paginated](https://docs.payroc.com/api/pagination) list of merchant platforms that are linked to your ISV account.  
          
          **Note**: If you want to view the details of a specific merchant platform and you have its merchantPlatformId, use our [Retrieve Merchant Platform](https://docs.payroc.com/api/schema/boarding/merchant-platforms/retrieve) method.  
 
@@ -203,7 +203,7 @@ paths:
       - Merchant platforms
       summary: List merchant platform's processing accounts
       description: |  
-        Use this method to retrieve a [paginated](https://docs.payroc.com/api/pagination) list of processing accounts linked to a merchant platform.  
+        Use this method to return a [paginated](https://docs.payroc.com/api/pagination) list of processing accounts linked to a merchant platform.  
 
         **Note**: If you want to view the details of a specific processing account and you have its processingAccountId, use our [Retrieve Processing Account](https://docs.payroc.com/api/schema/boarding/processing-accounts/retrieve) method.  
 
@@ -469,7 +469,7 @@ components:
                   - `cancelled` - Merchant withdrew the application for the processing account.
                   - `failed` - An error occurred while we were setting up the processing account.  
 
-                  **Note**: You can subscribe to our processingAccount.status.changed event to get notifications when we update the status of a processing account. For more information about how to subscribe to events, go to [Events List](https://docs.payroc.com/knowledge/events/events-list).
+                  **Note**: You can subscribe to our processingAccount.status.changed event to get notifications when we change the status of a processing account. For more information about how to subscribe to events, go to [Event Subscriptions](https://docs.payroc.com/guides/integrate/event-subscriptions).
                 readOnly: true
                 enum:
                   - entered

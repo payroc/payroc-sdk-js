@@ -83,7 +83,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/authorization'    
+                $ref: '#/components/schemas/authorization'
+              example:
+                  $ref: './example-responses-v1.yaml#/components/examples/retrievedAuthorization'    
         '400':
           $ref: '../../../common/responses/errors/400-v1.yaml#/components/responses/400'
         '401':

@@ -21,7 +21,7 @@ components:
       name: date
       in: query
       required: true
-      description: Date that the dispute was submitted.
+      description: Filter results by the date that the dispute was submitted.
       schema:
         type: string
         format: date

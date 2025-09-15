@@ -20,7 +20,7 @@ paths:
       description: |  
        Use this method to return a [paginated](https://docs.payroc.com/api/pagination) list of pricing intents associated with the ISV.  
 
-       **Note:** If you want to view a specific pricing intent and you have its pricingIntentId, use our [Retrieve Pricing Intent](https://docs.payroc.com/api/schema/boarding/pricing-intents/retrieve) method.  
+       **Note:** If you want to view the details of a specific pricing intent and you have its pricingIntentId, use our [Retrieve Pricing Intent](https://docs.payroc.com/api/schema/boarding/pricing-intents/retrieve) method.  
 
        Our gateway returns the following information about each pricing intent in the list:  
        
@@ -137,8 +137,6 @@ paths:
               schema:
                 $ref: '../../../common/responses/errors/409-v1.yaml#/components/schemas/409'
               examples:
-                idempotentKeyMissing:
-                  $ref: '../../../common/responses/errors/400-v1.yaml#/components/examples/idempotentKeyMissing'
                 idempotentKeyInUse:
                   $ref: '../../../common/responses/errors/409-v1.yaml#/components/examples/idempotentKeyInUse'         
         '500':
@@ -265,7 +263,16 @@ paths:
                 pricingIntent:
                   $ref: './example-responses-v1.yaml#/components/examples/pricingIntent'
         '400':
-          $ref: '../../../common/responses/errors/400-v1.yaml#/components/responses/400'
+          description: Validation error
+          content:
+            application/problem+json:
+              schema:
+                $ref: '../../../common/responses/errors/400-v1.yaml#/components/schemas/400'
+              examples:
+                validationError:
+                  $ref: '../../../common/responses/errors/400-v1.yaml#/components/examples/validatorError'
+                idempotentKeyMissing:
+                  $ref: '../../../common/responses/errors/400-v1.yaml#/components/examples/idempotentKeyMissing'
         '401':
           $ref: '../../../common/responses/errors/401-v1.yaml#/components/responses/401'
         '403':
@@ -274,6 +281,15 @@ paths:
           $ref: '../../../common/responses/errors/404-v1.yaml#/components/responses/404'
         '406':
           $ref: '../../../common/responses/errors/406-v1.yaml#/components/responses/406'
+        '409':
+          description: Conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '../../../common/responses/errors/409-v1.yaml#/components/schemas/409'
+              examples:
+                idempotentKeyInUse:
+                  $ref: '../../../common/responses/errors/409-v1.yaml#/components/examples/idempotentKeyInUse'   
         '500':
           $ref: '../../../common/responses/errors/500-v1.yaml#/components/responses/500'       
     delete:
