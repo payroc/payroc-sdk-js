@@ -19,7 +19,7 @@ components:
   schemas:
     unitOfMeasure:
       type: string
-      description: Unit of measurement for the item. For more information about units of measurement, go to [Units of measurement](/knowledge/basic-concepts/units-of-measurement).
+      description: Unit of measurement for the item. For more information about units of measurement, go to [Units of measurement](https://docs.payroc.com/knowledge/basic-concepts/units-of-measurement).
       example: QAN
       enum:
         - ACR

@@ -202,7 +202,19 @@ paths:
       tags:
       - Processing accounts
       summary: List owners
-      description: Retrieve owners associated with a processing account.
+      description: |
+        Use this method to return a list of owners of a processing account.  
+
+        **Note:** If you want to retrieve the details of a specific owner and you have the ownerId, go to our [Retrieve Owner](https://docs.payroc.com/api/schema/boarding/owners/retrieve) method.  
+
+        To list the owners of a processing account, you need its processingAccountId. If you don't have the processingAccountId, use our [List Merchant Platform's Processing Accounts](https://docs.payroc.com/api/schema/boarding/merchant-platforms/list-processing-accounts) method to search for the processing account.  
+
+        Our gateway returns the following information about each owner in the list: 
+
+        - Name, date of birth, and address.  
+        - Contact details, including their email address.  
+        - Relationship to the business, including whether they are a control prong or authorized signatory, and their equity stake in the business.  
+        
       operationId: listMerchantOwners
       parameters:
         - $ref: './parameters-v1.yaml#/components/parameters/processingAccountId'
@@ -272,7 +284,15 @@ paths:
                   $ref: './example-responses-v1.yaml#/components/examples/terminalOrderCreated'
         400:
           description: Bad request
-          $ref: '../../../common/responses/errors/400-v1.yaml#/components/responses/400'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '../../../common/responses/errors/400-v1.yaml#/components/schemas/400'
+              examples:
+                validationError:
+                  $ref: '../../../common/responses/errors/400-v1.yaml#/components/examples/validatorError'
+                idempotentKeyMissing:
+                  $ref: '../../../common/responses/errors/400-v1.yaml#/components/examples/idempotentKeyMissing'
         401:
           $ref: '../../../common/responses/errors/401-v1.yaml#/components/responses/401'
         403:
@@ -286,6 +306,15 @@ paths:
               examples:
                 notFound:
                   $ref: '../../../common/responses/errors/404-v1.yaml#/components/examples/notFound'
+        409:
+          description: Conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '../../../common/responses/errors/409-v1.yaml#/components/schemas/409'
+              examples:
+                idempotentKeyInUse:
+                  $ref: '../../../common/responses/errors/409-v1.yaml#/components/examples/idempotentKeyInUse'
         500:
           $ref: '../../../common/responses/errors/500-v1.yaml#/components/responses/500' 
     get:
@@ -441,6 +470,7 @@ paths:
 
       operationId: createReminder
       parameters:
+        - $ref: '../../../common/parameters/idempotency-key-v1.yaml#/components/parameters/idempotencyKey'
         - $ref: './parameters-v1.yaml#/components/parameters/processingAccountId'
       requestBody:
         content:
@@ -485,10 +515,21 @@ paths:
                   $ref: '../processing-accounts/example-responses-v1.yaml#/components/examples/contractAlreadySigned'
                 noPricingAgreementExistsForTheProcessingAccount:
                   $ref: '../processing-accounts/example-responses-v1.yaml#/components/examples/noPricingAgreementExistsForTheProcessingAccount'
+                idempotentKeyMissing:
+                  $ref: '../../../common/responses/errors/400-v1.yaml#/components/examples/idempotentKeyMissing'
         '403':
           $ref: '../../../common/responses/errors/403-v1.yaml#/components/responses/403'   
         '404':
-          $ref: '../../../common/responses/errors/404-v1.yaml#/components/responses/404'   
+          $ref: '../../../common/responses/errors/404-v1.yaml#/components/responses/404'
+        '409':
+          description: Conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '../../../common/responses/errors/409-v1.yaml#/components/schemas/409'
+              examples:
+                idempotentKeyInUse:
+                  $ref: '../../../common/responses/errors/409-v1.yaml#/components/examples/idempotentKeyInUse'
         '500':
           $ref: '../../../common/responses/errors/500-v1.yaml#/components/responses/500'   
 
@@ -770,10 +811,10 @@ components:
       type: object
       properties:
         processingAccountId:
-          type: integer
+          type: string
           description: Unique identifier of the processing account.
           readOnly: true
-          example: 38765
+          example: '38765'
         doingBusinessAs:
           type: string
           description: Trading name of the business.
@@ -1196,9 +1237,9 @@ components:
             - intent
           example: intent
         pricingIntentId:
-          type: integer
+          type: string
           description: Unique identifier of the pricing intent.
-          example: 6123
+          example: '6123'
     pricingAgreement:
       type: object
       title: Pricing agreement

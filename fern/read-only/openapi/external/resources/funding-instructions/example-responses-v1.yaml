@@ -93,7 +93,7 @@ components:
                 link:
                   rel: merchant
                   method: get
-                  href: https://api.payroc.com/v1/merchants/4525644354
+                  href: https://api.payroc.com/v1/processing-accounts/4525644354
             metadata:
               yourCustomField: abc123
             link:
@@ -122,7 +122,7 @@ components:
                 link:
                   rel: merchant
                   method: get
-                  href: https://api.payroc.com/v1/merchants/4525644354
+                  href: https://api.payroc.com/v1/processing-accounts/4525644354
               - merchantId: '4525644354'
                 recipients:
                 - status: accepted
@@ -140,7 +140,7 @@ components:
                 link:
                   rel: merchant
                   method: get
-                  href: https://api.payroc.com/v1/merchants/4525644354
+                  href: https://api.payroc.com/v1/processing-accounts/4525644354
             metadata:
               yourCustomField: abc123
             link:
@@ -173,7 +173,7 @@ components:
             link: 
               rel: merchant
               method: get
-              href: 'https://api.payroc.com/v1/merchants/4525644354'
+              href: 'https://api.payroc.com/v1/processing-accounts/4525644354'
         metadata:
           instructionRef: abc123
     
