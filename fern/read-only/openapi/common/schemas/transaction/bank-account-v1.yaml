@@ -184,3 +184,31 @@ components:
           type: string
           description: Three-digit code that represents the customer's bank.
           example: '543'
+
+    achSourceWithAccountType:
+      allOf:
+        - $ref: '#/components/schemas/achSource'
+        - type: object
+          properties:
+            accountType:
+              type: string
+              description: |
+                Indicates the customer's account type.
+              enum:
+                - checking
+                - savings
+              example: checking
+
+    padSourceWithAccountType:
+      allOf:
+        - $ref: '#/components/schemas/padSource'
+        - type: object
+          properties:
+            accountType:
+              type: string
+              description: |
+                Indicates the customer's account type.
+              enum:
+                - checking
+                - savings
+              example: checking

@@ -256,11 +256,14 @@ components:
           default: 25
         count:
           type: number
-          description: Number of results that we returned.
+          description: |
+            Number of results we returned on this page.  
+            
+            **Note:** This might not be the total number of results that match your query. 
           example: 23
         has_more:
           type: boolean
-          description: Indicates if further results are available.
+          description: Indicates whether there is another page of results available. 
         results:
           $ref: "#/components/schemas/documentsResponseList" 
 

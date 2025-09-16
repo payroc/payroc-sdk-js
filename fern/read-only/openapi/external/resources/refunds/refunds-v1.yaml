@@ -92,7 +92,7 @@ paths:
       description: |
         Use this method to return a [paginated](https://docs.payroc.com/api/pagination) list of refunds.  
 
-        **Note:** If you want to view a specific refund and you have its refundId, use our [Retrieve Refund](https://docs.payroc.com/api/schema/payments/refunds/retrieve) method.  
+        **Note:** If you want to view the details of a specific refund and you have its refundId, use our [Retrieve Refund](https://docs.payroc.com/api/schema/payments/refunds/retrieve) method.  
 
         Use query parameters to filter the list of results that we return, for example, to search for refunds for a customer, a tender type, or a date range.
         Our gateway returns the following information about each refund in the list:  
