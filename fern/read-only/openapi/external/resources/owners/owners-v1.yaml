@@ -35,7 +35,8 @@ paths:
         Our gateway returns the following information about an owner:  
         - Name, date of birth, and address.  
         - Contact details, including their email address.  
-        - Relationship to the business, including whether they are a control prong.
+        - Relationship to the business, including whether they are a control prong or authorized signatory, and their equity stake in the business. 
+        
       operationId: getOwner
       parameters:
       - $ref: './parameters-v1.yaml#/components/parameters/ownerId'
