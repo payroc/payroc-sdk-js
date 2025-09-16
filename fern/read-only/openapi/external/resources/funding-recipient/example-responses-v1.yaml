@@ -119,7 +119,7 @@ components:
             yourCustomField: abc123
           links: 
             - rel: parent
-              href: https://api.payroc.com/v1/funding-recipient/234
+              href: https://api.payroc.com/v1/funding-recipients/234
               method: get
         - fundingAccountId: 124
           createdDate: '2024-07-02T15:30:00Z'
@@ -137,7 +137,7 @@ components:
             yourCustomField: abc123
           links: 
             - rel: parent
-              href: https://api.payroc.com/v1/funding-recipient/235
+              href: https://api.payroc.com/v1/funding-recipients/235
               method: get
 
     fundingAccount:
@@ -160,6 +160,6 @@ components:
           yourCustomField: abc123
         links: 
           - rel: parent
-            href: https://api.payroc.com/v1/funding-recipient/234
+            href: https://api.payroc.com/v1/funding-recipients/234
             method: get
   

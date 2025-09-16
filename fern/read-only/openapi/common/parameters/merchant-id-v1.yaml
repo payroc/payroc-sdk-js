@@ -20,7 +20,7 @@ components:
     merchantId:
       name: merchantId
       in: query
-      description: Filter batches by the unique identifier that the processor assigned to the merchant. 
+      description: Filter results by the unique identifier that the processor assigned to the merchant. 
       schema:
         type: string
       examples:
