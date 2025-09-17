@@ -65,6 +65,7 @@ components:
           - checking
           - savings
           - generalLedger
+          example: checking
         use:
           type: string
           description: |

@@ -130,7 +130,7 @@ components:
                 mapping:
                   true: '#/components/schemas/tipProcessingEnabled'
                   false: '#/components/schemas/tipProcessingDisabled'
-              oneOf:
+              anyOf:
                 - $ref: '#/components/schemas/tipProcessingEnabled'
                 - $ref: '#/components/schemas/tipProcessingDisabled'  
             enhancedProcessing:
@@ -174,7 +174,7 @@ components:
               description: Indicates if the terminal prompts for cashback on PIN debit transactions.
             recurringPayments:
               type: boolean
-              description: Indicates if the terminal can run repeat payments. For more information about repeat payments, go to [Payment Plans](/guides/integrate/repeat-payments).
+              description: Indicates if the terminal can run repeat payments. For more information about repeat payments, go to [Payment Plans](https://docs.payroc.com/guides/integrate/repeat-payments).
             paymentLinks:
               type: object
               description: Object that contains details about payment links.
@@ -197,7 +197,7 @@ components:
               description: Indicates if the terminal can run pre-authorizations.
             offlinePayments:
               type: boolean
-              description: Indicates if the terminal can accept payments when it can't connect to the gateway. For more information about offline processing, go to [Offline Processing](/knowledge/card-payments/offline-processing).
+              description: Indicates if the terminal can accept payments when it can't connect to the gateway. For more information about offline processing, go to [Offline Processing](https://docs.payroc.com/knowledge/card-payments/offline-processing).
           required:
             - enhancedProcessing
             - pinDebitCashback
@@ -230,7 +230,7 @@ components:
           properties:
             tokenization:
               type: boolean
-              description: Indicates if the terminal can tokenize customer's payment details. For more information about tokenization, go to [Tokenization](/knowledge/basic-concepts/tokenization).
+              description: Indicates if the terminal can tokenize customer's payment details. For more information about tokenization, go to [Tokenization](https://docs.payroc.com/knowledge/basic-concepts/tokenization).
             avsPrompt:
               type: boolean
               description: Indicates if the terminal should prompt for Address Verification Service (AVS) details when running a transaction. 
@@ -480,7 +480,6 @@ components:
         enabled:
           type: boolean
           description: Indicates if the terminal can accept tips.
-          default: false
         tipPrompt:
           type: boolean
           description: Indicates if the terminal prompts for tips.

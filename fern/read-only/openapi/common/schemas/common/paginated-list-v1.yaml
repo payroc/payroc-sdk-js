@@ -27,11 +27,14 @@ components:
           example: 25
         count:
           type: number
-          description: Number of results that we returned.
+          description: |
+            Number of results we returned on this page. 
+            
+            **Note:** This might not be the total number of results that match your query. 
           example: 23
         hasMore:
           type: boolean
-          description: Indicates that further results are available.
+          description: Indicates whether there is another page of results available.
           example: false
         links:
           type: array

@@ -357,7 +357,7 @@ components:
                     example: get
                   href: 
                     type: string
-                    example: https://api.payroc.com/v1/merchants/4525644354
+                    example: https://api.payroc.com/v1/processing-accounts/4525644354
             required:
               - merchantId
               - recipients

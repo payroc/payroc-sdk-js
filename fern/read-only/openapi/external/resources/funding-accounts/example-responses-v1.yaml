@@ -25,7 +25,7 @@ components:
           yourCustomField: abc123
         links: 
         - rel: parent
-          href: https://api.payroc.com/v1/merchants/4525644354
+          href: https://api.payroc.com/v1/processing-accounts/4525644354
           method: get
     noResults:
       summary: No results found
@@ -66,7 +66,7 @@ components:
               yourCustomField: abc123
             links: 
               - rel: parent
-                href: https://api.payroc.com/v1/merchants/4525644354
+                href: https://api.payroc.com/v1/processing-accounts/4525644354
                 method: get
           - fundingAccountId: 124
             createdDate: '2024-07-02T15:30:00Z'
@@ -84,5 +84,5 @@ components:
               yourCustomField: abc123
             links: 
               - rel: parent
-                href: https://api.payroc.com/v1/funding-recipient/234
+                href: https://api.payroc.com/v1/funding-recipients/234
                 method: get
