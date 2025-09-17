@@ -8,7 +8,7 @@ components:
   parameters:
     refundInstructionId:
       name: refundInstructionId
-      description: Unique identifier of the refund instruction.
+      description: Unique identifier that we assigned to the refund instruction.
       in: path
       required: true
       schema:

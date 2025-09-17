@@ -24,22 +24,22 @@ components:
       properties:
         merchantId:
           type: string
-          description: Unique identifier that the processor assigned to the merchant. .
+          description: Unique identifier that the processor assigned to the merchant. 
           example: '4525644354'
         doingBusinessAs:
           type: string
           description: Trading name of the business.
           example: Pizza Doe
         processingAccountId:
-            type: string
+            type: integer
             description: Unique identifier that we assigned to the processing account.
-            example: '38765'
+            example: 38765
         link:
           $ref: '../common/link/link-v1.yaml#/components/schemas/link'
       example:
         merchantId: '4525644354'
         doingBusinessAs: Pizza Doe
-        processingAccountId: '38765'
+        processingAccountId: 38765
         link: 
           rel: processingAccount
           method: get

@@ -19,7 +19,19 @@ paths:
     get:
       tags: [Settlement]
       summary: List authorizations
-      description: Retrieve a list of authorizations.
+      description: | 
+        Use this method to retrieve a [paginated](https://docs.payroc.com/api/pagination) list of authorizations.  
+
+        Use query parameters to filter the list of results that we return, for example, to search for authorizations linked to a specific merchant.  
+
+        > **Important:** You must provide a value for either the date query parameter or the batchId query parameter.  
+
+        Our gateway returns the following information about each authorization in the list:
+        - Authorization response from the issuing bank.
+        - Amount that the issuing bank authorized.
+        - Merchant that ran the authorization.
+        - Details about the customer's card, the transaction, and the batch.
+
       operationId: getAuthorizations
       parameters:
         - $ref: '../../../common/parameters/before-v1.yaml#/components/parameters/before'
@@ -83,7 +95,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/authorization'    
+                $ref: '#/components/schemas/authorization'
+              example:
+                  $ref: './example-responses-v1.yaml#/components/examples/retrievedAuthorization'    
         '400':
           $ref: '../../../common/responses/errors/400-v1.yaml#/components/responses/400'
         '401':
@@ -106,7 +120,7 @@ components:
       properties:
         authorizationId:
           type: integer
-          description: Unique identifier of the authorization.
+          description: Unique identifier that we assigned to the authorization.
           example: 12345
         createdDate:
           type: string
@@ -120,7 +134,7 @@ components:
           example: '2024-01-30'
         authorizationResponse:
           type: string
-          description: Code that indicates the response for the authorization.
+          description: Response from the issuing bank for the authorization. 
           enum:
             - activityCountLimitExceeded
             - alreadyReversed
@@ -219,7 +233,7 @@ components:
           example: 10000
         currency:
           type: string
-          description: Currency of the authorization.
+          description: Currency of the authorization. The value for the currency follows the [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) standard.
         batch:
           $ref: '../../../common/schemas/settlement/batch-summary-v1.yaml#/components/schemas/batchSummary'
         card:

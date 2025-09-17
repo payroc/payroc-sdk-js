@@ -20,7 +20,10 @@ components:
     before:
       name: before
       in: query
-      description: Points to the resource identifier that you want to receive your results before. Typically, this is the first resource on the previous page.
+      description: |
+        Return the previous page of results before the value that you specify.  
+
+        You can’t send a before parameter in the same request as an after parameter. 
       schema:
         type: string
       examples:

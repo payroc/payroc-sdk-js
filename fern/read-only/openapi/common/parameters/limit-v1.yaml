@@ -20,7 +20,7 @@ components:
     limit:
       name: limit
       in: query
-      description: States the total amount of results the response is limited to.
+      description: Limit the maximum number of results that we return for each page. 
       schema:
         type: integer
         default: 10

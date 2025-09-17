@@ -22,7 +22,12 @@ paths:
         - Payment instructions
       summary: Retrieve payment instruction
       operationId: getPaymentInstruction
-      description: Retrieve the current status of a specific payment instruction.
+      description: |
+        Use this method to retrieve information about a payment instruction.  
+
+        To retrieve a payment instruction, you need its paymentInstructionId. Our gateway returned the paymentInstructionId in the response of the [Submit Payment Instruction](https://docs.payroc.com/api/schema/payroc-cloud/payment-instructions/submit) method.  
+
+        Our gateway returns the status of the payment instruction. If the payment device completed the payment instruction, the response also includes a link to the payment.
       parameters:
         - $ref: './parameters-v1.yaml#/components/parameters/paymentInstructionId'
       responses:
@@ -161,7 +166,7 @@ components:
               maxLength: 36
               minLength: 1
               type: string
-              description: Unique identifier that our gateway assigned to the instruction.
+              description: Unique identifier that we assigned to the payment instruction.
               example: a37439165d134678a9100ebba3b29597
     paymentInstructionRequest:
       required:

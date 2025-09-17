@@ -21,7 +21,7 @@ components:
       name: batchId
       in: path
       required: true
-      description: Unique identifier of the batch.
+      description: Unique identifier that we assigned to the batch.
       style: simple
       schema:
         type: integer
@@ -33,7 +33,7 @@ components:
       name: batchId
       in: query
       required: true
-      description: Unique identifier of the batch. You must provide either the 'batchId' or the 'date'.
+      description: Unique identifier of the batch. You must provide either the batchId or the date.
       schema:
         type: integer
       examples:
@@ -44,10 +44,10 @@ components:
       name: date
       in: query
       required: true
-      description: Date to retrieve results from. The format of this value is **YYYY-MM-DD**. You must provide either the 'batchId' or the 'date'.
+      description: Return results for a specific date. The format of this value is **YYYY-MM-DD**. You must provide either the batchId or the date.
       schema:
         type: string
         format: date
       examples:
         example:
-          value: '2024-07-01'
+          value: '2024-07-02'

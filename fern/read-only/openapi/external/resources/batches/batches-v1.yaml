@@ -20,16 +20,17 @@ paths:
       tags: [Settlement]
       summary: List batches
       description: |
-        Use this method to retrieve a [paginated](https://docs.payroc.com/api/pagination) list of your merchants’ batches that were submitted to the processor on a specific date.  
+        Use this method to return a [paginated](https://docs.payroc.com/api/pagination) list of batches that your merchants submitted to the processor on a specific date.  
 
-        **Note:** If you want to view a specific batch and you have its batchId, use our [Retrieve Batch](https://docs.payroc.com/api/schema/reporting/settlement/retrieve-batch) method.  
+        **Note:** If you want to view the details of a specific batch and you have its batchId, use our [Retrieve Batch](https://docs.payroc.com/api/schema/reporting/settlement/retrieve-batch) method.  
 
-        In your request, include the date that the batch was submitted. You can also use a query parameter to view the batches of a specific merchant.  
+        Use query parameters to filter the list of results that we return, for example, to search for batches that were submitted by a specific merchant.  
+
+        > **Important:** You must provide a value for the date query parameter.  
 
         Our gateway returns the following information about each batch in the list:  
-
-        -	Transaction information, including the number of transactions and total value of sales.
-        -	Merchant information, including the merchant ID (MID) and the processing account that the batch is associated with. 
+        -	Transaction information, including the number of transactions and total value of sales.  
+        -	Merchant information, including the merchant ID (MID) and the processing account that the batch is associated with.  
 
       operationId: getbatches
       parameters:
@@ -86,7 +87,15 @@ paths:
     get:
       tags: [Settlement]
       summary: Retrieve batch
-      description: Retrieve a specific batch.
+      description: |
+        Use this method to retrieve information about a batch.  
+
+        **Note:** To retrieve a batch, you need its batchId. If you don't have the batchId, use our [List Batches](https://docs.payroc.com/api/schema/reporting/settlement/list-batches) method to search for the batch.  
+
+        Our gateway returns the following information about the batch:  
+
+        -	Transaction information, including the number of transactions and total value of sales.  
+        -	Merchant information, including the merchant ID (MID) and the processing account that the batch is associated with.  
       operationId: getbatch
       parameters:
         - $ref: '../../../common/parameters/settlement-v1.yaml#/components/parameters/batchId'
@@ -96,7 +105,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/batch'    
+                $ref: '#/components/schemas/batch'
+              example:
+                  $ref: './example-responses-v1.yaml#/components/examples/retrievedBatch'    
         '400':
           description: Validation error
           content:
@@ -125,7 +136,7 @@ components:
       properties:
         batchId:
           type: integer
-          description: Unique identifier of the batch.
+          description: Unique identifier that we assigned to the batch.
           example: 123
         date:
           type: string
@@ -173,4 +184,4 @@ components:
 
   securitySchemes:
     bearerAuth:
-      $ref: '../../../common/security/bearer-auth.yaml#/components/securitySchemes/bearerAuth'
+      $ref: '../../../common/security/bearer-auth.yaml#/components/securitySchemes/bearerAuth' 

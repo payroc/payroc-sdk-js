@@ -20,7 +20,10 @@ components:
     after:  
       name: after
       in: query
-      description: Points to the resource identifier that you want to receive your results after. Typically, this is the last resource on the previous page.
+      description: |
+        Return the next page of results after the value that you specify.  
+        
+        You can’t send an after parameter in the same request as a before parameter. 
       schema:
         type: string
       examples:

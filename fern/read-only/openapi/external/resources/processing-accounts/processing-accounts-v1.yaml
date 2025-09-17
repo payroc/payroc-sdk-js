@@ -109,11 +109,11 @@ paths:
       - Processing accounts
       summary: List contacts
       description: |
-        Use this method to retrieve a list of contacts for a processing account.    
+        Use this method to return a list of contacts for a processing account.    
 
-        **Note:** If you want to view a specific contact and you have their contactId, go to our [Retrieve Contact](https://docs.payroc.com/api/schema/boarding/contacts/retrieve) method.  
+        **Note:** If you want to view the details of a specific contact and you have their contactId, use our [Retrieve Contact](https://docs.payroc.com/api/schema/boarding/contacts/retrieve) method.  
 
-        To retrieve a list of contacts for a processing account, you need the processingAccountId. Our gateway returned the processingAccountId in the response of the [Create Merchant Platform](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create) method or the [Create Processing Account](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create-processing-account) method.  
+        To list contacts for a processing account, you need the processingAccountId. Our gateway returned the processingAccountId in the response of the [Create Merchant Platform](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create) method or the [Create Processing Account](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create-processing-account) method.  
 
         Our gateway returns the following information about each contact:  
 
@@ -202,7 +202,19 @@ paths:
       tags:
       - Processing accounts
       summary: List owners
-      description: Retrieve owners associated with a processing account.
+      description: |
+        Use this method to return a list of owners of a processing account.  
+
+        **Note:** If you want to view the details of a specific owner and you have the ownerId, go to our [Retrieve Owner](https://docs.payroc.com/api/schema/boarding/owners/retrieve) method.  
+
+        To list the owners of a processing account, you need its processingAccountId. If you don't have the processingAccountId, use our [List Merchant Platform's Processing Accounts](https://docs.payroc.com/api/schema/boarding/merchant-platforms/list-processing-accounts) method to search for the processing account.  
+
+        Our gateway returns the following information about each owner in the list: 
+
+        - Name, date of birth, and address.  
+        - Contact details, including their email address.  
+        - Relationship to the business, including whether they are a control prong or authorized signatory, and their equity stake in the business.  
+        
       operationId: listMerchantOwners
       parameters:
         - $ref: './parameters-v1.yaml#/components/parameters/processingAccountId'
@@ -272,7 +284,15 @@ paths:
                   $ref: './example-responses-v1.yaml#/components/examples/terminalOrderCreated'
         400:
           description: Bad request
-          $ref: '../../../common/responses/errors/400-v1.yaml#/components/responses/400'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '../../../common/responses/errors/400-v1.yaml#/components/schemas/400'
+              examples:
+                validationError:
+                  $ref: '../../../common/responses/errors/400-v1.yaml#/components/examples/validatorError'
+                idempotentKeyMissing:
+                  $ref: '../../../common/responses/errors/400-v1.yaml#/components/examples/idempotentKeyMissing'
         401:
           $ref: '../../../common/responses/errors/401-v1.yaml#/components/responses/401'
         403:
@@ -286,14 +306,23 @@ paths:
               examples:
                 notFound:
                   $ref: '../../../common/responses/errors/404-v1.yaml#/components/examples/notFound'
+        409:
+          description: Conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '../../../common/responses/errors/409-v1.yaml#/components/schemas/409'
+              examples:
+                idempotentKeyInUse:
+                  $ref: '../../../common/responses/errors/409-v1.yaml#/components/examples/idempotentKeyInUse'
         500:
           $ref: '../../../common/responses/errors/500-v1.yaml#/components/responses/500' 
     get:
       summary: List terminal orders
       description: |
-        Use this method to retrieve a [paginated](https://docs.payroc.com/api/pagination) list of terminal orders associated with a processing account.  
+        Use this method to return a [paginated](https://docs.payroc.com/api/pagination) list of terminal orders associated with a processing account.  
 
-        **Note:** If you want to view a specific terminal order and you have its terminalOrderId, use our [Retrieve Terminal Order](https://docs.payroc.com/api/schema/boarding/terminal-orders/retrieve) method.  
+        **Note:** If you want to view the details of a specific terminal order and you have its terminalOrderId, use our [Retrieve Terminal Order](https://docs.payroc.com/api/schema/boarding/terminal-orders/retrieve) method.  
 
         Use the query parameters to filter the list of results that we return, for example, to search for terminal orders by their status.  
 
@@ -378,7 +407,7 @@ paths:
     get:
       summary: List processing terminals
       description: |
-        Use this method to retrieve a [paginated](https://docs.payroc.com/api/pagination) list of processing terminals associated with a processing account.  
+        Use this method to return a [paginated](https://docs.payroc.com/api/pagination) list of processing terminals associated with a processing account.  
 
         **Note:** If you want to view the details of a specific processing terminal and you have its processingTerminalId, use our [Retrieve Processing Terminal](https://docs.payroc.com/api/schema/boarding/processing-terminals/retrieve) method.  
 
@@ -441,6 +470,7 @@ paths:
 
       operationId: createReminder
       parameters:
+        - $ref: '../../../common/parameters/idempotency-key-v1.yaml#/components/parameters/idempotencyKey'
         - $ref: './parameters-v1.yaml#/components/parameters/processingAccountId'
       requestBody:
         content:
@@ -485,10 +515,21 @@ paths:
                   $ref: '../processing-accounts/example-responses-v1.yaml#/components/examples/contractAlreadySigned'
                 noPricingAgreementExistsForTheProcessingAccount:
                   $ref: '../processing-accounts/example-responses-v1.yaml#/components/examples/noPricingAgreementExistsForTheProcessingAccount'
+                idempotentKeyMissing:
+                  $ref: '../../../common/responses/errors/400-v1.yaml#/components/examples/idempotentKeyMissing'
         '403':
           $ref: '../../../common/responses/errors/403-v1.yaml#/components/responses/403'   
         '404':
-          $ref: '../../../common/responses/errors/404-v1.yaml#/components/responses/404'   
+          $ref: '../../../common/responses/errors/404-v1.yaml#/components/responses/404'
+        '409':
+          description: Conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '../../../common/responses/errors/409-v1.yaml#/components/schemas/409'
+              examples:
+                idempotentKeyInUse:
+                  $ref: '../../../common/responses/errors/409-v1.yaml#/components/examples/idempotentKeyInUse'
         '500':
           $ref: '../../../common/responses/errors/500-v1.yaml#/components/responses/500'   
 
@@ -770,10 +811,10 @@ components:
       type: object
       properties:
         processingAccountId:
-          type: integer
+          type: string
           description: Unique identifier of the processing account.
           readOnly: true
-          example: 38765
+          example: '38765'
         doingBusinessAs:
           type: string
           description: Trading name of the business.
@@ -915,6 +956,7 @@ components:
             - `rejected` - We rejected the application for the processing account.  
             - `terminated` - Processing account is closed.  
             - `cancelled` - Merchant withdrew the application for the processing account.  
+            **Note**: You can subscribe to our processingAccount.status.changed event to get notifications when we change the status of a processing account. For more information about how to subscribe to events, go to [Event Subscriptions](https://docs.payroc.com/guides/integrate/event-subscriptions).
           readOnly: true
           enum:
             - entered
@@ -1117,6 +1159,9 @@ components:
                 $ref: '../../../common/schemas/boarding/funding-account-summary-v1.yaml#/components/schemas/fundingAccountSummary'    
     createFunding:
       type: object
+      description: | 
+        Object that contains information about the funding schedule of the processing account.  
+        **Note**: You can subscribe to our processingAccount.funding.status.changed event to get notifications when we change the funding status of a processing account. For  more information about how to subscribe to events, go to [Event Subscriptions](https://docs.payroc.com/guides/integrate/event-subscriptions).  
       allOf:
         - $ref: '#/components/schemas/commonFunding'
         - type: object
@@ -1131,7 +1176,6 @@ components:
                 $ref: '../../../common/schemas/boarding/funding-account-v1.yaml#/components/schemas/fundingAccount'
     commonFunding:
       type: object
-      description: Object that contains information about the funding schedule of the processing account.
       properties:
         status:
           type: string
@@ -1196,9 +1240,9 @@ components:
             - intent
           example: intent
         pricingIntentId:
-          type: integer
+          type: string
           description: Unique identifier of the pricing intent.
-          example: 6123
+          example: '6123'
     pricingAgreement:
       type: object
       title: Pricing agreement

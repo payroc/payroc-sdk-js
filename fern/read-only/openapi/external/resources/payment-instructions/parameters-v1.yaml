@@ -8,7 +8,7 @@ components:
   parameters:
     paymentInstructionId:
       name: paymentInstructionId
-      description: Unique identifier of the payment instruction.
+      description: Unique identifier that we assigned to the payment instruction. 
       in: path
       required: true
       schema:
