@@ -1,0 +1,9 @@
+export type { CreateAccountFundingRecipientsRequest } from "./CreateAccountFundingRecipientsRequest.js";
+export type { CreateFundingRecipient } from "./CreateFundingRecipient.js";
+export type { CreateOwnerFundingRecipientsRequest } from "./CreateOwnerFundingRecipientsRequest.js";
+export type { DeleteFundingRecipientsRequest } from "./DeleteFundingRecipientsRequest.js";
+export type { ListFundingRecipientFundingAccountsRequest } from "./ListFundingRecipientFundingAccountsRequest.js";
+export type { ListFundingRecipientOwnersRequest } from "./ListFundingRecipientOwnersRequest.js";
+export type { ListFundingRecipientsRequest } from "./ListFundingRecipientsRequest.js";
+export type { RetrieveFundingRecipientsRequest } from "./RetrieveFundingRecipientsRequest.js";
+export type { UpdateFundingRecipientsRequest } from "./UpdateFundingRecipientsRequest.js";

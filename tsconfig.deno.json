@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "extendedDiagnostics": true,
+        "strict": true,
+        "target": "ES2020",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "declaration": true,
+        "outDir": "dist/esm",
+        "rootDir": "src",
+        "baseUrl": "src",
+        "isolatedModules": true,
+        "isolatedDeclarations": true
+    },
+    "include": ["src/index.deno.ts", "src/telemetry.ts", "src/Client.ts", "src/index.ts"],
+    "exclude": []
+}
