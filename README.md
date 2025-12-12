@@ -1,7 +1,5 @@
 # Payroc API TypeScript SDK
 
-[![npm shield](https://img.shields.io/npm/v/payroc)](https://www.npmjs.com/package/payroc)
-
 The Payroc API TypeScript SDK provides convenient access to the Payroc API from TypeScript and JavaScript.
 
 ## Contents
