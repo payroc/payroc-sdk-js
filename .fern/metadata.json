@@ -1,0 +1,96 @@
+{
+    "cliVersion": "3.0.3",
+    "generatorName": "fernapi/fern-typescript-sdk",
+    "generatorVersion": "3.42.0",
+    "generatorConfig": {
+        "namespaceExport": "Payroc",
+        "allowCustomFetcher": true,
+        "customPagerName": "PayrocPager",
+        "packageJson": {
+            "exports": {
+                ".": {
+                    "workerd": {
+                        "types": "./dist/esm/index.cloudflare.d.mts",
+                        "import": "./dist/esm/index.cloudflare.mjs",
+                        "require": "./dist/cjs/index.cloudflare.js"
+                    },
+                    "edge-light": {
+                        "types": "./dist/esm/index.cloudflare.d.mts",
+                        "import": "./dist/esm/index.cloudflare.mjs",
+                        "require": "./dist/cjs/index.cloudflare.js"
+                    },
+                    "react-native": {
+                        "types": "./dist/esm/index.react-native.d.mts",
+                        "import": "./dist/esm/index.react-native.mjs",
+                        "require": "./dist/cjs/index.react-native.js"
+                    },
+                    "electron": {
+                        "types": "./dist/esm/index.electron.d.mts",
+                        "import": "./dist/esm/index.electron.mjs",
+                        "require": "./dist/cjs/index.electron.js"
+                    },
+                    "deno": {
+                        "types": "./dist/esm/index.deno.d.mts",
+                        "import": "./dist/esm/index.deno.mjs"
+                    },
+                    "bun": {
+                        "types": "./dist/esm/index.bun.d.mts",
+                        "import": "./dist/esm/index.bun.mjs",
+                        "require": "./dist/cjs/index.bun.js"
+                    },
+                    "browser": {
+                        "types": "./dist/esm/index.browser.d.mts",
+                        "import": "./dist/esm/index.browser.mjs",
+                        "require": "./dist/cjs/index.browser.js"
+                    },
+                    "node": {
+                        "types": "./dist/esm/index.node.d.mts",
+                        "import": "./dist/esm/index.node.mjs",
+                        "require": "./dist/cjs/index.node.js"
+                    },
+                    "import": {
+                        "types": "./dist/esm/index.d.mts",
+                        "default": "./dist/esm/index.mjs"
+                    },
+                    "require": {
+                        "types": "./dist/cjs/index.d.ts",
+                        "default": "./dist/cjs/index.js"
+                    },
+                    "types": "./dist/cjs/index.d.ts",
+                    "default": "./dist/cjs/index.node.js"
+                },
+                "./package.json": "./package.json"
+            },
+            "scripts": {
+                "build": "pnpm build:cjs && pnpm build:esm && pnpm build:deno",
+                "build:cjs": "tsc --project ./tsconfig.cjs.json",
+                "build:esm": "tsc --project ./tsconfig.esm.json && node scripts/rename-to-esm-files.js dist/esm",
+                "build:deno": "tsc --project ./tsconfig.deno.json && node scripts/rename-to-esm-files.js dist/esm"
+            },
+            "dependencies": {
+                "@sentry/browser": "^10.28.0",
+                "@sentry/bun": "^10.28.0",
+                "@sentry/core": "^10.29.0",
+                "@sentry/deno": "^10.28.0",
+                "@sentry/node": "^10.28.0",
+                "@sentry/vercel-edge": "^10.28.0"
+            },
+            "peerDependencies": {
+                "@sentry/cloudflare": "^10.0.0",
+                "@sentry/electron": "^7.0.0",
+                "@sentry/react-native": "^7.0.0"
+            },
+            "peerDependenciesMeta": {
+                "@sentry/cloudflare": {
+                    "optional": true
+                },
+                "@sentry/electron": {
+                    "optional": true
+                },
+                "@sentry/react-native": {
+                    "optional": true
+                }
+            }
+        }
+    }
+}

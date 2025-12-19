@@ -1,0 +1,25 @@
+{
+  "channel": "web",
+  "processingTerminalId": "1234001",
+  "order": {
+    "amount": 4999,
+    "currency": "USD",
+    "orderId": "OrderRef6543",
+    "description": "Large Pepperoni Pizza"
+  },
+  "refundMethod": {
+    "type": "card",
+    "cardDetails": {
+      "entryMethod": "keyed",
+      "keyedData": {
+        "dataFormat": "plainText",
+        "device": {
+          "model": "paxA920",
+          "serialNumber": "1850010868"
+        },
+        "cardNumber": "4539858876047062",
+        "expiryDate": "1225"
+      }
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+    "name": "payroc",
+    "version": "0.0.1518",
+    "private": false,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/payroc/payroc-sdk-js.git"
+    },
+    "type": "commonjs",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.mjs",
+    "types": "./dist/cjs/index.d.ts",
+    "exports": {
+        ".": {
+            "workerd": {
+                "types": "./dist/esm/index.cloudflare.d.mts",
+                "import": "./dist/esm/index.cloudflare.mjs",
+                "require": "./dist/cjs/index.cloudflare.js"
+            },
+            "edge-light": {
+                "types": "./dist/esm/index.cloudflare.d.mts",
+                "import": "./dist/esm/index.cloudflare.mjs",
+                "require": "./dist/cjs/index.cloudflare.js"
+            },
+            "react-native": {
+                "types": "./dist/esm/index.react-native.d.mts",
+                "import": "./dist/esm/index.react-native.mjs",
+                "require": "./dist/cjs/index.react-native.js"
+            },
+            "electron": {
+                "types": "./dist/esm/index.electron.d.mts",
+                "import": "./dist/esm/index.electron.mjs",
+                "require": "./dist/cjs/index.electron.js"
+            },
+            "deno": {
+                "types": "./dist/esm/index.deno.d.mts",
+                "import": "./dist/esm/index.deno.mjs"
+            },
+            "bun": {
+                "types": "./dist/esm/index.bun.d.mts",
+                "import": "./dist/esm/index.bun.mjs",
+                "require": "./dist/cjs/index.bun.js"
+            },
+            "browser": {
+                "types": "./dist/esm/index.browser.d.mts",
+                "import": "./dist/esm/index.browser.mjs",
+                "require": "./dist/cjs/index.browser.js"
+            },
+            "node": {
+                "types": "./dist/esm/index.node.d.mts",
+                "import": "./dist/esm/index.node.mjs",
+                "require": "./dist/cjs/index.node.js"
+            },
+            "import": {
+                "types": "./dist/esm/index.d.mts",
+                "default": "./dist/esm/index.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/index.d.ts",
+                "default": "./dist/cjs/index.js"
+            },
+            "types": "./dist/cjs/index.d.ts",
+            "default": "./dist/cjs/index.node.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist",
+        "reference.md",
+        "README.md",
+        "LICENSE"
+    ],
+    "scripts": {
+        "format": "biome format --write --skip-parse-errors --no-errors-on-unmatched --max-diagnostics=none",
+        "format:check": "biome format --skip-parse-errors --no-errors-on-unmatched --max-diagnostics=none",
+        "lint": "biome lint --skip-parse-errors --no-errors-on-unmatched --max-diagnostics=none",
+        "lint:fix": "biome lint --fix --unsafe --skip-parse-errors --no-errors-on-unmatched --max-diagnostics=none",
+        "check": "biome check --skip-parse-errors --no-errors-on-unmatched --max-diagnostics=none",
+        "check:fix": "biome check --fix --unsafe --skip-parse-errors --no-errors-on-unmatched --max-diagnostics=none",
+        "build": "pnpm build:cjs && pnpm build:esm && pnpm build:deno",
+        "build:cjs": "tsc --project ./tsconfig.cjs.json",
+        "build:esm": "tsc --project ./tsconfig.esm.json && node scripts/rename-to-esm-files.js dist/esm",
+        "test": "vitest",
+        "test:unit": "vitest --project unit",
+        "test:wire": "vitest --project wire",
+        "build:deno": "tsc --project ./tsconfig.deno.json && node scripts/rename-to-esm-files.js dist/esm"
+    },
+    "dependencies": {
+        "@sentry/browser": "^10.28.0",
+        "@sentry/bun": "^10.28.0",
+        "@sentry/core": "^10.29.0",
+        "@sentry/deno": "^10.28.0",
+        "@sentry/node": "^10.28.0",
+        "@sentry/vercel-edge": "^10.28.0"
+    },
+    "devDependencies": {
+        "webpack": "^5.97.1",
+        "ts-loader": "^9.5.1",
+        "vitest": "^3.2.4",
+        "msw": "2.11.2",
+        "@types/node": "^18.19.70",
+        "typescript": "~5.7.2",
+        "@biomejs/biome": "2.3.1"
+    },
+    "browser": {
+        "fs": false,
+        "os": false,
+        "path": false,
+        "stream": false
+    },
+    "packageManager": "pnpm@10.20.0",
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "sideEffects": false,
+    "peerDependencies": {
+        "@sentry/cloudflare": "^10.0.0",
+        "@sentry/electron": "^7.0.0",
+        "@sentry/react-native": "^7.0.0"
+    },
+    "peerDependenciesMeta": {
+        "@sentry/cloudflare": {
+            "optional": true
+        },
+        "@sentry/electron": {
+            "optional": true
+        },
+        "@sentry/react-native": {
+            "optional": true
+        }
+    }
+}

@@ -1,0 +1,24 @@
+# Specify files that shouldn't be modified by Fern
+.gitignore
+
+src/BaseClient.ts
+src/core/pagination/PayrocPager.ts
+src/index.browser.ts
+src/index.bun.ts
+src/index.cloudflare.ts
+src/index.deno.ts
+src/index.edge.ts
+src/index.electron.ts
+src/index.node.ts
+src/index.react-native.ts
+src/telemetry.ts
+tests/unit/PayrocPager.test.ts
+tests/readme-examples.test.ts
+tests/integration/
+tsconfig.cjs.json
+tsconfig.esm.json
+tsconfig.deno.json
+scripts/
+CONTRIBUTING.md
+README.md
+LICENSE
