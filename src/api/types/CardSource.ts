@@ -11,11 +11,11 @@ export interface CardSource {
     /** Primary account number of the customer's card. */
     cardNumber: string;
     /** Expiry date of the customer's card. */
-    expiryDate?: string;
+    expiryDate?: string | undefined;
     /** Card brand of the card, for example, Visa. */
-    cardType?: string;
-    currency?: Payroc.Currency;
+    cardType?: string | undefined;
+    currency?: Payroc.Currency | undefined;
     /** Indicates if the card is a debit card. */
-    debit?: boolean;
-    surcharging?: Payroc.Surcharging;
+    debit?: boolean | undefined;
+    surcharging?: Payroc.Surcharging | undefined;
 }

@@ -7,7 +7,7 @@ import type * as Payroc from "../index.js";
  */
 export interface ProcessorFee {
     /** Percentage of total transaction amount that the processor charges the merchant. */
-    volume?: Payroc.Percentage;
+    volume?: Payroc.Percentage | undefined;
     /** Fee for each transaction. The value is in the currency's lowest denomination, for example, cents. */
-    transaction?: Payroc.Amount;
+    transaction?: Payroc.Amount | undefined;
 }

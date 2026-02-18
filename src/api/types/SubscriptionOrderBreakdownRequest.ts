@@ -7,5 +7,5 @@ import type * as Payroc from "../index.js";
  */
 export interface SubscriptionOrderBreakdownRequest extends Payroc.SubscriptionOrderBreakdownBase {
     /** Array of tax objects. */
-    taxes?: Payroc.TaxRate[];
+    taxes?: Payroc.TaxRate[] | undefined;
 }

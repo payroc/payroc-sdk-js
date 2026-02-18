@@ -3,7 +3,7 @@
 import type * as Payroc from "../../../../../index.js";
 
 /**
- * Object that contains information about the card.
+ * Polymorphic object that contains payment details.
  */
 export type CardVerificationRequestCard = Payroc.paymentFeatures.CardVerificationRequestCard.Card;
 

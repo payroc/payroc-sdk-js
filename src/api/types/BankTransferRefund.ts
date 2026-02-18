@@ -8,11 +8,17 @@ export interface BankTransferRefund {
     /** Unique identifier that we assigned to the terminal. */
     processingTerminalId: string;
     order: Payroc.BankTransferRefundOrder;
-    customer?: Payroc.BankTransferCustomer;
-    /** Object that contains information about the bank account. */
+    customer?: Payroc.BankTransferCustomer | undefined;
+    /**
+     * Polymorphic object that contains bank account information.
+     *
+     * The value of the type field determines which variant you should use:
+     * -	`ach` - Automated Clearing House (ACH) details
+     * -	`pad` - Pre-authorized debit (PAD) details
+     */
     bankAccount: Payroc.BankTransferRefundBankAccount;
-    payment?: Payroc.PaymentSummary;
+    payment?: Payroc.PaymentSummary | undefined;
     transactionResult: Payroc.BankTransferResult;
     /** Array of customField objects. */
-    customFields?: Payroc.CustomField[];
+    customFields?: Payroc.CustomField[] | undefined;
 }

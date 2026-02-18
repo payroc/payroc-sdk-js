@@ -1,6 +1,6 @@
 # Specify files that shouldn't be modified by Fern
 .gitignore
-
+.github/CODEOWNERS
 src/BaseClient.ts
 src/core/pagination/PayrocPager.ts
 src/index.browser.ts
@@ -18,7 +18,10 @@ tests/integration/
 tsconfig.cjs.json
 tsconfig.esm.json
 tsconfig.deno.json
+pipelines/
 scripts/
 CONTRIBUTING.md
 README.md
 LICENSE
+.previewignore
+SECURITY.md

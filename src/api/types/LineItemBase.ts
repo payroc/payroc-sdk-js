@@ -7,16 +7,16 @@ import type * as Payroc from "../index.js";
  */
 export interface LineItemBase {
     /** Commodity code of the item. */
-    commodityCode?: string;
+    commodityCode?: string | undefined;
     /** Product code of the item. */
-    productCode?: string;
+    productCode?: string | undefined;
     /** Description of the item. */
-    description?: string;
-    unitOfMeasure?: Payroc.UnitOfMeasure;
+    description?: string | undefined;
+    unitOfMeasure?: Payroc.UnitOfMeasure | undefined;
     /** Price of each unit. */
     unitPrice: number;
     /** Number of units. */
     quantity: number;
     /** Discount rate that the merchant applies to the item. */
-    discountRate?: number;
+    discountRate?: number | undefined;
 }

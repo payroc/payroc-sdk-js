@@ -15,7 +15,22 @@ describe("FundingInstructionsClient", () => {
             apiKey: "x-api-key",
             environment: { api: server.baseUrl, identity: server.baseUrl },
         });
-        const rawRequestBody = {};
+        const rawRequestBody = {
+            merchants: [
+                {
+                    merchantId: "4525644354",
+                    recipients: [
+                        {
+                            fundingAccountId: 123,
+                            paymentMethod: "ACH",
+                            amount: { value: 120000, currency: "USD" },
+                            metadata: { yourCustomField: "abc123" },
+                        },
+                    ],
+                },
+            ],
+            metadata: { yourCustomField: "abc123" },
+        };
         const rawResponseBody = {
             instructionId: 64643131,
             createdDate: "2024-07-02T15:30:00Z",
@@ -59,7 +74,29 @@ describe("FundingInstructionsClient", () => {
 
         const response = await client.funding.fundingInstructions.create({
             "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
-            body: {},
+            body: {
+                merchants: [
+                    {
+                        merchantId: "4525644354",
+                        recipients: [
+                            {
+                                fundingAccountId: 123,
+                                paymentMethod: "ACH",
+                                amount: {
+                                    value: 120000,
+                                    currency: "USD",
+                                },
+                                metadata: {
+                                    yourCustomField: "abc123",
+                                },
+                            },
+                        ],
+                    },
+                ],
+                metadata: {
+                    yourCustomField: "abc123",
+                },
+            },
         });
         expect(response).toEqual({
             instructionId: 64643131,
@@ -110,6 +147,402 @@ describe("FundingInstructionsClient", () => {
             apiKey: "x-api-key",
             environment: { api: server.baseUrl, identity: server.baseUrl },
         });
+        const rawRequestBody = {
+            merchants: [
+                {
+                    merchantId: "4525644354",
+                    recipients: [
+                        {
+                            fundingAccountId: 123,
+                            paymentMethod: "ACH",
+                            amount: { value: 120000, currency: "USD" },
+                            metadata: { supplier: "IT Support Services" },
+                        },
+                    ],
+                },
+            ],
+            metadata: { instructionCreatedBy: "Jane Doe" },
+        };
+        const rawResponseBody = {
+            instructionId: 64643131,
+            createdDate: "2024-07-02T15:30:00Z",
+            lastModifiedDate: "2024-07-02T15:30:00Z",
+            status: "accepted",
+            merchants: [
+                {
+                    merchantId: "4525644354",
+                    recipients: [
+                        {
+                            fundingAccountId: 123,
+                            paymentMethod: "ACH",
+                            amount: { value: 120000, currency: "USD" },
+                            status: "accepted",
+                            metadata: { yourCustomField: "abc123" },
+                            link: {
+                                rel: "fundingAccount",
+                                method: "get",
+                                href: "https://api.payroc.com/v1/funding-accounts/123",
+                            },
+                        },
+                    ],
+                    link: {
+                        rel: "merchant",
+                        method: "get",
+                        href: "https://api.payroc.com/v1/processing-accounts/4525644354",
+                    },
+                },
+            ],
+            metadata: { instructionRef: "abc123" },
+        };
+        server
+            .mockEndpoint()
+            .post("/funding-instructions")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.funding.fundingInstructions.create({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            body: {
+                merchants: [
+                    {
+                        merchantId: "4525644354",
+                        recipients: [
+                            {
+                                fundingAccountId: 123,
+                                paymentMethod: "ACH",
+                                amount: {
+                                    value: 120000,
+                                    currency: "USD",
+                                },
+                                metadata: {
+                                    supplier: "IT Support Services",
+                                },
+                            },
+                        ],
+                    },
+                ],
+                metadata: {
+                    instructionCreatedBy: "Jane Doe",
+                },
+            },
+        });
+        expect(response).toEqual({
+            instructionId: 64643131,
+            createdDate: "2024-07-02T15:30:00Z",
+            lastModifiedDate: "2024-07-02T15:30:00Z",
+            status: "accepted",
+            merchants: [
+                {
+                    merchantId: "4525644354",
+                    recipients: [
+                        {
+                            fundingAccountId: 123,
+                            paymentMethod: "ACH",
+                            amount: {
+                                value: 120000,
+                                currency: "USD",
+                            },
+                            status: "accepted",
+                            metadata: {
+                                yourCustomField: "abc123",
+                            },
+                            link: {
+                                rel: "fundingAccount",
+                                method: "get",
+                                href: "https://api.payroc.com/v1/funding-accounts/123",
+                            },
+                        },
+                    ],
+                    link: {
+                        rel: "merchant",
+                        method: "get",
+                        href: "https://api.payroc.com/v1/processing-accounts/4525644354",
+                    },
+                },
+            ],
+            metadata: {
+                instructionRef: "abc123",
+            },
+        });
+    });
+
+    test("create (3)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = {
+            merchants: [
+                {
+                    merchantId: "4525644354",
+                    recipients: [
+                        {
+                            fundingAccountId: 123,
+                            paymentMethod: "ACH",
+                            amount: { value: 120000, currency: "USD" },
+                            metadata: { yourCustomField: "abc123" },
+                        },
+                    ],
+                },
+            ],
+            metadata: { yourCustomField: "abc123" },
+        };
+        const rawResponseBody = {
+            instructionId: 64643131,
+            createdDate: "2024-07-02T15:30:00Z",
+            lastModifiedDate: "2024-07-02T15:30:00Z",
+            status: "accepted",
+            merchants: [
+                {
+                    merchantId: "4525644354",
+                    recipients: [
+                        {
+                            fundingAccountId: 123,
+                            paymentMethod: "ACH",
+                            amount: { value: 120000, currency: "USD" },
+                            status: "accepted",
+                            metadata: { yourCustomField: "abc123" },
+                            link: {
+                                rel: "fundingAccount",
+                                method: "get",
+                                href: "https://api.payroc.com/v1/funding-accounts/123",
+                            },
+                        },
+                    ],
+                    link: {
+                        rel: "merchant",
+                        method: "get",
+                        href: "https://api.payroc.com/v1/processing-accounts/4525644354",
+                    },
+                },
+            ],
+            metadata: { instructionRef: "abc123" },
+        };
+        server
+            .mockEndpoint()
+            .post("/funding-instructions")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.funding.fundingInstructions.create({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            body: {
+                merchants: [
+                    {
+                        merchantId: "4525644354",
+                        recipients: [
+                            {
+                                fundingAccountId: 123,
+                                paymentMethod: "ACH",
+                                amount: {
+                                    value: 120000,
+                                    currency: "USD",
+                                },
+                                metadata: {
+                                    yourCustomField: "abc123",
+                                },
+                            },
+                        ],
+                    },
+                ],
+                metadata: {
+                    yourCustomField: "abc123",
+                },
+            },
+        });
+        expect(response).toEqual({
+            instructionId: 64643131,
+            createdDate: "2024-07-02T15:30:00Z",
+            lastModifiedDate: "2024-07-02T15:30:00Z",
+            status: "accepted",
+            merchants: [
+                {
+                    merchantId: "4525644354",
+                    recipients: [
+                        {
+                            fundingAccountId: 123,
+                            paymentMethod: "ACH",
+                            amount: {
+                                value: 120000,
+                                currency: "USD",
+                            },
+                            status: "accepted",
+                            metadata: {
+                                yourCustomField: "abc123",
+                            },
+                            link: {
+                                rel: "fundingAccount",
+                                method: "get",
+                                href: "https://api.payroc.com/v1/funding-accounts/123",
+                            },
+                        },
+                    ],
+                    link: {
+                        rel: "merchant",
+                        method: "get",
+                        href: "https://api.payroc.com/v1/processing-accounts/4525644354",
+                    },
+                },
+            ],
+            metadata: {
+                instructionRef: "abc123",
+            },
+        });
+    });
+
+    test("create (4)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = {
+            merchants: [
+                {
+                    merchantId: "4525644354",
+                    recipients: [
+                        {
+                            fundingAccountId: 123,
+                            paymentMethod: "ACH",
+                            amount: { value: 120000, currency: "USD" },
+                            metadata: { yourCustomField: "abc123" },
+                        },
+                    ],
+                },
+            ],
+            metadata: { yourCustomField: "abc123" },
+        };
+        const rawResponseBody = {
+            instructionId: 64643131,
+            createdDate: "2024-07-02T15:30:00Z",
+            lastModifiedDate: "2024-07-02T15:30:00Z",
+            status: "accepted",
+            merchants: [
+                {
+                    merchantId: "4525644354",
+                    recipients: [
+                        {
+                            fundingAccountId: 123,
+                            paymentMethod: "ACH",
+                            amount: { value: 120000, currency: "USD" },
+                            status: "accepted",
+                            metadata: { supplier: "IT Support Services" },
+                            link: {
+                                rel: "fundingAccount",
+                                method: "get",
+                                href: "https://api.payroc.com/v1/funding-accounts/123",
+                            },
+                        },
+                    ],
+                    link: {
+                        rel: "merchant",
+                        method: "get",
+                        href: "https://api.payroc.com/v1/processing-accounts/4525644354",
+                    },
+                },
+            ],
+            metadata: { instructionCreatedBy: "Jane Doe" },
+        };
+        server
+            .mockEndpoint()
+            .post("/funding-instructions")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.funding.fundingInstructions.create({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            body: {
+                merchants: [
+                    {
+                        merchantId: "4525644354",
+                        recipients: [
+                            {
+                                fundingAccountId: 123,
+                                paymentMethod: "ACH",
+                                amount: {
+                                    value: 120000,
+                                    currency: "USD",
+                                },
+                                metadata: {
+                                    yourCustomField: "abc123",
+                                },
+                            },
+                        ],
+                    },
+                ],
+                metadata: {
+                    yourCustomField: "abc123",
+                },
+            },
+        });
+        expect(response).toEqual({
+            instructionId: 64643131,
+            createdDate: "2024-07-02T15:30:00Z",
+            lastModifiedDate: "2024-07-02T15:30:00Z",
+            status: "accepted",
+            merchants: [
+                {
+                    merchantId: "4525644354",
+                    recipients: [
+                        {
+                            fundingAccountId: 123,
+                            paymentMethod: "ACH",
+                            amount: {
+                                value: 120000,
+                                currency: "USD",
+                            },
+                            status: "accepted",
+                            metadata: {
+                                supplier: "IT Support Services",
+                            },
+                            link: {
+                                rel: "fundingAccount",
+                                method: "get",
+                                href: "https://api.payroc.com/v1/funding-accounts/123",
+                            },
+                        },
+                    ],
+                    link: {
+                        rel: "merchant",
+                        method: "get",
+                        href: "https://api.payroc.com/v1/processing-accounts/4525644354",
+                    },
+                },
+            ],
+            metadata: {
+                instructionCreatedBy: "Jane Doe",
+            },
+        });
+    });
+
+    test("create (5)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
         server
@@ -130,7 +563,7 @@ describe("FundingInstructionsClient", () => {
         }).rejects.toThrow(Payroc.BadRequestError);
     });
 
-    test("create (3)", async () => {
+    test("create (6)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -159,7 +592,7 @@ describe("FundingInstructionsClient", () => {
         }).rejects.toThrow(Payroc.UnauthorizedError);
     });
 
-    test("create (4)", async () => {
+    test("create (7)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -188,7 +621,7 @@ describe("FundingInstructionsClient", () => {
         }).rejects.toThrow(Payroc.ForbiddenError);
     });
 
-    test("create (5)", async () => {
+    test("create (8)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -217,7 +650,7 @@ describe("FundingInstructionsClient", () => {
         }).rejects.toThrow(Payroc.NotAcceptableError);
     });
 
-    test("create (6)", async () => {
+    test("create (9)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -246,7 +679,7 @@ describe("FundingInstructionsClient", () => {
         }).rejects.toThrow(Payroc.ConflictError);
     });
 
-    test("create (7)", async () => {
+    test("create (10)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -519,7 +952,22 @@ describe("FundingInstructionsClient", () => {
             apiKey: "x-api-key",
             environment: { api: server.baseUrl, identity: server.baseUrl },
         });
-        const rawRequestBody = {};
+        const rawRequestBody = {
+            merchants: [
+                {
+                    merchantId: "9876543219",
+                    recipients: [
+                        {
+                            fundingAccountId: 124,
+                            paymentMethod: "ACH",
+                            amount: { value: 69950, currency: "USD" },
+                            metadata: { supplier: "IT Support Services" },
+                        },
+                    ],
+                },
+            ],
+            metadata: { instructionCreatedBy: "Jane Doe" },
+        };
 
         server
             .mockEndpoint()
@@ -531,7 +979,29 @@ describe("FundingInstructionsClient", () => {
 
         const response = await client.funding.fundingInstructions.update({
             instructionId: 1,
-            body: {},
+            body: {
+                merchants: [
+                    {
+                        merchantId: "9876543219",
+                        recipients: [
+                            {
+                                fundingAccountId: 124,
+                                paymentMethod: "ACH",
+                                amount: {
+                                    value: 69950,
+                                    currency: "USD",
+                                },
+                                metadata: {
+                                    supplier: "IT Support Services",
+                                },
+                            },
+                        ],
+                    },
+                ],
+                metadata: {
+                    instructionCreatedBy: "Jane Doe",
+                },
+            },
         });
         expect(response).toEqual(undefined);
     });

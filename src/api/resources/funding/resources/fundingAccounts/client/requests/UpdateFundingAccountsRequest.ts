@@ -7,12 +7,15 @@ import type * as Payroc from "../../../../../../index.js";
  *     {
  *         fundingAccountId: 1,
  *         body: {
- *             type: "checking",
+ *             type: "savings",
  *             use: "credit",
- *             nameOnAccount: "Jane Doe",
+ *             nameOnAccount: "Fred Nerk",
  *             paymentMethods: [{
  *                     type: "ach"
- *                 }]
+ *                 }],
+ *             metadata: {
+ *                 "responsiblePerson": "Jane Doe"
+ *             }
  *         }
  *     }
  */

@@ -7,10 +7,10 @@ import type * as Payroc from "../index.js";
  */
 export interface MerchantSummary {
     /** Unique identifier that the processor assigned to the merchant. */
-    merchantId?: string;
+    merchantId?: string | undefined;
     /** Trading name of the business. */
-    doingBusinessAs?: string;
+    doingBusinessAs?: string | undefined;
     /** Unique identifier that we assigned to the processing account. */
-    processingAccountId?: number;
-    link?: Payroc.Link;
+    processingAccountId?: number | undefined;
+    link?: Payroc.Link | undefined;
 }

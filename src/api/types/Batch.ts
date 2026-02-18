@@ -4,23 +4,23 @@ import type * as Payroc from "../index.js";
 
 export interface Batch {
     /** Unique identifier that we assigned to the batch. */
-    batchId?: number;
+    batchId?: number | undefined;
     /** Date that the merchant submitted the batch. The format of this value is **YYYY-MM-DD**. */
-    date?: string;
+    date?: string | undefined;
     /** Date that we created a record for the batch. The format of this value is **YYYY-MM-DD**. */
-    createdDate?: string;
+    createdDate?: string | undefined;
     /** Date that the batch was last changed. The format of this value is **YYYY-MM-DD**. */
-    lastModifiedDate?: string;
+    lastModifiedDate?: string | undefined;
     /** Total value of sales in the batch. We return the value in the currency's lowest denomination, for example, cents. */
-    saleAmount?: number;
+    saleAmount?: number | undefined;
     /** Total value of authorizations in the batch. We return the value in the currency's lowest denomination, for example, cents. */
-    heldAmount?: number;
+    heldAmount?: number | undefined;
     /** Total value of returns in the batch. We return the value in the currency's lowest denomination, for example, cents. */
-    returnAmount?: number;
+    returnAmount?: number | undefined;
     /** Total number of transactions in the batch. */
-    transactionCount?: number;
+    transactionCount?: number | undefined;
     /** Currency of the transactions in the batch. The value for the currency follows the [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) standard. */
-    currency?: string;
-    merchant?: Payroc.MerchantSummary;
-    links?: Payroc.Link[];
+    currency?: string | undefined;
+    merchant?: Payroc.MerchantSummary | undefined;
+    links?: Payroc.Link[] | undefined;
 }

@@ -3,5 +3,5 @@
 import type * as Payroc from "../index.js";
 
 export interface PaymentPlanSetupOrder extends Payroc.PaymentPlanSetupOrderBase {
-    breakdown?: Payroc.PaymentPlanOrderBreakdown;
+    breakdown?: Payroc.PaymentPlanOrderBreakdown | undefined;
 }

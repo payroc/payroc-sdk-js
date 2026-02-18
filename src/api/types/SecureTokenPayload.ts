@@ -9,7 +9,7 @@ export interface SecureTokenPayload {
      *
      * **Note:** Send a value for accountType only if the secure token represents bank account details.
      */
-    accountType?: SecureTokenPayload.AccountType;
+    accountType?: SecureTokenPayload.AccountType | undefined;
     /** Unique token that the gateway assigned to the payment details. */
     token: string;
     /**
@@ -20,7 +20,7 @@ export interface SecureTokenPayload {
      * - `ccd` – Corporate credit card or debit card transaction.
      * - `ppd` – Pre-arranged transaction.
      */
-    secCode?: SecureTokenPayload.SecCode;
+    secCode?: SecureTokenPayload.SecCode | undefined;
 }
 
 export namespace SecureTokenPayload {

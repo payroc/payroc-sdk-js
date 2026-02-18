@@ -39,7 +39,13 @@ export interface BankTransferUnreferencedRefund {
     processingTerminalId: string;
     order: Payroc.BankTransferRefundOrder;
     customer?: Payroc.BankTransferCustomer;
-    /** Object that contains information about how the merchant refunds the customer. */
+    /**
+     * Polymorphic object that contains payment details for the refund.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`ach` - Automated Clearing House (ACH) details
+     * -	`secureToken` - Secure token details
+     */
     refundMethod: Payroc.bankTransferPayments.BankTransferUnreferencedRefundRefundMethod;
     /** Array of customField objects. */
     customFields?: Payroc.CustomField[];

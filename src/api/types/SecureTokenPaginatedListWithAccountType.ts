@@ -4,5 +4,5 @@ import type * as Payroc from "../index.js";
 
 export interface SecureTokenPaginatedListWithAccountType extends Payroc.PaginatedList {
     /** Array of saved payment details. */
-    data?: Payroc.SecureTokenWithAccountType[];
+    data?: Payroc.SecureTokenWithAccountType[] | undefined;
 }

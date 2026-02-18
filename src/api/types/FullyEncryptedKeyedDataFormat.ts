@@ -10,5 +10,5 @@ export interface FullyEncryptedKeyedDataFormat {
     /** Encrypted card data. */
     encryptedData: string;
     /** First digit of the customer’s card number. */
-    firstDigitOfPan?: string;
+    firstDigitOfPan?: string | undefined;
 }

@@ -17,17 +17,17 @@ export namespace Tsys {
         /** Number that represents the merchant's chain of locations or stores. */
         chainNumber: string;
         /** Unique identifier of the merchant's settlement agent. */
-        settlementAgent?: string;
+        settlementAgent?: string | undefined;
         /** Number that identifies the merchant in direct debit requests. */
-        abaNumber?: string;
+        abaNumber?: string | undefined;
         /** Unique identifier of the merchant's bank. */
         binNumber: string;
         /** Number of the merchant's bank if it processes transactions on behalf of another entity. */
-        agentBankNumber?: string;
+        agentBankNumber?: string | undefined;
         /** Indicates if the merchant can accept interlink debit cards. */
-        reimbursementAttribute?: string;
+        reimbursementAttribute?: string | undefined;
         /** Location of the merchant's information. */
-        locationNumber?: string;
+        locationNumber?: string | undefined;
     }
 
     /**
@@ -39,14 +39,14 @@ export namespace Tsys {
         /** Unique identifier of the terminal at the merchant's site. */
         terminalNumber: string;
         /** Authenticates the terminal's identity with the host processor. */
-        authenticationCode?: string;
+        authenticationCode?: string | undefined;
         /** Indicates the direct debit networks and EBT networks that the terminal can use. */
-        sharingGroups?: string;
+        sharingGroups?: string | undefined;
         /** Indicates if the terminal can run Mail Order/Telephone Order (MOTO) transactions. */
-        motoAllowed?: boolean;
+        motoAllowed?: boolean | undefined;
         /** Indicates if the terminal can run e-Commerce transactions. */
-        internetAllowed?: boolean;
+        internetAllowed?: boolean | undefined;
         /** Indicates if the terminal can run card present transactions. */
-        cardPresentAllowed?: boolean;
+        cardPresentAllowed?: boolean | undefined;
     }
 }

@@ -9,5 +9,5 @@ export interface BankTransferBreakdownBase {
     /** Total amount of the transaction before tax and tip. The value is in the currency's lowest denomination, for example, cents. */
     subtotal: number;
     /** Object that contains tip information for the transaction. */
-    tip?: Payroc.Tip;
+    tip?: Payroc.Tip | undefined;
 }

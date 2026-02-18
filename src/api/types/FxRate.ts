@@ -9,11 +9,11 @@ export interface FxRate {
     /** Unique identifier that we assigned to the terminal. */
     processingTerminalId: string;
     /** Operator who ran the transaction. */
-    operator?: string;
+    operator?: string | undefined;
     /** Total amount of the transaction in the local currency. The value is in the currency’s lowest denomination, for example, cents. */
     baseAmount: number;
     baseCurrency: Payroc.Currency;
     inquiryResult: Payroc.FxRateInquiryResult;
-    dccOffer?: Payroc.DccOffer;
+    dccOffer?: Payroc.DccOffer | undefined;
     cardInfo: Payroc.CardInfo;
 }

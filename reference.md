@@ -1,6 +1,6 @@
 # Reference
 ## Payment links
-<details><summary><code>client.paymentLinks.<a href="/src/api/resources/paymentLinks/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager<Payroc.PaymentLinkPaginatedListDataItem, Payroc.PaymentLinkPaginatedList></code></summary>
+<details><summary><code>client.paymentLinks.<a href="/src/api/resources/paymentLinks/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager&lt;Payroc.PaymentLinkPaginatedListDataItem, Payroc.PaymentLinkPaginatedList&gt;</code></summary>
 <dl>
 <dd>
 
@@ -458,7 +458,7 @@ In your request, you need to indicate whether the merchant is using Hosted Field
 
 In the response, our gateway returns the session token and the time that it expires. You need the session token when you configure the JavaScript for Hosted Fields.  
 
-For more information about adding Hosted Fields to a webpage, go to [Hosted Fields](https://docs.payroc.com/guides/integrate/hosted-fields). 
+For more information about adding Hosted Fields to a webpage, go to [Hosted Fields](https://docs.payroc.com/guides/take-payments/hosted-fields). 
 </dd>
 </dl>
 </dd>
@@ -531,7 +531,7 @@ Use this method to start an Apple Pay session for your merchant.
 
 In the response, we return the startSessionObject that you send to Apple when you retrieve the cardholder's encrypted payment details.  
 
-**Note:** For more information about how to integrate with Apple Pay, go to [Apple Pay](https://docs.payroc.com/guides/integrate/apple-pay).
+**Note:** For more information about how to integrate with Apple Pay, go to [Apple Pay](https://docs.payroc.com/guides/take-payments/apple-pay).
 </dd>
 </dl>
 </dd>
@@ -575,6 +575,157 @@ await client.applePaySessions.create({
 <dd>
 
 **requestOptions:** `ApplePaySessionsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## Attachments
+<details><summary><code>client.attachments.<a href="/src/api/resources/attachments/client/Client.ts">uploadToProcessingAccount</a>({ ...params }) -> Payroc.Attachment</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+> Before you upload an attachment, make sure that you follow local privacy regulations and get the merchant's consent to process their information.  
+
+**Note:** You need the ID of the processing account before you can upload an attachment. If you don't know the processingAccountId, go to the [Retrieve a Merchant Platform](https://docs.payroc.com/api/schema/boarding/merchant-platforms/retrieve) method.  
+
+The attachment must be an uncompressed file under 30MB in one of the following formats:
+- .bmp, csv, .doc, .docx, .gif, .htm, .html, .jpg, .jpeg, .msg, .pdf, .png, .ppt, .pptx, .tif, .tiff, .txt, .xls, .xlsx  
+
+In the request, include the attachment that you want to upload and the following information about the attachment:
+- **type** - Type of attachment that you want to upload.
+- **description** - Short description of the attachment.  
+
+In the response, our gateway returns information about the attachment including its upload status and an attachmentId that you can use to [Retrieve the details of the Attachment](https://docs.payroc.com/api/schema/attachments/get-attachment).
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.attachments.uploadToProcessingAccount({
+    file: fs.createReadStream("/path/to/your/file"),
+    "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+    processingAccountId: "38765",
+    attachment: {
+        type: "bankingEvidence"
+    }
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Payroc.UploadAttachment` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `AttachmentsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.attachments.<a href="/src/api/resources/attachments/client/Client.ts">getAttachment</a>({ ...params }) -> Payroc.Attachment</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Use this method to retrieve the details of an attachment.  
+
+To retrieve the details of an attachment you need its attachmentId. Our gateway returned the attachmentId in the response of the method that you used to upload the attachment.  
+
+Our gateway returns information about the attachment, including its upload status and the entity that the attachment is linked to. Our gateway doesn't return the file that you uploaded.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.attachments.getAttachment({
+    attachmentId: "12876"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Payroc.GetAttachmentRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `AttachmentsClient.RequestOptions` 
     
 </dd>
 </dl>
@@ -653,7 +804,7 @@ await client.auth.retrieveToken({
 </details>
 
 ## BankTransferPayments Payments
-<details><summary><code>client.bankTransferPayments.payments.<a href="/src/api/resources/bankTransferPayments/resources/payments/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager<Payroc.BankTransferPayment, Payroc.BankTransferPaymentPaginatedList></code></summary>
+<details><summary><code>client.bankTransferPayments.payments.<a href="/src/api/resources/bankTransferPayments/resources/payments/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager&lt;Payroc.BankTransferPayment, Payroc.BankTransferPaymentPaginatedList&gt;</code></summary>
 <dl>
 <dd>
 
@@ -1194,7 +1345,7 @@ await client.bankTransferPayments.refunds.refund({
 </dl>
 </details>
 
-<details><summary><code>client.bankTransferPayments.refunds.<a href="/src/api/resources/bankTransferPayments/resources/refunds/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager<Payroc.BankTransferRefund, Payroc.BankTransferRefundPaginatedList></code></summary>
+<details><summary><code>client.bankTransferPayments.refunds.<a href="/src/api/resources/bankTransferPayments/resources/refunds/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager&lt;Payroc.BankTransferRefund, Payroc.BankTransferRefundPaginatedList&gt;</code></summary>
 <dl>
 <dd>
 
@@ -1804,7 +1955,7 @@ await client.boarding.owners.delete({
 </details>
 
 ## Boarding PricingIntents
-<details><summary><code>client.boarding.pricingIntents.<a href="/src/api/resources/boarding/resources/pricingIntents/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager<Payroc.PricingIntent, Payroc.PaginatedPricingIntent></code></summary>
+<details><summary><code>client.boarding.pricingIntents.<a href="/src/api/resources/boarding/resources/pricingIntents/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager&lt;Payroc.PricingIntent, Payroc.PaginatedPricingIntent&gt;</code></summary>
 <dl>
 <dd>
 
@@ -2384,7 +2535,7 @@ await client.boarding.pricingIntents.partiallyUpdate({
 </details>
 
 ## Boarding MerchantPlatforms
-<details><summary><code>client.boarding.merchantPlatforms.<a href="/src/api/resources/boarding/resources/merchantPlatforms/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager<Payroc.MerchantPlatform, Payroc.PaginatedMerchants></code></summary>
+<details><summary><code>client.boarding.merchantPlatforms.<a href="/src/api/resources/boarding/resources/merchantPlatforms/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager&lt;Payroc.MerchantPlatform, Payroc.PaginatedMerchants&gt;</code></summary>
 <dl>
 <dd>
 
@@ -2490,7 +2641,7 @@ const response = page.response;
 
 Use this method to board a merchant with Payroc.  
 
-**Note**: This method is part of our Boarding solution. To help you understand how this method works with other Boarding methods, go to [Board a Merchant](https://docs.payroc.com/guides/integrate/boarding).  
+**Note**: This method is part of our Boarding solution. To help you understand how this method works with other Boarding methods, go to [Board a Merchant](https://docs.payroc.com/guides/board-merchants/boarding).  
 
 In the request, include the following information:  
 - Legal information, including its legal name and address.  
@@ -2795,7 +2946,7 @@ await client.boarding.merchantPlatforms.retrieve({
 </dl>
 </details>
 
-<details><summary><code>client.boarding.merchantPlatforms.<a href="/src/api/resources/boarding/resources/merchantPlatforms/client/Client.ts">listProcessingAccounts</a>({ ...params }) -> core.PayrocPager<Payroc.ProcessingAccount, Payroc.PaginatedProcessingAccounts></code></summary>
+<details><summary><code>client.boarding.merchantPlatforms.<a href="/src/api/resources/boarding/resources/merchantPlatforms/client/Client.ts">listProcessingAccounts</a>({ ...params }) -> core.PayrocPager&lt;Payroc.ProcessingAccount, Payroc.PaginatedProcessingAccounts&gt;</code></summary>
 <dl>
 <dd>
 
@@ -3207,7 +3358,15 @@ await client.boarding.processingAccounts.retrieve({
 <dl>
 <dd>
 
-Retrieve a list of funding accounts associated with a processing account.
+Use this method to return a list of funding accounts linked to a processing acccount.  
+
+To retrieve a list of funding accounts for a processing account, you need the processingAccountId. Our gateway returned the processingAccountId in the response of the [Create Merchant Platform](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create) method or the [Create Proccessing Account](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create-processing-account) method.  
+
+Our gateway returns information about the following for each funding account in the list:  
+- Account information, including the name on the account and payment methods.  
+- Status, including whether we have approved or rejected the account.  
+
+For each funding account, we also return its fundingAccountId, which you can use to perform follow-on actions.  
 </dd>
 </dl>
 </dd>
@@ -3415,7 +3574,7 @@ await client.boarding.processingAccounts.getProcessingAccountPricingAgreement({
 </dl>
 </details>
 
-<details><summary><code>client.boarding.processingAccounts.<a href="/src/api/resources/boarding/resources/processingAccounts/client/Client.ts">listOwners</a>({ ...params }) -> core.PayrocPager<Payroc.Owner, Payroc.PaginatedOwners></code></summary>
+<details><summary><code>client.boarding.processingAccounts.<a href="/src/api/resources/boarding/resources/processingAccounts/client/Client.ts">listOwners</a>({ ...params }) -> core.PayrocPager&lt;Payroc.Owner, Payroc.PaginatedOwners&gt;</code></summary>
 <dl>
 <dd>
 
@@ -3690,7 +3849,7 @@ In the request, specify the gateway settings, device settings, and application s
 
 In the response, our gateway returns information about the terminal order including its status and terminalOrderId that you can use to [retrieve the terminal order](https://docs.payroc.com/api/schema/boarding/terminal-orders/retrieve).  
 
-**Note**: You can subscribe to the terminalOrder.status.changed event to get notifications when we update the status of a terminal order. For more information about how to subscribe to events, go to [Events Subscriptions](https://docs.payroc.com/guides/integrate/event-subscriptions).  
+**Note**: You can subscribe to the terminalOrder.status.changed event to get notifications when we update the status of a terminal order. For more information about how to subscribe to events, go to [Events Subscriptions](https://docs.payroc.com/guides/board-merchants/event-subscriptions).  
 </dd>
 </dl>
 </dd>
@@ -3805,7 +3964,7 @@ await client.boarding.processingAccounts.createTerminalOrder({
 </dl>
 </details>
 
-<details><summary><code>client.boarding.processingAccounts.<a href="/src/api/resources/boarding/resources/processingAccounts/client/Client.ts">listProcessingTerminals</a>({ ...params }) -> core.PayrocPager<Payroc.ProcessingTerminal, Payroc.PaginatedProcessingTerminals></code></summary>
+<details><summary><code>client.boarding.processingAccounts.<a href="/src/api/resources/boarding/resources/processingAccounts/client/Client.ts">listProcessingTerminals</a>({ ...params }) -> core.PayrocPager&lt;Payroc.ProcessingTerminal, Payroc.PaginatedProcessingTerminals&gt;</code></summary>
 <dl>
 <dd>
 
@@ -4309,7 +4468,7 @@ Our gateway returns the following information about the terminal order:
 - Training provider  
 - Shipping information  
 
-**Note**: You can subscribe to our terminalOrder.status.changed event to get notifications when we update the status of a terminal order. For more information about how to subscribe to events, go to [Events Subscriptions](https://docs.payroc.com/guides/integrate/event-subscriptions).  
+**Note**: You can subscribe to our terminalOrder.status.changed event to get notifications when we update the status of a terminal order. For more information about how to subscribe to events, go to [Events Subscriptions](https://docs.payroc.com/guides/board-merchants/event-subscriptions).  
 </dd>
 </dl>
 </dd>
@@ -4363,7 +4522,7 @@ await client.boarding.terminalOrders.retrieve({
 </details>
 
 ## CardPayments Payments
-<details><summary><code>client.cardPayments.payments.<a href="/src/api/resources/cardPayments/resources/payments/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager<Payroc.RetrievedPayment, Payroc.PaymentPaginatedListForRead></code></summary>
+<details><summary><code>client.cardPayments.payments.<a href="/src/api/resources/cardPayments/resources/payments/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager&lt;Payroc.RetrievedPayment, Payroc.PaymentPaginatedListForRead&gt;</code></summary>
 <dl>
 <dd>
 
@@ -4508,18 +4667,18 @@ In the response, our gateway returns information about the card payment and a pa
 **Payment methods** 
 
 - **Cards** - Credit, debit, and EBT
-- **Digital wallets** - [Apple Pay®](https://docs.payroc.com/guides/integrate/apple-pay) and [Google Pay®](https://docs.payroc.com/guides/integrate/google-pay) 
+- **Digital wallets** - [Apple Pay®](https://docs.payroc.com/guides/take-payments/apple-pay) and [Google Pay®](https://docs.payroc.com/guides/take-payments/google-pay) 
 - **Tokens** - Secure tokens and single-use tokens
 
 **Features** 
 
 Our Create Payment method also supports the following features: 
 
-- [Repeat payments](https://docs.payroc.com/guides/integrate/repeat-payments/use-your-own-software) - Run multiple payments as part of a payment schedule that you manage with your own software. 
+- [Repeat payments](https://docs.payroc.com/guides/take-payments/repeat-payments/use-your-own-software) - Run multiple payments as part of a payment schedule that you manage with your own software. 
 - **Offline sales** - Run a sale or a pre-authorization if the terminal loses its connection to our gateway. 
-- [Tokenization](https://docs.payroc.com/guides/integrate/save-payment-details) - Save card details to use in future transactions. 
-- [3-D Secure](https://docs.payroc.com/guides/integrate/3-d-secure) - Verify the identity of the cardholder. 
-- [Custom fields](https://docs.payroc.com/guides/integrate/add-custom-fields) - Add your own data to a payment. 
+- [Tokenization](https://docs.payroc.com/guides/take-payments/save-payment-details) - Save card details to use in future transactions. 
+- [3-D Secure](https://docs.payroc.com/guides/take-payments/3-d-secure) - Verify the identity of the cardholder. 
+- [Custom fields](https://docs.payroc.com/guides/take-payments/add-custom-fields) - Add your own data to a payment. 
 - **Tips** - Add tips to the card payment.  
 - **Taxes** - Add local taxes to the card payment. 
 - **Surcharging** - Add a surcharge to the card payment. 
@@ -5031,7 +5190,7 @@ await client.cardPayments.refunds.createReferencedRefund({
 </dl>
 </details>
 
-<details><summary><code>client.cardPayments.refunds.<a href="/src/api/resources/cardPayments/resources/refunds/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager<Payroc.RetrievedRefund, Payroc.RefundPaginatedList></code></summary>
+<details><summary><code>client.cardPayments.refunds.<a href="/src/api/resources/cardPayments/resources/refunds/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager&lt;Payroc.RetrievedRefund, Payroc.RefundPaginatedList&gt;</code></summary>
 <dl>
 <dd>
 
@@ -5478,7 +5637,7 @@ await client.cardPayments.refunds.reverseRefund({
 </details>
 
 ## Funding FundingRecipients
-<details><summary><code>client.funding.fundingRecipients.<a href="/src/api/resources/funding/resources/fundingRecipients/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager<Payroc.FundingRecipient, Payroc.PaginatedFundRecipients></code></summary>
+<details><summary><code>client.funding.fundingRecipients.<a href="/src/api/resources/funding/resources/fundingRecipients/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager&lt;Payroc.FundingRecipient, Payroc.PaginatedFundRecipients&gt;</code></summary>
 <dl>
 <dd>
 
@@ -5610,10 +5769,12 @@ Our gateway returns the recipientId of the funding recipient, which you can use 
 await client.funding.fundingRecipients.create({
     "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
     recipientType: "privateCorporation",
-    taxId: "123456789",
-    doingBusinessAs: "doingBusinessAs",
+    taxId: "12-3456789",
+    doingBusinessAs: "Pizza Doe",
     address: {
         address1: "1 Example Ave.",
+        address2: "Example Address Line 2",
+        address3: "Example Address Line 3",
         city: "Chicago",
         state: "Illinois",
         country: "US",
@@ -5622,9 +5783,16 @@ await client.funding.fundingRecipients.create({
     contactMethods: [{
             type: "email",
             value: "jane.doe@example.com"
+        }, {
+            type: "phone",
+            value: "2025550164"
         }],
+    metadata: {
+        "yourCustomField": "abc123"
+    },
     owners: [{
             firstName: "Jane",
+            middleName: "Helen",
             lastName: "Doe",
             dateOfBirth: "1964-03-22",
             address: {
@@ -5636,14 +5804,20 @@ await client.funding.fundingRecipients.create({
             },
             identifiers: [{
                     type: "nationalId",
-                    value: "xxxxx4320"
+                    value: "000-00-4320"
                 }],
             contactMethods: [{
                     type: "email",
                     value: "jane.doe@example.com"
+                }, {
+                    type: "phone",
+                    value: "2025550164"
                 }],
             relationship: {
-                isControlProng: true
+                equityPercentage: 48.5,
+                title: "CFO",
+                isControlProng: true,
+                isAuthorizedSignatory: false
             }
         }],
     fundingAccounts: [{
@@ -5805,10 +5979,12 @@ await client.funding.fundingRecipients.update({
     recipientId: 1,
     body: {
         recipientType: "privateCorporation",
-        taxId: "123456789",
-        doingBusinessAs: "doingBusinessAs",
+        taxId: "12-3456789",
+        doingBusinessAs: "Doe Hot Dogs",
         address: {
-            address1: "1 Example Ave.",
+            address1: "2 Example Ave.",
+            address2: "Example Address Line 2",
+            address3: "Example Address Line 3",
             city: "Chicago",
             state: "Illinois",
             country: "US",
@@ -5817,6 +5993,29 @@ await client.funding.fundingRecipients.update({
         contactMethods: [{
                 type: "email",
                 value: "jane.doe@example.com"
+            }, {
+                type: "phone",
+                value: "2025550164"
+            }],
+        metadata: {
+            "responsiblePerson": "Jane Doe"
+        },
+        owners: [{
+                ownerId: 12346,
+                link: {
+                    rel: "owner",
+                    href: "https://api.payroc.com/v1/owners/12346",
+                    method: "get"
+                }
+            }],
+        fundingAccounts: [{
+                fundingAccountId: 124,
+                status: "approved",
+                link: {
+                    rel: "fundingAccount",
+                    href: "https://api.payroc.com/v1/funding-accounts/124",
+                    method: "get"
+                }
             }]
     }
 });
@@ -6042,12 +6241,15 @@ await client.funding.fundingRecipients.createAccount({
     "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
     recipientId: 1,
     body: {
-        type: "checking",
+        type: "savings",
         use: "credit",
-        nameOnAccount: "Jane Doe",
+        nameOnAccount: "Fred Nerk",
         paymentMethods: [{
                 type: "ach"
-            }]
+            }],
+        metadata: {
+            "responsiblePerson": "Jane Doe"
+        }
     }
 });
 
@@ -6204,11 +6406,12 @@ await client.funding.fundingRecipients.createOwner({
     "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
     recipientId: 1,
     body: {
-        firstName: "Jane",
-        lastName: "Doe",
-        dateOfBirth: "1964-03-22",
+        firstName: "Fred",
+        middleName: "Jim",
+        lastName: "Nerk",
+        dateOfBirth: "1980-01-19",
         address: {
-            address1: "1 Example Ave.",
+            address1: "2 Example Ave.",
             city: "Chicago",
             state: "Illinois",
             country: "US",
@@ -6216,14 +6419,20 @@ await client.funding.fundingRecipients.createOwner({
         },
         identifiers: [{
                 type: "nationalId",
-                value: "xxxxx4320"
+                value: "000-00-9876"
             }],
         contactMethods: [{
                 type: "email",
                 value: "jane.doe@example.com"
+            }, {
+                type: "phone",
+                value: "2025550164"
             }],
         relationship: {
-            isControlProng: true
+            equityPercentage: 51.5,
+            title: "CEO",
+            isControlProng: false,
+            isAuthorizedSignatory: true
         }
     }
 });
@@ -6263,7 +6472,7 @@ await client.funding.fundingRecipients.createOwner({
 </details>
 
 ## Funding FundingAccounts
-<details><summary><code>client.funding.fundingAccounts.<a href="/src/api/resources/funding/resources/fundingAccounts/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager<Payroc.FundingAccount, Payroc.ListFundingAccounts></code></summary>
+<details><summary><code>client.funding.fundingAccounts.<a href="/src/api/resources/funding/resources/fundingAccounts/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager&lt;Payroc.FundingAccount, Payroc.ListFundingAccounts&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6470,12 +6679,15 @@ You can update the following details about the funding account:
 await client.funding.fundingAccounts.update({
     fundingAccountId: 1,
     body: {
-        type: "checking",
+        type: "savings",
         use: "credit",
-        nameOnAccount: "Jane Doe",
+        nameOnAccount: "Fred Nerk",
         paymentMethods: [{
                 type: "ach"
-            }]
+            }],
+        metadata: {
+            "responsiblePerson": "Jane Doe"
+        }
     }
 });
 
@@ -6585,7 +6797,7 @@ await client.funding.fundingAccounts.delete({
 </details>
 
 ## Funding FundingInstructions
-<details><summary><code>client.funding.fundingInstructions.<a href="/src/api/resources/funding/resources/fundingInstructions/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager<Payroc.ListFundingInstructionsResponse.Data.Item, Payroc.ListFundingInstructionsResponse></code></summary>
+<details><summary><code>client.funding.fundingInstructions.<a href="/src/api/resources/funding/resources/fundingInstructions/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager&lt;Payroc.ListFundingInstructionsResponse.Data.Item, Payroc.ListFundingInstructionsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6720,7 +6932,25 @@ Our gateway returns the instructionId, which you can use to run follow-on action
 ```typescript
 await client.funding.fundingInstructions.create({
     "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
-    body: {}
+    body: {
+        merchants: [{
+                merchantId: "4525644354",
+                recipients: [{
+                        fundingAccountId: 123,
+                        paymentMethod: "ACH",
+                        amount: {
+                            value: 120000,
+                            currency: "USD"
+                        },
+                        metadata: {
+                            "yourCustomField": "abc123"
+                        }
+                    }]
+            }],
+        metadata: {
+            "yourCustomField": "abc123"
+        }
+    }
 });
 
 ```
@@ -6870,7 +7100,25 @@ You can modify the following information for the funding instruction:
 ```typescript
 await client.funding.fundingInstructions.update({
     instructionId: 1,
-    body: {}
+    body: {
+        merchants: [{
+                merchantId: "9876543219",
+                recipients: [{
+                        fundingAccountId: 124,
+                        paymentMethod: "ACH",
+                        amount: {
+                            value: 69950,
+                            currency: "USD"
+                        },
+                        metadata: {
+                            "supplier": "IT Support Services"
+                        }
+                    }]
+            }],
+        metadata: {
+            "instructionCreatedBy": "Jane Doe"
+        }
+    }
 });
 
 ```
@@ -7054,7 +7302,7 @@ await client.funding.fundingActivity.retrieveBalance({
 </dl>
 </details>
 
-<details><summary><code>client.funding.fundingActivity.<a href="/src/api/resources/funding/resources/fundingActivity/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager<Payroc.ActivityRecord, Payroc.ListFundingActivityResponse></code></summary>
+<details><summary><code>client.funding.fundingActivity.<a href="/src/api/resources/funding/resources/fundingActivity/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager&lt;Payroc.ActivityRecord, Payroc.ListFundingActivityResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7151,7 +7399,7 @@ const response = page.response;
 </details>
 
 ## Notifications EventSubscriptions
-<details><summary><code>client.notifications.eventSubscriptions.<a href="/src/api/resources/notifications/resources/eventSubscriptions/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager<Payroc.EventSubscription, Payroc.PaginatedEventSubscriptions></code></summary>
+<details><summary><code>client.notifications.eventSubscriptions.<a href="/src/api/resources/notifications/resources/eventSubscriptions/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager&lt;Payroc.EventSubscription, Payroc.PaginatedEventSubscriptions&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7342,7 +7590,7 @@ Use this method to retrieve the details of an event subscription.
 
 In your request, include the subscriptionId that we sent to you when we created the event subscription.  
   
-**Note:** If you don't know the subscriptionId of the event subscription, go to [List event subscriptions](#listEventSubscriptions).
+**Note:** If you don't know the subscriptionId of the event subscription, go to [List event subscriptions](https://docs.payroc.com/api/schema/notifications/event-subscriptions/list).
 </dd>
 </dl>
 </dd>
@@ -8055,7 +8303,7 @@ await client.paymentFeatures.bank.verify({
 </details>
 
 ## PaymentLinks SharingEvents
-<details><summary><code>client.paymentLinks.sharingEvents.<a href="/src/api/resources/paymentLinks/resources/sharingEvents/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager<Payroc.PaymentLinkEmailShareEvent, Payroc.SharingEventPaginatedList></code></summary>
+<details><summary><code>client.paymentLinks.sharingEvents.<a href="/src/api/resources/paymentLinks/resources/sharingEvents/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager&lt;Payroc.PaymentLinkEmailShareEvent, Payroc.SharingEventPaginatedList&gt;</code></summary>
 <dl>
 <dd>
 
@@ -8961,7 +9209,7 @@ await client.payrocCloud.signatures.retrieve({
 </details>
 
 ## RepeatPayments PaymentPlans
-<details><summary><code>client.repeatPayments.paymentPlans.<a href="/src/api/resources/repeatPayments/resources/paymentPlans/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager<Payroc.PaymentPlan, Payroc.PaymentPlanPaginatedList></code></summary>
+<details><summary><code>client.repeatPayments.paymentPlans.<a href="/src/api/resources/repeatPayments/resources/paymentPlans/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager&lt;Payroc.PaymentPlan, Payroc.PaymentPlanPaginatedList&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9071,7 +9319,7 @@ const response = page.response;
 
 Use this method to create a payment schedule that you can assign customers to.  
 
-**Note:** This method is part of our Repeat Payments feature. To help you understand how this method works with our Subscriptions endpoints, go to [Repeat Payments](https://docs.payroc.com/guides/integrate/repeat-payments).  
+**Note:** This method is part of our Repeat Payments feature. To help you understand how this method works with our Subscriptions endpoints, go to [Repeat Payments](https://docs.payroc.com/guides/take-payments/repeat-payments).  
 
 When you create a payment plan you need to provide a unique paymentPlanId that you use to run follow-on actions:  
 
@@ -9415,7 +9663,7 @@ await client.repeatPayments.paymentPlans.partiallyUpdate({
 </details>
 
 ## RepeatPayments Subscriptions
-<details><summary><code>client.repeatPayments.subscriptions.<a href="/src/api/resources/repeatPayments/resources/subscriptions/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager<Payroc.Subscription, Payroc.SubscriptionPaginatedList></code></summary>
+<details><summary><code>client.repeatPayments.subscriptions.<a href="/src/api/resources/repeatPayments/resources/subscriptions/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager&lt;Payroc.Subscription, Payroc.SubscriptionPaginatedList&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9542,7 +9790,7 @@ const response = page.response;
 
 Use this method to assign a customer to a payment plan.  
 
-**Note:** This method is part of our Repeat Payments feature. To help you understand how this method works with our Payment plans endpoints, go to [Repeat Payments](https://docs.payroc.com/guides/integrate/repeat-payments).  
+**Note:** This method is part of our Repeat Payments feature. To help you understand how this method works with our Payment plans endpoints, go to [Repeat Payments](https://docs.payroc.com/guides/take-payments/repeat-payments).  
 
 When you create a subscription you need to provide a unique subscriptionId that you use to run follow-on actions:  
 
@@ -10044,7 +10292,7 @@ await client.repeatPayments.subscriptions.pay({
 </details>
 
 ## Reporting Settlement
-<details><summary><code>client.reporting.settlement.<a href="/src/api/resources/reporting/resources/settlement/client/Client.ts">listBatches</a>({ ...params }) -> core.PayrocPager<Payroc.Batch, Payroc.ListBatchesSettlementResponse></code></summary>
+<details><summary><code>client.reporting.settlement.<a href="/src/api/resources/reporting/resources/settlement/client/Client.ts">listBatches</a>({ ...params }) -> core.PayrocPager&lt;Payroc.Batch, Payroc.ListBatchesSettlementResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10213,7 +10461,7 @@ await client.reporting.settlement.retrieveBatch({
 </dl>
 </details>
 
-<details><summary><code>client.reporting.settlement.<a href="/src/api/resources/reporting/resources/settlement/client/Client.ts">listTransactions</a>({ ...params }) -> core.PayrocPager<Payroc.Transaction, Payroc.ListTransactionsSettlementResponse></code></summary>
+<details><summary><code>client.reporting.settlement.<a href="/src/api/resources/reporting/resources/settlement/client/Client.ts">listTransactions</a>({ ...params }) -> core.PayrocPager&lt;Payroc.Transaction, Payroc.ListTransactionsSettlementResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10391,7 +10639,7 @@ await client.reporting.settlement.retrieveTransaction({
 </dl>
 </details>
 
-<details><summary><code>client.reporting.settlement.<a href="/src/api/resources/reporting/resources/settlement/client/Client.ts">listAuthorizations</a>({ ...params }) -> core.PayrocPager<Payroc.Authorization, Payroc.ListAuthorizationsSettlementResponse></code></summary>
+<details><summary><code>client.reporting.settlement.<a href="/src/api/resources/reporting/resources/settlement/client/Client.ts">listAuthorizations</a>({ ...params }) -> core.PayrocPager&lt;Payroc.Authorization, Payroc.ListAuthorizationsSettlementResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10563,7 +10811,7 @@ await client.reporting.settlement.retrieveAuthorization({
 </dl>
 </details>
 
-<details><summary><code>client.reporting.settlement.<a href="/src/api/resources/reporting/resources/settlement/client/Client.ts">listDisputes</a>({ ...params }) -> core.PayrocPager<Payroc.Dispute, Payroc.ListDisputesSettlementResponse></code></summary>
+<details><summary><code>client.reporting.settlement.<a href="/src/api/resources/reporting/resources/settlement/client/Client.ts">listDisputes</a>({ ...params }) -> core.PayrocPager&lt;Payroc.Dispute, Payroc.ListDisputesSettlementResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10727,7 +10975,7 @@ await client.reporting.settlement.listDisputesStatuses({
 </dl>
 </details>
 
-<details><summary><code>client.reporting.settlement.<a href="/src/api/resources/reporting/resources/settlement/client/Client.ts">listAchDeposits</a>({ ...params }) -> core.PayrocPager<Payroc.AchDeposit, Payroc.ListAchDepositsSettlementResponse></code></summary>
+<details><summary><code>client.reporting.settlement.<a href="/src/api/resources/reporting/resources/settlement/client/Client.ts">listAchDeposits</a>({ ...params }) -> core.PayrocPager&lt;Payroc.AchDeposit, Payroc.ListAchDepositsSettlementResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10898,7 +11146,7 @@ await client.reporting.settlement.retrieveAchDeposit({
 </dl>
 </details>
 
-<details><summary><code>client.reporting.settlement.<a href="/src/api/resources/reporting/resources/settlement/client/Client.ts">listAchDepositFees</a>({ ...params }) -> core.PayrocPager<Payroc.AchDepositFee, Payroc.ListAchDepositFeesSettlementResponse></code></summary>
+<details><summary><code>client.reporting.settlement.<a href="/src/api/resources/reporting/resources/settlement/client/Client.ts">listAchDepositFees</a>({ ...params }) -> core.PayrocPager&lt;Payroc.AchDepositFee, Payroc.ListAchDepositFeesSettlementResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10990,7 +11238,7 @@ const response = page.response;
 </details>
 
 ## Tokenization SecureTokens
-<details><summary><code>client.tokenization.secureTokens.<a href="/src/api/resources/tokenization/resources/secureTokens/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager<Payroc.SecureTokenWithAccountType, Payroc.SecureTokenPaginatedListWithAccountType></code></summary>
+<details><summary><code>client.tokenization.secureTokens.<a href="/src/api/resources/tokenization/resources/secureTokens/client/Client.ts">list</a>({ ...params }) -> core.PayrocPager&lt;Payroc.SecureTokenWithAccountType, Payroc.SecureTokenPaginatedListWithAccountType&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11493,7 +11741,7 @@ await client.tokenization.secureTokens.partiallyUpdate({
 
 Use this method to update a secure token if you have a single-use token from Hosted Fields.  
 
-**Note:** If you don't have a single-use token, you can update saved payment details with our [Update Secure Token](https://docs.payroc.com/api/resources#updateSecureToken) method. For more information about our two options to update a secure token, go to [Update saved payment details](https://docs.payroc.com/guides/integrate/update-saved-payment-details).  
+**Note:** If you don't have a single-use token, you can update saved payment details with our [Update Secure Token](https://docs.payroc.com/api/resources#updateSecureToken) method. For more information about our two options to update a secure token, go to [Update saved payment details](https://docs.payroc.com/guides/take-payments/update-saved-payment-details).  
 </dd>
 </dl>
 </dd>

@@ -56,15 +56,10 @@ export class EventSubscriptionsClient {
         requestOptions?: EventSubscriptionsClient.RequestOptions,
     ): Promise<core.PayrocPager<Payroc.EventSubscription, Payroc.PaginatedEventSubscriptions>> {
         const { status, event } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (status != null) {
-            _queryParams.status = status;
-        }
-
-        if (event != null) {
-            _queryParams.event = event;
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            status: status != null ? status : undefined,
+            event,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -166,6 +161,24 @@ export class EventSubscriptionsClient {
      *             }
      *         }
      *     })
+     *
+     * @example
+     *     await client.notifications.eventSubscriptions.create({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         body: {
+     *             enabled: true,
+     *             eventTypes: ["processingAccount.status.changed"],
+     *             notifications: [{
+     *                     type: "webhook",
+     *                     uri: "https://my-server/notification/endpoint",
+     *                     secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+     *                     supportEmailAddress: "supportEmailAddress"
+     *                 }],
+     *             metadata: {
+     *                 "responsiblePerson": "Jane Doe"
+     *             }
+     *         }
+     *     })
      */
     public create(
         request: Payroc.notifications.CreateEventSubscriptionsRequest,
@@ -255,7 +268,7 @@ export class EventSubscriptionsClient {
      *
      * In your request, include the subscriptionId that we sent to you when we created the event subscription.
      *
-     * **Note:** If you don't know the subscriptionId of the event subscription, go to [List event subscriptions](#listEventSubscriptions).
+     * **Note:** If you don't know the subscriptionId of the event subscription, go to [List event subscriptions](https://docs.payroc.com/api/schema/notifications/event-subscriptions/list).
      *
      * @param {Payroc.notifications.RetrieveEventSubscriptionsRequest} request
      * @param {EventSubscriptionsClient.RequestOptions} requestOptions - Request-specific configuration.
@@ -589,6 +602,55 @@ export class EventSubscriptionsClient {
      *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
      *         subscriptionId: 1,
      *         body: [{
+     *                 op: "remove",
+     *                 path: "path"
+     *             }]
+     *     })
+     *
+     * @example
+     *     await client.notifications.eventSubscriptions.partiallyUpdate({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         subscriptionId: 1,
+     *         body: [{
+     *                 op: "move",
+     *                 from: "from",
+     *                 path: "path"
+     *             }]
+     *     })
+     *
+     * @example
+     *     await client.notifications.eventSubscriptions.partiallyUpdate({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         subscriptionId: 1,
+     *         body: [{
+     *                 op: "copy",
+     *                 from: "from",
+     *                 path: "path"
+     *             }]
+     *     })
+     *
+     * @example
+     *     await client.notifications.eventSubscriptions.partiallyUpdate({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         subscriptionId: 1,
+     *         body: [{
+     *                 op: "remove",
+     *                 path: "path"
+     *             }, {
+     *                 op: "remove",
+     *                 path: "path"
+     *             }, {
+     *                 op: "remove",
+     *                 path: "path"
+     *             }, {
+     *                 op: "move",
+     *                 from: "from",
+     *                 path: "path"
+     *             }, {
+     *                 op: "copy",
+     *                 from: "from",
+     *                 path: "path"
+     *             }, {
      *                 op: "remove",
      *                 path: "path"
      *             }]

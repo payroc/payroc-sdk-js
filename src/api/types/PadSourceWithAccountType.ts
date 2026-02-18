@@ -4,7 +4,7 @@ import type * as Payroc from "../index.js";
 
 export interface PadSourceWithAccountType extends Payroc.PadSource {
     /** Indicates the customer's account type. */
-    accountType?: PadSourceWithAccountType.AccountType;
+    accountType?: PadSourceWithAccountType.AccountType | undefined;
 }
 
 export namespace PadSourceWithAccountType {

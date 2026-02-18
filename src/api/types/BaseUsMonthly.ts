@@ -2,5 +2,5 @@
 
 export interface BaseUsMonthly {
     /** Fee for Platinum Security. The value is in the currency's lowest denomination, for example, cents. */
-    amount?: number;
+    amount?: number | undefined;
 }

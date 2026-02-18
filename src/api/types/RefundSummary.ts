@@ -27,7 +27,7 @@ export interface RefundSummary {
     responseCode: RefundSummary.ResponseCode;
     /** Description of the response from the processor. */
     responseMessage: string;
-    link?: Payroc.Link;
+    link?: Payroc.Link | undefined;
 }
 
 export namespace RefundSummary {

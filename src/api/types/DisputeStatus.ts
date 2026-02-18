@@ -5,15 +5,15 @@
  */
 export interface DisputeStatus {
     /** Unique identifier that we assigned to the status of the dispute. */
-    disputeStatusId?: number;
+    disputeStatusId?: number | undefined;
     /**
      * Status of the dispute.
      *
      * **Note:** If you want to view the status history of the dispute, use our [List Dispute Statuses](https://docs.payroc.com/api/schema/reporting/settlement/list-disputes-statuses) method.
      */
-    status?: DisputeStatus.Status;
+    status?: DisputeStatus.Status | undefined;
     /** Date that the status of the dispute was last changed. The format of this value is **YYYY-MM-DD**. */
-    statusDate?: string;
+    statusDate?: string | undefined;
 }
 
 export namespace DisputeStatus {

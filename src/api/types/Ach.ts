@@ -7,7 +7,7 @@ import type * as Payroc from "../index.js";
  */
 export interface Ach {
     /** Object that contains processing fees for ACH transactions. */
-    fees?: Ach.Fees;
+    fees?: Ach.Fees | undefined;
 }
 
 export namespace Ach {

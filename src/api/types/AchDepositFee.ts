@@ -7,13 +7,13 @@ import type * as Payroc from "../index.js";
  */
 export interface AchDepositFee {
     /** Date that we sent the transaction to the cards brands for clearing. The format of this value is **YYYY-MM-DD**. */
-    associationDate?: string;
+    associationDate?: string | undefined;
     /** Date of the adjustment. The format of this value is **YYYY-MM-DD**. */
-    adjustmentDate?: string;
+    adjustmentDate?: string | undefined;
     /** Description of the ACH deposit fee. */
-    description?: string;
+    description?: string | undefined;
     /** Total value of ACH deposit fee. */
-    amount?: number;
-    merchant?: Payroc.MerchantSummary;
-    achDeposit?: Payroc.AchDepositSummary;
+    amount?: number | undefined;
+    merchant?: Payroc.MerchantSummary | undefined;
+    achDeposit?: Payroc.AchDepositSummary | undefined;
 }

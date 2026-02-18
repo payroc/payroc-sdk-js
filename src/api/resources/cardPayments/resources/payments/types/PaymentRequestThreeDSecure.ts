@@ -3,7 +3,11 @@
 import type * as Payroc from "../../../../../index.js";
 
 /**
- * Object that contains information for an authentication check on the customer's payment details using the 3-D Secure protocol.
+ * Polymorphic object that contains authentication information from 3-D Secure.
+ *
+ * The value of the serviceProvider parameter determines which variant you should use:
+ * -	`gateway` - Use our gateway to run a 3-D Secure check.
+ * -	`thirdParty` - Use a third party to run a 3-D Secure check.
  */
 export type PaymentRequestThreeDSecure =
     | Payroc.cardPayments.PaymentRequestThreeDSecure.Gateway

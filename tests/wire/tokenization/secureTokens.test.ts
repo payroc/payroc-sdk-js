@@ -95,7 +95,7 @@ describe("SecureTokensClient", () => {
                 type: "card",
                 cardholderName: "Sarah Hazel Hopper",
                 cardNumber: "4539858876047062",
-                expiryDate: "1225",
+                expiryDate: "1230",
                 cardType: "cardType",
                 currency: "AED",
                 debit: true,
@@ -223,7 +223,7 @@ describe("SecureTokensClient", () => {
                 type: "card",
                 cardholderName: "Sarah Hazel Hopper",
                 cardNumber: "4539858876047062",
-                expiryDate: "1225",
+                expiryDate: "1230",
                 cardType: "cardType",
                 currency: "AED",
                 debit: true,
@@ -551,7 +551,7 @@ describe("SecureTokensClient", () => {
                 type: "card",
                 cardholderName: "Sarah Hazel Hopper",
                 cardNumber: "4539858876047062",
-                expiryDate: "1225",
+                expiryDate: "1230",
                 cardType: "cardType",
                 currency: "AED",
                 debit: true,
@@ -620,7 +620,7 @@ describe("SecureTokensClient", () => {
                 type: "card",
                 cardholderName: "Sarah Hazel Hopper",
                 cardNumber: "4539858876047062",
-                expiryDate: "1225",
+                expiryDate: "1230",
                 cardType: "cardType",
                 currency: "AED",
                 debit: true,
@@ -1014,7 +1014,7 @@ describe("SecureTokensClient", () => {
                 type: "card",
                 cardholderName: "Sarah Hazel Hopper",
                 cardNumber: "4539858876047062",
-                expiryDate: "1225",
+                expiryDate: "1230",
                 cardType: "cardType",
                 currency: "AED",
                 debit: true,
@@ -1100,7 +1100,7 @@ describe("SecureTokensClient", () => {
                 type: "card",
                 cardholderName: "Sarah Hazel Hopper",
                 cardNumber: "4539858876047062",
-                expiryDate: "1225",
+                expiryDate: "1230",
                 cardType: "cardType",
                 currency: "AED",
                 debit: true,
@@ -1123,6 +1123,890 @@ describe("SecureTokensClient", () => {
     });
 
     test("partiallyUpdate (2)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "remove", path: "path" }];
+        const rawResponseBody = {
+            secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+            processingTerminalId: "1234001",
+            mitAgreement: "unscheduled",
+            customer: {
+                firstName: "Sarah",
+                lastName: "Hopper",
+                dateOfBirth: "1990-07-15",
+                referenceNumber: "Customer-12",
+                billingAddress: {
+                    address1: "1 Example Ave.",
+                    address2: "Example Address Line 2",
+                    address3: "Example Address Line 3",
+                    city: "Chicago",
+                    state: "Illinois",
+                    country: "US",
+                    postalCode: "60056",
+                },
+                shippingAddress: {
+                    recipientName: "Sarah Hopper",
+                    address: {
+                        address1: "1 Example Ave.",
+                        address2: "Example Address Line 2",
+                        address3: "Example Address Line 3",
+                        city: "Chicago",
+                        state: "Illinois",
+                        country: "US",
+                        postalCode: "60056",
+                    },
+                },
+                contactMethods: [{ type: "email", value: "jane.doe@example.com" }],
+                notificationLanguage: "en",
+            },
+            source: {
+                type: "card",
+                cardholderName: "Sarah Hazel Hopper",
+                cardNumber: "4539858876047062",
+                expiryDate: "1230",
+                cardType: "cardType",
+                currency: "AED",
+                debit: true,
+                surcharging: {
+                    allowed: true,
+                    amount: 87,
+                    percentage: 3,
+                    disclosure: "A 3% surcharge is applied to cover processing fees.",
+                },
+            },
+            token: "296753123456",
+            status: "notValidated",
+            customFields: [{ name: "yourCustomField", value: "abc123" }],
+        };
+        server
+            .mockEndpoint()
+            .patch("/processing-terminals/1234001/secure-tokens/MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.tokenization.secureTokens.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            processingTerminalId: "1234001",
+            secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+            body: [
+                {
+                    op: "remove",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+            processingTerminalId: "1234001",
+            mitAgreement: "unscheduled",
+            customer: {
+                firstName: "Sarah",
+                lastName: "Hopper",
+                dateOfBirth: "1990-07-15",
+                referenceNumber: "Customer-12",
+                billingAddress: {
+                    address1: "1 Example Ave.",
+                    address2: "Example Address Line 2",
+                    address3: "Example Address Line 3",
+                    city: "Chicago",
+                    state: "Illinois",
+                    country: "US",
+                    postalCode: "60056",
+                },
+                shippingAddress: {
+                    recipientName: "Sarah Hopper",
+                    address: {
+                        address1: "1 Example Ave.",
+                        address2: "Example Address Line 2",
+                        address3: "Example Address Line 3",
+                        city: "Chicago",
+                        state: "Illinois",
+                        country: "US",
+                        postalCode: "60056",
+                    },
+                },
+                contactMethods: [
+                    {
+                        type: "email",
+                        value: "jane.doe@example.com",
+                    },
+                ],
+                notificationLanguage: "en",
+            },
+            source: {
+                type: "card",
+                cardholderName: "Sarah Hazel Hopper",
+                cardNumber: "4539858876047062",
+                expiryDate: "1230",
+                cardType: "cardType",
+                currency: "AED",
+                debit: true,
+                surcharging: {
+                    allowed: true,
+                    amount: 87,
+                    percentage: 3,
+                    disclosure: "A 3% surcharge is applied to cover processing fees.",
+                },
+            },
+            token: "296753123456",
+            status: "notValidated",
+            customFields: [
+                {
+                    name: "yourCustomField",
+                    value: "abc123",
+                },
+            ],
+        });
+    });
+
+    test("partiallyUpdate (3)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "remove", path: "path" }];
+        const rawResponseBody = {
+            secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+            processingTerminalId: "1234001",
+            mitAgreement: "unscheduled",
+            customer: {
+                firstName: "Sarah",
+                lastName: "Hopper",
+                dateOfBirth: "1990-07-15",
+                referenceNumber: "Customer-12",
+                billingAddress: {
+                    address1: "1 Example Ave.",
+                    address2: "Example Address Line 2",
+                    address3: "Example Address Line 3",
+                    city: "Chicago",
+                    state: "Illinois",
+                    country: "US",
+                    postalCode: "60056",
+                },
+                shippingAddress: {
+                    recipientName: "Sarah Hopper",
+                    address: {
+                        address1: "1 Example Ave.",
+                        address2: "Example Address Line 2",
+                        address3: "Example Address Line 3",
+                        city: "Chicago",
+                        state: "Illinois",
+                        country: "US",
+                        postalCode: "60056",
+                    },
+                },
+                contactMethods: [{ type: "email", value: "jane.doe@example.com" }],
+                notificationLanguage: "en",
+            },
+            source: {
+                type: "card",
+                cardholderName: "Sarah Hazel Hopper",
+                cardNumber: "4539858876047062",
+                expiryDate: "1230",
+                cardType: "cardType",
+                currency: "AED",
+                debit: true,
+                surcharging: {
+                    allowed: true,
+                    amount: 87,
+                    percentage: 3,
+                    disclosure: "A 3% surcharge is applied to cover processing fees.",
+                },
+            },
+            token: "296753123456",
+            status: "notValidated",
+            customFields: [{ name: "yourCustomField", value: "abc123" }],
+        };
+        server
+            .mockEndpoint()
+            .patch("/processing-terminals/1234001/secure-tokens/MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.tokenization.secureTokens.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            processingTerminalId: "1234001",
+            secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+            body: [
+                {
+                    op: "remove",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+            processingTerminalId: "1234001",
+            mitAgreement: "unscheduled",
+            customer: {
+                firstName: "Sarah",
+                lastName: "Hopper",
+                dateOfBirth: "1990-07-15",
+                referenceNumber: "Customer-12",
+                billingAddress: {
+                    address1: "1 Example Ave.",
+                    address2: "Example Address Line 2",
+                    address3: "Example Address Line 3",
+                    city: "Chicago",
+                    state: "Illinois",
+                    country: "US",
+                    postalCode: "60056",
+                },
+                shippingAddress: {
+                    recipientName: "Sarah Hopper",
+                    address: {
+                        address1: "1 Example Ave.",
+                        address2: "Example Address Line 2",
+                        address3: "Example Address Line 3",
+                        city: "Chicago",
+                        state: "Illinois",
+                        country: "US",
+                        postalCode: "60056",
+                    },
+                },
+                contactMethods: [
+                    {
+                        type: "email",
+                        value: "jane.doe@example.com",
+                    },
+                ],
+                notificationLanguage: "en",
+            },
+            source: {
+                type: "card",
+                cardholderName: "Sarah Hazel Hopper",
+                cardNumber: "4539858876047062",
+                expiryDate: "1230",
+                cardType: "cardType",
+                currency: "AED",
+                debit: true,
+                surcharging: {
+                    allowed: true,
+                    amount: 87,
+                    percentage: 3,
+                    disclosure: "A 3% surcharge is applied to cover processing fees.",
+                },
+            },
+            token: "296753123456",
+            status: "notValidated",
+            customFields: [
+                {
+                    name: "yourCustomField",
+                    value: "abc123",
+                },
+            ],
+        });
+    });
+
+    test("partiallyUpdate (4)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "remove", path: "path" }];
+        const rawResponseBody = {
+            secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+            processingTerminalId: "1234001",
+            mitAgreement: "unscheduled",
+            customer: {
+                firstName: "Sarah",
+                lastName: "Hopper",
+                dateOfBirth: "1990-07-15",
+                referenceNumber: "Customer-12",
+                billingAddress: {
+                    address1: "1 Example Ave.",
+                    address2: "Example Address Line 2",
+                    address3: "Example Address Line 3",
+                    city: "Chicago",
+                    state: "Illinois",
+                    country: "US",
+                    postalCode: "60056",
+                },
+                shippingAddress: {
+                    recipientName: "Sarah Hopper",
+                    address: {
+                        address1: "1 Example Ave.",
+                        address2: "Example Address Line 2",
+                        address3: "Example Address Line 3",
+                        city: "Chicago",
+                        state: "Illinois",
+                        country: "US",
+                        postalCode: "60056",
+                    },
+                },
+                contactMethods: [{ type: "email", value: "jane.doe@example.com" }],
+                notificationLanguage: "en",
+            },
+            source: {
+                type: "card",
+                cardholderName: "Sarah Hazel Hopper",
+                cardNumber: "4539858876047062",
+                expiryDate: "1230",
+                cardType: "cardType",
+                currency: "AED",
+                debit: true,
+                surcharging: {
+                    allowed: true,
+                    amount: 87,
+                    percentage: 3,
+                    disclosure: "A 3% surcharge is applied to cover processing fees.",
+                },
+            },
+            token: "296753123456",
+            status: "notValidated",
+            customFields: [{ name: "yourCustomField", value: "abc123" }],
+        };
+        server
+            .mockEndpoint()
+            .patch("/processing-terminals/1234001/secure-tokens/MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.tokenization.secureTokens.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            processingTerminalId: "1234001",
+            secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+            body: [
+                {
+                    op: "remove",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+            processingTerminalId: "1234001",
+            mitAgreement: "unscheduled",
+            customer: {
+                firstName: "Sarah",
+                lastName: "Hopper",
+                dateOfBirth: "1990-07-15",
+                referenceNumber: "Customer-12",
+                billingAddress: {
+                    address1: "1 Example Ave.",
+                    address2: "Example Address Line 2",
+                    address3: "Example Address Line 3",
+                    city: "Chicago",
+                    state: "Illinois",
+                    country: "US",
+                    postalCode: "60056",
+                },
+                shippingAddress: {
+                    recipientName: "Sarah Hopper",
+                    address: {
+                        address1: "1 Example Ave.",
+                        address2: "Example Address Line 2",
+                        address3: "Example Address Line 3",
+                        city: "Chicago",
+                        state: "Illinois",
+                        country: "US",
+                        postalCode: "60056",
+                    },
+                },
+                contactMethods: [
+                    {
+                        type: "email",
+                        value: "jane.doe@example.com",
+                    },
+                ],
+                notificationLanguage: "en",
+            },
+            source: {
+                type: "card",
+                cardholderName: "Sarah Hazel Hopper",
+                cardNumber: "4539858876047062",
+                expiryDate: "1230",
+                cardType: "cardType",
+                currency: "AED",
+                debit: true,
+                surcharging: {
+                    allowed: true,
+                    amount: 87,
+                    percentage: 3,
+                    disclosure: "A 3% surcharge is applied to cover processing fees.",
+                },
+            },
+            token: "296753123456",
+            status: "notValidated",
+            customFields: [
+                {
+                    name: "yourCustomField",
+                    value: "abc123",
+                },
+            ],
+        });
+    });
+
+    test("partiallyUpdate (5)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "move", from: "from", path: "path" }];
+        const rawResponseBody = {
+            secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+            processingTerminalId: "1234001",
+            mitAgreement: "unscheduled",
+            customer: {
+                firstName: "Sarah",
+                lastName: "Hopper",
+                dateOfBirth: "1990-07-15",
+                referenceNumber: "Customer-12",
+                billingAddress: {
+                    address1: "1 Example Ave.",
+                    address2: "Example Address Line 2",
+                    address3: "Example Address Line 3",
+                    city: "Chicago",
+                    state: "Illinois",
+                    country: "US",
+                    postalCode: "60056",
+                },
+                shippingAddress: {
+                    recipientName: "Sarah Hopper",
+                    address: {
+                        address1: "1 Example Ave.",
+                        address2: "Example Address Line 2",
+                        address3: "Example Address Line 3",
+                        city: "Chicago",
+                        state: "Illinois",
+                        country: "US",
+                        postalCode: "60056",
+                    },
+                },
+                contactMethods: [{ type: "email", value: "jane.doe@example.com" }],
+                notificationLanguage: "en",
+            },
+            source: {
+                type: "card",
+                cardholderName: "Sarah Hazel Hopper",
+                cardNumber: "4539858876047062",
+                expiryDate: "1230",
+                cardType: "cardType",
+                currency: "AED",
+                debit: true,
+                surcharging: {
+                    allowed: true,
+                    amount: 87,
+                    percentage: 3,
+                    disclosure: "A 3% surcharge is applied to cover processing fees.",
+                },
+            },
+            token: "296753123456",
+            status: "notValidated",
+            customFields: [{ name: "yourCustomField", value: "abc123" }],
+        };
+        server
+            .mockEndpoint()
+            .patch("/processing-terminals/1234001/secure-tokens/MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.tokenization.secureTokens.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            processingTerminalId: "1234001",
+            secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+            body: [
+                {
+                    op: "move",
+                    from: "from",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+            processingTerminalId: "1234001",
+            mitAgreement: "unscheduled",
+            customer: {
+                firstName: "Sarah",
+                lastName: "Hopper",
+                dateOfBirth: "1990-07-15",
+                referenceNumber: "Customer-12",
+                billingAddress: {
+                    address1: "1 Example Ave.",
+                    address2: "Example Address Line 2",
+                    address3: "Example Address Line 3",
+                    city: "Chicago",
+                    state: "Illinois",
+                    country: "US",
+                    postalCode: "60056",
+                },
+                shippingAddress: {
+                    recipientName: "Sarah Hopper",
+                    address: {
+                        address1: "1 Example Ave.",
+                        address2: "Example Address Line 2",
+                        address3: "Example Address Line 3",
+                        city: "Chicago",
+                        state: "Illinois",
+                        country: "US",
+                        postalCode: "60056",
+                    },
+                },
+                contactMethods: [
+                    {
+                        type: "email",
+                        value: "jane.doe@example.com",
+                    },
+                ],
+                notificationLanguage: "en",
+            },
+            source: {
+                type: "card",
+                cardholderName: "Sarah Hazel Hopper",
+                cardNumber: "4539858876047062",
+                expiryDate: "1230",
+                cardType: "cardType",
+                currency: "AED",
+                debit: true,
+                surcharging: {
+                    allowed: true,
+                    amount: 87,
+                    percentage: 3,
+                    disclosure: "A 3% surcharge is applied to cover processing fees.",
+                },
+            },
+            token: "296753123456",
+            status: "notValidated",
+            customFields: [
+                {
+                    name: "yourCustomField",
+                    value: "abc123",
+                },
+            ],
+        });
+    });
+
+    test("partiallyUpdate (6)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "copy", from: "from", path: "path" }];
+        const rawResponseBody = {
+            secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+            processingTerminalId: "1234001",
+            mitAgreement: "unscheduled",
+            customer: {
+                firstName: "Sarah",
+                lastName: "Hopper",
+                dateOfBirth: "1990-07-15",
+                referenceNumber: "Customer-12",
+                billingAddress: {
+                    address1: "1 Example Ave.",
+                    address2: "Example Address Line 2",
+                    address3: "Example Address Line 3",
+                    city: "Chicago",
+                    state: "Illinois",
+                    country: "US",
+                    postalCode: "60056",
+                },
+                shippingAddress: {
+                    recipientName: "Sarah Hopper",
+                    address: {
+                        address1: "1 Example Ave.",
+                        address2: "Example Address Line 2",
+                        address3: "Example Address Line 3",
+                        city: "Chicago",
+                        state: "Illinois",
+                        country: "US",
+                        postalCode: "60056",
+                    },
+                },
+                contactMethods: [{ type: "email", value: "jane.doe@example.com" }],
+                notificationLanguage: "en",
+            },
+            source: {
+                type: "card",
+                cardholderName: "Sarah Hazel Hopper",
+                cardNumber: "4539858876047062",
+                expiryDate: "1230",
+                cardType: "cardType",
+                currency: "AED",
+                debit: true,
+                surcharging: {
+                    allowed: true,
+                    amount: 87,
+                    percentage: 3,
+                    disclosure: "A 3% surcharge is applied to cover processing fees.",
+                },
+            },
+            token: "296753123456",
+            status: "notValidated",
+            customFields: [{ name: "yourCustomField", value: "abc123" }],
+        };
+        server
+            .mockEndpoint()
+            .patch("/processing-terminals/1234001/secure-tokens/MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.tokenization.secureTokens.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            processingTerminalId: "1234001",
+            secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+            body: [
+                {
+                    op: "copy",
+                    from: "from",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+            processingTerminalId: "1234001",
+            mitAgreement: "unscheduled",
+            customer: {
+                firstName: "Sarah",
+                lastName: "Hopper",
+                dateOfBirth: "1990-07-15",
+                referenceNumber: "Customer-12",
+                billingAddress: {
+                    address1: "1 Example Ave.",
+                    address2: "Example Address Line 2",
+                    address3: "Example Address Line 3",
+                    city: "Chicago",
+                    state: "Illinois",
+                    country: "US",
+                    postalCode: "60056",
+                },
+                shippingAddress: {
+                    recipientName: "Sarah Hopper",
+                    address: {
+                        address1: "1 Example Ave.",
+                        address2: "Example Address Line 2",
+                        address3: "Example Address Line 3",
+                        city: "Chicago",
+                        state: "Illinois",
+                        country: "US",
+                        postalCode: "60056",
+                    },
+                },
+                contactMethods: [
+                    {
+                        type: "email",
+                        value: "jane.doe@example.com",
+                    },
+                ],
+                notificationLanguage: "en",
+            },
+            source: {
+                type: "card",
+                cardholderName: "Sarah Hazel Hopper",
+                cardNumber: "4539858876047062",
+                expiryDate: "1230",
+                cardType: "cardType",
+                currency: "AED",
+                debit: true,
+                surcharging: {
+                    allowed: true,
+                    amount: 87,
+                    percentage: 3,
+                    disclosure: "A 3% surcharge is applied to cover processing fees.",
+                },
+            },
+            token: "296753123456",
+            status: "notValidated",
+            customFields: [
+                {
+                    name: "yourCustomField",
+                    value: "abc123",
+                },
+            ],
+        });
+    });
+
+    test("partiallyUpdate (7)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "remove", path: "path" }];
+        const rawResponseBody = {
+            secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+            processingTerminalId: "1234001",
+            mitAgreement: "unscheduled",
+            customer: {
+                firstName: "Sarah",
+                lastName: "Hopper",
+                dateOfBirth: "1990-07-15",
+                referenceNumber: "Customer-12",
+                billingAddress: {
+                    address1: "1 Example Ave.",
+                    address2: "Example Address Line 2",
+                    address3: "Example Address Line 3",
+                    city: "Chicago",
+                    state: "Illinois",
+                    country: "US",
+                    postalCode: "60056",
+                },
+                shippingAddress: {
+                    recipientName: "Sarah Hopper",
+                    address: {
+                        address1: "1 Example Ave.",
+                        address2: "Example Address Line 2",
+                        address3: "Example Address Line 3",
+                        city: "Chicago",
+                        state: "Illinois",
+                        country: "US",
+                        postalCode: "60056",
+                    },
+                },
+                contactMethods: [{ type: "email", value: "jane.doe@example.com" }],
+                notificationLanguage: "en",
+            },
+            source: {
+                type: "card",
+                cardholderName: "Sarah Hazel Hopper",
+                cardNumber: "4539858876047062",
+                expiryDate: "1230",
+                cardType: "cardType",
+                currency: "AED",
+                debit: true,
+                surcharging: {
+                    allowed: true,
+                    amount: 87,
+                    percentage: 3,
+                    disclosure: "A 3% surcharge is applied to cover processing fees.",
+                },
+            },
+            token: "296753123456",
+            status: "notValidated",
+            customFields: [{ name: "yourCustomField", value: "abc123" }],
+        };
+        server
+            .mockEndpoint()
+            .patch("/processing-terminals/1234001/secure-tokens/MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.tokenization.secureTokens.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            processingTerminalId: "1234001",
+            secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+            body: [
+                {
+                    op: "remove",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+            processingTerminalId: "1234001",
+            mitAgreement: "unscheduled",
+            customer: {
+                firstName: "Sarah",
+                lastName: "Hopper",
+                dateOfBirth: "1990-07-15",
+                referenceNumber: "Customer-12",
+                billingAddress: {
+                    address1: "1 Example Ave.",
+                    address2: "Example Address Line 2",
+                    address3: "Example Address Line 3",
+                    city: "Chicago",
+                    state: "Illinois",
+                    country: "US",
+                    postalCode: "60056",
+                },
+                shippingAddress: {
+                    recipientName: "Sarah Hopper",
+                    address: {
+                        address1: "1 Example Ave.",
+                        address2: "Example Address Line 2",
+                        address3: "Example Address Line 3",
+                        city: "Chicago",
+                        state: "Illinois",
+                        country: "US",
+                        postalCode: "60056",
+                    },
+                },
+                contactMethods: [
+                    {
+                        type: "email",
+                        value: "jane.doe@example.com",
+                    },
+                ],
+                notificationLanguage: "en",
+            },
+            source: {
+                type: "card",
+                cardholderName: "Sarah Hazel Hopper",
+                cardNumber: "4539858876047062",
+                expiryDate: "1230",
+                cardType: "cardType",
+                currency: "AED",
+                debit: true,
+                surcharging: {
+                    allowed: true,
+                    amount: 87,
+                    percentage: 3,
+                    disclosure: "A 3% surcharge is applied to cover processing fees.",
+                },
+            },
+            token: "296753123456",
+            status: "notValidated",
+            customFields: [
+                {
+                    name: "yourCustomField",
+                    value: "abc123",
+                },
+            ],
+        });
+    });
+
+    test("partiallyUpdate (8)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1176,7 +2060,7 @@ describe("SecureTokensClient", () => {
                 type: "card",
                 cardholderName: "Sarah Hazel Hopper",
                 cardNumber: "4539858876047062",
-                expiryDate: "1225",
+                expiryDate: "1230",
                 cardType: "cardType",
                 currency: "AED",
                 debit: true,
@@ -1276,7 +2160,7 @@ describe("SecureTokensClient", () => {
                 type: "card",
                 cardholderName: "Sarah Hazel Hopper",
                 cardNumber: "4539858876047062",
-                expiryDate: "1225",
+                expiryDate: "1230",
                 cardType: "cardType",
                 currency: "AED",
                 debit: true,
@@ -1298,7 +2182,7 @@ describe("SecureTokensClient", () => {
         });
     });
 
-    test("partiallyUpdate (3)", async () => {
+    test("partiallyUpdate (9)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1347,7 +2231,7 @@ describe("SecureTokensClient", () => {
         }).rejects.toThrow(Payroc.BadRequestError);
     });
 
-    test("partiallyUpdate (4)", async () => {
+    test("partiallyUpdate (10)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1396,7 +2280,7 @@ describe("SecureTokensClient", () => {
         }).rejects.toThrow(Payroc.UnauthorizedError);
     });
 
-    test("partiallyUpdate (5)", async () => {
+    test("partiallyUpdate (11)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1445,7 +2329,7 @@ describe("SecureTokensClient", () => {
         }).rejects.toThrow(Payroc.ForbiddenError);
     });
 
-    test("partiallyUpdate (6)", async () => {
+    test("partiallyUpdate (12)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1494,7 +2378,7 @@ describe("SecureTokensClient", () => {
         }).rejects.toThrow(Payroc.NotFoundError);
     });
 
-    test("partiallyUpdate (7)", async () => {
+    test("partiallyUpdate (13)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1543,7 +2427,7 @@ describe("SecureTokensClient", () => {
         }).rejects.toThrow(Payroc.NotAcceptableError);
     });
 
-    test("partiallyUpdate (8)", async () => {
+    test("partiallyUpdate (14)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1592,7 +2476,7 @@ describe("SecureTokensClient", () => {
         }).rejects.toThrow(Payroc.ConflictError);
     });
 
-    test("partiallyUpdate (9)", async () => {
+    test("partiallyUpdate (15)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1641,7 +2525,7 @@ describe("SecureTokensClient", () => {
         }).rejects.toThrow(Payroc.UnsupportedMediaTypeError);
     });
 
-    test("partiallyUpdate (10)", async () => {
+    test("partiallyUpdate (16)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1740,7 +2624,7 @@ describe("SecureTokensClient", () => {
                 type: "card",
                 cardholderName: "Sarah Hazel Hopper",
                 cardNumber: "4539858876047062",
-                expiryDate: "1225",
+                expiryDate: "1230",
                 cardType: "cardType",
                 currency: "AED",
                 debit: true,
@@ -1818,7 +2702,7 @@ describe("SecureTokensClient", () => {
                 type: "card",
                 cardholderName: "Sarah Hazel Hopper",
                 cardNumber: "4539858876047062",
-                expiryDate: "1225",
+                expiryDate: "1230",
                 cardType: "cardType",
                 currency: "AED",
                 debit: true,

@@ -1,5 +1,5 @@
 export type { CreateAccountFundingRecipientsRequest } from "./CreateAccountFundingRecipientsRequest.js";
-export type { CreateFundingRecipient } from "./CreateFundingRecipient.js";
+export { CreateFundingRecipient } from "./CreateFundingRecipient.js";
 export type { CreateOwnerFundingRecipientsRequest } from "./CreateOwnerFundingRecipientsRequest.js";
 export type { DeleteFundingRecipientsRequest } from "./DeleteFundingRecipientsRequest.js";
 export type { ListFundingRecipientFundingAccountsRequest } from "./ListFundingRecipientFundingAccountsRequest.js";

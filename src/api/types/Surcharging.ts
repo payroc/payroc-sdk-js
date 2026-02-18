@@ -10,9 +10,9 @@ export interface Surcharging {
      * Surcharge amount to add to the transaction.
      * **Note:** Our gateway returns the surcharge amount only if you include a transaction amount in the request.
      */
-    amount?: number;
+    amount?: number | undefined;
     /** Surcharge rate that the merchant configures on their account. */
-    percentage?: number;
+    percentage?: number | undefined;
     /** Statement that informs the customer about the surcharge fee. */
-    disclosure?: string;
+    disclosure?: string | undefined;
 }

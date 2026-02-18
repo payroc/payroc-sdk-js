@@ -19,8 +19,8 @@ export namespace ConsumerChoice {
         monthlySubscription: Payroc.Amount;
         /** Merchant-authorized percentage on non-cash transactions. */
         volume: Payroc.Percentage;
-        pinDebit?: Payroc.PinDebit;
-        electronicBenefitsTransfer?: Payroc.ElectronicBenefitsTransfer;
-        specialityCards?: Payroc.SpecialityCards;
+        pinDebit?: Payroc.PinDebit | undefined;
+        electronicBenefitsTransfer?: Payroc.ElectronicBenefitsTransfer | undefined;
+        specialityCards?: Payroc.SpecialityCards | undefined;
     }
 }

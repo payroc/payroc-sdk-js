@@ -7,21 +7,21 @@ import type * as Payroc from "../index.js";
  */
 export interface Authorization {
     /** Unique identifier that we assigned to the authorization. */
-    authorizationId?: number;
+    authorizationId?: number | undefined;
     /** Date that we received the authorization. The format of this value is **YYYY-MM-DD**. */
-    createdDate?: string;
+    createdDate?: string | undefined;
     /** Date that the authorization was last changed. The format of this value is **YYYY-MM-DD**. */
-    lastModifiedDate?: string;
+    lastModifiedDate?: string | undefined;
     /** Response from the issuing bank for the authorization. */
-    authorizationResponse?: Authorization.AuthorizationResponse;
+    authorizationResponse?: Authorization.AuthorizationResponse | undefined;
     /** Amount that the merchant requested for the authorization. We return the value in the currency's lowest denomination, for example, cents. */
-    preauthorizationRequestAmount?: number;
+    preauthorizationRequestAmount?: number | undefined;
     /** Currency of the authorization. The value for the currency follows the [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) standard. */
-    currency?: string;
-    batch?: Payroc.BatchSummary;
-    card?: Payroc.CardSummary;
-    merchant?: Payroc.MerchantSummary;
-    transaction?: Payroc.TransactionSummary;
+    currency?: string | undefined;
+    batch?: Payroc.BatchSummary | undefined;
+    card?: Payroc.CardSummary | undefined;
+    merchant?: Payroc.MerchantSummary | undefined;
+    transaction?: Payroc.TransactionSummary | undefined;
 }
 
 export namespace Authorization {

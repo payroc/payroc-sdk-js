@@ -9,7 +9,7 @@ export interface FiveHundred {
     status: number;
     /** Explanation of the problem */
     detail: string;
-    errors?: FiveHundred.Errors.Item[];
+    errors?: FiveHundred.Errors.Item[] | undefined;
 }
 
 export namespace FiveHundred {
@@ -18,7 +18,7 @@ export namespace FiveHundred {
     export namespace Errors {
         export interface Item {
             /** Error message */
-            message?: string;
+            message?: string | undefined;
         }
     }
 }

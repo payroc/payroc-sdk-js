@@ -6,5 +6,6 @@ import type * as Payroc from "../index.js";
  * Array of links related to your order items.
  */
 export interface Links {
-    links?: Payroc.ProcessingTerminalSummary[];
+    /** Polymorphic object that contains information about the processing terminal that the order is linked to. */
+    links?: Payroc.ProcessingTerminalSummary[] | undefined;
 }

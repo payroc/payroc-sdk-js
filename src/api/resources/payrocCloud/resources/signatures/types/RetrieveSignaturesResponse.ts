@@ -2,13 +2,13 @@
 
 export interface RetrieveSignaturesResponse {
     /** Unique identifier that we assigned to the signature. */
-    signatureId?: string;
+    signatureId?: string | undefined;
     /** Unique identifier of the terminal that the signature is linked to. */
-    processingTerminalId?: string;
+    processingTerminalId?: string | undefined;
     /** Date that the device captured the signature. The format of this value is **YYYY-MM-DD**. */
-    createdOn?: string;
+    createdOn?: string | undefined;
     /** MIME type that indicates the format of the image file. */
-    contentType?: string;
+    contentType?: string | undefined;
     /** Image data for the signature. Our gateway returns the signature as a Base64-encoded value. */
-    signature?: string;
+    signature?: string | undefined;
 }

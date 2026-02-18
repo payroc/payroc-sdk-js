@@ -3,7 +3,13 @@
 import type * as Payroc from "../index.js";
 
 /**
- * Object that contains the details of the payment card.
+ * Polymorphic object that contains payment card information.
+ *
+ * The value of the entryMethod parameter determines which variant you should use:
+ * - `raw` - Unencrypted payment data directly from the device.
+ * - `icc` - Payment data that the device captured from the chip.
+ * - `keyed` - Payment data that the merchant entered manually.
+ * - `swiped` - Payment data that the device captured from the magnetic strip.
  */
 export type CardPayloadCardDetails =
     | Payroc.CardPayloadCardDetails.Raw

@@ -14,18 +14,18 @@ export interface BankTransferResult {
      * Amount of the transaction.
      * **Note:** The amount is negative for a refund.
      */
-    authorizedAmount?: number;
-    currency?: Payroc.Currency;
+    authorizedAmount?: number | undefined;
+    currency: Payroc.Currency;
     /**
      * Response from the processor.
      * - `A` - The processor approved the transaction.
      * - `D` - The processor declined the transaction.
      */
-    responseCode?: string;
+    responseCode: string;
     /** Description of the response from the processor. */
-    responseMessage: string;
+    responseMessage?: string | undefined;
     /** Original response code that the processor sent. */
-    processorResponseCode?: string;
+    processorResponseCode?: string | undefined;
 }
 
 export namespace BankTransferResult {

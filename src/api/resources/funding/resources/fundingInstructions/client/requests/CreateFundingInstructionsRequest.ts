@@ -6,7 +6,97 @@ import type * as Payroc from "../../../../../../index.js";
  * @example
  *     {
  *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
- *         body: {}
+ *         body: {
+ *             merchants: [{
+ *                     merchantId: "4525644354",
+ *                     recipients: [{
+ *                             fundingAccountId: 123,
+ *                             paymentMethod: "ACH",
+ *                             amount: {
+ *                                 value: 120000,
+ *                                 currency: "USD"
+ *                             },
+ *                             metadata: {
+ *                                 "yourCustomField": "abc123"
+ *                             }
+ *                         }]
+ *                 }],
+ *             metadata: {
+ *                 "yourCustomField": "abc123"
+ *             }
+ *         }
+ *     }
+ *
+ * @example
+ *     {
+ *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+ *         body: {
+ *             merchants: [{
+ *                     merchantId: "4525644354",
+ *                     recipients: [{
+ *                             fundingAccountId: 123,
+ *                             paymentMethod: "ACH",
+ *                             amount: {
+ *                                 value: 120000,
+ *                                 currency: "USD"
+ *                             },
+ *                             metadata: {
+ *                                 "supplier": "IT Support Services"
+ *                             }
+ *                         }]
+ *                 }],
+ *             metadata: {
+ *                 "instructionCreatedBy": "Jane Doe"
+ *             }
+ *         }
+ *     }
+ *
+ * @example
+ *     {
+ *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+ *         body: {
+ *             merchants: [{
+ *                     merchantId: "4525644354",
+ *                     recipients: [{
+ *                             fundingAccountId: 123,
+ *                             paymentMethod: "ACH",
+ *                             amount: {
+ *                                 value: 120000,
+ *                                 currency: "USD"
+ *                             },
+ *                             metadata: {
+ *                                 "yourCustomField": "abc123"
+ *                             }
+ *                         }]
+ *                 }],
+ *             metadata: {
+ *                 "yourCustomField": "abc123"
+ *             }
+ *         }
+ *     }
+ *
+ * @example
+ *     {
+ *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+ *         body: {
+ *             merchants: [{
+ *                     merchantId: "4525644354",
+ *                     recipients: [{
+ *                             fundingAccountId: 123,
+ *                             paymentMethod: "ACH",
+ *                             amount: {
+ *                                 value: 120000,
+ *                                 currency: "USD"
+ *                             },
+ *                             metadata: {
+ *                                 "yourCustomField": "abc123"
+ *                             }
+ *                         }]
+ *                 }],
+ *             metadata: {
+ *                 "yourCustomField": "abc123"
+ *             }
+ *         }
  *     }
  */
 export interface CreateFundingInstructionsRequest {

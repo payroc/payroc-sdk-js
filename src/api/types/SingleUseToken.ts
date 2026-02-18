@@ -4,18 +4,25 @@ import type * as Payroc from "../index.js";
 
 export interface SingleUseToken {
     /** Unique identifier that we assigned to the terminal. */
-    processingTerminalId?: string;
+    processingTerminalId?: string | undefined;
     /** Operator who initiated the request. */
-    operator?: string;
-    /** Object that contains information about the customer's payment details. */
-    paymentMethod?: Payroc.SingleUseTokenPaymentMethod;
+    operator?: string | undefined;
+    /** Polymorphic object that contains payment card details. */
+    paymentMethod?: Payroc.SingleUseTokenPaymentMethod | undefined;
     /**
      * Unique identifier that our gateway assigned to the payment details.
      * **Note:** Merchants can use the token with other terminals linked to their account.
      */
-    token?: string;
+    token?: string | undefined;
     /** Date and time that the token expires. We return this value in the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. */
-    expiresAt?: string;
-    /** Object that contains information about the payment method that we tokenized. */
+    expiresAt?: string | undefined;
+    /**
+     * Polymorphic object that contains the payment method that we tokenized.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`ach` - Automated Clearing House (ACH) details
+     * -	`pad` - Pre-authorized debit (PAD) details
+     * -	`card` - Payment card details
+     */
     source: Payroc.SingleUseTokenSource;
 }

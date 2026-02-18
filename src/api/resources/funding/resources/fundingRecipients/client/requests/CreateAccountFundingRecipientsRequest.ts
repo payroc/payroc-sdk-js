@@ -8,12 +8,15 @@ import type * as Payroc from "../../../../../../index.js";
  *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
  *         recipientId: 1,
  *         body: {
- *             type: "checking",
+ *             type: "savings",
  *             use: "credit",
- *             nameOnAccount: "Jane Doe",
+ *             nameOnAccount: "Fred Nerk",
  *             paymentMethods: [{
  *                     type: "ach"
- *                 }]
+ *                 }],
+ *             metadata: {
+ *                 "responsiblePerson": "Jane Doe"
+ *             }
  *         }
  *     }
  */

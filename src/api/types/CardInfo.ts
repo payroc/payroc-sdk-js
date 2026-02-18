@@ -11,9 +11,9 @@ export interface CardInfo {
     /** Masked card number. Our gateway shows only the first six digits and the last four digits of the card number, for example, 548010******5929. */
     cardNumber: string;
     /** Country of the issuing bank. The value for the country follows the [ISO-3166-1](https://www.iso.org/iso-3166-country-codes.html) standard. */
-    country?: string;
-    currency?: Payroc.Currency;
+    country?: string | undefined;
+    currency?: Payroc.Currency | undefined;
     /** Indicates if the card is a debit card. */
-    debit?: boolean;
-    surcharging?: Payroc.Surcharging;
+    debit?: boolean | undefined;
+    surcharging?: Payroc.Surcharging | undefined;
 }

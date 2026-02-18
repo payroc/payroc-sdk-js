@@ -10,15 +10,15 @@ export interface IccCardDetails {
      * If an offline transaction is not approved using the initial entry method, reprocess the transaction using a downgraded entry method.
      * For example, an Integrated Circuit Card (ICC) transaction can be downgraded to a swiped transaction or a keyed transaction.
      */
-    downgradeTo?: IccCardDetails.DowngradeTo;
+    downgradeTo?: IccCardDetails.DowngradeTo | undefined;
     device: Payroc.EncryptionCapableDevice;
     /** Cardholder data from the ICC. The data consists of EMV tags in Tag-Length-Value (TLV) format. */
     iccData: string;
     /** First digit of the card number. */
-    firstDigitOfPan?: string;
+    firstDigitOfPan?: string | undefined;
     /** Cardholder's signature. For more information about how to format the signature, go to [How to send a signature to our gateway](https://docs.payroc.com/knowledge/basic-concepts/signature-capture). */
-    cardholderSignature?: string;
-    ebtDetails?: Payroc.EbtDetailsWithVoucher;
+    cardholderSignature?: string | undefined;
+    ebtDetails?: Payroc.EbtDetailsWithVoucher | undefined;
 }
 
 export namespace IccCardDetails {

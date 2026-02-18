@@ -9,7 +9,7 @@ export interface FourHundred {
     status: number;
     /** Explanation of the problem */
     detail: string;
-    errors?: FourHundred.Errors.Item[];
+    errors?: FourHundred.Errors.Item[] | undefined;
 }
 
 export namespace FourHundred {
@@ -18,11 +18,11 @@ export namespace FourHundred {
     export namespace Errors {
         export interface Item {
             /** The parameter or field causing the issues */
-            parameter?: string;
+            parameter?: string | undefined;
             /** Short detail of the validation errors */
-            detail?: string;
+            detail?: string | undefined;
             /** Error message */
-            message?: string;
+            message?: string | undefined;
         }
     }
 }

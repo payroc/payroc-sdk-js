@@ -78,47 +78,18 @@ export class SecureTokensClient {
             after,
             limit,
         } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (secureTokenId != null) {
-            _queryParams.secureTokenId = secureTokenId;
-        }
-
-        if (customerName != null) {
-            _queryParams.customerName = customerName;
-        }
-
-        if (phone != null) {
-            _queryParams.phone = phone;
-        }
-
-        if (email != null) {
-            _queryParams.email = email;
-        }
-
-        if (token != null) {
-            _queryParams.token = token;
-        }
-
-        if (first6 != null) {
-            _queryParams.first6 = first6;
-        }
-
-        if (last4 != null) {
-            _queryParams.last4 = last4;
-        }
-
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            secureTokenId,
+            customerName,
+            phone,
+            email,
+            token,
+            first6,
+            last4,
+            before,
+            after,
+            limit,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -643,6 +614,41 @@ export class SecureTokensClient {
      *         body: [{
      *                 op: "remove",
      *                 path: "path"
+     *             }]
+     *     })
+     *
+     * @example
+     *     await client.tokenization.secureTokens.partiallyUpdate({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         processingTerminalId: "1234001",
+     *         secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+     *         body: [{
+     *                 op: "move",
+     *                 from: "from",
+     *                 path: "path"
+     *             }]
+     *     })
+     *
+     * @example
+     *     await client.tokenization.secureTokens.partiallyUpdate({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         processingTerminalId: "1234001",
+     *         secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+     *         body: [{
+     *                 op: "copy",
+     *                 from: "from",
+     *                 path: "path"
+     *             }]
+     *     })
+     *
+     * @example
+     *     await client.tokenization.secureTokens.partiallyUpdate({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         processingTerminalId: "1234001",
+     *         secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+     *         body: [{
+     *                 op: "remove",
+     *                 path: "path"
      *             }, {
      *                 op: "remove",
      *                 path: "path"
@@ -761,7 +767,7 @@ export class SecureTokensClient {
     /**
      * Use this method to update a secure token if you have a single-use token from Hosted Fields.
      *
-     * **Note:** If you don't have a single-use token, you can update saved payment details with our [Update Secure Token](https://docs.payroc.com/api/resources#updateSecureToken) method. For more information about our two options to update a secure token, go to [Update saved payment details](https://docs.payroc.com/guides/integrate/update-saved-payment-details).
+     * **Note:** If you don't have a single-use token, you can update saved payment details with our [Update Secure Token](https://docs.payroc.com/api/resources#updateSecureToken) method. For more information about our two options to update a secure token, go to [Update saved payment details](https://docs.payroc.com/guides/take-payments/update-saved-payment-details).
      *
      * @param {Payroc.tokenization.UpdateAccountSecureTokensRequest} request
      * @param {SecureTokensClient.RequestOptions} requestOptions - Request-specific configuration.

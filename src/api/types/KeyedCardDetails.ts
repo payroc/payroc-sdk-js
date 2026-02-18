@@ -6,11 +6,20 @@ import type * as Payroc from "../index.js";
  * Object that contains information about the keyed card details.
  */
 export interface KeyedCardDetails {
+    /**
+     * Polymorphic object that contains payment card details that the merchant manually entered into the device.
+     *
+     * The value of the dataFormat parameter determines which variant you should use:
+     * -	`fullyEncrypted` - Some payment card details are encrypted.
+     * -	`partiallyEncrypted` - Payment card details are in plain text.
+     * -	`plainText` - All payment card details are encrypted.
+     */
     keyedData: Payroc.KeyedCardDetailsKeyedData;
     /** Cardholder’s name. */
-    cardholderName?: string;
+    cardholderName?: string | undefined;
     /** Cardholder's signature. For more information about how to format the signature, go to [How to send a signature to our gateway](https://docs.payroc.com/knowledge/basic-concepts/signature-capture). */
-    cardholderSignature?: string;
-    pinDetails?: Payroc.KeyedCardDetailsPinDetails;
-    ebtDetails?: Payroc.EbtDetailsWithVoucher;
+    cardholderSignature?: string | undefined;
+    /** Polymorphic object that contains information about the customer's PIN. */
+    pinDetails?: Payroc.KeyedCardDetailsPinDetails | undefined;
+    ebtDetails?: Payroc.EbtDetailsWithVoucher | undefined;
 }

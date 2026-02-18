@@ -4,5 +4,5 @@ import type * as Payroc from "../index.js";
 
 export interface BreakdownForPaymentInstructions extends Payroc.BreakdownBase {
     /** List of taxes. */
-    taxes?: Payroc.TaxRate[];
+    taxes?: Payroc.TaxRate[] | undefined;
 }

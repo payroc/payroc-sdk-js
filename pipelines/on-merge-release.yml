@@ -1,0 +1,25 @@
+# Arch Specs APIs - On Demand
+# Releases SDK from internal repo (papi) to public repo (payroc) when release branch is merged
+
+trigger:
+  branches:
+    include:
+      - release
+
+pr: none
+
+variables:
+  - group: dev_exp-ent-ent-o-vg-papi_open_api
+  - name: sdkLanguage
+    value: 'TypeScript'
+
+stages:
+- stage: SdkOnMergeRelease
+  displayName: SDK On Merge Release - TypeScript
+  jobs:
+    - template: templates/open-api-automation-cli-job-template.yml
+      parameters:
+        displayName: Release SDK - TypeScript
+        jobName: RunSdkOnMergeReleaseTypeScript
+        cliCommand: workflow-sdk-on-merge-release
+        sdkLanguage: TypeScript

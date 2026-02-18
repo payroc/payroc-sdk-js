@@ -209,10 +209,11 @@ describe("FundingAccountsClient", () => {
             environment: { api: server.baseUrl, identity: server.baseUrl },
         });
         const rawRequestBody = {
-            type: "checking",
+            type: "savings",
             use: "credit",
-            nameOnAccount: "Jane Doe",
+            nameOnAccount: "Fred Nerk",
             paymentMethods: [{ type: "ach" }],
+            metadata: { responsiblePerson: "Jane Doe" },
         };
 
         server.mockEndpoint().put("/funding-accounts/1").jsonBody(rawRequestBody).respondWith().statusCode(200).build();
@@ -220,14 +221,17 @@ describe("FundingAccountsClient", () => {
         const response = await client.funding.fundingAccounts.update({
             fundingAccountId: 1,
             body: {
-                type: "checking",
+                type: "savings",
                 use: "credit",
-                nameOnAccount: "Jane Doe",
+                nameOnAccount: "Fred Nerk",
                 paymentMethods: [
                     {
                         type: "ach",
                     },
                 ],
+                metadata: {
+                    responsiblePerson: "Jane Doe",
+                },
             },
         });
         expect(response).toEqual(undefined);

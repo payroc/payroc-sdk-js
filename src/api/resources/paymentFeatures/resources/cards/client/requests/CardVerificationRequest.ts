@@ -29,6 +29,6 @@ export interface CardVerificationRequest {
     /** Operator who requested to verify the card. */
     operator?: string;
     customer?: Payroc.Customer;
-    /** Object that contains information about the card. */
+    /** Polymorphic object that contains payment details. */
     card: Payroc.paymentFeatures.CardVerificationRequestCard;
 }

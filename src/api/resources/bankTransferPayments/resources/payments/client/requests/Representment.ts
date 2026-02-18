@@ -20,6 +20,12 @@ export interface Representment {
     paymentId: string;
     /** Unique identifier that you generate for each request. You must use the [UUID v4 format](https://www.rfc-editor.org/rfc/rfc4122) for the identifier. For more information about the idempotency key, go to [Idempotency](https://docs.payroc.com/api/idempotency). */
     "Idempotency-Key": string;
-    /** Object that contains information about the customer's payment details. */
+    /**
+     * Polymorphic object that contains the customer's updated payment details.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`ach` - Automated Clearing House (ACH) details
+     * -	`secureToken` - Secure token details
+     */
     paymentMethod?: Payroc.bankTransferPayments.RepresentmentPaymentMethod;
 }

@@ -11,5 +11,5 @@ export interface SubscriptionPayment {
     secureToken: Payroc.SecureTokenSummary;
     currentState: Payroc.SubscriptionState;
     /** Array of customField objects. */
-    customFields?: Payroc.CustomField[];
+    customFields?: Payroc.CustomField[] | undefined;
 }

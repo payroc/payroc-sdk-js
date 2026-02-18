@@ -17,11 +17,17 @@ export namespace InterchangePlus {
     export interface Fees {
         /** Object that contains the fees for Mastercard, Visa, and Discover transactions. */
         mastercardVisaDiscover: Payroc.ProcessorFee;
-        /** Object that contains the fees for American Express transactions. */
-        amex?: Payroc.InterchangePlusFeesAmex;
-        pinDebit?: Payroc.PinDebit;
-        electronicBenefitsTransfer?: Payroc.ElectronicBenefitsTransfer;
-        enhancedInterchange?: Payroc.EnhancedInterchange;
-        specialityCards?: Payroc.SpecialityCards;
+        /**
+         * Polymorphic object that contains fees for American Express transactions.
+         *
+         * The value of the type field determines which variant you should use:
+         * -	`optBlue` - Amex OptBlue pricing program.
+         * -	`direct` - Amex Direct pricing program.
+         */
+        amex?: Payroc.InterchangePlusFeesAmex | undefined;
+        pinDebit?: Payroc.PinDebit | undefined;
+        electronicBenefitsTransfer?: Payroc.ElectronicBenefitsTransfer | undefined;
+        enhancedInterchange?: Payroc.EnhancedInterchange | undefined;
+        specialityCards?: Payroc.SpecialityCards | undefined;
     }
 }

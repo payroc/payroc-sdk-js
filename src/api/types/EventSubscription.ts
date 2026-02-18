@@ -4,7 +4,7 @@ import type * as Payroc from "../index.js";
 
 export interface EventSubscription {
     /** Unique identifier that we assigned to the event subscription. */
-    id?: number;
+    id?: number | undefined;
     /**
      * Indicates if we should notify you when the event occurs. The value is one of the following:
      * - `true` - We notify you when the event occurs.
@@ -17,13 +17,13 @@ export interface EventSubscription {
      * - `suspended` - We have deactivated the event subscription, and we won't notify you when an event occurs.
      * - `failed` - We couldn't contact your URI endpoint. We email the supportEmailAddress.
      */
-    status?: EventSubscription.Status;
+    status?: EventSubscription.Status | undefined;
     /** Array of events that you want to subscribe to. For a list of events, go to [Events List](https://docs.payroc.com/knowledge/events/events-list). */
     eventTypes: string[];
-    /** Array of notifications objects. Each object contains information about how we contact you when an event occurs. */
+    /** Array of polymorphic notification objects that contain information about how we contact you when an event occurs. */
     notifications: Payroc.Notification[];
     /** Object that you can send to include custom data in the request. For more information about how to use metadata, go to [Metadata](https://docs.payroc.com/api/metadata). */
-    metadata?: Record<string, unknown>;
+    metadata?: Record<string, unknown> | undefined;
 }
 
 export namespace EventSubscription {

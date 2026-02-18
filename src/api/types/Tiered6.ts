@@ -17,10 +17,16 @@ export namespace Tiered6 {
     export interface Fees {
         /** Object that contains the fees for Mastercard, Visa, and Discover transactions. */
         mastercardVisaDiscover: Payroc.QualRatesWithPremiumAndRegulated;
-        /** Object that contains the fees for American Express transactions. */
-        amex?: Payroc.Tiered6FeesAmex;
-        pinDebit?: Payroc.PinDebit;
-        electronicBenefitsTransfer?: Payroc.ElectronicBenefitsTransfer;
-        specialityCards?: Payroc.SpecialityCards;
+        /**
+         * Polymorphic object that contains fees for American Express transactions.
+         *
+         * The value of the type field determines which variant you should use:
+         * -	`optBlue` - Amex OptBlue pricing program.
+         * -	`direct` - Amex Direct pricing program.
+         */
+        amex?: Payroc.Tiered6FeesAmex | undefined;
+        pinDebit?: Payroc.PinDebit | undefined;
+        electronicBenefitsTransfer?: Payroc.ElectronicBenefitsTransfer | undefined;
+        specialityCards?: Payroc.SpecialityCards | undefined;
     }
 }

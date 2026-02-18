@@ -33,7 +33,14 @@ export interface FxRateInquiry {
     /** Total amount of the transaction in the merchant’s currency. The value is in the currency’s lowest denomination, for example, cents. */
     baseAmount: number;
     baseCurrency: Payroc.Currency;
-    /** Object that contains information about the customer's payment details. */
+    /**
+     * Polymorphic object that contains payment details.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`card` - Payment card details
+     * -	`secureToken` - Secure token details
+     * -	`digitalWallet` - Digital wallet details
+     */
     paymentMethod: Payroc.paymentFeatures.FxRateInquiryPaymentMethod;
 }
 

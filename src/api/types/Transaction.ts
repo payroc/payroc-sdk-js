@@ -7,24 +7,24 @@ import type * as Payroc from "../index.js";
  */
 export interface Transaction {
     /** Unique identifier that we assigned to the transaction. */
-    transactionId?: number;
+    transactionId?: number | undefined;
     /**
      * Indicates the type of transaction. The value is one of the following:
      *
      * - `capture` - Transaction is a sale.
      * - `return` - Transaction is a refund.
      */
-    type?: Transaction.Type;
+    type?: Transaction.Type | undefined;
     /** Date of the transaction. The format of this value is **YYYY-MM-DD**. */
-    date?: string;
+    date?: string | undefined;
     /** Transaction amount. We return the value in the currency's lowest denomination, for example, cents. */
-    amount?: number;
+    amount?: number | undefined;
     /** Indicates how the merchant received the payment details. */
-    entryMethod?: Transaction.EntryMethod;
+    entryMethod?: Transaction.EntryMethod | undefined;
     /** Date that we received the transaction.  The format of this value is **YYYY-MM-DD**. */
-    createdDate?: string;
+    createdDate?: string | undefined;
     /** Date that the transaction was last changed.  The format of this value is **YYYY-MM-DD**. */
-    lastModifiedDate?: string;
+    lastModifiedDate?: string | undefined;
     /**
      * Indicates the status of the transaction. The value is one of the following:
      *
@@ -43,18 +43,18 @@ export interface Transaction {
      * -	`held` – We held the transaction.
      * -	`unknown` – No transaction status available.
      */
-    status?: Transaction.Status;
+    status?: Transaction.Status | undefined;
     /** Cashback amount. We return the value in the currency's lowest denomination, for example, cents. */
-    cashbackAmount?: number;
+    cashbackAmount?: number | undefined;
     /** Object that contains information about the interchange fees for the transaction. */
-    interchange?: Transaction.Interchange;
+    interchange?: Transaction.Interchange | undefined;
     /** Currency of the transaction. The value for the currency follows the [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) standard. */
-    currency?: string;
-    merchant?: Payroc.MerchantSummary;
-    settled?: Payroc.SettledSummary;
-    batch?: Payroc.BatchSummary;
-    card?: Payroc.CardSummary;
-    authorization?: Payroc.AuthorizationSummary;
+    currency?: string | undefined;
+    merchant?: Payroc.MerchantSummary | undefined;
+    settled?: Payroc.SettledSummary | undefined;
+    batch?: Payroc.BatchSummary | undefined;
+    card?: Payroc.CardSummary | undefined;
+    authorization?: Payroc.AuthorizationSummary | undefined;
 }
 
 export namespace Transaction {
@@ -127,8 +127,8 @@ export namespace Transaction {
      */
     export interface Interchange {
         /** Interchange basis points that we apply to the transaction. */
-        basisPoint?: number;
+        basisPoint?: number | undefined;
         /** Interchange fee for the transaction. We return the value in the currency's lowest denomination, for example, cents. */
-        transactionFee?: number;
+        transactionFee?: number | undefined;
     }
 }

@@ -3,7 +3,13 @@
 import type * as Payroc from "../../../../../index.js";
 
 /**
- * Object that contains information about the customer's payment details.
+ * Polymorphic object that contains payment details.
+ *
+ * The value of the type parameter determines which variant you should use:
+ * -	`card` - Payment card details
+ * -	`secureToken` - Secure token details
+ * -	`digitalWallet` - Digital wallet details
+ * -	`singleUseToken` - Single-use token details
  */
 export type PaymentRequestPaymentMethod =
     | Payroc.cardPayments.PaymentRequestPaymentMethod.Card

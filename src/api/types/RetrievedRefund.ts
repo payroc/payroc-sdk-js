@@ -11,13 +11,13 @@ export interface RetrievedRefund {
     /** Unique identifier that we assigned to the terminal. */
     processingTerminalId: string;
     /** Operator who requested the refund. */
-    operator?: string;
+    operator?: string | undefined;
     order: Payroc.RefundOrder;
-    customer?: Payroc.RetrievedCustomer;
+    customer?: Payroc.RetrievedCustomer | undefined;
     card: Payroc.RetrievedCard;
-    payment?: Payroc.PaymentSummary;
-    supportedOperations?: Payroc.SupportedOperations;
+    payment?: Payroc.PaymentSummary | undefined;
+    supportedOperations?: Payroc.SupportedOperations | undefined;
     transactionResult: Payroc.TransactionResult;
     /** Array of customField objects. */
-    customFields?: Payroc.CustomField[];
+    customFields?: Payroc.CustomField[] | undefined;
 }

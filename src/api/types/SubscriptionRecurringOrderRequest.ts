@@ -7,5 +7,5 @@ import type * as Payroc from "../index.js";
  * **Note:** Send this object only if the value for **type** is `automatic`.
  */
 export interface SubscriptionRecurringOrderRequest extends Payroc.SubscriptionRecurringOrderBase {
-    breakdown?: Payroc.SubscriptionOrderBreakdownRequest;
+    breakdown?: Payroc.SubscriptionOrderBreakdownRequest | undefined;
 }

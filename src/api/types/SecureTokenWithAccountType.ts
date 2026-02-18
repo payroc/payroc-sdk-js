@@ -3,8 +3,15 @@
 import type * as Payroc from "../index.js";
 
 export interface SecureTokenWithAccountType {
-    /** Object that contains information about the payment method that we tokenized. */
-    source?: Payroc.SecureTokenWithAccountTypeSource;
+    /**
+     * Polymorphic object that contains the payment method that we tokenized.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`ach` - Automated Clearing House (ACH) details
+     * -	`pad` - Pre-authorized debit (PAD) details
+     * -	`card` - Payment card details
+     */
+    source?: Payroc.SecureTokenWithAccountTypeSource | undefined;
     /** Unique identifier that the merchant created for the secure token that represents the customer's payment details. */
     secureTokenId: string;
     /** Unique identifier that we assigned to the terminal. */
@@ -16,8 +23,8 @@ export interface SecureTokenWithAccountType {
      * - `recurring` - Transactions for a fixed amount that are run at regular intervals, for example, monthly. Recurring transactions don't have a fixed duration and run until the customer cancels the agreement.
      * - `installment` - Transactions for a fixed amount that are run at regular intervals, for example, monthly. Installment transactions have a fixed duration.
      */
-    mitAgreement?: SecureTokenWithAccountType.MitAgreement;
-    customer?: Payroc.RetrievedCustomer;
+    mitAgreement?: SecureTokenWithAccountType.MitAgreement | undefined;
+    customer?: Payroc.RetrievedCustomer | undefined;
     /**
      * Token that the merchant can use in future transactions to represent the customer's payment details. The token:
      * - Begins with the six-digit identification number **296753**.
@@ -32,7 +39,7 @@ export interface SecureTokenWithAccountType {
      */
     status: SecureTokenWithAccountType.Status;
     /** Array of customField objects. */
-    customFields?: Payroc.CustomField[];
+    customFields?: Payroc.CustomField[] | undefined;
 }
 
 export namespace SecureTokenWithAccountType {

@@ -4,5 +4,5 @@ import type * as Payroc from "../index.js";
 
 export interface PaginatedContacts extends Payroc.PaginatedList {
     /** Array of contact objects. */
-    data?: Payroc.Contact[];
+    data?: Payroc.Contact[] | undefined;
 }

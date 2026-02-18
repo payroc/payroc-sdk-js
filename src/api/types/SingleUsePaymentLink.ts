@@ -7,7 +7,7 @@ import type * as Payroc from "../index.js";
  */
 export interface SingleUsePaymentLink {
     /** Unique identifier that we assigned to the payment link. */
-    paymentLinkId?: string;
+    paymentLinkId?: string | undefined;
     /** Unique identifier that the merchant assigned to the payment. */
     merchantReference: string;
     order: Payroc.SingleUsePaymentLinkOrder;
@@ -22,8 +22,8 @@ export interface SingleUsePaymentLink {
      * Array of customLabel objects.
      * **Note:** You can change the label of the payment button only.
      */
-    customLabels?: Payroc.CustomLabel[];
-    assets?: Payroc.PaymentLinkAssets;
+    customLabels?: Payroc.CustomLabel[] | undefined;
+    assets?: Payroc.PaymentLinkAssets | undefined;
     /**
      * Status of the payment link. The value is one of the following:
      * - `active` - Payment link is active.
@@ -31,12 +31,12 @@ export interface SingleUsePaymentLink {
      * - `deactivated` - Merchant has deactivated the link.
      * - `expired` - Payment link has expired.
      */
-    status?: SingleUsePaymentLink.Status;
+    status?: SingleUsePaymentLink.Status | undefined;
     /** Date that the merchant created the link. The format of this value is **YYYY-MM-DD**. */
-    createdOn?: string;
+    createdOn?: string | undefined;
     /** Last date that the customer can use the payment link. The format of this value is **YYYY-MM-DD**. */
     expiresOn: string;
-    credentialOnFile?: Payroc.CredentialOnFile;
+    credentialOnFile?: Payroc.CredentialOnFile | undefined;
 }
 
 export namespace SingleUsePaymentLink {

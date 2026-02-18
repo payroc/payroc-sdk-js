@@ -3,7 +3,13 @@
 import type * as Payroc from "../../../../../index.js";
 
 /**
- * Object that contains information about the customer's payment details.
+ * Polymorphic object that contains payment detail information.
+ *
+ * The value of the type parameter determines which variant you should use:
+ * -	`ach` - Automated Clearing House (ACH) details
+ * -	`pad` - Pre-authorized debit (PAD) details
+ * -	`secureToken` - Secure token details
+ * -	`singleUseToken` - Single-use token details
  */
 export type BankTransferPaymentRequestPaymentMethod =
     | Payroc.bankTransferPayments.BankTransferPaymentRequestPaymentMethod.Ach

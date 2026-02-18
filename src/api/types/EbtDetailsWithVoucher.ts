@@ -6,5 +6,5 @@ import type * as Payroc from "../index.js";
  * Object that contains information about the Electronic Benefit Transfer (EBT) transaction.
  */
 export interface EbtDetailsWithVoucher extends Payroc.EbtDetails {
-    voucher?: Payroc.Voucher;
+    voucher?: Payroc.Voucher | undefined;
 }

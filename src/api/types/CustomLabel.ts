@@ -5,9 +5,9 @@
  */
 export interface CustomLabel {
     /** Element that you want to provide a custom label for. */
-    element?: CustomLabel.Element;
+    element?: CustomLabel.Element | undefined;
     /** Custom label to display on the element. */
-    label?: string;
+    label?: string | undefined;
 }
 
 export namespace CustomLabel {

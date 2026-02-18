@@ -9,7 +9,7 @@ export interface HostConfiguration {
     /** Unique identifier that our gateway assigned to the terminal. */
     processingTerminalId: string;
     /** Unique identifier that we assigned to the processing account. */
-    processingAccountId?: string;
-    /** Object that contains the host processor configuration. */
+    processingAccountId?: string | undefined;
+    /** Polymorphic object that contains the host processor configuration. */
     configuration: Payroc.HostConfigurationConfiguration;
 }

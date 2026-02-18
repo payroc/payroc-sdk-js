@@ -15,7 +15,7 @@ export interface EbtDetails {
      *
      * **Note:** Cash withdrawals are available only from EBT Cash accounts.
      */
-    withdrawal?: boolean;
+    withdrawal?: boolean | undefined;
 }
 
 export namespace EbtDetails {

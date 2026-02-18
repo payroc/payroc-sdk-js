@@ -4,31 +4,39 @@ import type * as Payroc from "../index.js";
 
 export interface FundingRecipient {
     /** Unique identifier that we assigned to the funding recipient. */
-    recipientId?: number;
+    recipientId?: number | undefined;
     /** Indicates if we have approved the funding recipient. */
-    status?: FundingRecipient.Status;
+    status?: FundingRecipient.Status | undefined;
     /** Date the funding recipient was created. */
-    createdDate?: string;
+    createdDate?: string | undefined;
     /** Date the funding recipient was last modified. */
-    lastModifiedDate?: string;
+    lastModifiedDate?: string | undefined;
     /** Type or legal structure of the funding recipient. */
     recipientType: FundingRecipient.RecipientType;
     /** Employer identification number (EIN) or Social Security number (SSN). */
     taxId: string;
     /** Government identifier of the charity. */
-    charityId?: string;
+    charityId?: string | undefined;
     /** Legal name of the business or organization. */
     doingBusinessAs: string;
-    /** Address of the funding recipient. */
+    /** Polymorphic object that contains address information for a funding recipient. */
     address: Payroc.Address;
-    /** Array of contactMethod objects for the funding recipient. */
+    /**
+     * Array of polymorphic objects, which contain contact information.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`email` - Email address
+     * -	`phone` - Phone number
+     * -	`mobile` - Mobile number
+     * -	`fax` - Fax number
+     */
     contactMethods: Payroc.ContactMethod[];
     /** [Metadata](https://docs.payroc.com/api/metadata) object you can use to include custom data with your request. */
-    metadata?: Record<string, string>;
+    metadata?: Record<string, string> | undefined;
     /** Array of owner objects associated with the funding recipient. */
-    owners?: FundingRecipient.Owners.Item[];
+    owners?: FundingRecipient.Owners.Item[] | undefined;
     /** Array of fundingAccount objects associated with the funding recipient. */
-    fundingAccounts?: FundingRecipient.FundingAccounts.Item[];
+    fundingAccounts?: FundingRecipient.FundingAccounts.Item[] | undefined;
 }
 
 export namespace FundingRecipient {
@@ -57,9 +65,9 @@ export namespace FundingRecipient {
     export namespace Owners {
         export interface Item {
             /** Unique identifier of the owner. */
-            ownerId?: number;
+            ownerId?: number | undefined;
             /** Object that contains HATEOAS links for the resource. */
-            link?: Item.Link;
+            link?: Item.Link | undefined;
         }
 
         export namespace Item {
@@ -68,11 +76,11 @@ export namespace FundingRecipient {
              */
             export interface Link {
                 /** Indicates the relationship between the current resource and the target resource. */
-                rel?: string;
+                rel?: string | undefined;
                 /** URL of the target resource. */
-                href?: string;
+                href?: string | undefined;
                 /** HTTP method that you need to use with the target resource. */
-                method?: string;
+                method?: string | undefined;
             }
         }
     }
@@ -82,11 +90,11 @@ export namespace FundingRecipient {
     export namespace FundingAccounts {
         export interface Item {
             /** Unique identifier of the funding account. */
-            fundingAccountId?: number;
+            fundingAccountId?: number | undefined;
             /** Status of the funding account. */
-            status?: Item.Status;
+            status?: Item.Status | undefined;
             /** Object that contains HATEOAS links for the resource. */
-            link?: Item.Link;
+            link?: Item.Link | undefined;
         }
 
         export namespace Item {
@@ -104,11 +112,11 @@ export namespace FundingRecipient {
              */
             export interface Link {
                 /** Indicates the relationship between the current resource and the target resource. */
-                rel?: string;
+                rel?: string | undefined;
                 /** URL of the target resource. */
-                href?: string;
+                href?: string | undefined;
                 /** HTTP method that you need to use with the target resource. */
-                method?: string;
+                method?: string | undefined;
             }
         }
     }

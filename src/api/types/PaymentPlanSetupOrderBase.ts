@@ -5,7 +5,7 @@
  */
 export interface PaymentPlanSetupOrderBase {
     /** Total amount before surcharges. The value is in the currency's lowest denomination, for example, cents. */
-    amount?: number;
+    amount?: number | undefined;
     /** Description of the transaction. */
-    description?: string;
+    description?: string | undefined;
 }

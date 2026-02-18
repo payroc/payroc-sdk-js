@@ -12,10 +12,10 @@ export interface Subscription {
     /** Name of the subscription. */
     name: string;
     /** Description of the subscription. */
-    description?: string;
+    description?: string | undefined;
     currency: Payroc.Currency;
-    setupOrder?: Payroc.SubscriptionPaymentOrder;
-    recurringOrder?: Payroc.SubscriptionRecurringOrder;
+    setupOrder?: Payroc.SubscriptionPaymentOrder | undefined;
+    recurringOrder?: Payroc.SubscriptionRecurringOrder | undefined;
     currentState: Payroc.SubscriptionState;
     /**
      * Format: **YYYY-MM-DD**
@@ -28,12 +28,12 @@ export interface Subscription {
      * **Note:** If you provide values for both **length** and **endDate**,
      * our gateway uses the value for **endDate** to determine when the subscription should end.
      */
-    endDate?: string;
+    endDate?: string | undefined;
     /**
      * Total number of billing cycles. To indicate that the subscription should run indefinitely, send a value of `0`. This value replaces the **length** inherited from the payment plan.
      * **Note:** If you provide values for both **length** and **endDate**, our gateway uses the value for **endDate** to determine when the subscription should end.
      */
-    length?: number;
+    length?: number | undefined;
     /**
      * How the merchant takes the payment from the customer’s account.
      * - `manual` – The merchant manually collects payments from the customer.
@@ -46,9 +46,9 @@ export interface Subscription {
      * Number of billing cycles that the merchant wants to pause payments for.
      * For example, if the merchant wants to offer a free trial period.
      */
-    pauseCollectionFor?: number;
+    pauseCollectionFor?: number | undefined;
     /** Array of customField objects. */
-    customFields?: Payroc.CustomField[];
+    customFields?: Payroc.CustomField[] | undefined;
 }
 
 export namespace Subscription {

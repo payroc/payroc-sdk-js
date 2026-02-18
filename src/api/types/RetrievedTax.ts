@@ -6,5 +6,5 @@ export interface RetrievedTax {
     /** Tax percentage for the transaction. */
     rate: number;
     /** Amount of tax that was applied to the transaction. The value is in the currency's lowest denomination, for example, cents. */
-    amount?: number;
+    amount?: number | undefined;
 }

@@ -5,7 +5,7 @@
  */
 export interface CredentialOnFile {
     /** Indicates if our gateway should tokenize the customer’s payment details as part of the transaction. */
-    tokenize?: boolean;
+    tokenize?: boolean | undefined;
     /**
      * Indicates how the merchant can use the customer’s card details, as agreed by the customer:
      *
@@ -15,7 +15,7 @@ export interface CredentialOnFile {
      *
      * **Note:** If you send a value for **mitAgreement**, you must send the **standingInstructions** object in the **paymentOrder** object.
      */
-    mitAgreement?: CredentialOnFile.MitAgreement;
+    mitAgreement?: CredentialOnFile.MitAgreement | undefined;
 }
 
 export namespace CredentialOnFile {

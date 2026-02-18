@@ -21,7 +21,7 @@ export namespace RewardPayChoice {
         debit: Fees.Debit;
         /** Object that contains information about fees for credit transactions. */
         credit: Fees.Credit;
-        specialityCards?: Payroc.SpecialityCards;
+        specialityCards?: Payroc.SpecialityCards | undefined;
     }
 
     export namespace Fees {
@@ -30,7 +30,7 @@ export namespace RewardPayChoice {
          */
         export interface Debit {
             /** Indicates if debit transactions should be charged at interchange plus or flat rate pricing. */
-            option?: Debit.Option;
+            option?: Debit.Option | undefined;
             /** Percentage of the total transaction that the processor charges the merchant. */
             volume: Payroc.Percentage;
             /** Fee for each transaction. The value is in the currency's lowest denomination, for example, cents. */
@@ -51,13 +51,13 @@ export namespace RewardPayChoice {
          */
         export interface Credit {
             /** Indicates how the merchant manages tips. */
-            tips?: Credit.Tips;
+            tips?: Credit.Tips | undefined;
             /** Percentage of the total transaction amount that the processor charges the cardholder. */
-            cardChargePercentage?: number;
+            cardChargePercentage?: number | undefined;
             /** Percentage of the total transaction amount that the processor charges the merchant. */
-            merchantChargePercentage?: number;
+            merchantChargePercentage?: number | undefined;
             /** Fee for each transaction. The value is in the currency's lowest denomination, for example, cents. */
-            merchantChargePerTransaction?: Payroc.Amount;
+            merchantChargePerTransaction?: Payroc.Amount | undefined;
         }
 
         export namespace Credit {

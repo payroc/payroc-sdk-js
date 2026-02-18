@@ -10,14 +10,22 @@ export interface SwipedCardDetails {
      * If an offline transaction is not approved using the initial entry method, reprocess the transaction using a downgraded entry method.
      * For example, a swiped transaction can be downgraded to a keyed transaction.
      */
-    downgradeTo?: SwipedCardDetails.DowngradeTo;
+    downgradeTo?: SwipedCardDetails.DowngradeTo | undefined;
+    /**
+     * Polymorphic object that contains payment card details that a device captured from the magnetic strip.
+     *
+     * The value of the dataFormat parameter determines which variant you should use:
+     * -	`encrypted` - Payment card details are encrypted.
+     * -	`plainText` - Payment card details are in plain text.
+     */
     swipedData: Payroc.SwipedCardDetailsSwipedData;
     /** Cardholder’s name. */
-    cardholderName?: string;
+    cardholderName?: string | undefined;
     /** Cardholder's signature. For more information about how to format the signature, go to [How to send a signature to our gateway](https://docs.payroc.com/knowledge/basic-concepts/signature-capture). */
-    cardholderSignature?: string;
-    pinDetails?: Payroc.SwipedCardDetailsPinDetails;
-    ebtDetails?: Payroc.EbtDetailsWithVoucher;
+    cardholderSignature?: string | undefined;
+    /** Polymorphic object that contains information about the customer's PIN. */
+    pinDetails?: Payroc.SwipedCardDetailsPinDetails | undefined;
+    ebtDetails?: Payroc.EbtDetailsWithVoucher | undefined;
 }
 
 export namespace SwipedCardDetails {

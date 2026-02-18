@@ -28,7 +28,7 @@ describe("CardPayments.Refunds.Create", () => {
                             serialNumber: "1850010868"
                         },
                         cardNumber: "4539858876047062",
-                        expiryDate: "1225"
+                        expiryDate: "1230"
                     }
                 }
             }

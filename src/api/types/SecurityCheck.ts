@@ -13,7 +13,7 @@ export interface SecurityCheck {
      *
      * **Note:** Our gateway doesn’t automatically decline transactions when the CVV doesn’t match the card’s CVV, unless the merchant selects this setting in their account.
      */
-    cvvResult?: SecurityCheck.CvvResult;
+    cvvResult?: SecurityCheck.CvvResult | undefined;
     /**
      * Indicates if the address that the customer provided in the request matches the address linked to the card.
      *
@@ -32,7 +32,7 @@ export interface SecurityCheck {
      * **Note:** Our gateway doesn’t automatically decline transactions when the address doesn’t match the address linked to the card,
      * unless the merchant selects this setting in their account.
      */
-    avsResult?: SecurityCheck.AvsResult;
+    avsResult?: SecurityCheck.AvsResult | undefined;
 }
 
 export namespace SecurityCheck {

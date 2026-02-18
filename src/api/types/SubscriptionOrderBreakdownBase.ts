@@ -5,5 +5,5 @@ import type * as Payroc from "../index.js";
 export interface SubscriptionOrderBreakdownBase {
     /** Total amount for the transaction before tax. The value is in the currency's lowest denomination, for example, cents. */
     subtotal: number;
-    convenienceFee?: Payroc.ConvenienceFee;
+    convenienceFee?: Payroc.ConvenienceFee | undefined;
 }

@@ -5,13 +5,13 @@
  */
 export interface MerchantBalance {
     /** Unique identifier that the processor assigned to the merchant. */
-    merchantId?: string;
+    merchantId?: string | undefined;
     /** Total funding balance for the merchant, including pending amounts. The value is in the currency's lowest denomination, for example, cents. */
-    funds?: number;
+    funds?: number | undefined;
     /** Amount of the funding balance that we have not yet sent to funding accounts. The value is in the currency's lowest denomination, for example, cents. */
-    pending?: number;
+    pending?: number | undefined;
     /** Amount of the funding balance that you can use in funding instructions. The value is in the currency's lowest denomination, for example, cents. */
-    available?: number;
+    available?: number | undefined;
     /** Currency of the funding balance. We return a value of `USD`. */
-    currency?: string;
+    currency?: string | undefined;
 }

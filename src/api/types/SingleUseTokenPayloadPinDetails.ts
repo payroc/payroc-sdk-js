@@ -2,6 +2,13 @@
 
 import type * as Payroc from "../index.js";
 
+/**
+ * Polymorphic object that contains information about a customer's PIN.
+ *
+ * The value of the dataFormat parameter determines which variant you should use:
+ * - `dukpt` - PIN information is encrypted.
+ * - `raw` - PIN information is unencrypted.
+ */
 export type SingleUseTokenPayloadPinDetails =
     | Payroc.SingleUseTokenPayloadPinDetails.Dukpt
     | Payroc.SingleUseTokenPayloadPinDetails.Raw;

@@ -5,5 +5,5 @@
  */
 export interface PricingAgreementReminder {
     /** Unique ID of the reminder. */
-    reminderId?: string;
+    reminderId?: string | undefined;
 }

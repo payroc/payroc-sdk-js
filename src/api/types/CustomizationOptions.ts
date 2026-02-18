@@ -6,14 +6,14 @@ import type * as Payroc from "../index.js";
  * Object that contains available options to customize certain aspects of an instruction.
  */
 export interface CustomizationOptions {
-    ebtDetails?: Payroc.EbtDetails;
+    ebtDetails?: Payroc.EbtDetails | undefined;
     /**
      * Indicates how you want the device to capture the card details.
      * - `deviceRead` - Device prompts the cardholder to tap, swipe, or insert their card.
      * - `manualEntry` - Device prompts the merchant or cardholder to manually enter card details.
      * - `deviceReadOrManualEntry` - Device prompts the cardholder to tap, swipe, or insert their card. The device also displays an option for the merchant or cardholder to manually enter card details.
      */
-    entryMethod?: CustomizationOptions.EntryMethod;
+    entryMethod?: CustomizationOptions.EntryMethod | undefined;
 }
 
 export namespace CustomizationOptions {

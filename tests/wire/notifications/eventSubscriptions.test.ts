@@ -101,6 +101,258 @@ describe("EventSubscriptionsClient", () => {
         });
         const rawRequestBody = {
             enabled: true,
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: { responsiblePerson: "Jane Doe" },
+        };
+        const rawResponseBody = {
+            id: 2565435189324,
+            enabled: true,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: { yourCustomField: "abc123" },
+        };
+        server
+            .mockEndpoint()
+            .post("/event-subscriptions")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.notifications.eventSubscriptions.create({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            body: {
+                enabled: true,
+                eventTypes: ["processingAccount.status.changed"],
+                notifications: [
+                    {
+                        type: "webhook",
+                        uri: "https://my-server/notification/endpoint",
+                        secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                        supportEmailAddress: "supportEmailAddress",
+                    },
+                ],
+                metadata: {
+                    responsiblePerson: "Jane Doe",
+                },
+            },
+        });
+        expect(response).toEqual({
+            id: 2565435189324,
+            enabled: true,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: {
+                yourCustomField: "abc123",
+            },
+        });
+    });
+
+    test("create (3)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = {
+            enabled: true,
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: { yourCustomField: "abc123" },
+        };
+        const rawResponseBody = {
+            id: 2565435189324,
+            enabled: true,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: { yourCustomField: "abc123" },
+        };
+        server
+            .mockEndpoint()
+            .post("/event-subscriptions")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.notifications.eventSubscriptions.create({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            body: {
+                enabled: true,
+                eventTypes: ["processingAccount.status.changed"],
+                notifications: [
+                    {
+                        type: "webhook",
+                        uri: "https://my-server/notification/endpoint",
+                        secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                        supportEmailAddress: "supportEmailAddress",
+                    },
+                ],
+                metadata: {
+                    yourCustomField: "abc123",
+                },
+            },
+        });
+        expect(response).toEqual({
+            id: 2565435189324,
+            enabled: true,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: {
+                yourCustomField: "abc123",
+            },
+        });
+    });
+
+    test("create (4)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = {
+            enabled: true,
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: { yourCustomField: "abc123" },
+        };
+        const rawResponseBody = {
+            id: 2565435189324,
+            enabled: true,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: { responsiblePerson: "Jane Doe" },
+        };
+        server
+            .mockEndpoint()
+            .post("/event-subscriptions")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.notifications.eventSubscriptions.create({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            body: {
+                enabled: true,
+                eventTypes: ["processingAccount.status.changed"],
+                notifications: [
+                    {
+                        type: "webhook",
+                        uri: "https://my-server/notification/endpoint",
+                        secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                        supportEmailAddress: "supportEmailAddress",
+                    },
+                ],
+                metadata: {
+                    yourCustomField: "abc123",
+                },
+            },
+        });
+        expect(response).toEqual({
+            id: 2565435189324,
+            enabled: true,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: {
+                responsiblePerson: "Jane Doe",
+            },
+        });
+    });
+
+    test("create (5)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = {
+            enabled: true,
             eventTypes: ["eventTypes", "eventTypes"],
             notifications: [
                 { type: "webhook", uri: "uri", secret: "blackcurrant....", supportEmailAddress: "supportEmailAddress" },
@@ -143,7 +395,7 @@ describe("EventSubscriptionsClient", () => {
         }).rejects.toThrow(Payroc.BadRequestError);
     });
 
-    test("create (3)", async () => {
+    test("create (6)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -196,7 +448,7 @@ describe("EventSubscriptionsClient", () => {
         }).rejects.toThrow(Payroc.UnauthorizedError);
     });
 
-    test("create (4)", async () => {
+    test("create (7)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -249,7 +501,7 @@ describe("EventSubscriptionsClient", () => {
         }).rejects.toThrow(Payroc.NotFoundError);
     });
 
-    test("create (5)", async () => {
+    test("create (8)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -302,7 +554,7 @@ describe("EventSubscriptionsClient", () => {
         }).rejects.toThrow(Payroc.NotAcceptableError);
     });
 
-    test("create (6)", async () => {
+    test("create (9)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -355,7 +607,7 @@ describe("EventSubscriptionsClient", () => {
         }).rejects.toThrow(Payroc.ConflictError);
     });
 
-    test("create (7)", async () => {
+    test("create (10)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1074,6 +1326,485 @@ describe("EventSubscriptionsClient", () => {
             apiKey: "x-api-key",
             environment: { api: server.baseUrl, identity: server.baseUrl },
         });
+        const rawRequestBody = [{ op: "remove", path: "path" }];
+        const rawResponseBody = {
+            id: 2565435189324,
+            enabled: false,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: { yourCustomField: "abc123" },
+        };
+        server
+            .mockEndpoint()
+            .patch("/event-subscriptions/1")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.notifications.eventSubscriptions.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            subscriptionId: 1,
+            body: [
+                {
+                    op: "remove",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            id: 2565435189324,
+            enabled: false,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: {
+                yourCustomField: "abc123",
+            },
+        });
+    });
+
+    test("partiallyUpdate (3)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "remove", path: "path" }];
+        const rawResponseBody = {
+            id: 2565435189324,
+            enabled: false,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: { yourCustomField: "abc123" },
+        };
+        server
+            .mockEndpoint()
+            .patch("/event-subscriptions/1")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.notifications.eventSubscriptions.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            subscriptionId: 1,
+            body: [
+                {
+                    op: "remove",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            id: 2565435189324,
+            enabled: false,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: {
+                yourCustomField: "abc123",
+            },
+        });
+    });
+
+    test("partiallyUpdate (4)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "remove", path: "path" }];
+        const rawResponseBody = {
+            id: 2565435189324,
+            enabled: false,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: { yourCustomField: "abc123" },
+        };
+        server
+            .mockEndpoint()
+            .patch("/event-subscriptions/1")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.notifications.eventSubscriptions.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            subscriptionId: 1,
+            body: [
+                {
+                    op: "remove",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            id: 2565435189324,
+            enabled: false,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: {
+                yourCustomField: "abc123",
+            },
+        });
+    });
+
+    test("partiallyUpdate (5)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "move", from: "from", path: "path" }];
+        const rawResponseBody = {
+            id: 2565435189324,
+            enabled: false,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: { yourCustomField: "abc123" },
+        };
+        server
+            .mockEndpoint()
+            .patch("/event-subscriptions/1")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.notifications.eventSubscriptions.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            subscriptionId: 1,
+            body: [
+                {
+                    op: "move",
+                    from: "from",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            id: 2565435189324,
+            enabled: false,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: {
+                yourCustomField: "abc123",
+            },
+        });
+    });
+
+    test("partiallyUpdate (6)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "copy", from: "from", path: "path" }];
+        const rawResponseBody = {
+            id: 2565435189324,
+            enabled: false,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: { yourCustomField: "abc123" },
+        };
+        server
+            .mockEndpoint()
+            .patch("/event-subscriptions/1")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.notifications.eventSubscriptions.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            subscriptionId: 1,
+            body: [
+                {
+                    op: "copy",
+                    from: "from",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            id: 2565435189324,
+            enabled: false,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: {
+                yourCustomField: "abc123",
+            },
+        });
+    });
+
+    test("partiallyUpdate (7)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "remove", path: "path" }];
+        const rawResponseBody = {
+            id: 2565435189324,
+            enabled: false,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: { yourCustomField: "abc123" },
+        };
+        server
+            .mockEndpoint()
+            .patch("/event-subscriptions/1")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.notifications.eventSubscriptions.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            subscriptionId: 1,
+            body: [
+                {
+                    op: "remove",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            id: 2565435189324,
+            enabled: false,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: {
+                yourCustomField: "abc123",
+            },
+        });
+    });
+
+    test("partiallyUpdate (8)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [
+            { op: "remove", path: "path" },
+            { op: "remove", path: "path" },
+            { op: "remove", path: "path" },
+            { op: "move", from: "from", path: "path" },
+            { op: "copy", from: "from", path: "path" },
+            { op: "remove", path: "path" },
+        ];
+        const rawResponseBody = {
+            id: 2565435189324,
+            enabled: false,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: { yourCustomField: "abc123" },
+        };
+        server
+            .mockEndpoint()
+            .patch("/event-subscriptions/1")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.notifications.eventSubscriptions.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            subscriptionId: 1,
+            body: [
+                {
+                    op: "remove",
+                    path: "path",
+                },
+                {
+                    op: "remove",
+                    path: "path",
+                },
+                {
+                    op: "remove",
+                    path: "path",
+                },
+                {
+                    op: "move",
+                    from: "from",
+                    path: "path",
+                },
+                {
+                    op: "copy",
+                    from: "from",
+                    path: "path",
+                },
+                {
+                    op: "remove",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            id: 2565435189324,
+            enabled: false,
+            status: "registered",
+            eventTypes: ["processingAccount.status.changed"],
+            notifications: [
+                {
+                    type: "webhook",
+                    uri: "https://my-server/notification/endpoint",
+                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+                    supportEmailAddress: "supportEmailAddress",
+                },
+            ],
+            metadata: {
+                yourCustomField: "abc123",
+            },
+        });
+    });
+
+    test("partiallyUpdate (9)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
         const rawRequestBody = [
             { op: "add", path: "path", value: { key: "value" } },
             { op: "add", path: "path", value: { key: "value" } },
@@ -1113,7 +1844,7 @@ describe("EventSubscriptionsClient", () => {
         }).rejects.toThrow(Payroc.BadRequestError);
     });
 
-    test("partiallyUpdate (3)", async () => {
+    test("partiallyUpdate (10)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1161,7 +1892,7 @@ describe("EventSubscriptionsClient", () => {
         }).rejects.toThrow(Payroc.UnauthorizedError);
     });
 
-    test("partiallyUpdate (4)", async () => {
+    test("partiallyUpdate (11)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1209,7 +1940,7 @@ describe("EventSubscriptionsClient", () => {
         }).rejects.toThrow(Payroc.NotFoundError);
     });
 
-    test("partiallyUpdate (5)", async () => {
+    test("partiallyUpdate (12)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1257,7 +1988,7 @@ describe("EventSubscriptionsClient", () => {
         }).rejects.toThrow(Payroc.NotAcceptableError);
     });
 
-    test("partiallyUpdate (6)", async () => {
+    test("partiallyUpdate (13)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1305,7 +2036,7 @@ describe("EventSubscriptionsClient", () => {
         }).rejects.toThrow(Payroc.ConflictError);
     });
 
-    test("partiallyUpdate (7)", async () => {
+    test("partiallyUpdate (14)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 

@@ -105,7 +105,7 @@ describe("README Examples Compilation", () => {
                         keyedData: {
                             dataFormat: "plainText",
                             cardNumber: "4111111111111111",
-                            expiryDate: "1225",
+                            expiryDate: "1230",
                             cvv: "123"
                         }
                     }
@@ -205,7 +205,7 @@ describe("README Examples Compilation", () => {
                 keyedData: {
                     dataFormat: "plainText",
                     cardNumber: "4111111111111111",
-                    expiryDate: "1225",
+                    expiryDate: "1230",
                     cvv: "123"
                 }
             }

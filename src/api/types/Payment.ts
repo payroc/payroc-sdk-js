@@ -8,17 +8,17 @@ export interface Payment {
     /** Unique identifier of the terminal that initiated the transaction. */
     processingTerminalId: string;
     /** Operator who initiated the request. */
-    operator?: string;
+    operator?: string | undefined;
     order: Payroc.PaymentOrder;
-    customer?: Payroc.RetrievedCustomer;
+    customer?: Payroc.RetrievedCustomer | undefined;
     card: Payroc.Card;
     /**
      * Array of refundSummary objects.
      * Each object contains information about refunds linked to the transaction.
      */
-    refunds?: Payroc.RefundSummary[];
-    supportedOperations?: Payroc.SupportedOperations;
+    refunds?: Payroc.RefundSummary[] | undefined;
+    supportedOperations?: Payroc.SupportedOperations | undefined;
     transactionResult: Payroc.TransactionResult;
     /** Array of customField objects. */
-    customFields?: Payroc.CustomField[];
+    customFields?: Payroc.CustomField[] | undefined;
 }

@@ -7,16 +7,16 @@ import type * as Payroc from "../index.js";
  */
 export interface AuthorizationSummary {
     /** Unique identifier of the authorization. */
-    authorizationId?: number;
+    authorizationId?: number | undefined;
     /**
      * Authorization code.
      *
      * **Note:** For returns, the card brands may not provide an authorization code.
      */
-    code?: string;
+    code?: string | undefined;
     /** Authorization amount. We return the value in the currency's lowest denomination, for example, cents. */
-    amount?: number;
+    amount?: number | undefined;
     /** Response code that indicates if the address matches the address registered to the customer. */
-    avsResponseCode?: string;
-    link?: Payroc.Link;
+    avsResponseCode?: string | undefined;
+    link?: Payroc.Link | undefined;
 }

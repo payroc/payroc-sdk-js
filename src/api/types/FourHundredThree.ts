@@ -10,7 +10,7 @@ export interface FourHundredThree {
     /** Explanation of the problem */
     detail: string;
     /** Resource path the action was attempted on */
-    instance?: string;
+    instance?: string | undefined;
     /** Resource the action was attempted on */
-    resource?: string;
+    resource?: string | undefined;
 }

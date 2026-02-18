@@ -9,15 +9,15 @@ export interface DigitalWalletPayload {
      *
      * **Note:** Send a value for accountType only for bank account details.
      */
-    accountType?: DigitalWalletPayload.AccountType;
+    accountType?: DigitalWalletPayload.AccountType | undefined;
     /**
      * Provider of the digital wallet. Send one of the following values:
-     * - `apple` - For more information about how to integrate with Apple Pay, go to [Apple Pay®](https://docs.payroc.com/guides/integrate/apple-pay).
-     * - `google` - For more information about how to integrate with google Pay, go to [Google Pay®](https://docs.payroc.com/guides/integrate/google-pay).
+     * - `apple` - For more information about how to integrate with Apple Pay, go to [Apple Pay®](https://docs.payroc.com/guides/take-payments/apple-pay).
+     * - `google` - For more information about how to integrate with google Pay, go to [Google Pay®](https://docs.payroc.com/guides/take-payments/google-pay).
      */
     serviceProvider: DigitalWalletPayload.ServiceProvider;
     /** Cardholder’s name. */
-    cardholderName?: string;
+    cardholderName?: string | undefined;
     /** Encrypted data of the digital wallet. */
     encryptedData: string;
 }
@@ -35,8 +35,8 @@ export namespace DigitalWalletPayload {
     export type AccountType = (typeof AccountType)[keyof typeof AccountType];
     /**
      * Provider of the digital wallet. Send one of the following values:
-     * - `apple` - For more information about how to integrate with Apple Pay, go to [Apple Pay®](https://docs.payroc.com/guides/integrate/apple-pay).
-     * - `google` - For more information about how to integrate with google Pay, go to [Google Pay®](https://docs.payroc.com/guides/integrate/google-pay).
+     * - `apple` - For more information about how to integrate with Apple Pay, go to [Apple Pay®](https://docs.payroc.com/guides/take-payments/apple-pay).
+     * - `google` - For more information about how to integrate with google Pay, go to [Google Pay®](https://docs.payroc.com/guides/take-payments/google-pay).
      */
     export const ServiceProvider = {
         Apple: "apple",

@@ -4,11 +4,11 @@ import type * as Payroc from "../index.js";
 
 export interface ProcessingAccount {
     /** Unique identifier of the processing account. */
-    processingAccountId?: string;
+    processingAccountId?: string | undefined;
     /** Date and time that we received your request to create the processing account in our system. */
-    createdDate?: string;
+    createdDate?: string | undefined;
     /** Date and time that the processing account was last modified. */
-    lastModifiedDate?: string;
+    lastModifiedDate?: string | undefined;
     /**
      * Status of the processing account.
      * - `entered` - We have received information about the account, but we have not yet reviewed it.
@@ -20,15 +20,15 @@ export interface ProcessingAccount {
      * - `rejected` - We rejected the application for the processing account.
      * - `terminated` - Processing account is closed.
      * - `cancelled` - Merchant withdrew the application for the processing account.
-     * **Note**: You can subscribe to our processingAccount.status.changed event to get notifications when we change the status of a processing account. For more information about how to subscribe to events, go to [Event Subscriptions](https://docs.payroc.com/guides/integrate/event-subscriptions).
+     * **Note**: You can subscribe to our processingAccount.status.changed event to get notifications when we change the status of a processing account. For more information about how to subscribe to events, go to [Event Subscriptions](https://docs.payroc.com/guides/board-merchants/event-subscriptions).
      */
-    status?: ProcessingAccount.Status;
+    status?: ProcessingAccount.Status | undefined;
     /** Trading name of the business. */
     doingBusinessAs: string;
     /** Object that contains information about the owners of the business. */
-    owners?: ProcessingAccount.Owners.Item[];
+    owners?: ProcessingAccount.Owners.Item[] | undefined;
     /** Website address of the business. */
-    website?: string;
+    website?: string | undefined;
     /** Type of business. */
     businessType: ProcessingAccount.BusinessType;
     /** Merchant Category Code (MCC) for the type of business. */
@@ -36,22 +36,33 @@ export interface ProcessingAccount {
     /** Description of the services or merchandise sold by the business. */
     merchandiseOrServiceSold: string;
     /** Date that the business was established. The format of the value is **YYYY-MM-DD**. */
-    businessStartDate?: string;
+    businessStartDate?: string | undefined;
     timezone: Payroc.Timezone;
+    /** Polymorphic object that contains address information for the processing account. */
     address: Payroc.Address;
-    /** Array of contactMethods objects for the processing account. At least one contactMethod must be an email address. */
+    /**
+     * Array of polymorphic objects, which contain contact information.
+     *
+     * **Note:** You must provide an email address.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`email` - Email address
+     * -	`phone` - Phone number
+     * -	`mobile` - Mobile number
+     * -	`fax` - Fax number
+     */
     contactMethods: Payroc.ContactMethod[];
     processing: Payroc.Processing;
     funding: Payroc.Funding;
     /** Object that HATEOAS links to the pricing information that we apply to the processing account. */
     pricing: ProcessingAccount.Pricing;
     /** Array of contact objects. */
-    contacts?: ProcessingAccount.Contacts.Item[];
+    contacts?: ProcessingAccount.Contacts.Item[] | undefined;
     signature: Payroc.Signature;
     /** Object that you can send to include custom data in the request. For more information about how to use metadata, go to [Metadata](https://docs.payroc.com/api/metadata). */
-    metadata?: Record<string, string>;
+    metadata?: Record<string, string> | undefined;
     /** Array of useful links related to your request. */
-    links?: Payroc.Link[];
+    links?: Payroc.Link[] | undefined;
 }
 
 export namespace ProcessingAccount {
@@ -66,7 +77,7 @@ export namespace ProcessingAccount {
      * - `rejected` - We rejected the application for the processing account.
      * - `terminated` - Processing account is closed.
      * - `cancelled` - Merchant withdrew the application for the processing account.
-     * **Note**: You can subscribe to our processingAccount.status.changed event to get notifications when we change the status of a processing account. For more information about how to subscribe to events, go to [Event Subscriptions](https://docs.payroc.com/guides/integrate/event-subscriptions).
+     * **Note**: You can subscribe to our processingAccount.status.changed event to get notifications when we change the status of a processing account. For more information about how to subscribe to events, go to [Event Subscriptions](https://docs.payroc.com/guides/board-merchants/event-subscriptions).
      */
     export const Status = {
         Entered: "entered",
@@ -85,13 +96,13 @@ export namespace ProcessingAccount {
     export namespace Owners {
         export interface Item {
             /** Unique identifier of the owner. */
-            ownerId?: number;
+            ownerId?: number | undefined;
             /** Owner's first name. */
-            firstName?: string;
+            firstName?: string | undefined;
             /** Owner's last name. */
-            lastName?: string;
+            lastName?: string | undefined;
             /** HATEOAS links to the owners of the processing account. */
-            link?: Item.Link;
+            link?: Item.Link | undefined;
         }
 
         export namespace Item {
@@ -100,11 +111,11 @@ export namespace ProcessingAccount {
              */
             export interface Link {
                 /** Indicates the relationship between the current resource and the target resource. */
-                rel?: string;
+                rel?: string | undefined;
                 /** URL of the target resource. */
-                href?: string;
+                href?: string | undefined;
                 /** HTTP method that you need to use with the target resource. */
-                method?: string;
+                method?: string | undefined;
             }
         }
     }
@@ -125,7 +136,7 @@ export namespace ProcessingAccount {
      */
     export interface Pricing {
         /** Object that contains HATEOAS links to the pricing information for the processing account. */
-        link?: Pricing.Link;
+        link?: Pricing.Link | undefined;
     }
 
     export namespace Pricing {
@@ -134,11 +145,11 @@ export namespace ProcessingAccount {
          */
         export interface Link {
             /** Indicates the relationship between the current resource and the target resource. */
-            rel?: string;
+            rel?: string | undefined;
             /** URL of the target resource. */
-            href?: string;
+            href?: string | undefined;
             /** HTTP method that you need to use with the target resource. */
-            method?: string;
+            method?: string | undefined;
         }
     }
 
@@ -147,13 +158,13 @@ export namespace ProcessingAccount {
     export namespace Contacts {
         export interface Item {
             /** Unique identifier of the contact. */
-            contactId?: number;
+            contactId?: number | undefined;
             /** Contact's first name. */
-            firstName?: string;
+            firstName?: string | undefined;
             /** Contact's last name. */
-            lastName?: string;
+            lastName?: string | undefined;
             /** Object that contains HATEOAS links for the contact. */
-            link?: Item.Link;
+            link?: Item.Link | undefined;
         }
 
         export namespace Item {
@@ -162,11 +173,11 @@ export namespace ProcessingAccount {
              */
             export interface Link {
                 /** Relationship to the parent resource. */
-                rel?: string;
+                rel?: string | undefined;
                 /** Link to the resource. */
-                href?: string;
+                href?: string | undefined;
                 /** HTTP method you can use to retrieve the resource. */
-                method?: string;
+                method?: string | undefined;
             }
         }
     }

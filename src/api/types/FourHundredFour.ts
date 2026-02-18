@@ -10,5 +10,5 @@ export interface FourHundredFour {
     /** Explanation of the problem */
     detail: string;
     /** Resource that was not found */
-    resource?: string;
+    resource?: string | undefined;
 }

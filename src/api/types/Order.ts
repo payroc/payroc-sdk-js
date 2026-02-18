@@ -9,9 +9,9 @@ export interface Order {
     /** Unique identifier that the merchant assigns to the transaction. */
     orderId: string;
     /** Date and time that the processor processed the transaction. Our gateway returns this value in the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. */
-    dateTime?: string;
+    dateTime?: string | undefined;
     /** Description of the transaction. */
-    description?: string;
+    description?: string | undefined;
     /** Total amount of the transaction. The value is in the currency’s lowest denomination, for example, cents. */
     amount: number;
     currency: Payroc.Currency;

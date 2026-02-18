@@ -10,9 +10,9 @@ export interface PlainTextSwipedDataFormat {
     /** Customer’s card data from the swiped transaction. */
     trackData: string;
     /** Indicates that this is a fallback transaction. For example, if there was a technical issue with the chip on the customer's card and the merchant then swiped the card. */
-    fallback?: boolean;
+    fallback?: boolean | undefined;
     /** Reason for the fallback. */
-    fallbackReason?: PlainTextSwipedDataFormat.FallbackReason;
+    fallbackReason?: PlainTextSwipedDataFormat.FallbackReason | undefined;
 }
 
 export namespace PlainTextSwipedDataFormat {

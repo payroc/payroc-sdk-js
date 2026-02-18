@@ -7,7 +7,7 @@ import type * as Payroc from "../index.js";
  */
 export interface SubscriptionOrderBreakdown extends Payroc.SubscriptionOrderBreakdownBase {
     /** Object that contains information about the [surcharge](https://docs.payroc.com/knowledge/card-payments/credit-card-surcharging) that we applied to the transaction. */
-    surcharge?: Payroc.Surcharge;
+    surcharge?: Payroc.Surcharge | undefined;
     /** Array of tax objects. */
-    taxes?: Payroc.RetrievedTax[];
+    taxes?: Payroc.RetrievedTax[] | undefined;
 }

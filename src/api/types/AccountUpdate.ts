@@ -3,7 +3,7 @@
 import type * as Payroc from "../index.js";
 
 /**
- * Object that contains the single-use token.
+ * Polymorphic object that contains information about the single-use token.
  */
 export type AccountUpdate = Payroc.AccountUpdate.SingleUseToken;
 

@@ -6,7 +6,25 @@ import type * as Payroc from "../../../../../../index.js";
  * @example
  *     {
  *         instructionId: 1,
- *         body: {}
+ *         body: {
+ *             merchants: [{
+ *                     merchantId: "9876543219",
+ *                     recipients: [{
+ *                             fundingAccountId: 124,
+ *                             paymentMethod: "ACH",
+ *                             amount: {
+ *                                 value: 69950,
+ *                                 currency: "USD"
+ *                             },
+ *                             metadata: {
+ *                                 "supplier": "IT Support Services"
+ *                             }
+ *                         }]
+ *                 }],
+ *             metadata: {
+ *                 "instructionCreatedBy": "Jane Doe"
+ *             }
+ *         }
  *     }
  */
 export interface UpdateFundingInstructionsRequest {

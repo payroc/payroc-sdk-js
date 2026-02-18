@@ -61,23 +61,12 @@ export class FundingActivityClient {
         requestOptions?: FundingActivityClient.RequestOptions,
     ): Promise<core.WithRawResponse<Payroc.funding.RetrieveBalanceFundingActivityResponse>> {
         const { before, after, limit, merchantId } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
-        if (merchantId != null) {
-            _queryParams.merchantId = merchantId;
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            before,
+            after,
+            limit,
+            merchantId,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -174,25 +163,14 @@ export class FundingActivityClient {
         requestOptions?: FundingActivityClient.RequestOptions,
     ): Promise<core.PayrocPager<Payroc.ActivityRecord, Payroc.funding.ListFundingActivityResponse>> {
         const { before, after, limit, dateFrom, dateTo, merchantId } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
-        _queryParams.dateFrom = dateFrom;
-        _queryParams.dateTo = dateTo;
-        if (merchantId != null) {
-            _queryParams.merchantId = merchantId;
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            before,
+            after,
+            limit,
+            dateFrom,
+            dateTo,
+            merchantId,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,

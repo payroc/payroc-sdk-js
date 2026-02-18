@@ -3,7 +3,7 @@
 import type * as Payroc from "../index.js";
 
 /**
- * Object that contains the fees for American Express transactions.
+ * Polymorphic object that contains fees for American Express transactions.
  */
 export type FlatRateFeesAmex = Payroc.FlatRateFeesAmex.Direct;
 

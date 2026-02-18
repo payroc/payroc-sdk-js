@@ -3,7 +3,13 @@
 import type * as Payroc from "../../../../../index.js";
 
 /**
- * Object that contains information about the card.
+ * Polymorphic object that contains payment details.
+ *
+ * The value of the type parameter determines which variant you should use:
+ * -	`card` - Payment card details
+ * -	`cardBin` - Bank identification number (BIN) of the payment card
+ * -	`secureToken` - Secure token details
+ * -	`digitalWallet` - Digital wallet details
  */
 export type BinLookupCard =
     | Payroc.paymentFeatures.BinLookupCard.Card

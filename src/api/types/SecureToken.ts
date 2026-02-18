@@ -17,9 +17,16 @@ export interface SecureToken {
      * - `recurring` - Transactions for a fixed amount that are run at regular intervals, for example, monthly. Recurring transactions don't have a fixed duration and run until the customer cancels the agreement.
      * - `installment` - Transactions for a fixed amount that are run at regular intervals, for example, monthly. Installment transactions have a fixed duration.
      */
-    mitAgreement?: SecureToken.MitAgreement;
-    customer?: Payroc.RetrievedCustomer;
-    /** Object that contains information about the payment method that we tokenized. */
+    mitAgreement?: SecureToken.MitAgreement | undefined;
+    customer?: Payroc.RetrievedCustomer | undefined;
+    /**
+     * Polymorphic object that contains the payment method that we tokenized.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`ach` - Automated Clearing House (ACH) details
+     * -	`pad` - Pre-authorized debit (PAD) details
+     * -	`card` - Payment card details
+     */
     source: Payroc.SecureTokenSource;
     /**
      * Token that the merchant can use in future transactions to represent the customer's payment details. The token:
@@ -35,7 +42,7 @@ export interface SecureToken {
      */
     status: SecureToken.Status;
     /** Array of customField objects. */
-    customFields?: Payroc.CustomField[];
+    customFields?: Payroc.CustomField[] | undefined;
 }
 
 export namespace SecureToken {

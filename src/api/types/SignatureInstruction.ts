@@ -4,5 +4,5 @@ import type * as Payroc from "../index.js";
 
 export interface SignatureInstruction extends Payroc.DeviceInstruction {
     /** Unique identifier that our gateway assigned to the instruction. */
-    signatureInstructionId?: string;
+    signatureInstructionId?: string | undefined;
 }

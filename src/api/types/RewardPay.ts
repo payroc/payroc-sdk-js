@@ -18,14 +18,14 @@ export namespace RewardPay {
         /** Fee for the monthly subscription for the processing plan. The value is in the currency's lowest denomination, for example, cents. */
         monthlySubscription: Payroc.Amount;
         /** Percentage of the total transaction amount that the processor charges the cardholder. */
-        cardChargePercentage?: number;
+        cardChargePercentage?: number | undefined;
         /** Percentage of the total transaction amount that the processor charges the merchant. */
-        merchantChargePercentage?: number;
+        merchantChargePercentage?: number | undefined;
         /** Fee for each transaction. The value is in the currency's lowest denomination, for example, cents. */
-        transaction?: number;
+        transaction?: number | undefined;
         /** Indicates how the merchant manages tips. */
         tips: Fees.Tips;
-        specialityCards?: Payroc.SpecialityCards;
+        specialityCards?: Payroc.SpecialityCards | undefined;
     }
 
     export namespace Fees {

@@ -6,5 +6,5 @@ import type * as Payroc from "../index.js";
  * Object that contains information about the transaction.
  */
 export interface BankTransferPaymentRequestOrder extends Payroc.BankTransferPaymentOrderBase {
-    breakdown?: Payroc.BankTransferRequestBreakdown;
+    breakdown?: Payroc.BankTransferRequestBreakdown | undefined;
 }

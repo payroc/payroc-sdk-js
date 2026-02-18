@@ -4,20 +4,27 @@ import type * as Payroc from "../index.js";
 
 export interface Contact {
     /** Unique identifier of the contact. */
-    contactId?: number;
+    contactId?: number | undefined;
     /** Type of contact. */
     type: Contact.Type;
     /** Contact's first name. */
     firstName: string;
     /** Contact's middle name. */
-    middleName?: string;
+    middleName?: string | undefined;
     /** Contact's last name. */
     lastName: string;
     /** Array of identifier objects. */
     identifiers: Payroc.Identifier[];
     /**
-     * Array of contactMethod objects.
+     * Array of polymorphic objects, which contain contact information.
+     *
      * **Note:** If you are adding information about an owner, you must provide at least an email address. If you are adding information about a contact, you must provide at least a contact number.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`email` - Email address
+     * -	`phone` - Phone number
+     * -	`mobile` - Mobile number
+     * -	`fax` - Fax number
      */
     contactMethods: Payroc.ContactMethod[];
 }

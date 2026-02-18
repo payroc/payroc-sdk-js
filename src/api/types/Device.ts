@@ -9,12 +9,12 @@ export interface Device {
     /** Model of the device that the merchant used to process the transaction. */
     model: Device.Model;
     /** Indicates if the device is attended or unattended. */
-    category?: Device.Category;
+    category?: Device.Category | undefined;
     /** Serial number of the physical device. */
     serialNumber: string;
     /** Firmware version of the physical device. */
-    firmwareVersion?: string;
-    config?: Payroc.DeviceConfig;
+    firmwareVersion?: string | undefined;
+    config?: Payroc.DeviceConfig | undefined;
 }
 
 export namespace Device {

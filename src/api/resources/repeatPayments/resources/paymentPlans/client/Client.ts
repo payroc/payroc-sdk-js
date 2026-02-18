@@ -58,19 +58,11 @@ export class PaymentPlansClient {
         requestOptions?: PaymentPlansClient.RequestOptions,
     ): Promise<core.PayrocPager<Payroc.PaymentPlan, Payroc.PaymentPlanPaginatedList>> {
         const { processingTerminalId, before, after, limit } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            before,
+            after,
+            limit,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -148,7 +140,7 @@ export class PaymentPlansClient {
     /**
      * Use this method to create a payment schedule that you can assign customers to.
      *
-     * **Note:** This method is part of our Repeat Payments feature. To help you understand how this method works with our Subscriptions endpoints, go to [Repeat Payments](https://docs.payroc.com/guides/integrate/repeat-payments).
+     * **Note:** This method is part of our Repeat Payments feature. To help you understand how this method works with our Subscriptions endpoints, go to [Repeat Payments](https://docs.payroc.com/guides/take-payments/repeat-payments).
      *
      * When you create a payment plan you need to provide a unique paymentPlanId that you use to run follow-on actions:
      *
@@ -559,6 +551,41 @@ export class PaymentPlansClient {
      *                 path: "path"
      *             }, {
      *                 op: "remove",
+     *                 path: "path"
+     *             }]
+     *     })
+     *
+     * @example
+     *     await client.repeatPayments.paymentPlans.partiallyUpdate({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         processingTerminalId: "1234001",
+     *         paymentPlanId: "PlanRef8765",
+     *         body: [{
+     *                 op: "remove",
+     *                 path: "path"
+     *             }]
+     *     })
+     *
+     * @example
+     *     await client.repeatPayments.paymentPlans.partiallyUpdate({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         processingTerminalId: "1234001",
+     *         paymentPlanId: "PlanRef8765",
+     *         body: [{
+     *                 op: "move",
+     *                 from: "from",
+     *                 path: "path"
+     *             }]
+     *     })
+     *
+     * @example
+     *     await client.repeatPayments.paymentPlans.partiallyUpdate({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         processingTerminalId: "1234001",
+     *         paymentPlanId: "PlanRef8765",
+     *         body: [{
+     *                 op: "copy",
+     *                 from: "from",
      *                 path: "path"
      *             }]
      *     })

@@ -8,26 +8,26 @@ export interface TerminalOrder {
     /**
      * Status of the terminal order.
      *
-     * **Note**: You can subscribe to our terminalOrder.status.changed event to get notifications when we update the status of a terminal order. For more information about how to subscribe to events, go to [Event Subscriptions](https://docs.payroc.com/guides/integrate/event-subscriptions).
+     * **Note**: You can subscribe to our terminalOrder.status.changed event to get notifications when we update the status of a terminal order. For more information about how to subscribe to events, go to [Event Subscriptions](https://docs.payroc.com/guides/board-merchants/event-subscriptions).
      */
     status: TerminalOrder.Status;
     /** Indicates who provides training to the merchant for the solution. */
-    trainingProvider?: TerminalOrder.TrainingProvider;
+    trainingProvider?: TerminalOrder.TrainingProvider | undefined;
     /** Object that contains the shipping details for the terminal order. If you don't provide a shipping address, we use the Doing Business As (DBA) address of the processing account. */
-    shipping?: TerminalOrder.Shipping;
+    shipping?: TerminalOrder.Shipping | undefined;
     /** Array of orderItem objects. Provide a minimum of 1 order item and a maximum of 20 order items. */
     orderItems: TerminalOrder.OrderItems.Item[];
     /** Date that we received the terminal order. We return this value in the [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. */
-    createdDate?: string;
+    createdDate?: string | undefined;
     /** Date that the terminal order was last changed.  We return this value in the [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. */
-    lastModifiedDate?: string;
+    lastModifiedDate?: string | undefined;
 }
 
 export namespace TerminalOrder {
     /**
      * Status of the terminal order.
      *
-     * **Note**: You can subscribe to our terminalOrder.status.changed event to get notifications when we update the status of a terminal order. For more information about how to subscribe to events, go to [Event Subscriptions](https://docs.payroc.com/guides/integrate/event-subscriptions).
+     * **Note**: You can subscribe to our terminalOrder.status.changed event to get notifications when we update the status of a terminal order. For more information about how to subscribe to events, go to [Event Subscriptions](https://docs.payroc.com/guides/board-merchants/event-subscriptions).
      */
     export const Status = {
         Open: "open",
@@ -49,9 +49,9 @@ export namespace TerminalOrder {
      */
     export interface Shipping {
         /** Object that contains the shipping preferences for the terminal order. */
-        preferences?: Shipping.Preferences;
+        preferences?: Shipping.Preferences | undefined;
         /** Object that contains the shipping address for the terminal order. */
-        address?: Shipping.Address;
+        address?: Shipping.Address | undefined;
     }
 
     export namespace Shipping {
@@ -64,9 +64,9 @@ export namespace TerminalOrder {
              *   - `nextDay` - We schedule the order to be delivered the next day.
              *   - `ground` - We ship the order with ground shipping.
              */
-            method?: Preferences.Method;
+            method?: Preferences.Method | undefined;
             /** Indicates if we can schedule the terminal order to be delivered on a Saturday. */
-            saturdayDelivery?: boolean;
+            saturdayDelivery?: boolean | undefined;
         }
 
         export namespace Preferences {
@@ -89,11 +89,11 @@ export namespace TerminalOrder {
             /** Name of the person receiving the shipment. */
             recipientName: string;
             /** Name of the business receiving the shipment. */
-            businessName?: string;
+            businessName?: string | undefined;
             /** First line of the shipment address. */
             addressLine1: string;
             /** Second line of the shipment address. */
-            addressLine2?: string;
+            addressLine2?: string | undefined;
             /** City of the shipment address. */
             city: string;
             /** State of the shipment address. */
@@ -103,7 +103,7 @@ export namespace TerminalOrder {
             /** Contact email address for the shipment. */
             email: string;
             /** Contact number for the shipment. */
-            phone?: string;
+            phone?: string | undefined;
         }
     }
 

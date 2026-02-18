@@ -7,5 +7,5 @@ import type * as Payroc from "../index.js";
  */
 export interface BankTransferBreakdown extends Payroc.BankTransferBreakdownBase {
     /** Array of tax objects. */
-    taxes?: Payroc.RetrievedTax[];
+    taxes?: Payroc.RetrievedTax[] | undefined;
 }

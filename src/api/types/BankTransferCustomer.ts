@@ -7,9 +7,17 @@ import type * as Payroc from "../index.js";
  */
 export interface BankTransferCustomer {
     /** Customer's preferred notification language. This code follows the [ISO 639-1](https://www.iso.org/iso-639-language-code) standard. */
-    notificationLanguage?: BankTransferCustomer.NotificationLanguage;
-    /** Customer's contact information. */
-    contactMethods?: Payroc.ContactMethod[];
+    notificationLanguage?: BankTransferCustomer.NotificationLanguage | undefined;
+    /**
+     * Array of polymorphic objects, which contain contact information.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`email` - Email address
+     * -	`phone` - Phone number
+     * -	`mobile` - Mobile number
+     * -	`fax` - Fax number
+     */
+    contactMethods?: Payroc.ContactMethod[] | undefined;
 }
 
 export namespace BankTransferCustomer {

@@ -8,10 +8,12 @@ import type * as Payroc from "../../../../../../index.js";
  *         recipientId: 1,
  *         body: {
  *             recipientType: "privateCorporation",
- *             taxId: "123456789",
- *             doingBusinessAs: "doingBusinessAs",
+ *             taxId: "12-3456789",
+ *             doingBusinessAs: "Doe Hot Dogs",
  *             address: {
- *                 address1: "1 Example Ave.",
+ *                 address1: "2 Example Ave.",
+ *                 address2: "Example Address Line 2",
+ *                 address3: "Example Address Line 3",
  *                 city: "Chicago",
  *                 state: "Illinois",
  *                 country: "US",
@@ -20,6 +22,29 @@ import type * as Payroc from "../../../../../../index.js";
  *             contactMethods: [{
  *                     type: "email",
  *                     value: "jane.doe@example.com"
+ *                 }, {
+ *                     type: "phone",
+ *                     value: "2025550164"
+ *                 }],
+ *             metadata: {
+ *                 "responsiblePerson": "Jane Doe"
+ *             },
+ *             owners: [{
+ *                     ownerId: 12346,
+ *                     link: {
+ *                         rel: "owner",
+ *                         href: "https://api.payroc.com/v1/owners/12346",
+ *                         method: "get"
+ *                     }
+ *                 }],
+ *             fundingAccounts: [{
+ *                     fundingAccountId: 124,
+ *                     status: "approved",
+ *                     link: {
+ *                         rel: "fundingAccount",
+ *                         href: "https://api.payroc.com/v1/funding-accounts/124",
+ *                         method: "get"
+ *                     }
  *                 }]
  *         }
  *     }

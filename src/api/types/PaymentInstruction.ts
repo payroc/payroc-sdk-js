@@ -4,5 +4,5 @@ import type * as Payroc from "../index.js";
 
 export interface PaymentInstruction extends Payroc.DeviceInstruction {
     /** Unique identifier that we assigned to the payment instruction. */
-    paymentInstructionId?: string;
+    paymentInstructionId?: string | undefined;
 }

@@ -3,7 +3,11 @@
 import type * as Payroc from "../index.js";
 
 /**
- * Object that includes information about how we captured the owner's signature.
+ * Polymorphic object that contains information about how we captured the owner's signature.
+ *
+ * The value of the type parameter determines which variant you should use:
+ * -	`requestedViaDirectLink` - Request signature using a link.
+ * -	`requestedViaEmail` - Request signature by email.
  */
 export type Signature = Payroc.Signature.RequestedViaDirectLink | Payroc.Signature.RequestedViaEmail;
 

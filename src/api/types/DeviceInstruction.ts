@@ -13,14 +13,14 @@ export interface DeviceInstruction {
      * - `failure` – The instruction failed. Check the errorMessage field for more information.
      * - `inProgress` – The instruction is currently in progress.
      */
-    status?: DeviceInstruction.Status;
+    status?: DeviceInstruction.Status | undefined;
     /**
      * Description of the error that caused the instruction to fail.
      *
      * **Note:** We return this field only if the status is `failure`.
      */
-    errorMessage?: string;
-    link?: Payroc.Link;
+    errorMessage?: string | undefined;
+    link?: Payroc.Link | undefined;
 }
 
 export namespace DeviceInstruction {

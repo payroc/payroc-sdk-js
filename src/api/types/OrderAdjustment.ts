@@ -8,5 +8,5 @@ import type * as Payroc from "../index.js";
 export interface OrderAdjustment {
     /** Total amount of the transaction. */
     amount: number;
-    breakdown?: Payroc.BreakdownAdjustment;
+    breakdown?: Payroc.BreakdownAdjustment | undefined;
 }

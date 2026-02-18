@@ -7,9 +7,9 @@ export interface Address {
     /** Address line 1. */
     address1: string;
     /** Address line 2. */
-    address2?: string;
+    address2?: string | undefined;
     /** Address line 3. */
-    address3?: string;
+    address3?: string | undefined;
     /** City. */
     city: string;
     /** Name of the state or state abbreviation. */

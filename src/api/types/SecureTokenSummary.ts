@@ -22,7 +22,7 @@ export interface SecureTokenSummary {
      * **Note:** Depending on the merchant's account settings, this feature may be unavailable.
      */
     status: SecureTokenSummary.Status;
-    link?: Payroc.Link;
+    link?: Payroc.Link | undefined;
 }
 
 export namespace SecureTokenSummary {

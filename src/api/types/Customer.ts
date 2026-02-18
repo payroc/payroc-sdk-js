@@ -7,24 +7,32 @@ import type * as Payroc from "../index.js";
  */
 export interface Customer {
     /** Customer's first name. */
-    firstName?: string;
+    firstName?: string | undefined;
     /** Customer's last name. */
-    lastName?: string;
+    lastName?: string | undefined;
     /** Customer's date of birth. The format for this value is **YYYY-MM-DD**. */
-    dateOfBirth?: string;
+    dateOfBirth?: string | undefined;
     /**
      * Identifier of the transaction, also known as a customer code.
      *
      * For requests, you must send a value for **referenceNumber** if the customer provides one.
      */
-    referenceNumber?: string;
+    referenceNumber?: string | undefined;
     /** Object that contains information about the address that the card is registered to. */
-    billingAddress?: Payroc.Address;
-    shippingAddress?: Payroc.Shipping;
-    /** Customer's contact information. */
-    contactMethods?: Payroc.ContactMethod[];
+    billingAddress?: Payroc.Address | undefined;
+    shippingAddress?: Payroc.Shipping | undefined;
+    /**
+     * Array of polymorphic objects, which contain contact information.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`email` - Email address
+     * -	`phone` - Phone number
+     * -	`mobile` - Mobile number
+     * -	`fax` - Fax number
+     */
+    contactMethods?: Payroc.ContactMethod[] | undefined;
     /** Language that the customer uses for notifications. This code follows the [ISO 639-1](https://www.iso.org/iso-639-language-code) alpha-2 standard. */
-    notificationLanguage?: Customer.NotificationLanguage;
+    notificationLanguage?: Customer.NotificationLanguage | undefined;
 }
 
 export namespace Customer {

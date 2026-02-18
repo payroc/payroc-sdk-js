@@ -54,19 +54,11 @@ export class FundingRecipientsClient {
         requestOptions?: FundingRecipientsClient.RequestOptions,
     ): Promise<core.PayrocPager<Payroc.FundingRecipient, Payroc.PaginatedFundRecipients>> {
         const { before, after, limit } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            before,
+            after,
+            limit,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -158,10 +150,12 @@ export class FundingRecipientsClient {
      *     await client.funding.fundingRecipients.create({
      *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
      *         recipientType: "privateCorporation",
-     *         taxId: "123456789",
-     *         doingBusinessAs: "doingBusinessAs",
+     *         taxId: "12-3456789",
+     *         doingBusinessAs: "Pizza Doe",
      *         address: {
      *             address1: "1 Example Ave.",
+     *             address2: "Example Address Line 2",
+     *             address3: "Example Address Line 3",
      *             city: "Chicago",
      *             state: "Illinois",
      *             country: "US",
@@ -170,9 +164,16 @@ export class FundingRecipientsClient {
      *         contactMethods: [{
      *                 type: "email",
      *                 value: "jane.doe@example.com"
+     *             }, {
+     *                 type: "phone",
+     *                 value: "2025550164"
      *             }],
+     *         metadata: {
+     *             "yourCustomField": "abc123"
+     *         },
      *         owners: [{
      *                 firstName: "Jane",
+     *                 middleName: "Helen",
      *                 lastName: "Doe",
      *                 dateOfBirth: "1964-03-22",
      *                 address: {
@@ -184,14 +185,20 @@ export class FundingRecipientsClient {
      *                 },
      *                 identifiers: [{
      *                         type: "nationalId",
-     *                         value: "xxxxx4320"
+     *                         value: "000-00-4320"
      *                     }],
      *                 contactMethods: [{
      *                         type: "email",
      *                         value: "jane.doe@example.com"
+     *                     }, {
+     *                         type: "phone",
+     *                         value: "2025550164"
      *                     }],
      *                 relationship: {
-     *                     isControlProng: true
+     *                     equityPercentage: 48.5,
+     *                     title: "CFO",
+     *                     isControlProng: true,
+     *                     isAuthorizedSignatory: false
      *                 }
      *             }],
      *         fundingAccounts: [{
@@ -414,10 +421,12 @@ export class FundingRecipientsClient {
      *         recipientId: 1,
      *         body: {
      *             recipientType: "privateCorporation",
-     *             taxId: "123456789",
-     *             doingBusinessAs: "doingBusinessAs",
+     *             taxId: "12-3456789",
+     *             doingBusinessAs: "Doe Hot Dogs",
      *             address: {
-     *                 address1: "1 Example Ave.",
+     *                 address1: "2 Example Ave.",
+     *                 address2: "Example Address Line 2",
+     *                 address3: "Example Address Line 3",
      *                 city: "Chicago",
      *                 state: "Illinois",
      *                 country: "US",
@@ -426,6 +435,29 @@ export class FundingRecipientsClient {
      *             contactMethods: [{
      *                     type: "email",
      *                     value: "jane.doe@example.com"
+     *                 }, {
+     *                     type: "phone",
+     *                     value: "2025550164"
+     *                 }],
+     *             metadata: {
+     *                 "responsiblePerson": "Jane Doe"
+     *             },
+     *             owners: [{
+     *                     ownerId: 12346,
+     *                     link: {
+     *                         rel: "owner",
+     *                         href: "https://api.payroc.com/v1/owners/12346",
+     *                         method: "get"
+     *                     }
+     *                 }],
+     *             fundingAccounts: [{
+     *                     fundingAccountId: 124,
+     *                     status: "approved",
+     *                     link: {
+     *                         rel: "fundingAccount",
+     *                         href: "https://api.payroc.com/v1/funding-accounts/124",
+     *                         method: "get"
+     *                     }
      *                 }]
      *         }
      *     })
@@ -745,12 +777,15 @@ export class FundingRecipientsClient {
      *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
      *         recipientId: 1,
      *         body: {
-     *             type: "checking",
+     *             type: "savings",
      *             use: "credit",
-     *             nameOnAccount: "Jane Doe",
+     *             nameOnAccount: "Fred Nerk",
      *             paymentMethods: [{
      *                     type: "ach"
-     *                 }]
+     *                 }],
+     *             metadata: {
+     *                 "responsiblePerson": "Jane Doe"
+     *             }
      *         }
      *     })
      */
@@ -979,11 +1014,12 @@ export class FundingRecipientsClient {
      *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
      *         recipientId: 1,
      *         body: {
-     *             firstName: "Jane",
-     *             lastName: "Doe",
-     *             dateOfBirth: "1964-03-22",
+     *             firstName: "Fred",
+     *             middleName: "Jim",
+     *             lastName: "Nerk",
+     *             dateOfBirth: "1980-01-19",
      *             address: {
-     *                 address1: "1 Example Ave.",
+     *                 address1: "2 Example Ave.",
      *                 city: "Chicago",
      *                 state: "Illinois",
      *                 country: "US",
@@ -991,14 +1027,20 @@ export class FundingRecipientsClient {
      *             },
      *             identifiers: [{
      *                     type: "nationalId",
-     *                     value: "xxxxx4320"
+     *                     value: "000-00-9876"
      *                 }],
      *             contactMethods: [{
      *                     type: "email",
      *                     value: "jane.doe@example.com"
+     *                 }, {
+     *                     type: "phone",
+     *                     value: "2025550164"
      *                 }],
      *             relationship: {
-     *                 isControlProng: true
+     *                 equityPercentage: 51.5,
+     *                 title: "CEO",
+     *                 isControlProng: false,
+     *                 isAuthorizedSignatory: true
      *             }
      *         }
      *     })

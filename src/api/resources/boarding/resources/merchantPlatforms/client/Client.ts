@@ -54,19 +54,11 @@ export class MerchantPlatformsClient {
         requestOptions?: MerchantPlatformsClient.RequestOptions,
     ): Promise<core.PayrocPager<Payroc.MerchantPlatform, Payroc.PaginatedMerchants>> {
         const { before, after, limit } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            before,
+            after,
+            limit,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -134,7 +126,7 @@ export class MerchantPlatformsClient {
     /**
      * Use this method to board a merchant with Payroc.
      *
-     * **Note**: This method is part of our Boarding solution. To help you understand how this method works with other Boarding methods, go to [Board a Merchant](https://docs.payroc.com/guides/integrate/boarding).
+     * **Note**: This method is part of our Boarding solution. To help you understand how this method works with other Boarding methods, go to [Board a Merchant](https://docs.payroc.com/guides/board-merchants/boarding).
      *
      * In the request, include the following information:
      * - Legal information, including its legal name and address.
@@ -556,23 +548,12 @@ export class MerchantPlatformsClient {
         requestOptions?: MerchantPlatformsClient.RequestOptions,
     ): Promise<core.PayrocPager<Payroc.ProcessingAccount, Payroc.PaginatedProcessingAccounts>> {
         const { merchantPlatformId, before, after, limit, includeClosed } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
-        if (includeClosed != null) {
-            _queryParams.includeClosed = includeClosed.toString();
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            before,
+            after,
+            limit,
+            includeClosed,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,

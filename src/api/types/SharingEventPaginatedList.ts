@@ -3,6 +3,6 @@
 import type * as Payroc from "../index.js";
 
 export interface SharingEventPaginatedList extends Payroc.PaginatedList {
-    /** Array of sharing events for the payment link. */
-    data?: Payroc.PaymentLinkEmailShareEvent[];
+    /** Array of polymorphic objects that contain information about how the merchant shared a payment link. */
+    data?: Payroc.PaymentLinkEmailShareEvent[] | undefined;
 }

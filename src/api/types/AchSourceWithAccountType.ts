@@ -4,7 +4,7 @@ import type * as Payroc from "../index.js";
 
 export interface AchSourceWithAccountType extends Payroc.AchSource {
     /** Indicates the customer's account type. */
-    accountType?: AchSourceWithAccountType.AccountType;
+    accountType?: AchSourceWithAccountType.AccountType | undefined;
 }
 
 export namespace AchSourceWithAccountType {

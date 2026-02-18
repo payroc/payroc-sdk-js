@@ -6,7 +6,7 @@ export interface Balance {
     /** Unique identifier that we assigned to the terminal. */
     processingTerminalId: string;
     /** Operator who requested the balance inquiry. */
-    operator?: string;
+    operator?: string | undefined;
     card: Payroc.Card;
     /**
      * Response from the processor.
@@ -17,9 +17,9 @@ export interface Balance {
      * - `R` - The issuer declined the transaction and indicated that the customer should contact their bank.
      * - `C` - The issuer declined the transaction and indicated that the merchant should keep the card as it was reported lost or stolen.
      */
-    responseCode?: Balance.ResponseCode;
+    responseCode?: Balance.ResponseCode | undefined;
     /** Response description from the payment processor, for example, Refer to Card Issuer. */
-    responseMessage?: string;
+    responseMessage?: string | undefined;
 }
 
 export namespace Balance {

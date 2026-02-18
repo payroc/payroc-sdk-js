@@ -133,7 +133,15 @@ export class ProcessingAccountsClient {
     }
 
     /**
-     * Retrieve a list of funding accounts associated with a processing account.
+     * Use this method to return a list of funding accounts linked to a processing acccount.
+     *
+     * To retrieve a list of funding accounts for a processing account, you need the processingAccountId. Our gateway returned the processingAccountId in the response of the [Create Merchant Platform](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create) method or the [Create Proccessing Account](https://docs.payroc.com/api/schema/boarding/merchant-platforms/create-processing-account) method.
+     *
+     * Our gateway returns information about the following for each funding account in the list:
+     * - Account information, including the name on the account and payment methods.
+     * - Status, including whether we have approved or rejected the account.
+     *
+     * For each funding account, we also return its fundingAccountId, which you can use to perform follow-on actions.
      *
      * @param {Payroc.boarding.ListProcessingAccountFundingAccountsRequest} request
      * @param {ProcessingAccountsClient.RequestOptions} requestOptions - Request-specific configuration.
@@ -276,19 +284,11 @@ export class ProcessingAccountsClient {
         requestOptions?: ProcessingAccountsClient.RequestOptions,
     ): Promise<core.WithRawResponse<Payroc.PaginatedContacts>> {
         const { processingAccountId, before, after, limit } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            before,
+            after,
+            limit,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -503,19 +503,11 @@ export class ProcessingAccountsClient {
         requestOptions?: ProcessingAccountsClient.RequestOptions,
     ): Promise<core.PayrocPager<Payroc.Owner, Payroc.PaginatedOwners>> {
         const { processingAccountId, before, after, limit } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            before,
+            after,
+            limit,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -753,19 +745,11 @@ export class ProcessingAccountsClient {
         requestOptions?: ProcessingAccountsClient.RequestOptions,
     ): Promise<core.WithRawResponse<Payroc.TerminalOrder[]>> {
         const { processingAccountId, status, fromDateTime, toDateTime } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (status != null) {
-            _queryParams.status = status;
-        }
-
-        if (fromDateTime != null) {
-            _queryParams.fromDateTime = fromDateTime;
-        }
-
-        if (toDateTime != null) {
-            _queryParams.toDateTime = toDateTime;
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            status: status != null ? status : undefined,
+            fromDateTime: fromDateTime != null ? fromDateTime : undefined,
+            toDateTime: toDateTime != null ? toDateTime : undefined,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -844,7 +828,7 @@ export class ProcessingAccountsClient {
      *
      * In the response, our gateway returns information about the terminal order including its status and terminalOrderId that you can use to [retrieve the terminal order](https://docs.payroc.com/api/schema/boarding/terminal-orders/retrieve).
      *
-     * **Note**: You can subscribe to the terminalOrder.status.changed event to get notifications when we update the status of a terminal order. For more information about how to subscribe to events, go to [Events Subscriptions](https://docs.payroc.com/guides/integrate/event-subscriptions).
+     * **Note**: You can subscribe to the terminalOrder.status.changed event to get notifications when we update the status of a terminal order. For more information about how to subscribe to events, go to [Events Subscriptions](https://docs.payroc.com/guides/board-merchants/event-subscriptions).
      *
      * @param {Payroc.boarding.CreateTerminalOrder} request
      * @param {ProcessingAccountsClient.RequestOptions} requestOptions - Request-specific configuration.
@@ -1047,19 +1031,11 @@ export class ProcessingAccountsClient {
         requestOptions?: ProcessingAccountsClient.RequestOptions,
     ): Promise<core.PayrocPager<Payroc.ProcessingTerminal, Payroc.PaginatedProcessingTerminals>> {
         const { processingAccountId, before, after, limit } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            before,
+            after,
+            limit,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,

@@ -3,6 +3,12 @@
 import type * as Payroc from "../index.js";
 
 export interface BreakdownRequest extends Payroc.BreakdownBase {
-    /** List of taxes. */
-    taxes?: Payroc.Tax[];
+    /**
+     * Array of polymorphic tax objects, which contain information about a tax.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`amount` - Tax is a fixed amount.
+     * -	`rate` - Tax is a percentage.
+     */
+    taxes?: Payroc.Tax[] | undefined;
 }
