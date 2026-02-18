@@ -38,7 +38,7 @@ export class AttachmentsClient {
      * - **type** - Type of attachment that you want to upload.
      * - **description** - Short description of the attachment.
      *
-     * In the response, our gateway returns information about the attachment including its upload status and an attachmentId that you can use to [Retrieve the details of the Attachment](https://docs.payroc.com/api/schema/attachments/get-attachment).
+     * In the response, our gateway returns information about the attachment including its upload status and an attachmentId that you can use to [Retrieve the details of the Attachment](https://docs.payroc.com/api/schema/attachments/retrieve).
      *
      * @param {Payroc.UploadAttachment} request
      * @param {AttachmentsClient.RequestOptions} requestOptions - Request-specific configuration.
@@ -174,7 +174,7 @@ export class AttachmentsClient {
      *
      * Our gateway returns information about the attachment, including its upload status and the entity that the attachment is linked to. Our gateway doesn't return the file that you uploaded.
      *
-     * @param {Payroc.GetAttachmentRequest} request
+     * @param {Payroc.RetrieveAttachmentsRequest} request
      * @param {AttachmentsClient.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @throws {@link Payroc.BadRequestError}
@@ -185,19 +185,19 @@ export class AttachmentsClient {
      * @throws {@link Payroc.InternalServerError}
      *
      * @example
-     *     await client.attachments.getAttachment({
+     *     await client.attachments.retrieve({
      *         attachmentId: "12876"
      *     })
      */
-    public getAttachment(
-        request: Payroc.GetAttachmentRequest,
+    public retrieve(
+        request: Payroc.RetrieveAttachmentsRequest,
         requestOptions?: AttachmentsClient.RequestOptions,
     ): core.HttpResponsePromise<Payroc.Attachment> {
-        return core.HttpResponsePromise.fromPromise(this.__getAttachment(request, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__retrieve(request, requestOptions));
     }
 
-    private async __getAttachment(
-        request: Payroc.GetAttachmentRequest,
+    private async __retrieve(
+        request: Payroc.RetrieveAttachmentsRequest,
         requestOptions?: AttachmentsClient.RequestOptions,
     ): Promise<core.WithRawResponse<Payroc.Attachment>> {
         const { attachmentId } = request;

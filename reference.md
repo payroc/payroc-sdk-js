@@ -610,7 +610,7 @@ In the request, include the attachment that you want to upload and the following
 - **type** - Type of attachment that you want to upload.
 - **description** - Short description of the attachment.  
 
-In the response, our gateway returns information about the attachment including its upload status and an attachmentId that you can use to [Retrieve the details of the Attachment](https://docs.payroc.com/api/schema/attachments/get-attachment).
+In the response, our gateway returns information about the attachment including its upload status and an attachmentId that you can use to [Retrieve the details of the Attachment](https://docs.payroc.com/api/schema/attachments/retrieve).
 </dd>
 </dl>
 </dd>
@@ -668,7 +668,7 @@ await client.attachments.uploadToProcessingAccount({
 </dl>
 </details>
 
-<details><summary><code>client.attachments.<a href="/src/api/resources/attachments/client/Client.ts">getAttachment</a>({ ...params }) -> Payroc.Attachment</code></summary>
+<details><summary><code>client.attachments.<a href="/src/api/resources/attachments/client/Client.ts">retrieve</a>({ ...params }) -> Payroc.Attachment</code></summary>
 <dl>
 <dd>
 
@@ -699,7 +699,7 @@ Our gateway returns information about the attachment, including its upload statu
 <dd>
 
 ```typescript
-await client.attachments.getAttachment({
+await client.attachments.retrieve({
     attachmentId: "12876"
 });
 
@@ -717,7 +717,7 @@ await client.attachments.getAttachment({
 <dl>
 <dd>
 
-**request:** `Payroc.GetAttachmentRequest` 
+**request:** `Payroc.RetrieveAttachmentsRequest` 
     
 </dd>
 </dl>
