@@ -4,18 +4,18 @@ import type * as Payroc from "../index.js";
 
 export interface MerchantPlatform {
     /** Unique identifier that we assigned to the merchant platform. */
-    merchantPlatformId?: string;
+    merchantPlatformId?: string | undefined;
     /** Date that the merchant platform was created. We return this value in the [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. */
-    createdDate?: string;
+    createdDate?: string | undefined;
     /** Date that the merchant platform was last modified. We return this value in the [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. */
-    lastModifiedDate?: string;
+    lastModifiedDate?: string | undefined;
     business: Payroc.Business;
     /** Array of processingAccount objects. */
-    processingAccounts?: MerchantPlatform.ProcessingAccounts.Item[];
+    processingAccounts?: MerchantPlatform.ProcessingAccounts.Item[] | undefined;
     /** Object that you can send to include custom metadata in the request. */
-    metadata?: Record<string, string>;
+    metadata?: Record<string, string> | undefined;
     /** Array of useful links related to your request. */
-    links?: Payroc.Link[];
+    links?: Payroc.Link[] | undefined;
 }
 
 export namespace MerchantPlatform {
@@ -24,7 +24,7 @@ export namespace MerchantPlatform {
     export namespace ProcessingAccounts {
         export interface Item {
             /** Unique identifier that we assigned to the processing account. */
-            processingAccountId?: string;
+            processingAccountId?: string | undefined;
             /** Trading name of the business. */
             doingBusinessAs: string;
             /**
@@ -40,12 +40,12 @@ export namespace MerchantPlatform {
              * - `cancelled` - Merchant withdrew the application for the processing account.
              * - `failed` - An error occurred while we were setting up the processing account.
              *
-             * **Note**: You can subscribe to our processingAccount.status.changed event to get notifications when we change the status of a processing account. For more information about how to subscribe to events, go to [Event Subscriptions](https://docs.payroc.com/guides/integrate/event-subscriptions).
+             * **Note**: You can subscribe to our processingAccount.status.changed event to get notifications when we change the status of a processing account. For more information about how to subscribe to events, go to [Event Subscriptions](https://docs.payroc.com/guides/board-merchants/event-subscriptions).
              */
-            status?: Item.Status;
+            status?: Item.Status | undefined;
             /** Object that contains HATEOAS links for the processing account. */
-            link?: Item.Link;
-            signature?: Payroc.Signature;
+            link?: Item.Link | undefined;
+            signature?: Payroc.Signature | undefined;
         }
 
         export namespace Item {
@@ -62,7 +62,7 @@ export namespace MerchantPlatform {
              * - `cancelled` - Merchant withdrew the application for the processing account.
              * - `failed` - An error occurred while we were setting up the processing account.
              *
-             * **Note**: You can subscribe to our processingAccount.status.changed event to get notifications when we change the status of a processing account. For more information about how to subscribe to events, go to [Event Subscriptions](https://docs.payroc.com/guides/integrate/event-subscriptions).
+             * **Note**: You can subscribe to our processingAccount.status.changed event to get notifications when we change the status of a processing account. For more information about how to subscribe to events, go to [Event Subscriptions](https://docs.payroc.com/guides/board-merchants/event-subscriptions).
              */
             export const Status = {
                 Entered: "entered",
@@ -83,11 +83,11 @@ export namespace MerchantPlatform {
              */
             export interface Link {
                 /** Relationship to the parent resource. */
-                rel?: string;
+                rel?: string | undefined;
                 /** Link to the resource. */
-                href?: string;
+                href?: string | undefined;
                 /** HTTP method you can use to retrieve the resource. */
-                method?: string;
+                method?: string | undefined;
             }
         }
     }

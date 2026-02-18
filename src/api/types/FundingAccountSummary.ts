@@ -4,11 +4,11 @@ import type * as Payroc from "../index.js";
 
 export interface FundingAccountSummary {
     /** Unique identifier that we assigned to the funding account. */
-    fundingAccountId?: number;
+    fundingAccountId?: number | undefined;
     /** Status of the funding account. */
-    status?: FundingAccountSummary.Status;
+    status?: FundingAccountSummary.Status | undefined;
     /** Object that contains HATEOAS links for the funding accounts that are linked to the processing account. */
-    link?: Payroc.Link;
+    link?: Payroc.Link | undefined;
 }
 
 export namespace FundingAccountSummary {

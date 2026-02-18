@@ -5,11 +5,11 @@
  */
 export interface OwnerRelationship {
     /** Percentage equity stake that the owner holds in the business. */
-    equityPercentage?: number;
+    equityPercentage?: number | undefined;
     /** Owner's job title. */
-    title?: string;
+    title?: string | undefined;
     /** Indicates if the owner is a control prong. You can identify only one control prong for a business. */
     isControlProng: boolean;
     /** Indicates if the owner is an authorized signatory. */
-    isAuthorizedSignatory?: boolean;
+    isAuthorizedSignatory?: boolean | undefined;
 }

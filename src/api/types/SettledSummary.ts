@@ -7,10 +7,10 @@ import type * as Payroc from "../index.js";
  */
 export interface SettledSummary {
     /** Processor that settled the transaction. */
-    settledBy?: string;
+    settledBy?: string | undefined;
     /** Date that the processor settled the transaction. The format of this value is **YYYY-MM-DD**. */
-    achDate?: string;
+    achDate?: string | undefined;
     /** Unique identifier of the ACH deposit. */
-    achDepositId?: number;
-    link?: Payroc.Link;
+    achDepositId?: number | undefined;
+    link?: Payroc.Link | undefined;
 }

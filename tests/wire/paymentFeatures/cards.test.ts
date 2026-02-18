@@ -37,7 +37,7 @@ describe("CardsClient", () => {
                 cardholderSignature:
                     "a1b1c012345678a000b000c0012345d0e0f010g10061a031i001j071k0a1b0c1d0e1234567890120f1g0h1i0j1k0a1b0123451c012d0e1f0g1h0i1j123k1a1b1c1d1e1f1g123h1i1j1k1a1b1c1d1e1f1g123h123i1j123k12340a120a12345b012c0123012d0d1e0f1g0h1i123j123k10000",
                 cardNumber: "453985******7062",
-                expiryDate: "1225",
+                expiryDate: "1230",
                 secureToken: {
                     secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
                     customerName: "Sarah Hazel Hopper",
@@ -105,7 +105,7 @@ describe("CardsClient", () => {
                 cardholderSignature:
                     "a1b1c012345678a000b000c0012345d0e0f010g10061a031i001j071k0a1b0c1d0e1234567890120f1g0h1i0j1k0a1b0123451c012d0e1f0g1h0i1j123k1a1b1c1d1e1f1g123h1i1j1k1a1b1c1d1e1f1g123h123i1j123k12340a120a12345b012c0123012d0d1e0f1g0h1i123j123k10000",
                 cardNumber: "453985******7062",
-                expiryDate: "1225",
+                expiryDate: "1230",
                 secureToken: {
                     secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
                     customerName: "Sarah Hazel Hopper",
@@ -560,7 +560,7 @@ describe("CardsClient", () => {
                 cardholderSignature:
                     "a1b1c012345678a000b000c0012345d0e0f010g10061a031i001j071k0a1b0c1d0e1234567890120f1g0h1i0j1k0a1b0123451c012d0e1f0g1h0i1j123k1a1b1c1d1e1f1g123h1i1j1k1a1b1c1d1e1f1g123h123i1j123k12340a120a12345b012c0123012d0d1e0f1g0h1i123j123k10000",
                 cardNumber: "453985******7062",
-                expiryDate: "1225",
+                expiryDate: "1230",
                 secureToken: {
                     secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
                     customerName: "Sarah Hazel Hopper",
@@ -613,7 +613,7 @@ describe("CardsClient", () => {
                 cardholderSignature:
                     "a1b1c012345678a000b000c0012345d0e0f010g10061a031i001j071k0a1b0c1d0e1234567890120f1g0h1i0j1k0a1b0123451c012d0e1f0g1h0i1j123k1a1b1c1d1e1f1g123h1i1j1k1a1b1c1d1e1f1g123h123i1j123k12340a120a12345b012c0123012d0d1e0f1g0h1i123j123k10000",
                 cardNumber: "453985******7062",
-                expiryDate: "1225",
+                expiryDate: "1230",
                 secureToken: {
                     secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
                     customerName: "Sarah Hazel Hopper",

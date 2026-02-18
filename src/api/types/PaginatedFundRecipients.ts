@@ -4,5 +4,5 @@ import type * as Payroc from "../index.js";
 
 export interface PaginatedFundRecipients extends Payroc.PaginatedList {
     /** An array of funding recipients */
-    data?: Payroc.FundingRecipient[];
+    data?: Payroc.FundingRecipient[] | undefined;
 }

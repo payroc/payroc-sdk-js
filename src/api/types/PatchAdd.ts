@@ -9,5 +9,5 @@ export interface PatchAdd {
      * The format for this value is JSON Pointer.
      */
     path: string;
-    value?: unknown;
+    value?: unknown | undefined;
 }

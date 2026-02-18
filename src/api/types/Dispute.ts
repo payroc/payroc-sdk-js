@@ -7,34 +7,34 @@ import type * as Payroc from "../index.js";
  */
 export interface Dispute {
     /** Unique identifier that we assigned to the dispute. */
-    disputeId?: number;
+    disputeId?: number | undefined;
     /** Type of dispute. */
-    disputeType?: Dispute.DisputeType;
+    disputeType?: Dispute.DisputeType | undefined;
     /** Object that contains information about the current status of the dispute. */
-    currentStatus?: Dispute.CurrentStatus;
+    currentStatus?: Dispute.CurrentStatus | undefined;
     /** Date that we received the dispute. The format of this value is **YYYY-MM-DD**. */
-    createdDate?: string;
+    createdDate?: string | undefined;
     /** Date that the dispute was last changed. The format of this value is **YYYY-MM-DD**. */
-    lastModifiedDate?: string;
+    lastModifiedDate?: string | undefined;
     /** Date that the acquiring bank received the dispute. The format of this value is **YYYY-MM-DD**. */
-    receivedDate?: string;
+    receivedDate?: string | undefined;
     /** Description of the dispute. */
-    description?: string;
+    description?: string | undefined;
     /** Reference number from the acquiring bank. */
-    referenceNumber?: string;
+    referenceNumber?: string | undefined;
     /** Dispute amount. We return the value in the currency's lowest denomination, for example, cents. */
-    disputeAmount?: number;
+    disputeAmount?: number | undefined;
     /** Value of the fees for the dispute. We return the value in the currency's lowest denomination, for example, cents. */
-    feeAmount?: number;
+    feeAmount?: number | undefined;
     /** Indicates if this is the first dispute for the transaction. */
-    firstDispute?: boolean;
+    firstDispute?: boolean | undefined;
     /** Authorization code of the transaction that the dispute is linked to. */
-    authorizationCode?: string;
+    authorizationCode?: string | undefined;
     /** Currency of the transaction that the dispute is linked to. The value for the currency follows the [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) standard. */
-    currency?: string;
-    card?: Payroc.CardSummary;
-    merchant?: Payroc.MerchantSummary;
-    transaction?: Payroc.TransactionSummary;
+    currency?: string | undefined;
+    card?: Payroc.CardSummary | undefined;
+    merchant?: Payroc.MerchantSummary | undefined;
+    transaction?: Payroc.TransactionSummary | undefined;
 }
 
 export namespace Dispute {
@@ -51,6 +51,6 @@ export namespace Dispute {
      * Object that contains information about the current status of the dispute.
      */
     export interface CurrentStatus extends Payroc.DisputeStatus {
-        link?: Payroc.Link;
+        link?: Payroc.Link | undefined;
     }
 }

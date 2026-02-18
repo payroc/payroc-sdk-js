@@ -1,0 +1,125 @@
+parameters:
+  - name: displayName
+    type: string
+  - name: jobName
+    type: string
+  - name: cliCommand
+    type: string
+  - name: continueOnError
+    type: boolean
+    default: false
+  - name: branchNameFragment
+    type: string
+    default: ''  # Optional
+  - name: dependsOn
+    type: object
+    default: []
+  - name: imageName
+    type: string
+    default: 'payroc/openapi-automation-cli'
+  - name: artifactoryRepo
+    type: string
+    default: 'dml.corp.payroc.com/feature-docker-local'
+  - name: imageTag
+    type: string
+    default: 'latest'  # Can also be pinned to an exact version, e.g. 0.4.0.210295
+  - name: containerNamePrefix
+    type: string
+    default: 'openapi-automation-cli'
+  - name: sdkLanguage
+    type: string
+    default: ''  # Optional
+  - name: scriptName
+    type: string
+    default: ''  # Optional
+  - name: semanticVersionComponent
+    type: string
+    default: ''  # Optional
+
+jobs:
+- job: ${{ parameters.jobName }}
+  displayName: ${{ parameters.displayName }}
+  continueOnError: ${{ parameters.continueOnError }}
+  dependsOn: ${{ parameters.dependsOn }}
+  pool:
+    name: onprem-linux-elksdx
+
+  steps:
+    - checkout: none
+
+    - script: |
+        echo "Resolved Docker image: ${{ parameters.artifactoryRepo }}/${{ parameters.imageName }}:${{ parameters.imageTag }}"
+        echo "Command to run: ${{ parameters.cliCommand }} --environment=Prod"
+        if [ ! -z "${{ parameters.branchNameFragment }}" ]; then
+          echo "With branch name fragment: ${{ parameters.branchNameFragment }}"
+        fi
+        if [ ! -z "${{ parameters.sdkLanguage }}" ]; then
+          echo "With SDK language: ${{ parameters.sdkLanguage }}"
+        fi
+        if [ ! -z "${{ parameters.scriptName }}" ]; then
+          echo "With script name: ${{ parameters.scriptName }}"
+        fi
+        if [ ! -z "${{ parameters.semanticVersionComponent }}" ]; then
+          echo "With semantic version: ${{ parameters.semanticVersionComponent }}"
+        fi
+        echo "Env: GITHUB_BOT_USERNAME = $(GITHUB_BOT_USERNAME)"
+        echo "Env: GITHUB_AUTHOR_NAME = $(GITHUB_AUTHOR_NAME)"
+        echo "Env: POSTHOG_API_HOST = $(POSTHOG_API_HOST)"
+        echo "Other secrets masked"
+      displayName: Log CLI Variables
+
+    - script: |
+        echo "Pulling Docker image..."
+        docker pull ${{ parameters.artifactoryRepo }}/${{ parameters.imageName }}:${{ parameters.imageTag }}
+      displayName: Pull Docker Image
+
+    - script: |
+        echo "Running CLI container..."
+        
+        cmd="docker run --rm --name \"${{ parameters.containerNamePrefix }}-${{ parameters.jobName }}\" \
+          -e \"GITHUB_BOT_USERNAME=$GITHUB_BOT_USERNAME\" \
+          -e \"GITHUB_BOT_TOKEN=$GITHUB_BOT_TOKEN\" \
+          -e \"GITHUB_AUTHOR_NAME=$GITHUB_AUTHOR_NAME\" \
+          -e \"GITHUB_AUTHOR_EMAIL=$GITHUB_AUTHOR_EMAIL\" \
+          -e \"FERN_TOKEN=$FERN_TOKEN\" \
+          -e \"POSTHOG_API_HOST=$POSTHOG_API_HOST\" \
+          -e \"POSTHOG_API_KEY=$POSTHOG_API_KEY\" \
+          -e \"PAYROC_API_KEY_GENERIC=$PAYROC_API_KEY_GENERIC\" \
+          -e \"PAYROC_API_KEY_PAYMENTS=$PAYROC_API_KEY_PAYMENTS\" \
+          -e \"TERMINAL_ID_AVS=$TERMINAL_ID_AVS\" \
+          -e \"TERMINAL_ID_NO_AVS=$TERMINAL_ID_NO_AVS\" \
+          \"${{ parameters.artifactoryRepo }}/${{ parameters.imageName }}:${{ parameters.imageTag }}\" \
+          \"${{ parameters.cliCommand }}\" \
+          --environment=Prod"
+
+        if [ ! -z "${{ parameters.branchNameFragment }}" ]; then
+          cmd="$cmd --branch-name-fragment \"${{ parameters.branchNameFragment }}\""
+        fi
+
+        if [ ! -z "${{ parameters.sdkLanguage }}" ]; then
+          cmd="$cmd --sdk-language \"${{ parameters.sdkLanguage }}\""
+        fi
+
+        if [ ! -z "${{ parameters.scriptName }}" ]; then
+          cmd="$cmd --script-name \"${{ parameters.scriptName }}\""
+        fi
+
+        if [ ! -z "${{ parameters.semanticVersionComponent }}" ]; then
+          cmd="$cmd --semantic-version-component \"${{ parameters.semanticVersionComponent }}\""
+        fi
+
+        echo "$cmd"
+        eval $cmd
+      env:
+        GITHUB_BOT_USERNAME: $(GITHUB_BOT_USERNAME)
+        GITHUB_BOT_TOKEN: $(GITHUB_BOT_TOKEN)
+        GITHUB_AUTHOR_NAME: $(GITHUB_AUTHOR_NAME)
+        GITHUB_AUTHOR_EMAIL: $(GITHUB_AUTHOR_EMAIL)
+        FERN_TOKEN: $(FERN_TOKEN)
+        POSTHOG_API_HOST: $(POSTHOG_API_HOST)
+        POSTHOG_API_KEY: $(POSTHOG_API_KEY)
+        PAYROC_API_KEY_GENERIC: $(PAYROC_API_KEY_GENERIC)
+        PAYROC_API_KEY_PAYMENTS: $(PAYROC_API_KEY_PAYMENTS)
+        TERMINAL_ID_AVS: $(TERMINAL_ID_AVS)
+        TERMINAL_ID_NO_AVS: $(TERMINAL_ID_NO_AVS)
+      displayName: Run CLI Command

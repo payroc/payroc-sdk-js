@@ -7,5 +7,5 @@ import type * as Payroc from "../../../index.js";
  */
 export interface Funding extends Payroc.CommonFunding {
     /** Object that contains funding accounts associated with the processing account. */
-    fundingAccounts?: Payroc.FundingAccountSummary[];
+    fundingAccounts?: Payroc.FundingAccountSummary[] | undefined;
 }

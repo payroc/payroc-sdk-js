@@ -12,7 +12,7 @@ export namespace ListFundingInstructionsResponse {
 
     export namespace Data {
         export interface Item extends Payroc.Instruction {
-            link?: Payroc.Link;
+            link?: Payroc.Link | undefined;
         }
     }
 }

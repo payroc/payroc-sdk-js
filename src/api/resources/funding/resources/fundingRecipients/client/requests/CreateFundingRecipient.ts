@@ -7,10 +7,12 @@ import type * as Payroc from "../../../../../../index.js";
  *     {
  *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
  *         recipientType: "privateCorporation",
- *         taxId: "123456789",
- *         doingBusinessAs: "doingBusinessAs",
+ *         taxId: "12-3456789",
+ *         doingBusinessAs: "Pizza Doe",
  *         address: {
  *             address1: "1 Example Ave.",
+ *             address2: "Example Address Line 2",
+ *             address3: "Example Address Line 3",
  *             city: "Chicago",
  *             state: "Illinois",
  *             country: "US",
@@ -19,9 +21,16 @@ import type * as Payroc from "../../../../../../index.js";
  *         contactMethods: [{
  *                 type: "email",
  *                 value: "jane.doe@example.com"
+ *             }, {
+ *                 type: "phone",
+ *                 value: "2025550164"
  *             }],
+ *         metadata: {
+ *             "yourCustomField": "abc123"
+ *         },
  *         owners: [{
  *                 firstName: "Jane",
+ *                 middleName: "Helen",
  *                 lastName: "Doe",
  *                 dateOfBirth: "1964-03-22",
  *                 address: {
@@ -33,14 +42,20 @@ import type * as Payroc from "../../../../../../index.js";
  *                 },
  *                 identifiers: [{
  *                         type: "nationalId",
- *                         value: "xxxxx4320"
+ *                         value: "000-00-4320"
  *                     }],
  *                 contactMethods: [{
  *                         type: "email",
  *                         value: "jane.doe@example.com"
+ *                     }, {
+ *                         type: "phone",
+ *                         value: "2025550164"
  *                     }],
  *                 relationship: {
- *                     isControlProng: true
+ *                     equityPercentage: 48.5,
+ *                     title: "CFO",
+ *                     isControlProng: true,
+ *                     isAuthorizedSignatory: false
  *                 }
  *             }],
  *         fundingAccounts: [{
@@ -64,9 +79,19 @@ export interface CreateFundingRecipient {
     charityId?: string;
     /** Trading name of the business or organization. */
     doingBusinessAs: string;
-    /** Address of the funding recipient. */
+    /** Polymorphic object that contains address information for a funding recipient. */
     address: Payroc.Address;
-    /** Array of contactMethod objects that you can use to add contact methods for the funding recipient. You must provide at least an email address. */
+    /**
+     * Array of polymorphic objects, which contain contact information.
+     *
+     * **Note:** You must provide an email address.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`email` - Email address
+     * -	`phone` - Phone number
+     * -	`mobile` - Mobile number
+     * -	`fax` - Fax number
+     */
     contactMethods: Payroc.ContactMethod[];
     /** [Metadata](https://docs.payroc.com/api/metadata) object you can use to include custom data with your request. */
     metadata?: Record<string, string>;

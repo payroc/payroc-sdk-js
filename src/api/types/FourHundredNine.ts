@@ -12,9 +12,9 @@ export interface FourHundredNine {
     /** Explanation of the problem */
     detail: string;
     /** Resource path to the existing resource */
-    instance?: string;
-    errors?: FourHundredNine.Errors.Item[];
-    link?: Payroc.Link;
+    instance?: string | undefined;
+    errors?: FourHundredNine.Errors.Item[] | undefined;
+    link?: Payroc.Link | undefined;
 }
 
 export namespace FourHundredNine {
@@ -23,11 +23,11 @@ export namespace FourHundredNine {
     export namespace Errors {
         export interface Item {
             /** The parameter or field causing the issues */
-            parameter?: string;
+            parameter?: string | undefined;
             /** Short detail of the validation errors */
-            detail?: string;
+            detail?: string | undefined;
             /** Error message */
-            message?: string;
+            message?: string | undefined;
         }
     }
 }

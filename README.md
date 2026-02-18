@@ -549,7 +549,7 @@ While we value open-source contributions to this SDK, this library is generated 
 
 On the other hand, contributions to the README are always very welcome!
 
-For details on setting up your development environment, running tests, and code quality standards, please see [CONTRIBUTING.md](./CONTRIBUTING.md).
+For details on setting up your development environment, **running tests**, and code quality standards, please see **[CONTRIBUTING.md](./CONTRIBUTING.md)**. The contributing guide provides comprehensive instructions for executing tests correctly, including working directory requirements and test setup details.
 
 ## References
 

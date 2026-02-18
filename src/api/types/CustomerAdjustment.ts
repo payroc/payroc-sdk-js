@@ -6,7 +6,15 @@ import type * as Payroc from "../index.js";
  * Object that contains information about the adjustment to the transaction. Send this object if the merchant is adjusting the customer’s contact details.
  */
 export interface CustomerAdjustment {
-    shippingAddress?: Payroc.Shipping;
-    /** Customer's contact information. */
-    contactMethods?: Payroc.ContactMethod[];
+    shippingAddress?: Payroc.Shipping | undefined;
+    /**
+     * Array of polymorphic objects, which contain contact information.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`email` - Email address
+     * -	`phone` - Phone number
+     * -	`mobile` - Mobile number
+     * -	`fax` - Fax number
+     */
+    contactMethods?: Payroc.ContactMethod[] | undefined;
 }

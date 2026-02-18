@@ -7,12 +7,12 @@ import type * as Payroc from "../index.js";
  */
 export interface BankTransferPaymentOrderBase {
     /** A unique identifier assigned by the merchant. */
-    orderId?: string;
+    orderId?: string | undefined;
     /** The processing date and time of the transaction represented as per [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard. */
-    dateTime?: string;
+    dateTime?: string | undefined;
     /** A brief description of the transaction. */
-    description?: string;
+    description?: string | undefined;
     /** The total amount in the currency's lowest denomination. For example, cents. */
-    amount?: number;
-    currency?: Payroc.Currency;
+    amount?: number | undefined;
+    currency?: Payroc.Currency | undefined;
 }

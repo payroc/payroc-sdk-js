@@ -7,13 +7,13 @@ import type * as Payroc from "../index.js";
  */
 export interface RefundOrder {
     /** A unique identifier assigned by the merchant. */
-    orderId?: string;
+    orderId?: string | undefined;
     /** Date and time that our gateway processed the refund. The value follows the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) standard. */
-    dateTime?: string;
+    dateTime?: string | undefined;
     /** Description of the transaction. */
-    description?: string;
+    description?: string | undefined;
     /** Amount of the refund. The value is in the currency's lowest denomination, for example, cents. */
-    amount?: number;
-    currency?: Payroc.Currency;
-    dccOffer?: Payroc.DccOffer;
+    amount?: number | undefined;
+    currency?: Payroc.Currency | undefined;
+    dccOffer?: Payroc.DccOffer | undefined;
 }

@@ -26,8 +26,8 @@ export interface PaymentSummary {
      */
     responseCode: PaymentSummary.ResponseCode;
     /** Response description from the processor. */
-    responseMessage: string;
-    link?: Payroc.Link;
+    responseMessage?: string | undefined;
+    link?: Payroc.Link | undefined;
 }
 
 export namespace PaymentSummary {

@@ -330,71 +330,23 @@ export class RefundsClient {
             after,
             limit,
         } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (processingTerminalId != null) {
-            _queryParams.processingTerminalId = processingTerminalId;
-        }
-
-        if (orderId != null) {
-            _queryParams.orderId = orderId;
-        }
-
-        if (operator != null) {
-            _queryParams.operator = operator;
-        }
-
-        if (cardholderName != null) {
-            _queryParams.cardholderName = cardholderName;
-        }
-
-        if (first6 != null) {
-            _queryParams.first6 = first6;
-        }
-
-        if (last4 != null) {
-            _queryParams.last4 = last4;
-        }
-
-        if (tender != null) {
-            _queryParams.tender = tender;
-        }
-
-        if (status != null) {
-            if (Array.isArray(status)) {
-                _queryParams.status = status.map((item) => item);
-            } else {
-                _queryParams.status = status;
-            }
-        }
-
-        if (dateFrom != null) {
-            _queryParams.dateFrom = dateFrom;
-        }
-
-        if (dateTo != null) {
-            _queryParams.dateTo = dateTo;
-        }
-
-        if (settlementState != null) {
-            _queryParams.settlementState = settlementState;
-        }
-
-        if (settlementDate != null) {
-            _queryParams.settlementDate = settlementDate;
-        }
-
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            processingTerminalId,
+            orderId,
+            operator,
+            cardholderName,
+            first6,
+            last4,
+            tender: tender != null ? tender : undefined,
+            status: Array.isArray(status) ? status.map((item) => item) : status != null ? status : undefined,
+            dateFrom: dateFrom != null ? dateFrom : undefined,
+            dateTo: dateTo != null ? dateTo : undefined,
+            settlementState: settlementState != null ? settlementState : undefined,
+            settlementDate: settlementDate != null ? settlementDate : undefined,
+            before,
+            after,
+            limit,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,

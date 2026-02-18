@@ -12,12 +12,12 @@ export interface DualPricing {
      * Object that contains information about the choice rate.
      * **Note:** For requests, if the value for **offered** is `true`, you must send this object in the request.
      */
-    choiceRate?: Payroc.ChoiceRate;
+    choiceRate?: Payroc.ChoiceRate | undefined;
     /**
      * Payment method that the merchant presented to the customer as an alternative to their chosen method.
      * **Note:** For requests, if the value for **offered** is `true`, you must send a value for **alternativeTender** in the request.
      */
-    alternativeTender?: DualPricing.AlternativeTender;
+    alternativeTender?: DualPricing.AlternativeTender | undefined;
 }
 
 export namespace DualPricing {

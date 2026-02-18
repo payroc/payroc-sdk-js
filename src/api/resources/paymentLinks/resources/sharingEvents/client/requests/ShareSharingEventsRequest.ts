@@ -23,5 +23,6 @@ export interface ShareSharingEventsRequest {
     paymentLinkId: string;
     /** Unique identifier that you generate for each request. You must use the [UUID v4 format](https://www.rfc-editor.org/rfc/rfc4122) for the identifier. For more information about the idempotency key, go to [Idempotency](https://docs.payroc.com/api/idempotency). */
     "Idempotency-Key": string;
+    /** Polymorphic object that contains information about how to share a payment link. */
     body: Payroc.PaymentLinkEmailShareEvent;
 }

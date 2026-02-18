@@ -9,12 +9,12 @@ export interface Surcharge {
      * - `true` - Gateway removes the surcharge fee from the transaction.
      * - `false` - Gateway adds the fee to the transaction.
      */
-    bypass?: boolean;
+    bypass?: boolean | undefined;
     /**
      * If the merchant added a surcharge fee, this value indicates the amount of the surcharge fee
      * in the currency’s lowest denomination, for example, cents.
      */
-    amount?: number;
+    amount?: number | undefined;
     /** If the merchant added a surcharge fee, this value indicates the surcharge percentage. */
-    percentage?: number;
+    percentage?: number | undefined;
 }

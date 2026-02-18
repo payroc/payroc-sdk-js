@@ -11,11 +11,18 @@ export interface SingleUseTokenPayload {
      *
      * **Note:** Send a value for accountType only if the single-use token represents bank account details.
      */
-    accountType?: SingleUseTokenPayload.AccountType;
+    accountType?: SingleUseTokenPayload.AccountType | undefined;
     /** Unique token that the gateway assigned to the payment details. */
     token: string;
-    pinDetails?: Payroc.SingleUseTokenPayloadPinDetails;
-    ebtDetails?: Payroc.EbtDetailsWithVoucher;
+    /**
+     * Polymorphic object that contains information about a customer's PIN.
+     *
+     * The value of the dataFormat parameter determines which variant you should use:
+     * - `dukpt` - PIN information is encrypted.
+     * - `raw` - PIN information is unencrypted.
+     */
+    pinDetails?: Payroc.SingleUseTokenPayloadPinDetails | undefined;
+    ebtDetails?: Payroc.EbtDetailsWithVoucher | undefined;
     /**
      * Indicates how the customer authorized the ACH transaction. Send one of the following values:
      *
@@ -24,7 +31,7 @@ export interface SingleUseTokenPayload {
      * - `ccd` – Corporate credit card or debit card transaction.
      * - `ppd` – Pre-arranged transaction.
      */
-    secCode?: SingleUseTokenPayload.SecCode;
+    secCode?: SingleUseTokenPayload.SecCode | undefined;
 }
 
 export namespace SingleUseTokenPayload {

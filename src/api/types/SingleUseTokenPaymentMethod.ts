@@ -3,7 +3,7 @@
 import type * as Payroc from "../index.js";
 
 /**
- * Object that contains information about the customer's payment details.
+ * Polymorphic object that contains payment card details.
  */
 export type SingleUseTokenPaymentMethod = Payroc.SingleUseTokenPaymentMethod.Card;
 

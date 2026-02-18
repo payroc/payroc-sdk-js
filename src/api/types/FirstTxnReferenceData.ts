@@ -8,7 +8,7 @@ export interface FirstTxnReferenceData {
      * Unique identifier of the first payment.
      * **Note:** We recommend that you always send a value for **paymentId**.
      */
-    paymentId?: string;
+    paymentId?: string | undefined;
     /** Identifier that the card brand assigns to the payment instruction. */
-    cardSchemeReferenceId?: string;
+    cardSchemeReferenceId?: string | undefined;
 }

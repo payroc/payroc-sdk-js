@@ -6,5 +6,5 @@ import type * as Payroc from "../index.js";
  * Object that contains information about the tip amount of a transaction.
  */
 export interface BreakdownAdjustment {
-    tip?: Payroc.Tip;
+    tip?: Payroc.Tip | undefined;
 }

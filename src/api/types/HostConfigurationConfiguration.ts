@@ -3,7 +3,7 @@
 import type * as Payroc from "../index.js";
 
 /**
- * Object that contains the host processor configuration.
+ * Polymorphic object that contains the host processor configuration.
  */
 export type HostConfigurationConfiguration = Payroc.HostConfigurationConfiguration.Tsys;
 

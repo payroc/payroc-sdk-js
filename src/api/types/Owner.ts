@@ -4,11 +4,11 @@ import type * as Payroc from "../index.js";
 
 export interface Owner {
     /** Unique identifier that we assigned to the owner. */
-    ownerId?: number;
+    ownerId?: number | undefined;
     /** Owner's first name. */
     firstName: string;
     /** Owner's middle name. */
-    middleName?: string;
+    middleName?: string | undefined;
     /** Owner's last name. */
     lastName: string;
     /** Owner's date of birth. The format of this value is **YYYY-MM-DD**. */
@@ -17,8 +17,15 @@ export interface Owner {
     /** Array of IDs. */
     identifiers: Payroc.Identifier[];
     /**
-     * Array of contactMethod objects.
+     * Array of polymorphic objects, which contain contact information.
+     *
      * **Note:** If you are adding information about an owner, you must provide at least an email address. If you are adding information about a contact, you must provide at least a contact number.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`email` - Email address
+     * -	`phone` - Phone number
+     * -	`mobile` - Mobile number
+     * -	`fax` - Fax number
      */
     contactMethods: Payroc.ContactMethod[];
     /** Object that contains information about the owner's relationship to the business. */

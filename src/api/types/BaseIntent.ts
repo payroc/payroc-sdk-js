@@ -5,22 +5,22 @@
  */
 export interface BaseIntent {
     /** Unique identifier of the pricing intent. */
-    id?: string;
+    id?: string | undefined;
     /** Date and time that we received your request to create the pricing intent. We return this value in the [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. */
-    createdDate?: string;
+    createdDate?: string | undefined;
     /** Date and time that the pricing intent was last modified. We return this value in the [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. */
-    lastUpdatedDate?: string;
+    lastUpdatedDate?: string | undefined;
     /**
      * Status of the pricing intent. The value can be one of the following:
      * - `active` - We have approved the pricing intent.
      * - `pendingReview` - We have not yet reviewed the pricing intent.
      * - `rejected` - We have rejected the pricing intent.
      */
-    status?: BaseIntent.Status;
+    status?: BaseIntent.Status | undefined;
     /** Unique identifier that you can assign to the pricing intent for your own records. */
     key: string;
     /** [Metadata](https://docs.payroc.com/api/metadata) object that contains your custom data. */
-    metadata?: Record<string, string>;
+    metadata?: Record<string, string> | undefined;
 }
 
 export namespace BaseIntent {

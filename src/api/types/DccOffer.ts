@@ -9,30 +9,30 @@ import type * as Payroc from "../index.js";
  */
 export interface DccOffer {
     /** Indicates if the cardholder accepted DCC offer. */
-    accepted?: boolean;
+    accepted?: boolean | undefined;
     /** Unique identifier of the DCC offer. */
-    offerReference?: string;
+    offerReference?: string | undefined;
     /** Amount in the cardholder’s currency in the currency’s lowest denomination, for example, cents. */
     fxAmount: number;
     /** Currency of the transaction in the card’s currency. The value for the currency follows the [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) standard. */
     fxCurrency: Payroc.Currency;
     /** Three-digit currency code for the card. This code follows the [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) standard. */
-    fxCurrencyCode?: string;
+    fxCurrencyCode?: string | undefined;
     /**
      * Number of decimal places between the smallest currency unit and a whole currency unit.
      *
      * For example, for GBP, the smallest currency unit is 1p and it is equal to £0.01.
      * If you use GBP, the value for **fxCurrencyExponent** is 2.
      */
-    fxCurrencyExponent?: number;
+    fxCurrencyExponent?: number | undefined;
     /** Foreign exchange rate for the card's currency. */
     fxRate: number;
     /** Markup percentage rate that the DCC provider applies to the foreign exchange rate. */
     markup: number;
     /** Supporting text for the markup rate. */
-    markupText?: string;
+    markupText?: string | undefined;
     /** Name of the DCC provider. */
-    provider?: string;
+    provider?: string | undefined;
     /** Source that the DCC provider used to get the foreign exchange rates. */
-    source?: string;
+    source?: string | undefined;
 }

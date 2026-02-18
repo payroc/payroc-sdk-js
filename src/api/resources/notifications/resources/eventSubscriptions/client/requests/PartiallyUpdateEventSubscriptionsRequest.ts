@@ -12,6 +12,95 @@ import type * as Payroc from "../../../../../../index.js";
  *                 path: "path"
  *             }]
  *     }
+ *
+ * @example
+ *     {
+ *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+ *         subscriptionId: 1,
+ *         body: [{
+ *                 op: "remove",
+ *                 path: "path"
+ *             }]
+ *     }
+ *
+ * @example
+ *     {
+ *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+ *         subscriptionId: 1,
+ *         body: [{
+ *                 op: "remove",
+ *                 path: "path"
+ *             }]
+ *     }
+ *
+ * @example
+ *     {
+ *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+ *         subscriptionId: 1,
+ *         body: [{
+ *                 op: "remove",
+ *                 path: "path"
+ *             }]
+ *     }
+ *
+ * @example
+ *     {
+ *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+ *         subscriptionId: 1,
+ *         body: [{
+ *                 op: "move",
+ *                 from: "from",
+ *                 path: "path"
+ *             }]
+ *     }
+ *
+ * @example
+ *     {
+ *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+ *         subscriptionId: 1,
+ *         body: [{
+ *                 op: "copy",
+ *                 from: "from",
+ *                 path: "path"
+ *             }]
+ *     }
+ *
+ * @example
+ *     {
+ *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+ *         subscriptionId: 1,
+ *         body: [{
+ *                 op: "remove",
+ *                 path: "path"
+ *             }]
+ *     }
+ *
+ * @example
+ *     {
+ *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+ *         subscriptionId: 1,
+ *         body: [{
+ *                 op: "remove",
+ *                 path: "path"
+ *             }, {
+ *                 op: "remove",
+ *                 path: "path"
+ *             }, {
+ *                 op: "remove",
+ *                 path: "path"
+ *             }, {
+ *                 op: "move",
+ *                 from: "from",
+ *                 path: "path"
+ *             }, {
+ *                 op: "copy",
+ *                 from: "from",
+ *                 path: "path"
+ *             }, {
+ *                 op: "remove",
+ *                 path: "path"
+ *             }]
+ *     }
  */
 export interface PartiallyUpdateEventSubscriptionsRequest {
     /**

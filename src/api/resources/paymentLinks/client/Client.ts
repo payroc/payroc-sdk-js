@@ -91,51 +91,19 @@ export class PaymentLinksClient {
             after,
             limit,
         } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (merchantReference != null) {
-            _queryParams.merchantReference = merchantReference;
-        }
-
-        if (linkType != null) {
-            _queryParams.linkType = linkType;
-        }
-
-        if (chargeType != null) {
-            _queryParams.chargeType = chargeType;
-        }
-
-        if (status != null) {
-            _queryParams.status = status;
-        }
-
-        if (recipientName != null) {
-            _queryParams.recipientName = recipientName;
-        }
-
-        if (recipientEmail != null) {
-            _queryParams.recipientEmail = recipientEmail;
-        }
-
-        if (createdOn != null) {
-            _queryParams.createdOn = createdOn;
-        }
-
-        if (expiresOn != null) {
-            _queryParams.expiresOn = expiresOn;
-        }
-
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            merchantReference,
+            linkType: linkType != null ? linkType : undefined,
+            chargeType: chargeType != null ? chargeType : undefined,
+            status: status != null ? status : undefined,
+            recipientName,
+            recipientEmail,
+            createdOn: createdOn != null ? createdOn : undefined,
+            expiresOn: expiresOn != null ? expiresOn : undefined,
+            before,
+            after,
+            limit,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -524,6 +492,28 @@ export class PaymentLinksClient {
      *         paymentLinkId: "JZURRJBUPS",
      *         body: [{
      *                 op: "remove",
+     *                 path: "path"
+     *             }]
+     *     })
+     *
+     * @example
+     *     await client.paymentLinks.partiallyUpdate({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         paymentLinkId: "JZURRJBUPS",
+     *         body: [{
+     *                 op: "move",
+     *                 from: "from",
+     *                 path: "path"
+     *             }]
+     *     })
+     *
+     * @example
+     *     await client.paymentLinks.partiallyUpdate({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         paymentLinkId: "JZURRJBUPS",
+     *         body: [{
+     *                 op: "copy",
+     *                 from: "from",
      *                 path: "path"
      *             }]
      *     })

@@ -17,7 +17,7 @@ export interface StandingInstructions {
      */
     processingModel: StandingInstructions.ProcessingModel;
     /** Object that contains information about the initial payment for the payment instruction. */
-    referenceDataOfFirstTxn?: Payroc.FirstTxnReferenceData;
+    referenceDataOfFirstTxn?: Payroc.FirstTxnReferenceData | undefined;
 }
 
 export namespace StandingInstructions {

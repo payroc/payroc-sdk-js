@@ -4,5 +4,5 @@ import type * as Payroc from "../index.js";
 
 export interface PaginatedOwners extends Payroc.PaginatedList {
     /** Array of owner objects. */
-    data?: Payroc.Owner[];
+    data?: Payroc.Owner[] | undefined;
 }

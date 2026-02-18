@@ -7,5 +7,5 @@ export interface PaymentPlanSummary {
     paymentPlanId: string;
     /** Name of the payment plan. */
     name: string;
-    link?: Payroc.Link;
+    link?: Payroc.Link | undefined;
 }

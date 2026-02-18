@@ -7,5 +7,5 @@ import type * as Payroc from "../index.js";
  */
 export interface EncryptionCapableDevice extends Payroc.Device {
     /** Key serial number. */
-    dataKsn?: string;
+    dataKsn?: string | undefined;
 }

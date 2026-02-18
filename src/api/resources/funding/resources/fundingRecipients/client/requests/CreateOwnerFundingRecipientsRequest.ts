@@ -8,11 +8,12 @@ import type * as Payroc from "../../../../../../index.js";
  *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
  *         recipientId: 1,
  *         body: {
- *             firstName: "Jane",
- *             lastName: "Doe",
- *             dateOfBirth: "1964-03-22",
+ *             firstName: "Fred",
+ *             middleName: "Jim",
+ *             lastName: "Nerk",
+ *             dateOfBirth: "1980-01-19",
  *             address: {
- *                 address1: "1 Example Ave.",
+ *                 address1: "2 Example Ave.",
  *                 city: "Chicago",
  *                 state: "Illinois",
  *                 country: "US",
@@ -20,14 +21,20 @@ import type * as Payroc from "../../../../../../index.js";
  *             },
  *             identifiers: [{
  *                     type: "nationalId",
- *                     value: "xxxxx4320"
+ *                     value: "000-00-9876"
  *                 }],
  *             contactMethods: [{
  *                     type: "email",
  *                     value: "jane.doe@example.com"
+ *                 }, {
+ *                     type: "phone",
+ *                     value: "2025550164"
  *                 }],
  *             relationship: {
- *                 isControlProng: true
+ *                 equityPercentage: 51.5,
+ *                 title: "CEO",
+ *                 isControlProng: false,
+ *                 isAuthorizedSignatory: true
  *             }
  *         }
  *     }

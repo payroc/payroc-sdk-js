@@ -3,6 +3,6 @@
 import type * as Payroc from "../index.js";
 
 export interface PaymentPlan extends Payroc.PaymentPlanBase {
-    setupOrder?: Payroc.PaymentPlanSetupOrder;
-    recurringOrder?: Payroc.PaymentPlanRecurringOrder;
+    setupOrder?: Payroc.PaymentPlanSetupOrder | undefined;
+    recurringOrder?: Payroc.PaymentPlanRecurringOrder | undefined;
 }

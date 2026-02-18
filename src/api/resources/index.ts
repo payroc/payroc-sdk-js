@@ -1,5 +1,8 @@
 export * from "./applePaySessions/client/requests/index.js";
 export * as applePaySessions from "./applePaySessions/index.js";
+export * from "./attachments/client/requests/index.js";
+export * as attachments from "./attachments/index.js";
+export * from "./attachments/types/index.js";
 export * from "./auth/client/requests/index.js";
 export * as auth from "./auth/index.js";
 export * from "./auth/types/index.js";

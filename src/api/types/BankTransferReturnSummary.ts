@@ -16,5 +16,5 @@ export interface BankTransferReturnSummary {
     returnReason: string;
     /** Indicates whether the return has been re-presented. */
     represented: boolean;
-    link?: Payroc.Link;
+    link?: Payroc.Link | undefined;
 }

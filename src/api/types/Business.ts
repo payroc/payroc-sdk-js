@@ -13,10 +13,20 @@ export interface Business {
     /** Type of organization. */
     organizationType: Business.OrganizationType;
     /** Two-digit code for the country that the business operates in. The format follows the [ISO-3166](https://www.iso.org/iso-3166-country-codes.html) standard. */
-    countryOfOperation?: Business.CountryOfOperation;
-    /** Object that contains the addresses for the business. */
+    countryOfOperation?: Business.CountryOfOperation | undefined;
+    /** Array of polymorphic objects that contain address information for the business. */
     addresses: Payroc.LegalAddress[];
-    /** Array of contactMethod objects. One contact method must be an email address. */
+    /**
+     * Array of polymorphic objects, which contain contact information.
+     *
+     * **Note:** You must provide an email address.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`email` - Email address
+     * -	`phone` - Phone number
+     * -	`mobile` - Mobile number
+     * -	`fax` - Fax number
+     */
     contactMethods: Payroc.ContactMethod[];
 }
 

@@ -7,10 +7,10 @@ import type * as Payroc from "../index.js";
  */
 export interface BatchSummary {
     /** Unique identifier of the batch. */
-    batchId?: number;
+    batchId?: number | undefined;
     /** Date that the merchant submitted the batch. */
-    date?: string;
+    date?: string | undefined;
     /** Indicates the cycle that contains the batch. */
-    cycle?: string;
-    link?: Payroc.Link;
+    cycle?: string | undefined;
+    link?: Payroc.Link | undefined;
 }

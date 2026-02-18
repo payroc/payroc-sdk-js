@@ -7,16 +7,16 @@ import type * as Payroc from "../index.js";
  */
 export interface TransactionSummary {
     /** Unique identifier of the transaction. If we can't match a dispute to a transaction, we don't return the transactionId or link object. */
-    transactionId?: number;
+    transactionId?: number | undefined;
     /** Indicates the type of transaction. */
-    type?: TransactionSummary.Type;
+    type?: TransactionSummary.Type | undefined;
     /** Date of the transaction. The format of this value is **YYYY-MM-DD**. */
-    date?: string;
+    date?: string | undefined;
     /** Describes how the merchant received the payment details. If we can't match a dispute to a transaction, we don't return an entryMethod object. */
-    entryMethod?: TransactionSummary.EntryMethod;
+    entryMethod?: TransactionSummary.EntryMethod | undefined;
     /** Total amount of the transaction. The value is in the currency's lowest denomination, for example, cents. */
-    amount?: number;
-    link?: Payroc.Link;
+    amount?: number | undefined;
+    link?: Payroc.Link | undefined;
 }
 
 export namespace TransactionSummary {

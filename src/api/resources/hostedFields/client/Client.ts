@@ -32,7 +32,7 @@ export class HostedFieldsClient {
      *
      * In the response, our gateway returns the session token and the time that it expires. You need the session token when you configure the JavaScript for Hosted Fields.
      *
-     * For more information about adding Hosted Fields to a webpage, go to [Hosted Fields](https://docs.payroc.com/guides/integrate/hosted-fields).
+     * For more information about adding Hosted Fields to a webpage, go to [Hosted Fields](https://docs.payroc.com/guides/take-payments/hosted-fields).
      *
      * @param {Payroc.HostedFieldsCreateSessionRequest} request
      * @param {HostedFieldsClient.RequestOptions} requestOptions - Request-specific configuration.

@@ -16,7 +16,7 @@ export interface AchBankAccount {
      * - `ccd` – Corporate credit card or debit card transaction.
      * - `ppd` – Pre-arranged transaction.
      */
-    secCode?: AchBankAccount.SecCode;
+    secCode?: AchBankAccount.SecCode | undefined;
     /** Customer's name. */
     nameOnAccount: string;
     /** Customer's bank account number. We mask all digits except the last four digits. */
@@ -27,7 +27,7 @@ export interface AchBankAccount {
      * **Note:** In responses, our gateway shows only the last four digits of the account's routing number, for example, *****4162.
      */
     routingNumber: string;
-    secureToken?: Payroc.SecureTokenSummary;
+    secureToken?: Payroc.SecureTokenSummary | undefined;
 }
 
 export namespace AchBankAccount {

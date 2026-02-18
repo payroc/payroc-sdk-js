@@ -8,7 +8,7 @@ export interface PadPayload {
      * Indicates the customer’s account type.
      * **Note:** For bank account details, send a value for accountType.
      */
-    accountType?: PadPayload.AccountType;
+    accountType?: PadPayload.AccountType | undefined;
     /** Customer's name. */
     nameOnAccount: string;
     /**

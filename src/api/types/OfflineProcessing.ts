@@ -7,9 +7,9 @@ export interface OfflineProcessing {
     /** Status of the transaction. */
     operation: OfflineProcessing.Operation;
     /** Approval code for the transaction from the processor. */
-    approvalCode?: string;
+    approvalCode?: string | undefined;
     /** Date and time that the merchant ran the transaction. The date follows the ISO 8601 standard. */
-    dateTime?: string;
+    dateTime?: string | undefined;
 }
 
 export namespace OfflineProcessing {

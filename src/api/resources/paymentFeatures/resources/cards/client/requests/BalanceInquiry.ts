@@ -28,6 +28,12 @@ export interface BalanceInquiry {
     operator?: string;
     currency: Payroc.Currency;
     customer?: Payroc.Customer;
-    /** Object that contains information about the card. */
+    /**
+     * Polymorphic object that contains payment details.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`card` - Payment card details
+     * -	`singleUseToken` - Single-use token details
+     */
     card: Payroc.paymentFeatures.BalanceInquiryCard;
 }

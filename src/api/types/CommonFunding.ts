@@ -2,7 +2,7 @@
 
 export interface CommonFunding {
     /** Indicates if the processing account can receive funds. */
-    status?: CommonFunding.Status;
+    status?: CommonFunding.Status | undefined;
     /**
      * Indicates when funds are sent to the funding account.
      *
@@ -10,15 +10,15 @@ export interface CommonFunding {
      *
      * **Note:** If you send a value of `sameday`, funding includes all transactions the merchant ran before the ACH cut-off time.
      */
-    fundingSchedule?: CommonFunding.FundingSchedule;
+    fundingSchedule?: CommonFunding.FundingSchedule | undefined;
     /**
      * Monthly fee in cents for accelerated funding. The value is in the currency's lowest denomination, for example, cents.
      *
      * We apply this fee if the value for fundingSchedule is `sameday` or `nextday`.
      */
-    acceleratedFundingFee?: number;
+    acceleratedFundingFee?: number | undefined;
     /** Indicates if we collect fees from the merchant's account each day. */
-    dailyDiscount?: boolean;
+    dailyDiscount?: boolean | undefined;
 }
 
 export namespace CommonFunding {

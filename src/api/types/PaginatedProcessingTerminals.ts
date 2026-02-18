@@ -4,5 +4,5 @@ import type * as Payroc from "../index.js";
 
 export interface PaginatedProcessingTerminals extends Payroc.PaginatedList {
     /** Array of processing terminal objects. */
-    data?: Payroc.ProcessingTerminal[];
+    data?: Payroc.ProcessingTerminal[] | undefined;
 }

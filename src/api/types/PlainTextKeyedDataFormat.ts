@@ -6,16 +6,16 @@ import type * as Payroc from "../index.js";
  * Object that contains information about the plain-text card data for keyed transactions.
  */
 export interface PlainTextKeyedDataFormat {
-    device?: Payroc.Device;
+    device?: Payroc.Device | undefined;
     /** Customer’s card number. */
     cardNumber: string;
     /**
      * Expiry date of the customer’s card.
      * **Note:** We require you to send an expiry date for most BIN lookups and electronic voucher transactions.
      */
-    expiryDate?: string;
+    expiryDate?: string | undefined;
     /** Security code of the customer’s card. */
-    cvv?: string;
+    cvv?: string | undefined;
     /** Issue number of the customer’s card. */
-    issueNumber?: string;
+    issueNumber?: string | undefined;
 }

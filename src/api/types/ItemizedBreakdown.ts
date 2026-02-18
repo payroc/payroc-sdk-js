@@ -7,10 +7,10 @@ import type * as Payroc from "../index.js";
  */
 export interface ItemizedBreakdown extends Payroc.Breakdown {
     /** Amount of duties or fees that apply to the order. The value is in the currency's lowest denomination, for example, cents. */
-    dutyAmount?: number;
+    dutyAmount?: number | undefined;
     /** Amount for shipping in the currency's lowest denomination, for example, cents. */
-    freightAmount?: number;
-    convenienceFee?: Payroc.ConvenienceFee;
+    freightAmount?: number | undefined;
+    convenienceFee?: Payroc.ConvenienceFee | undefined;
     /** Array of objects that contain information about each item that the customer purchased. */
-    items?: Payroc.LineItem[];
+    items?: Payroc.LineItem[] | undefined;
 }

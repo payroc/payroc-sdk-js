@@ -3,6 +3,12 @@
 import type * as Payroc from "../index.js";
 
 export interface PaymentLinkPaginatedList extends Payroc.PaginatedList {
-    /** Array of payment links. */
-    data?: Payroc.PaymentLinkPaginatedListDataItem[];
+    /**
+     * Array of polymorphic objects that contains payment link information.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	'multiUse' - Create a link that the merchant can use to take multiple payments.
+     * -	'singleUse' - Create a link that the merchant can use for only one payment.
+     */
+    data?: Payroc.PaymentLinkPaginatedListDataItem[] | undefined;
 }

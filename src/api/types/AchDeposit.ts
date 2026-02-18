@@ -7,31 +7,31 @@ import type * as Payroc from "../index.js";
  */
 export interface AchDeposit {
     /** Unique identifier that we assigned to the ACH deposit. */
-    achDepositId?: number;
+    achDepositId?: number | undefined;
     /** Date that we sent the transactions to the card brands for clearing. The format of this value is **YYYY-MM-DD**. */
-    associationDate?: string;
+    associationDate?: string | undefined;
     /** Date that we sent the ACH deposit. The format of this value is **YYYY-MM-DD**. */
-    achDate?: string;
+    achDate?: string | undefined;
     /** Date that the merchant received the ACH deposit. The format of this value is **YYYY-MM-DD**. */
-    paymentDate?: string;
+    paymentDate?: string | undefined;
     /** Number of transactions in the ACH deposit. */
-    transactions?: number;
+    transactions?: number | undefined;
     /** Amount of sales in the ACH deposit. We return the value in the currency's lowest denomination, for example, cents. */
-    sales?: number;
+    sales?: number | undefined;
     /** Amount of returns in the ACH deposit. We return the value in the currency's lowest denomination, for example, cents. */
-    returns?: number;
+    returns?: number | undefined;
     /** Amount of fees that were applied to the transactions in the ACH deposit. We return the value in the currency's lowest denomination, for example cents. */
-    dailyFees?: number;
+    dailyFees?: number | undefined;
     /** Amount of funds that we held if the merchant was in full suspense. We return the value in the currency's lowest denomination, for example, cents. */
-    heldSales?: number;
+    heldSales?: number | undefined;
     /** Amount of adjustments that we made to the ACH deposit. We return the value in the currency's lowest denomination, for example, cents. */
-    achAdjustment?: number;
+    achAdjustment?: number | undefined;
     /** Amount of funds that we held as reserve from the ACH deposit. We return the value in the currency's lowest denomination, for example, cents. */
-    holdback?: number;
+    holdback?: number | undefined;
     /** Amount of funds that we released from holdback. We return the value in the currency's lowest denomination, for example, cents. */
-    reserveRelease?: number;
+    reserveRelease?: number | undefined;
     /** Total amount that we paid the merchant after fees and adjustments. We return the value in the currency's lowest denomination, for example, cents. */
-    netAmount?: number;
-    merchant?: Payroc.MerchantSummary;
-    links?: Payroc.Link[];
+    netAmount?: number | undefined;
+    merchant?: Payroc.MerchantSummary | undefined;
+    links?: Payroc.Link[] | undefined;
 }

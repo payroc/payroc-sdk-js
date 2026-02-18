@@ -7,15 +7,15 @@ import type * as Payroc from "../index.js";
  */
 export interface PaginatedList {
     /** Maximum number of results that we return for each page. */
-    limit?: number;
+    limit?: number | undefined;
     /**
      * Number of results we returned on this page.
      *
      * **Note:** This might not be the total number of results that match your query.
      */
-    count?: number;
+    count?: number | undefined;
     /** Indicates whether there is another page of results available. */
-    hasMore?: boolean;
+    hasMore?: boolean | undefined;
     /** Reference links to navigate to the previous page of results or to the next page of results. */
-    links?: Payroc.Link[];
+    links?: Payroc.Link[] | undefined;
 }

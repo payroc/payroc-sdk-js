@@ -1004,6 +1004,590 @@ describe("PaymentPlansClient", () => {
             apiKey: "x-api-key",
             environment: { api: server.baseUrl, identity: server.baseUrl },
         });
+        const rawRequestBody = [{ op: "remove", path: "path" }];
+        const rawResponseBody = {
+            paymentPlanId: "PlanRef8765",
+            processingTerminalId: "1234001",
+            name: "Premium Club",
+            description: "Monthly Premium Club subscription",
+            currency: "USD",
+            length: 12,
+            type: "automatic",
+            frequency: "monthly",
+            onUpdate: "continue",
+            onDelete: "complete",
+            customFieldNames: ["yourCustomField"],
+            setupOrder: {
+                amount: 4999,
+                description: "Initial setup fee for Premium Club subscription",
+                breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
+            },
+            recurringOrder: {
+                amount: 4999,
+                description: "Monthly Premium Club subscription",
+                breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
+            },
+        };
+        server
+            .mockEndpoint()
+            .patch("/processing-terminals/1234001/payment-plans/PlanRef8765")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.repeatPayments.paymentPlans.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            processingTerminalId: "1234001",
+            paymentPlanId: "PlanRef8765",
+            body: [
+                {
+                    op: "remove",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            paymentPlanId: "PlanRef8765",
+            processingTerminalId: "1234001",
+            name: "Premium Club",
+            description: "Monthly Premium Club subscription",
+            currency: "USD",
+            length: 12,
+            type: "automatic",
+            frequency: "monthly",
+            onUpdate: "continue",
+            onDelete: "complete",
+            customFieldNames: ["yourCustomField"],
+            setupOrder: {
+                amount: 4999,
+                description: "Initial setup fee for Premium Club subscription",
+                breakdown: {
+                    subtotal: 4347,
+                    taxes: [
+                        {
+                            name: "Sales Tax",
+                            rate: 5,
+                            amount: 190,
+                        },
+                    ],
+                },
+            },
+            recurringOrder: {
+                amount: 4999,
+                description: "Monthly Premium Club subscription",
+                breakdown: {
+                    subtotal: 4347,
+                    taxes: [
+                        {
+                            name: "Sales Tax",
+                            rate: 5,
+                            amount: 190,
+                        },
+                    ],
+                },
+            },
+        });
+    });
+
+    test("partiallyUpdate (3)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "remove", path: "path" }];
+        const rawResponseBody = {
+            paymentPlanId: "PlanRef8765",
+            processingTerminalId: "1234001",
+            name: "Premium Club",
+            description: "Monthly Premium Club subscription",
+            currency: "USD",
+            length: 12,
+            type: "automatic",
+            frequency: "monthly",
+            onUpdate: "continue",
+            onDelete: "complete",
+            customFieldNames: ["yourCustomField"],
+            setupOrder: {
+                amount: 4999,
+                description: "Initial setup fee for Premium Club subscription",
+                breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
+            },
+            recurringOrder: {
+                amount: 4999,
+                description: "Monthly Premium Club subscription",
+                breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
+            },
+        };
+        server
+            .mockEndpoint()
+            .patch("/processing-terminals/1234001/payment-plans/PlanRef8765")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.repeatPayments.paymentPlans.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            processingTerminalId: "1234001",
+            paymentPlanId: "PlanRef8765",
+            body: [
+                {
+                    op: "remove",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            paymentPlanId: "PlanRef8765",
+            processingTerminalId: "1234001",
+            name: "Premium Club",
+            description: "Monthly Premium Club subscription",
+            currency: "USD",
+            length: 12,
+            type: "automatic",
+            frequency: "monthly",
+            onUpdate: "continue",
+            onDelete: "complete",
+            customFieldNames: ["yourCustomField"],
+            setupOrder: {
+                amount: 4999,
+                description: "Initial setup fee for Premium Club subscription",
+                breakdown: {
+                    subtotal: 4347,
+                    taxes: [
+                        {
+                            name: "Sales Tax",
+                            rate: 5,
+                            amount: 190,
+                        },
+                    ],
+                },
+            },
+            recurringOrder: {
+                amount: 4999,
+                description: "Monthly Premium Club subscription",
+                breakdown: {
+                    subtotal: 4347,
+                    taxes: [
+                        {
+                            name: "Sales Tax",
+                            rate: 5,
+                            amount: 190,
+                        },
+                    ],
+                },
+            },
+        });
+    });
+
+    test("partiallyUpdate (4)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "remove", path: "path" }];
+        const rawResponseBody = {
+            paymentPlanId: "PlanRef8765",
+            processingTerminalId: "1234001",
+            name: "Premium Club",
+            description: "Monthly Premium Club subscription",
+            currency: "USD",
+            length: 12,
+            type: "automatic",
+            frequency: "monthly",
+            onUpdate: "continue",
+            onDelete: "complete",
+            customFieldNames: ["yourCustomField"],
+            setupOrder: {
+                amount: 4999,
+                description: "Initial setup fee for Premium Club subscription",
+                breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
+            },
+            recurringOrder: {
+                amount: 4999,
+                description: "Monthly Premium Club subscription",
+                breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
+            },
+        };
+        server
+            .mockEndpoint()
+            .patch("/processing-terminals/1234001/payment-plans/PlanRef8765")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.repeatPayments.paymentPlans.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            processingTerminalId: "1234001",
+            paymentPlanId: "PlanRef8765",
+            body: [
+                {
+                    op: "remove",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            paymentPlanId: "PlanRef8765",
+            processingTerminalId: "1234001",
+            name: "Premium Club",
+            description: "Monthly Premium Club subscription",
+            currency: "USD",
+            length: 12,
+            type: "automatic",
+            frequency: "monthly",
+            onUpdate: "continue",
+            onDelete: "complete",
+            customFieldNames: ["yourCustomField"],
+            setupOrder: {
+                amount: 4999,
+                description: "Initial setup fee for Premium Club subscription",
+                breakdown: {
+                    subtotal: 4347,
+                    taxes: [
+                        {
+                            name: "Sales Tax",
+                            rate: 5,
+                            amount: 190,
+                        },
+                    ],
+                },
+            },
+            recurringOrder: {
+                amount: 4999,
+                description: "Monthly Premium Club subscription",
+                breakdown: {
+                    subtotal: 4347,
+                    taxes: [
+                        {
+                            name: "Sales Tax",
+                            rate: 5,
+                            amount: 190,
+                        },
+                    ],
+                },
+            },
+        });
+    });
+
+    test("partiallyUpdate (5)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "move", from: "from", path: "path" }];
+        const rawResponseBody = {
+            paymentPlanId: "PlanRef8765",
+            processingTerminalId: "1234001",
+            name: "Premium Club",
+            description: "Monthly Premium Club subscription",
+            currency: "USD",
+            length: 12,
+            type: "automatic",
+            frequency: "monthly",
+            onUpdate: "continue",
+            onDelete: "complete",
+            customFieldNames: ["yourCustomField"],
+            setupOrder: {
+                amount: 4999,
+                description: "Initial setup fee for Premium Club subscription",
+                breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
+            },
+            recurringOrder: {
+                amount: 4999,
+                description: "Monthly Premium Club subscription",
+                breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
+            },
+        };
+        server
+            .mockEndpoint()
+            .patch("/processing-terminals/1234001/payment-plans/PlanRef8765")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.repeatPayments.paymentPlans.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            processingTerminalId: "1234001",
+            paymentPlanId: "PlanRef8765",
+            body: [
+                {
+                    op: "move",
+                    from: "from",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            paymentPlanId: "PlanRef8765",
+            processingTerminalId: "1234001",
+            name: "Premium Club",
+            description: "Monthly Premium Club subscription",
+            currency: "USD",
+            length: 12,
+            type: "automatic",
+            frequency: "monthly",
+            onUpdate: "continue",
+            onDelete: "complete",
+            customFieldNames: ["yourCustomField"],
+            setupOrder: {
+                amount: 4999,
+                description: "Initial setup fee for Premium Club subscription",
+                breakdown: {
+                    subtotal: 4347,
+                    taxes: [
+                        {
+                            name: "Sales Tax",
+                            rate: 5,
+                            amount: 190,
+                        },
+                    ],
+                },
+            },
+            recurringOrder: {
+                amount: 4999,
+                description: "Monthly Premium Club subscription",
+                breakdown: {
+                    subtotal: 4347,
+                    taxes: [
+                        {
+                            name: "Sales Tax",
+                            rate: 5,
+                            amount: 190,
+                        },
+                    ],
+                },
+            },
+        });
+    });
+
+    test("partiallyUpdate (6)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "copy", from: "from", path: "path" }];
+        const rawResponseBody = {
+            paymentPlanId: "PlanRef8765",
+            processingTerminalId: "1234001",
+            name: "Premium Club",
+            description: "Monthly Premium Club subscription",
+            currency: "USD",
+            length: 12,
+            type: "automatic",
+            frequency: "monthly",
+            onUpdate: "continue",
+            onDelete: "complete",
+            customFieldNames: ["yourCustomField"],
+            setupOrder: {
+                amount: 4999,
+                description: "Initial setup fee for Premium Club subscription",
+                breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
+            },
+            recurringOrder: {
+                amount: 4999,
+                description: "Monthly Premium Club subscription",
+                breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
+            },
+        };
+        server
+            .mockEndpoint()
+            .patch("/processing-terminals/1234001/payment-plans/PlanRef8765")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.repeatPayments.paymentPlans.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            processingTerminalId: "1234001",
+            paymentPlanId: "PlanRef8765",
+            body: [
+                {
+                    op: "copy",
+                    from: "from",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            paymentPlanId: "PlanRef8765",
+            processingTerminalId: "1234001",
+            name: "Premium Club",
+            description: "Monthly Premium Club subscription",
+            currency: "USD",
+            length: 12,
+            type: "automatic",
+            frequency: "monthly",
+            onUpdate: "continue",
+            onDelete: "complete",
+            customFieldNames: ["yourCustomField"],
+            setupOrder: {
+                amount: 4999,
+                description: "Initial setup fee for Premium Club subscription",
+                breakdown: {
+                    subtotal: 4347,
+                    taxes: [
+                        {
+                            name: "Sales Tax",
+                            rate: 5,
+                            amount: 190,
+                        },
+                    ],
+                },
+            },
+            recurringOrder: {
+                amount: 4999,
+                description: "Monthly Premium Club subscription",
+                breakdown: {
+                    subtotal: 4347,
+                    taxes: [
+                        {
+                            name: "Sales Tax",
+                            rate: 5,
+                            amount: 190,
+                        },
+                    ],
+                },
+            },
+        });
+    });
+
+    test("partiallyUpdate (7)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "remove", path: "path" }];
+        const rawResponseBody = {
+            paymentPlanId: "PlanRef8765",
+            processingTerminalId: "1234001",
+            name: "Premium Club",
+            description: "Monthly Premium Club subscription",
+            currency: "USD",
+            length: 12,
+            type: "automatic",
+            frequency: "monthly",
+            onUpdate: "continue",
+            onDelete: "complete",
+            customFieldNames: ["yourCustomField"],
+            setupOrder: {
+                amount: 4999,
+                description: "Initial setup fee for Premium Club subscription",
+                breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
+            },
+            recurringOrder: {
+                amount: 4999,
+                description: "Monthly Premium Club subscription",
+                breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
+            },
+        };
+        server
+            .mockEndpoint()
+            .patch("/processing-terminals/1234001/payment-plans/PlanRef8765")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.repeatPayments.paymentPlans.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            processingTerminalId: "1234001",
+            paymentPlanId: "PlanRef8765",
+            body: [
+                {
+                    op: "remove",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            paymentPlanId: "PlanRef8765",
+            processingTerminalId: "1234001",
+            name: "Premium Club",
+            description: "Monthly Premium Club subscription",
+            currency: "USD",
+            length: 12,
+            type: "automatic",
+            frequency: "monthly",
+            onUpdate: "continue",
+            onDelete: "complete",
+            customFieldNames: ["yourCustomField"],
+            setupOrder: {
+                amount: 4999,
+                description: "Initial setup fee for Premium Club subscription",
+                breakdown: {
+                    subtotal: 4347,
+                    taxes: [
+                        {
+                            name: "Sales Tax",
+                            rate: 5,
+                            amount: 190,
+                        },
+                    ],
+                },
+            },
+            recurringOrder: {
+                amount: 4999,
+                description: "Monthly Premium Club subscription",
+                breakdown: {
+                    subtotal: 4347,
+                    taxes: [
+                        {
+                            name: "Sales Tax",
+                            rate: 5,
+                            amount: 190,
+                        },
+                    ],
+                },
+            },
+        });
+    });
+
+    test("partiallyUpdate (8)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
         const rawRequestBody = [
             { op: "remove", path: "path" },
             { op: "remove", path: "path" },
@@ -1121,7 +1705,7 @@ describe("PaymentPlansClient", () => {
         });
     });
 
-    test("partiallyUpdate (3)", async () => {
+    test("partiallyUpdate (9)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1170,7 +1754,7 @@ describe("PaymentPlansClient", () => {
         }).rejects.toThrow(Payroc.BadRequestError);
     });
 
-    test("partiallyUpdate (4)", async () => {
+    test("partiallyUpdate (10)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1219,7 +1803,7 @@ describe("PaymentPlansClient", () => {
         }).rejects.toThrow(Payroc.UnauthorizedError);
     });
 
-    test("partiallyUpdate (5)", async () => {
+    test("partiallyUpdate (11)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1268,7 +1852,7 @@ describe("PaymentPlansClient", () => {
         }).rejects.toThrow(Payroc.ForbiddenError);
     });
 
-    test("partiallyUpdate (6)", async () => {
+    test("partiallyUpdate (12)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1317,7 +1901,7 @@ describe("PaymentPlansClient", () => {
         }).rejects.toThrow(Payroc.NotFoundError);
     });
 
-    test("partiallyUpdate (7)", async () => {
+    test("partiallyUpdate (13)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1366,7 +1950,7 @@ describe("PaymentPlansClient", () => {
         }).rejects.toThrow(Payroc.NotAcceptableError);
     });
 
-    test("partiallyUpdate (8)", async () => {
+    test("partiallyUpdate (14)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1415,7 +1999,7 @@ describe("PaymentPlansClient", () => {
         }).rejects.toThrow(Payroc.ConflictError);
     });
 
-    test("partiallyUpdate (9)", async () => {
+    test("partiallyUpdate (15)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -1464,7 +2048,7 @@ describe("PaymentPlansClient", () => {
         }).rejects.toThrow(Payroc.UnsupportedMediaTypeError);
     });
 
-    test("partiallyUpdate (10)", async () => {
+    test("partiallyUpdate (16)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 

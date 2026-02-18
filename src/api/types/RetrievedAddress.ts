@@ -5,17 +5,17 @@
  */
 export interface RetrievedAddress {
     /** Address line 1. */
-    address1?: string;
+    address1?: string | undefined;
     /** Address line 2. */
-    address2?: string;
+    address2?: string | undefined;
     /** Address line 3. */
-    address3?: string;
+    address3?: string | undefined;
     /** City. */
-    city?: string;
+    city?: string | undefined;
     /** Name of the state or state abbreviation. */
-    state?: string;
+    state?: string | undefined;
     /** Two-digit country code for the country that the business operates in. The format follows the [ISO-3166-1](https://www.iso.org/iso-3166-country-codes.html) standard. */
-    country?: string;
+    country?: string | undefined;
     /** Zip code or postal code. */
-    postalCode?: string;
+    postalCode?: string | undefined;
 }

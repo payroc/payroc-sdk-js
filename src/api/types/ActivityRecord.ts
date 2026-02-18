@@ -15,7 +15,7 @@ export interface ActivityRecord {
      *
      * **Note:** We return a value for recipient only if the value for type is `debit`.
      */
-    recipient?: string;
+    recipient?: string | undefined;
     /** Description of the activity. */
     description: string;
     /** Total amount that we removed or added to the merchant's funding balance. The value is in the currency’s lowest denomination, for example, cents. */

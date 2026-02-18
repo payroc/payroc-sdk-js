@@ -6,5 +6,5 @@ import type * as Payroc from "../index.js";
  * Object that contains information about the payment.
  */
 export interface PaymentOrderRequest extends Payroc.PaymentOrderBase {
-    breakdown?: Payroc.ItemizedBreakdownRequest;
+    breakdown?: Payroc.ItemizedBreakdownRequest | undefined;
 }

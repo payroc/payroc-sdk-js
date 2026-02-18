@@ -2,7 +2,7 @@
 
 export interface PaymentMethodAch {
     /** Object that contains information about the funding account. */
-    value?: PaymentMethodAch.Value;
+    value?: PaymentMethodAch.Value | undefined;
 }
 
 export namespace PaymentMethodAch {

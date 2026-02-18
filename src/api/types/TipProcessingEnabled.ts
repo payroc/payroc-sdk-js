@@ -7,11 +7,11 @@ export interface TipProcessingEnabled {
     /** Indicates if the terminal can accept tips. */
     enabled: boolean;
     /** Indicates if the terminal prompts for tips. */
-    tipPrompt?: boolean;
+    tipPrompt?: boolean | undefined;
     /** Indicates if a clerk can adjust a tip after the customer completes the sale. */
-    tipAdjust?: boolean;
+    tipAdjust?: boolean | undefined;
     /** Object that contains up to three tip amounts that the terminal displays during a sale. */
-    suggestedTips?: TipProcessingEnabled.SuggestedTips;
+    suggestedTips?: TipProcessingEnabled.SuggestedTips | undefined;
 }
 
 export namespace TipProcessingEnabled {
@@ -20,8 +20,8 @@ export namespace TipProcessingEnabled {
      */
     export interface SuggestedTips {
         /** Indicates if the terminal displays tip amounts during a sale. */
-        enabled?: boolean;
+        enabled?: boolean | undefined;
         /** Array of the tip amounts that the terminal displays during a sale. */
-        tipPercentages?: string[];
+        tipPercentages?: string[] | undefined;
     }
 }

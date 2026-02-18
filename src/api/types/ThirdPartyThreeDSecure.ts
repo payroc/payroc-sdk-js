@@ -7,11 +7,11 @@ export interface ThirdPartyThreeDSecure {
     /** E-commerce indicator (ECI) result of a the 3-D Secure check. */
     eci: ThirdPartyThreeDSecure.Eci;
     /** Unique transaction identifier that the merchant assigned to the transaction and sent in the authentication request. */
-    xid?: string;
+    xid?: string | undefined;
     /** Cardholder Authentication Verification Value (CAVV) that the card issuer provided to prove that they authorized the online payment. */
-    cavv?: string;
+    cavv?: string | undefined;
     /** Directory Server Transaction ID that the processor assigned to the request. */
-    dsTransactionId?: string;
+    dsTransactionId?: string | undefined;
 }
 
 export namespace ThirdPartyThreeDSecure {

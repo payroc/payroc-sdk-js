@@ -10,12 +10,12 @@ export interface RawCardDetails {
      * If an offline transaction is not approved using the initial entry method, reprocess the transaction using a downgraded entry method.
      * For example, an Integrated Circuit Card (ICC) transaction can be downgraded to a swiped transaction or to a keyed transaction.
      */
-    downgradeTo?: RawCardDetails.DowngradeTo;
+    downgradeTo?: RawCardDetails.DowngradeTo | undefined;
     device: Payroc.Device;
     /** Unencrypted data from the POS terminal. */
     rawData: string;
     /** Cardholder's signature. For more information about how to format the signature, go to [How to send a signature to our gateway](https://docs.payroc.com/knowledge/basic-concepts/signature-capture). */
-    cardholderSignature?: string;
+    cardholderSignature?: string | undefined;
 }
 
 export namespace RawCardDetails {

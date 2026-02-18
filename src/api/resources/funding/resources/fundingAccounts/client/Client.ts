@@ -55,19 +55,11 @@ export class FundingAccountsClient {
         requestOptions?: FundingAccountsClient.RequestOptions,
     ): Promise<core.PayrocPager<Payroc.FundingAccount, Payroc.ListFundingAccounts>> {
         const { before, after, limit } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            before,
+            after,
+            limit,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -267,12 +259,15 @@ export class FundingAccountsClient {
      *     await client.funding.fundingAccounts.update({
      *         fundingAccountId: 1,
      *         body: {
-     *             type: "checking",
+     *             type: "savings",
      *             use: "credit",
-     *             nameOnAccount: "Jane Doe",
+     *             nameOnAccount: "Fred Nerk",
      *             paymentMethods: [{
      *                     type: "ach"
-     *                 }]
+     *                 }],
+     *             metadata: {
+     *                 "responsiblePerson": "Jane Doe"
+     *             }
      *         }
      *     })
      */

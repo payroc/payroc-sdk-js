@@ -5,7 +5,7 @@
  */
 export interface Processing {
     /** Unique identifier that the acquiring platform assigns to the merchant. */
-    merchantId?: string;
+    merchantId?: string | undefined;
     /** Object that contains information about transaction amounts for the processing account. */
     transactionAmounts: Processing.TransactionAmounts;
     /** Object that contains information about the monthly processing amounts for the processing account. */
@@ -13,13 +13,13 @@ export interface Processing {
     /** Object that contains information about the types of transactions ran by the processing account. The percentages for transaction types must total 100%. */
     volumeBreakdown: Processing.VolumeBreakdown;
     /** Indicates if the processing account runs transactions on a seasonal basis. For example, if the processing account runs transactions during only the winter months, send a value of `true`. */
-    isSeasonal?: boolean;
+    isSeasonal?: boolean | undefined;
     /** Months of the year that the processing account runs transactions. */
-    monthsOfOperation?: Processing.MonthsOfOperation.Item[];
+    monthsOfOperation?: Processing.MonthsOfOperation.Item[] | undefined;
     /** Object that contains information about Automated Clearing House (ACH) transactions. */
-    ach?: Processing.Ach;
+    ach?: Processing.Ach | undefined;
     /** Object that contains information about the types of cards that the processing account accepts. */
-    cardAcceptance?: Processing.CardAcceptance;
+    cardAcceptance?: Processing.CardAcceptance | undefined;
 }
 
 export namespace Processing {
@@ -80,9 +80,9 @@ export namespace Processing {
      */
     export interface Ach {
         /** North American Industry Classification System (NAICS) code. */
-        naics?: string;
+        naics?: string | undefined;
         /** Indicates if the business or its principals were previously turned down for ACH processing. */
-        previouslyTerminatedForAch?: boolean;
+        previouslyTerminatedForAch?: boolean | undefined;
         /** Object that contains information about the ACH refund policy for the processing account. */
         refunds: Ach.Refunds;
         /** Estimated maximum number of transactions that the merchant will process in a month. */
@@ -90,9 +90,9 @@ export namespace Processing {
         /** Object that contains information about transaction limits for the processing account. */
         limits: Ach.Limits;
         /** List of transaction types that the processing account supports. */
-        transactionTypes?: Ach.TransactionTypes.Item[];
+        transactionTypes?: Ach.TransactionTypes.Item[] | undefined;
         /** If you send a value of `other` for transactionTypes, provide a list of the supported transaction types. */
-        transactionTypesOther?: string;
+        transactionTypesOther?: string | undefined;
     }
 
     export namespace Ach {
@@ -103,7 +103,7 @@ export namespace Processing {
             /** Indicates if the business has a written refund policy. */
             writtenRefundPolicy: boolean;
             /** URL of the written refund policy. */
-            refundPolicyUrl?: string;
+            refundPolicyUrl?: string | undefined;
         }
 
         /**
@@ -137,13 +137,13 @@ export namespace Processing {
      */
     export interface CardAcceptance {
         /** Indicates if the merchant accepts only debit cards. */
-        debitOnly?: boolean;
+        debitOnly?: boolean | undefined;
         /** Indicates if the merchant accepts health savings account (HSA) and flexible spending account (FSA) cards. */
-        hsaFsa?: boolean;
+        hsaFsa?: boolean | undefined;
         /** List of card types the merchant accepts. */
-        cardsAccepted?: CardAcceptance.CardsAccepted.Item[];
+        cardsAccepted?: CardAcceptance.CardsAccepted.Item[] | undefined;
         /** Information about the speciality cards that the merchant accepts. */
-        specialityCards?: CardAcceptance.SpecialityCards;
+        specialityCards?: CardAcceptance.SpecialityCards | undefined;
     }
 
     export namespace CardAcceptance {
@@ -164,11 +164,11 @@ export namespace Processing {
          */
         export interface SpecialityCards {
             /** Object that indicates if the merchant accepts American Express Direct cards and contains the merchant’s American Express merchant number. */
-            americanExpressDirect?: SpecialityCards.AmericanExpressDirect;
+            americanExpressDirect?: SpecialityCards.AmericanExpressDirect | undefined;
             /** Object that indicates if the merchant accepts Electronic Benefits Transfer (EBT) cards and contains the merchant’s Food and Nutrition Services (FNS) number. */
-            electronicBenefitsTransfer?: SpecialityCards.ElectronicBenefitsTransfer;
+            electronicBenefitsTransfer?: SpecialityCards.ElectronicBenefitsTransfer | undefined;
             /** Object that contains information about other speciality cards that the merchant accepts. */
-            other?: SpecialityCards.Other;
+            other?: SpecialityCards.Other | undefined;
         }
 
         export namespace SpecialityCards {
@@ -177,9 +177,9 @@ export namespace Processing {
              */
             export interface AmericanExpressDirect {
                 /** Indicates if the merchant accepts American Express Direct. */
-                enabled?: boolean;
+                enabled?: boolean | undefined;
                 /** If the merchant accepts American Express Direct, provide their American Express merchant number. */
-                merchantNumber?: string;
+                merchantNumber?: string | undefined;
             }
 
             /**
@@ -187,9 +187,9 @@ export namespace Processing {
              */
             export interface ElectronicBenefitsTransfer {
                 /** Indicates if the merchant accepts EBT. */
-                enabled?: boolean;
+                enabled?: boolean | undefined;
                 /** If the merchant accepts EBT, provide their FNS number. */
-                fnsNumber?: string;
+                fnsNumber?: string | undefined;
             }
 
             /**
@@ -197,11 +197,11 @@ export namespace Processing {
              */
             export interface Other {
                 /** If the merchant accepts WEX, provide their WEX merchant number. */
-                wexMerchantNumber?: string;
+                wexMerchantNumber?: string | undefined;
                 /** If the merchant accepts Voyager, provide their Voyager merchant ID. */
-                voyagerMerchantId?: string;
+                voyagerMerchantId?: string | undefined;
                 /** If the merchant accepts Fleet, provide their Fleet merchant ID. */
-                fleetMerchantId?: string;
+                fleetMerchantId?: string | undefined;
             }
         }
     }

@@ -7,5 +7,5 @@ import type * as Payroc from "../index.js";
  */
 export interface CreateFunding extends Payroc.CommonFunding {
     /** Array of fundingAccounts objects. */
-    fundingAccounts?: Payroc.FundingAccount[];
+    fundingAccounts?: Payroc.FundingAccount[] | undefined;
 }

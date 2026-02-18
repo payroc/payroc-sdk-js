@@ -82,7 +82,7 @@ export interface SubscriptionRequest {
     subscriptionId: string;
     /** Unique identifier that the merchant assigned to the payment plan. */
     paymentPlanId: string;
-    /** Object that contains information about the customer's payment details. */
+    /** Polymorphic object that contains information about the secure token. */
     paymentMethod: Payroc.repeatPayments.SubscriptionRequestPaymentMethod;
     /**
      * Name of the subscription.

@@ -7,31 +7,37 @@ import type * as Payroc from "../index.js";
  */
 export interface BaseUs {
     /** Fee for each address verification request. The value is in the currency's lowest denomination, for example, cents. */
-    addressVerification?: number;
+    addressVerification?: number | undefined;
     /** Object that contains information about the annual fee. */
     annualFee: BaseUs.AnnualFee;
     /** Annual fee for the regulatory assistance program. The value is in the currency's lowest denomination, for example, cents. */
-    regulatoryAssistanceProgram?: number;
+    regulatoryAssistanceProgram?: number | undefined;
     /** Fee that we apply each month if you aren't compliant with PCI standards. The value is in the currency's lowest denomination, for example, cents. */
-    pciNonCompliance?: number;
+    pciNonCompliance?: number | undefined;
     /** Monthly fee for Payroc Advantage. The value is in the currency's lowest denomination, for example, cents. */
-    merchantAdvantage?: number;
-    /** Object that contains information about the Platinum Security fee. */
-    platinumSecurity?: Payroc.BaseUsPlatinumSecurity;
+    merchantAdvantage?: number | undefined;
+    /**
+     * Polymorphic object that contains billing details for Platinum Security.
+     *
+     * The value of the billingFrequency field determines which variant you should use:
+     * -	`monthly` - We collect the fee for Platinum Security each month.
+     * -	`annual` - We collect the fee for Platinum Security each year.
+     */
+    platinumSecurity?: Payroc.BaseUsPlatinumSecurity | undefined;
     /** Monthly fee for maintenance. The value is in the currency's lowest denomination, for example, cents. */
     maintenance: number;
     /** Monthly fee that we charge when the merchant doesn't meet the minimum fee amount. This monthly fee is in the currency's lowest denomination, for example, cents. */
     minimum: number;
     /** Fee for each voice authorization. The value is in the currency's lowest denomination, for example, cents. */
-    voiceAuthorization?: number;
+    voiceAuthorization?: number | undefined;
     /** Fee for each chargeback. The value is in the currency's lowest denomination, for example, cents. */
-    chargeback?: number;
+    chargeback?: number | undefined;
     /** Fee for each retrieval. The value is in the currency's lowest denomination, for example, cents. */
-    retrieval?: number;
+    retrieval?: number | undefined;
     /** Fee for each batch. The value is in the currency's lowest denomination, for example, cents. */
     batch: number;
     /** Fee for early termination. The value is in the currency's lowest denomination, for example, cents. */
-    earlyTermination?: number;
+    earlyTermination?: number | undefined;
 }
 
 export namespace BaseUs {
@@ -40,7 +46,7 @@ export namespace BaseUs {
      */
     export interface AnnualFee {
         /** Indicates whether we collect the annual fee in June or December. */
-        billInMonth?: AnnualFee.BillInMonth;
+        billInMonth?: AnnualFee.BillInMonth | undefined;
         /** Annual fee. The value is in the currency's lowest denomination, for example, cents. */
         amount: number;
     }

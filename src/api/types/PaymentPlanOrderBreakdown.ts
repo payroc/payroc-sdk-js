@@ -4,5 +4,5 @@ import type * as Payroc from "../index.js";
 
 export interface PaymentPlanOrderBreakdown extends Payroc.PaymentPlanOrderBreakdownBase {
     /** Array of tax objects. */
-    taxes?: Payroc.RetrievedTax[];
+    taxes?: Payroc.RetrievedTax[] | undefined;
 }

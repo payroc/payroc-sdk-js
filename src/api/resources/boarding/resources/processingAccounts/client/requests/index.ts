@@ -1,5 +1,5 @@
 export type { CreateReminderProcessingAccountsRequest } from "./CreateReminderProcessingAccountsRequest.js";
-export type { CreateTerminalOrder } from "./CreateTerminalOrder.js";
+export { CreateTerminalOrder } from "./CreateTerminalOrder.js";
 export type { GetProcessingAccountPricingAgreementProcessingAccountsRequest } from "./GetProcessingAccountPricingAgreementProcessingAccountsRequest.js";
 export type { ListContactsProcessingAccountsRequest } from "./ListContactsProcessingAccountsRequest.js";
 export type { ListProcessingAccountFundingAccountsRequest } from "./ListProcessingAccountFundingAccountsRequest.js";

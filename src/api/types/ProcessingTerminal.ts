@@ -10,23 +10,29 @@ export interface ProcessingTerminal {
     /** Time zone of the processing terminal. */
     timezone: ProcessingTerminal.Timezone;
     /** Name of the product and its setup. */
-    program?: string;
-    /** Object that contains the gateway settings for the solution. */
-    gateway?: Payroc.PayrocGateway;
-    /** Object that contains information about when and how the terminal closes the batch. */
+    program?: string | undefined;
+    /** Polymorphic object that contains the gateway settings for the solution. */
+    gateway?: Payroc.PayrocGateway | undefined;
+    /**
+     * Polymorphic object that contains information about when and how the terminal closes the batch.
+     *
+     * The value of the batchCloseType field determines which variant you should use:
+     * -	`automatic` - Terminal automatically closes the batch at a specific time each day.
+     * - `manual` - Merchant uses the terminal to manually close the batch.
+     */
     batchClosure: Payroc.ProcessingTerminalBatchClosure;
     /** Object that contains the application settings for the solution. */
     applicationSettings: ProcessingTerminal.ApplicationSettings;
     /** Object that contains the feature settings for the terminal. */
     features: ProcessingTerminal.Features;
     /** Array of tax objects that contains the taxes that apply to the merchant's transactions. */
-    taxes?: ProcessingTerminal.Taxes.Item[];
+    taxes?: ProcessingTerminal.Taxes.Item[] | undefined;
     /** Object that contains the tokenization settings and AVS settings for the terminal. */
-    security?: ProcessingTerminal.Security;
+    security?: ProcessingTerminal.Security | undefined;
     /** Object that indicates if the terminal can send email receipts or text receipts. */
-    receiptNotifications?: ProcessingTerminal.ReceiptNotifications;
+    receiptNotifications?: ProcessingTerminal.ReceiptNotifications | undefined;
     /** Array of device objects. Each object contains information about a device using the processing terminal's configuration. */
-    devices?: ProcessingTerminal.Devices.Item[];
+    devices?: ProcessingTerminal.Devices.Item[] | undefined;
 }
 
 export namespace ProcessingTerminal {
@@ -55,36 +61,52 @@ export namespace ProcessingTerminal {
      */
     export interface ApplicationSettings {
         /** Indicates if the terminal should prompt the clerk to provide an invoice number with a sale. */
-        invoiceNumberPrompt?: boolean;
+        invoiceNumberPrompt?: boolean | undefined;
         /** Indicates if the terminal should prompt the clerk, for example, if the terminal should prompt when the clerk needs to enter an amount on the terminal. */
-        clerkPrompt?: boolean;
+        clerkPrompt?: boolean | undefined;
     }
 
     /**
      * Object that contains the feature settings for the terminal.
      */
     export interface Features {
-        /** Object that contains the tip settings for the processing terminal. */
-        tips?: Features.Tips;
+        /**
+         * Polymorphic object that indicates if the terminal accepts tips.
+         *
+         * The value of the enabled field determines which variant you should use:
+         * -	`true` - Terminal allows tips.
+         * -	`false` - Terminal doesn't allow tips.
+         */
+        tips?: Features.Tips | undefined;
         /** Object that contains details about level two and level three transactions. */
         enhancedProcessing: Features.EnhancedProcessing;
-        /** Object that contains details about EBT transactions. */
+        /**
+         * Polymorphic object that indicates if the terminal accepts EBT transactions.
+         *
+         * The value of the enabled field determines which variant you should use:
+         * -	`true` - Terminal allows EBT transactions.
+         * -	`false` - Terminal doesn't allow EBT transactions.
+         */
         ebt: Features.Ebt;
         /** Indicates if the terminal prompts for cashback on PIN debit transactions. */
         pinDebitCashback: boolean;
-        /** Indicates if the terminal can run repeat payments. For more information about repeat payments, go to [Payment Plans](https://docs.payroc.com/guides/integrate/repeat-payments). */
-        recurringPayments?: boolean;
+        /** Indicates if the terminal can run repeat payments. For more information about repeat payments, go to [Payment Plans](https://docs.payroc.com/guides/take-payments/repeat-payments). */
+        recurringPayments?: boolean | undefined;
         /** Object that contains details about payment links. */
-        paymentLinks?: Features.PaymentLinks;
+        paymentLinks?: Features.PaymentLinks | undefined;
         /** Indicates if the terminal can run pre-authorizations. */
-        preAuthorizations?: boolean;
+        preAuthorizations?: boolean | undefined;
         /** Indicates if the terminal can accept payments when it can't connect to the gateway. For more information about offline processing, go to [Offline Processing](https://docs.payroc.com/knowledge/card-payments/offline-processing). */
-        offlinePayments?: boolean;
+        offlinePayments?: boolean | undefined;
     }
 
     export namespace Features {
         /**
-         * Object that contains the tip settings for the processing terminal.
+         * Polymorphic object that indicates if the terminal accepts tips.
+         *
+         * The value of the enabled field determines which variant you should use:
+         * -	`true` - Terminal allows tips.
+         * -	`false` - Terminal doesn't allow tips.
          */
         export type Tips = Payroc.TipProcessingEnabled | Payroc.TipProcessingDisabled;
 
@@ -95,13 +117,13 @@ export namespace ProcessingTerminal {
             /** Indicates if the terminal can run level two and level three transactions. */
             enabled: boolean;
             /** Indicates if the terminal supports level two or level three transactions. */
-            transactionDataLevel?: EnhancedProcessing.TransactionDataLevel;
+            transactionDataLevel?: EnhancedProcessing.TransactionDataLevel | undefined;
             /**
              * Indicates the address information that the clerk must provide to qualify for level two or level three data. The value is one of the following:
              * - `fullAddress` - The clerk must provide the full address for the transaction to qualify.
              * - `postalCode` - The clerk must provide a postal code for the transaction to qualify.
              */
-            shippingAddressMode?: EnhancedProcessing.ShippingAddressMode;
+            shippingAddressMode?: EnhancedProcessing.ShippingAddressMode | undefined;
         }
 
         export namespace EnhancedProcessing {
@@ -124,7 +146,11 @@ export namespace ProcessingTerminal {
         }
 
         /**
-         * Object that contains details about EBT transactions.
+         * Polymorphic object that indicates if the terminal accepts EBT transactions.
+         *
+         * The value of the enabled field determines which variant you should use:
+         * -	`true` - Terminal allows EBT transactions.
+         * -	`false` - Terminal doesn't allow EBT transactions.
          */
         export type Ebt = Payroc.EbtEnabled | Payroc.EbtDisabled;
 
@@ -135,9 +161,9 @@ export namespace ProcessingTerminal {
             /** Indicates if the terminal supports payment links. */
             enabled: boolean;
             /** URL of the logo image that the merchant wants to display in their payment link email. */
-            logoUrl?: string;
+            logoUrl?: string | undefined;
             /** String that the merchant wants to display on the footer of their payment link email. */
-            footerNotes?: string;
+            footerNotes?: string | undefined;
         }
     }
 
@@ -164,7 +190,7 @@ export namespace ProcessingTerminal {
         /** Indicates if the terminal should prompt for Address Verification Service (AVS) details when running a transaction. */
         avsPrompt: boolean;
         /** Indicates the level of AVS details that the terminal should prompt for. */
-        avsLevel?: Security.AvsLevel;
+        avsLevel?: Security.AvsLevel | undefined;
         /** Indicates if the terminal should prompt for a Card Verfication Value (CVV) when running a transaction. */
         cvvPrompt: boolean;
     }
@@ -183,9 +209,9 @@ export namespace ProcessingTerminal {
      */
     export interface ReceiptNotifications {
         /** Indicates if the terminal can send receipts by email. */
-        emailReceipt?: boolean;
+        emailReceipt?: boolean | undefined;
         /** Indicates if the terminal can send receipts by text message. */
-        smsReceipt?: boolean;
+        smsReceipt?: boolean | undefined;
     }
 
     export type Devices = Devices.Item[];
@@ -201,7 +227,7 @@ export namespace ProcessingTerminal {
             model: string;
             /** Serial number of the terminal. */
             serialNumber: string;
-            communicationType?: Payroc.CommunicationType;
+            communicationType?: Payroc.CommunicationType | undefined;
         }
     }
 }

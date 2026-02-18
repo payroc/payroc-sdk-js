@@ -4,5 +4,5 @@ import type * as Payroc from "../index.js";
 
 export interface PaymentPlanPaginatedList extends Payroc.PaginatedList {
     /** Array of paymentPlan objects. */
-    data?: Payroc.PaymentPlan[];
+    data?: Payroc.PaymentPlan[] | undefined;
 }

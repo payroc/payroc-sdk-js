@@ -9,7 +9,7 @@ export interface EbtEnabled {
     /** Indicates the type of EBT that the terminal supports. */
     ebtType: EbtEnabled.EbtType;
     /** Food and Nutritional Service (FNS) number that the government assigns to the merchant to allow them to accept Supplemental Nutrition Assistance Program (SNAP) transactions. */
-    fnsNumber?: string;
+    fnsNumber?: string | undefined;
 }
 
 export namespace EbtEnabled {

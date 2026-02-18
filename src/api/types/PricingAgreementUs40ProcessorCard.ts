@@ -3,7 +3,18 @@
 import type * as Payroc from "../index.js";
 
 /**
- * Object that contains the fees for card transactions.
+ * Polymorphic object that contains fees for card transactions.
+ *
+ * The value of the planType field determines which variant you should use:
+ * -	`interchangePlus` - Interchange + pricing
+ * -	`interchangePlusTiered3` - Interchange pricing with three tiers
+ * -	`tiered3` - Three-tiered pricing
+ * -	`tiered4` - Four-tiered pricing
+ * -	`tiered6` - Six-tiered pricing
+ * -	`flatRate` - Flat rate pricing
+ * -	`consumerChoice` - ConsumerChoice
+ * -	`rewardPay` - RewardPay
+ * -	`rewardPayChoice` - RewardPayChoice
  */
 export type PricingAgreementUs40ProcessorCard =
     | Payroc.PricingAgreementUs40ProcessorCard.InterchangePlus
@@ -54,7 +65,18 @@ export namespace PricingAgreementUs40ProcessorCard {
     }
 
     /**
-     * Object that contains the fees for card transactions.
+     * Polymorphic object that contains fees for card transactions.
+     *
+     * The value of the planType field determines which variant you should use:
+     * -	`interchangePlus` - Interchange + pricing
+     * -	`interchangePlusTiered3` - Interchange pricing with three tiers
+     * -	`tiered3` - Three-tiered pricing
+     * -	`tiered4` - Four-tiered pricing
+     * -	`tiered6` - Six-tiered pricing
+     * -	`flatRate` - Flat rate pricing
+     * -	`consumerChoice` - ConsumerChoice
+     * -	`rewardPay` - RewardPay
+     * -	`rewardPayChoice` - RewardPayChoice
      */
     export type Request =
         | Payroc.PricingAgreementUs40ProcessorCard.InterchangePlus

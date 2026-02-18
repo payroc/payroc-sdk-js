@@ -58,24 +58,13 @@ export class SettlementClient {
         requestOptions?: SettlementClient.RequestOptions,
     ): Promise<core.PayrocPager<Payroc.Batch, Payroc.reporting.ListBatchesSettlementResponse>> {
         const { before, after, limit, date, merchantId } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
-        _queryParams.date = date;
-        if (merchantId != null) {
-            _queryParams.merchantId = merchantId;
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            before,
+            after,
+            limit,
+            date,
+            merchantId,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -287,35 +276,15 @@ export class SettlementClient {
         requestOptions?: SettlementClient.RequestOptions,
     ): Promise<core.PayrocPager<Payroc.Transaction, Payroc.reporting.ListTransactionsSettlementResponse>> {
         const { before, after, limit, date, batchId, merchantId, transactionType } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
-        if (date != null) {
-            _queryParams.date = date;
-        }
-
-        if (batchId != null) {
-            _queryParams.batchId = batchId.toString();
-        }
-
-        if (merchantId != null) {
-            _queryParams.merchantId = merchantId;
-        }
-
-        if (transactionType != null) {
-            _queryParams.transactionType = transactionType;
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            before,
+            after,
+            limit,
+            date: date != null ? date : undefined,
+            batchId,
+            merchantId,
+            transactionType: transactionType != null ? transactionType : undefined,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -525,31 +494,14 @@ export class SettlementClient {
         requestOptions?: SettlementClient.RequestOptions,
     ): Promise<core.PayrocPager<Payroc.Authorization, Payroc.reporting.ListAuthorizationsSettlementResponse>> {
         const { before, after, limit, date, batchId, merchantId } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
-        if (date != null) {
-            _queryParams.date = date;
-        }
-
-        if (batchId != null) {
-            _queryParams.batchId = batchId.toString();
-        }
-
-        if (merchantId != null) {
-            _queryParams.merchantId = merchantId;
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            before,
+            after,
+            limit,
+            date: date != null ? date : undefined,
+            batchId,
+            merchantId,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -760,24 +712,13 @@ export class SettlementClient {
         requestOptions?: SettlementClient.RequestOptions,
     ): Promise<core.PayrocPager<Payroc.Dispute, Payroc.reporting.ListDisputesSettlementResponse>> {
         const { before, after, limit, date, merchantId } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
-        _queryParams.date = date;
-        if (merchantId != null) {
-            _queryParams.merchantId = merchantId;
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            before,
+            after,
+            limit,
+            date,
+            merchantId,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -987,24 +928,13 @@ export class SettlementClient {
         requestOptions?: SettlementClient.RequestOptions,
     ): Promise<core.PayrocPager<Payroc.AchDeposit, Payroc.reporting.ListAchDepositsSettlementResponse>> {
         const { before, after, limit, date, merchantId } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
-        _queryParams.date = date;
-        if (merchantId != null) {
-            _queryParams.merchantId = merchantId;
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            before,
+            after,
+            limit,
+            date,
+            merchantId,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -1205,31 +1135,14 @@ export class SettlementClient {
         requestOptions?: SettlementClient.RequestOptions,
     ): Promise<core.PayrocPager<Payroc.AchDepositFee, Payroc.reporting.ListAchDepositFeesSettlementResponse>> {
         const { before, after, limit, date, achDepositId, merchantId } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
-        if (date != null) {
-            _queryParams.date = date;
-        }
-
-        if (achDepositId != null) {
-            _queryParams.achDepositId = achDepositId.toString();
-        }
-
-        if (merchantId != null) {
-            _queryParams.merchantId = merchantId;
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            before,
+            after,
+            limit,
+            date: date != null ? date : undefined,
+            achDepositId,
+            merchantId,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,

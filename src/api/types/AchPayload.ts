@@ -9,7 +9,7 @@ export interface AchPayload {
      *
      * **Note:** For bank account details, send a value for accountType.
      */
-    accountType?: AchPayload.AccountType;
+    accountType?: AchPayload.AccountType | undefined;
     /**
      * Indicates how the customer authorized the ACH transaction. Send one of the following values:
      *
@@ -18,7 +18,7 @@ export interface AchPayload {
      * - `ccd` – Corporate credit card or debit card transaction.
      * - `ppd` – Pre-arranged transaction.
      */
-    secCode?: AchPayload.SecCode;
+    secCode?: AchPayload.SecCode | undefined;
     /** Customer's name. */
     nameOnAccount: string;
     /**

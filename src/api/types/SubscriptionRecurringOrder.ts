@@ -6,5 +6,5 @@ import type * as Payroc from "../index.js";
  * Object that contains information about the cost of each payment.
  */
 export interface SubscriptionRecurringOrder extends Payroc.SubscriptionRecurringOrderBase {
-    breakdown?: Payroc.SubscriptionOrderBreakdown;
+    breakdown?: Payroc.SubscriptionOrderBreakdown | undefined;
 }

@@ -9,13 +9,13 @@ export interface PaymentLinkEmailShareEvent {
     /** Method that the merchant uses to share the payment link. */
     sharingMethod: PaymentLinkEmailShareEvent.SharingMethod;
     /** Unique identifier that we assigned to the sharing event. */
-    sharingEventId?: string;
+    sharingEventId?: string | undefined;
     /** Date and time that the merchant shared the link. Our gateway returns this value in the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. */
-    dateTime?: string;
+    dateTime?: string | undefined;
     /** Indicates if we send a copy of the email to the merchant. By default, we don't send a copy to the merchant. */
-    merchantCopy?: boolean;
+    merchantCopy?: boolean | undefined;
     /** Message that the merchant sends with the payment link. */
-    message?: string;
+    message?: string | undefined;
     /** Array that contains the recipients of the payment link. */
     recipients: Payroc.PaymentLinkEmailRecipient[];
 }

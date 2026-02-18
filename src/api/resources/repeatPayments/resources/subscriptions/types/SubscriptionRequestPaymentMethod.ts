@@ -3,7 +3,7 @@
 import type * as Payroc from "../../../../../index.js";
 
 /**
- * Object that contains information about the customer's payment details.
+ * Polymorphic object that contains information about the secure token.
  */
 export type SubscriptionRequestPaymentMethod = Payroc.repeatPayments.SubscriptionRequestPaymentMethod.SecureToken;
 

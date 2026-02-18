@@ -3,6 +3,6 @@
 import type * as Payroc from "../index.js";
 
 /**
- * Object that contains information about our additional services that the merchant can sign up for.
+ * Array of polymorphic objects that contain information about additional services that we offer.
  */
 export type ServicesUs50 = Payroc.ServiceUs50[];

@@ -3,7 +3,11 @@
 import type * as Payroc from "../index.js";
 
 /**
- * Object that contains HATEOAS links to the pricing information that we apply to the processing account.
+ * Polymorphic object that contains pricing information for the processing account.
+ *
+ * The value of the type parameter determines which variant you should use:
+ * -	`intent` - Use a pricing agreement template.
+ * -	`agreement` - Create a new pricing agreement.
  */
 export type Pricing = Payroc.Pricing.Intent | Payroc.Pricing.Agreement;
 

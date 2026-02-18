@@ -14,11 +14,11 @@ export interface Tip {
      * - `prompted` – The customer was prompted to add a tip during payment.
      * - `adjusted` – The customer added a tip on the receipt for the merchant to adjust post-transaction.
      */
-    mode?: Tip.Mode;
+    mode?: Tip.Mode | undefined;
     /** If the value for type is `fixedAmount`, this value is the tip amount in the currency's lowest denomination, for example, cents.            */
-    amount?: number;
+    amount?: number | undefined;
     /** If the value for type is `percentage`, this value is the tip as a percentage. */
-    percentage?: number;
+    percentage?: number | undefined;
 }
 
 export namespace Tip {

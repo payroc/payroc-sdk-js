@@ -11,8 +11,16 @@ export interface CardPayload {
      *
      * **Note:** Send a value for accountType only for bank account details.
      */
-    accountType?: CardPayload.AccountType;
-    /** Object that contains the details of the payment card. */
+    accountType?: CardPayload.AccountType | undefined;
+    /**
+     * Polymorphic object that contains payment card information.
+     *
+     * The value of the entryMethod parameter determines which variant you should use:
+     * - `raw` - Unencrypted payment data directly from the device.
+     * - `icc` - Payment data that the device captured from the chip.
+     * - `keyed` - Payment data that the merchant entered manually.
+     * - `swiped` - Payment data that the device captured from the magnetic strip.
+     */
     cardDetails: Payroc.CardPayloadCardDetails;
 }
 

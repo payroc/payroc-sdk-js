@@ -7,14 +7,14 @@ import type * as Payroc from "../index.js";
  */
 export interface PaymentOrderBase {
     /** A unique identifier assigned by the merchant. */
-    orderId?: string;
+    orderId?: string | undefined;
     /** Date and time that the processor processed the transaction. Our gateway returns this value in the ISO 8601 format. */
-    dateTime?: string;
+    dateTime?: string | undefined;
     /** Description of the transaction. */
-    description?: string;
+    description?: string | undefined;
     /** Total amount of the transaction. The value is in the currency’s lowest denomination, for example, cents. */
-    amount?: number;
-    currency?: Payroc.Currency;
-    dccOffer?: Payroc.DccOffer;
-    standingInstructions?: Payroc.StandingInstructions;
+    amount?: number | undefined;
+    currency?: Payroc.Currency | undefined;
+    dccOffer?: Payroc.DccOffer | undefined;
+    standingInstructions?: Payroc.StandingInstructions | undefined;
 }

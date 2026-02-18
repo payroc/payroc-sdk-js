@@ -7,5 +7,5 @@ export interface FxRateInquiryResult {
     /** Indicates if the card is eligible for Dynamic Currency Conversion (DCC). */
     dccOffered: boolean;
     /** Explains why the DCC service did not offer a currency conversion rate to the customer. */
-    causeOfRejection?: string;
+    causeOfRejection?: string | undefined;
 }

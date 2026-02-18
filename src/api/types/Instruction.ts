@@ -5,22 +5,22 @@
  */
 export interface Instruction {
     /** Unique identifier that we assigned to the funding instruction. */
-    instructionId?: number;
+    instructionId?: number | undefined;
     /** Date that we created the funding instruction. The date format follows the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) standard. */
-    createdDate?: string;
+    createdDate?: string | undefined;
     /** Date of the most recent change to the funding instruction. The date format follows the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) standard. */
-    lastModifiedDate?: string;
+    lastModifiedDate?: string | undefined;
     /**
      * Status of the funding instruction. Our gateway returns one of the following values:
      * - `accepted` - We have received the funding instruction but have not yet reviewed it.
      * - `pending` - We have received the funding instruction and we are reviewing it.
      * - `completed` - We have reviewed and processed the funding instruction.
      */
-    status?: Instruction.Status;
+    status?: Instruction.Status | undefined;
     /** Array of merchants objects. Each object specifies the merchant whose funding balance we distribute and who you want to send the funds to. */
-    merchants?: Instruction.Merchants.Item[];
+    merchants?: Instruction.Merchants.Item[] | undefined;
     /** [Metadata](https://docs.payroc.com/api/metadata) object you can use to include custom data with your request. */
-    metadata?: Record<string, string>;
+    metadata?: Record<string, string> | undefined;
 }
 
 export namespace Instruction {
@@ -48,7 +48,7 @@ export namespace Instruction {
             /** Array of recipients objects. Each object contains information about the funding account and the amount of funds we send to the funding account. */
             recipients: Item.Recipients.Item[];
             /** Object that contains HATEOAS links for the resource. */
-            link?: Item.Link;
+            link?: Item.Link | undefined;
         }
 
         export namespace Item {
@@ -75,11 +75,11 @@ export namespace Instruction {
                      * -	`rejected` - We reviewed the payment instruction and rejected it.
                      * - `onHold` - We have placed the payment instruction on hold.
                      */
-                    status?: Item.Status;
+                    status?: Item.Status | undefined;
                     /** [Metadata](https://docs.payroc.com/api/metadata) object you can use to include custom data with your request. */
-                    metadata?: Record<string, string>;
+                    metadata?: Record<string, string> | undefined;
                     /** Object that contains HATEOAS links for the resource. */
-                    link?: Item.Link;
+                    link?: Item.Link | undefined;
                 }
 
                 export namespace Item {
@@ -96,7 +96,7 @@ export namespace Instruction {
                         /** Amount of funds in the currency's lowest denomination, for example, cents. */
                         value: number;
                         /** Currency of the value parameter. */
-                        currency?: Amount.Currency;
+                        currency?: Amount.Currency | undefined;
                     }
 
                     export namespace Amount {
@@ -133,11 +133,11 @@ export namespace Instruction {
                      */
                     export interface Link {
                         /** Indicates the relationship between the current resource and the target resource. */
-                        rel?: string;
+                        rel?: string | undefined;
                         /** HTTP method that you need to use with the target resource. */
-                        method?: string;
+                        method?: string | undefined;
                         /** URL of the target resource. */
-                        href?: string;
+                        href?: string | undefined;
                     }
                 }
             }
@@ -147,11 +147,11 @@ export namespace Instruction {
              */
             export interface Link {
                 /** Indicates the relationship between the current resource and the target resource. */
-                rel?: string;
+                rel?: string | undefined;
                 /** HTTP method that you need to use with the target resource. */
-                method?: string;
+                method?: string | undefined;
                 /** URL of the target resource. */
-                href?: string;
+                href?: string | undefined;
             }
         }
     }

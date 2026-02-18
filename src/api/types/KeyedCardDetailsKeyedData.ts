@@ -2,6 +2,14 @@
 
 import type * as Payroc from "../index.js";
 
+/**
+ * Polymorphic object that contains payment card details that the merchant manually entered into the device.
+ *
+ * The value of the dataFormat parameter determines which variant you should use:
+ * -	`fullyEncrypted` - Some payment card details are encrypted.
+ * -	`partiallyEncrypted` - Payment card details are in plain text.
+ * -	`plainText` - All payment card details are encrypted.
+ */
 export type KeyedCardDetailsKeyedData =
     | Payroc.KeyedCardDetailsKeyedData.FullyEncrypted
     | Payroc.KeyedCardDetailsKeyedData.PartiallyEncrypted

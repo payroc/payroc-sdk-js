@@ -80,47 +80,18 @@ export class SubscriptionsClient {
             after,
             limit,
         } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (customerName != null) {
-            _queryParams.customerName = customerName;
-        }
-
-        if (last4 != null) {
-            _queryParams.last4 = last4;
-        }
-
-        if (paymentPlan != null) {
-            _queryParams.paymentPlan = paymentPlan;
-        }
-
-        if (frequency != null) {
-            _queryParams.frequency = frequency;
-        }
-
-        if (status != null) {
-            _queryParams.status = status;
-        }
-
-        if (endDate != null) {
-            _queryParams.endDate = endDate;
-        }
-
-        if (nextDueDate != null) {
-            _queryParams.nextDueDate = nextDueDate;
-        }
-
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            customerName,
+            last4,
+            paymentPlan,
+            frequency: frequency != null ? frequency : undefined,
+            status: status != null ? status : undefined,
+            endDate: endDate != null ? endDate : undefined,
+            nextDueDate: nextDueDate != null ? nextDueDate : undefined,
+            before,
+            after,
+            limit,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -198,7 +169,7 @@ export class SubscriptionsClient {
     /**
      * Use this method to assign a customer to a payment plan.
      *
-     * **Note:** This method is part of our Repeat Payments feature. To help you understand how this method works with our Payment plans endpoints, go to [Repeat Payments](https://docs.payroc.com/guides/integrate/repeat-payments).
+     * **Note:** This method is part of our Repeat Payments feature. To help you understand how this method works with our Payment plans endpoints, go to [Repeat Payments](https://docs.payroc.com/guides/take-payments/repeat-payments).
      *
      * When you create a subscription you need to provide a unique subscriptionId that you use to run follow-on actions:
      *
@@ -510,6 +481,41 @@ export class SubscriptionsClient {
      *                 path: "path"
      *             }, {
      *                 op: "remove",
+     *                 path: "path"
+     *             }]
+     *     })
+     *
+     * @example
+     *     await client.repeatPayments.subscriptions.partiallyUpdate({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         processingTerminalId: "1234001",
+     *         subscriptionId: "SubRef7654",
+     *         body: [{
+     *                 op: "remove",
+     *                 path: "path"
+     *             }]
+     *     })
+     *
+     * @example
+     *     await client.repeatPayments.subscriptions.partiallyUpdate({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         processingTerminalId: "1234001",
+     *         subscriptionId: "SubRef7654",
+     *         body: [{
+     *                 op: "move",
+     *                 from: "from",
+     *                 path: "path"
+     *             }]
+     *     })
+     *
+     * @example
+     *     await client.repeatPayments.subscriptions.partiallyUpdate({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         processingTerminalId: "1234001",
+     *         subscriptionId: "SubRef7654",
+     *         body: [{
+     *                 op: "copy",
+     *                 from: "from",
      *                 path: "path"
      *             }]
      *     })

@@ -7,5 +7,5 @@ import type * as Payroc from "../index.js";
  */
 export interface RefundPaginatedList extends Payroc.PaginatedList {
     /** Array of refund objects. */
-    data?: Payroc.RetrievedRefund[];
+    data?: Payroc.RetrievedRefund[] | undefined;
 }

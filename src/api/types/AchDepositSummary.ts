@@ -7,6 +7,6 @@ import type * as Payroc from "../index.js";
  */
 export interface AchDepositSummary {
     /** Unique identifier of the ACH deposit. */
-    achDepositId?: number;
-    link?: Payroc.Link;
+    achDepositId?: number | undefined;
+    link?: Payroc.Link | undefined;
 }

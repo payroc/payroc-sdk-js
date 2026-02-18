@@ -5,14 +5,14 @@
  */
 export interface SchemasCredentialOnFile {
     /** Indicates if the merchant uses a third-party vault to store the customer’s payment details. */
-    externalVault?: boolean;
+    externalVault?: boolean | undefined;
     /** Indicates if our gateway should tokenize the customer’s payment details as part of the transaction. */
-    tokenize?: boolean;
+    tokenize?: boolean | undefined;
     /**
      * Unique identifier that the merchant creates for the secure token that represents the customer’s payment details.
      * **Note:** If you do not send a value for the **secureTokenId**, our gateway generates a unique identifier for the token.
      */
-    secureTokenId?: string;
+    secureTokenId?: string | undefined;
     /**
      * Indicates how the merchant can use the customer’s card details, as agreed by the customer:
      *
@@ -22,7 +22,7 @@ export interface SchemasCredentialOnFile {
      *
      * **Note:** If you send a value for **mitAgreement**, you must send the **standingInstructions** object in the **paymentOrder** object.
      */
-    mitAgreement?: SchemasCredentialOnFile.MitAgreement;
+    mitAgreement?: SchemasCredentialOnFile.MitAgreement | undefined;
 }
 
 export namespace SchemasCredentialOnFile {

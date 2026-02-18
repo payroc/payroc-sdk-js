@@ -88,9 +88,9 @@ export namespace CreateTerminalOrder {
      */
     export interface Shipping {
         /** Object that contains the shipping preferences for the terminal order. */
-        preferences?: Shipping.Preferences;
+        preferences?: Shipping.Preferences | undefined;
         /** Object that contains the shipping address for the terminal order. */
-        address?: Shipping.Address;
+        address?: Shipping.Address | undefined;
     }
 
     export namespace Shipping {
@@ -103,9 +103,9 @@ export namespace CreateTerminalOrder {
              *   - `nextDay` - We schedule the order to be delivered the next day.
              *   - `ground` - We ship the order with ground shipping.
              */
-            method?: Preferences.Method;
+            method?: Preferences.Method | undefined;
             /** Indicates if we can schedule the terminal order to be delivered on a Saturday. */
-            saturdayDelivery?: boolean;
+            saturdayDelivery?: boolean | undefined;
         }
 
         export namespace Preferences {
@@ -128,11 +128,11 @@ export namespace CreateTerminalOrder {
             /** Name of the person receiving the shipment. */
             recipientName: string;
             /** Name of the business receiving the shipment. */
-            businessName?: string;
+            businessName?: string | undefined;
             /** First line of the shipment address. */
             addressLine1: string;
             /** Second line of the shipment address. */
-            addressLine2?: string;
+            addressLine2?: string | undefined;
             /** City of the shipment address. */
             city: string;
             /** State of the shipment address. */
@@ -142,7 +142,7 @@ export namespace CreateTerminalOrder {
             /** Contact email address for the shipment. */
             email: string;
             /** Contact number for the shipment. */
-            phone?: string;
+            phone?: string | undefined;
         }
     }
 }

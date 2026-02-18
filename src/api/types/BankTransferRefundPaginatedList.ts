@@ -4,5 +4,5 @@ import type * as Payroc from "../index.js";
 
 export interface BankTransferRefundPaginatedList extends Payroc.PaginatedList {
     /** Array of refund transactions. */
-    data?: Payroc.BankTransferRefund[];
+    data?: Payroc.BankTransferRefund[] | undefined;
 }

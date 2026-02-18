@@ -9,11 +9,11 @@ export interface BreakdownBase {
     /** Amount of the transaction before tax and fees. The value is in the currency’s lowest denomination, for example, cents. */
     subtotal: number;
     /** Amount of cashback for the transaction. */
-    cashbackAmount?: number;
+    cashbackAmount?: number | undefined;
     /** Object that contains tip information for the transaction. */
-    tip?: Payroc.Tip;
+    tip?: Payroc.Tip | undefined;
     /** Object that contains surcharge information for the transaction. */
-    surcharge?: Payroc.Surcharge;
+    surcharge?: Payroc.Surcharge | undefined;
     /** Object that contains dual pricing information for the transaction. */
-    dualPricing?: Payroc.DualPricing;
+    dualPricing?: Payroc.DualPricing | undefined;
 }

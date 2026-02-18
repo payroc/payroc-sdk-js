@@ -7,6 +7,6 @@ import type * as Payroc from "../index.js";
  */
 export interface RetrievedShipping {
     /** Recipient's name. */
-    recipientName?: string;
-    address?: Payroc.RetrievedAddress;
+    recipientName?: string | undefined;
+    address?: Payroc.RetrievedAddress | undefined;
 }

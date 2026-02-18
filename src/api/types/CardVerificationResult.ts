@@ -4,10 +4,10 @@ import type * as Payroc from "../index.js";
 
 export interface CardVerificationResult {
     /** Operator who requested to verify the card. */
-    operator?: string;
+    operator?: string | undefined;
     /** Unique identifier that we assigned to the terminal. */
     processingTerminalId: string;
-    card?: Payroc.Card;
+    card?: Payroc.Card | undefined;
     /**
      * Indicates if the card details are valid:
      *
@@ -15,5 +15,5 @@ export interface CardVerificationResult {
      * - `false` - Card details are not valid.
      */
     verified: boolean;
-    transactionResult?: Payroc.TransactionResult;
+    transactionResult?: Payroc.TransactionResult | undefined;
 }

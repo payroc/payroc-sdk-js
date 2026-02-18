@@ -14,5 +14,5 @@ export interface PadBankAccount {
     transitNumber: string;
     /** Three-digit code that represents the customer's bank. */
     institutionNumber: string;
-    secureToken?: Payroc.SecureTokenSummary;
+    secureToken?: Payroc.SecureTokenSummary | undefined;
 }

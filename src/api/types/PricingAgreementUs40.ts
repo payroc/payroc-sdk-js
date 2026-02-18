@@ -12,8 +12,8 @@ export interface PricingAgreementUs40 {
     version: PricingAgreementUs40.Version;
     base: Payroc.BaseUs;
     /** Object that contains information about U.S. processor fees. */
-    processor?: PricingAgreementUs40.Processor;
-    gateway?: Payroc.GatewayUs;
+    processor?: PricingAgreementUs40.Processor | undefined;
+    gateway?: Payroc.GatewayUs | undefined;
 }
 
 export namespace PricingAgreementUs40 {
@@ -32,8 +32,21 @@ export namespace PricingAgreementUs40 {
      * Object that contains information about U.S. processor fees.
      */
     export interface Processor {
-        /** Object that contains the fees for card transactions. */
-        card?: Payroc.PricingAgreementUs40ProcessorCard;
-        ach?: Payroc.Ach;
+        /**
+         * Polymorphic object that contains fees for card transactions.
+         *
+         * The value of the planType field determines which variant you should use:
+         * -	`interchangePlus` - Interchange + pricing
+         * -	`interchangePlusTiered3` - Interchange pricing with three tiers
+         * -	`tiered3` - Three-tiered pricing
+         * -	`tiered4` - Four-tiered pricing
+         * -	`tiered6` - Six-tiered pricing
+         * -	`flatRate` - Flat rate pricing
+         * -	`consumerChoice` - ConsumerChoice
+         * -	`rewardPay` - RewardPay
+         * -	`rewardPayChoice` - RewardPayChoice
+         */
+        card?: Payroc.PricingAgreementUs40ProcessorCard | undefined;
+        ach?: Payroc.Ach | undefined;
     }
 }

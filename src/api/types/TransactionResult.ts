@@ -7,13 +7,13 @@ import type * as Payroc from "../index.js";
  */
 export interface TransactionResult {
     /** Transaction type. */
-    type?: TransactionResult.Type;
+    type?: TransactionResult.Type | undefined;
     /** Indicates the subtype of EBT in the transaction. */
-    ebtType?: TransactionResult.EbtType;
+    ebtType?: TransactionResult.EbtType | undefined;
     /** Current status of the transaction. */
     status: TransactionResult.Status;
     /** Authorization code that the processor assigned to the transaction. */
-    approvalCode?: string;
+    approvalCode?: string | undefined;
     /**
      * Amount that the processor authorized for the transaction. This value is in the currency’s lowest denomination, for example, cents.
      *
@@ -21,8 +21,8 @@ export interface TransactionResult {
      * - For partial authorizations, this amount is lower than the amount in the request.
      * - If the value for **authorizedAmount** is negative, this indicates that the merchant sent funds to the customer.
      */
-    authorizedAmount?: number;
-    currency?: Payroc.Currency;
+    authorizedAmount?: number | undefined;
+    currency?: Payroc.Currency | undefined;
     /**
      * Response from the processor.
      * - `A` - The processor approved the transaction.
@@ -34,11 +34,11 @@ export interface TransactionResult {
      */
     responseCode: TransactionResult.ResponseCode;
     /** Response description from the processor. */
-    responseMessage?: string;
+    responseMessage?: string | undefined;
     /** Original response code that the processor sent. */
-    processorResponseCode?: string;
+    processorResponseCode?: string | undefined;
     /** Identifier that the card brand assigns to the payment instruction. */
-    cardSchemeReferenceId?: string;
+    cardSchemeReferenceId?: string | undefined;
 }
 
 export namespace TransactionResult {

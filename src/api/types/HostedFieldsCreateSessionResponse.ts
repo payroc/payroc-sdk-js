@@ -12,5 +12,5 @@ export interface HostedFieldsCreateSessionResponse {
      */
     token: string;
     /** Date and time that the token expires. We return this value in the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. */
-    expiresAt?: string;
+    expiresAt?: string | undefined;
 }

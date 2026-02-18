@@ -6,18 +6,18 @@ export interface PaymentPlanBase {
     /** Unique identifier that the merchant assigns to the payment plan. */
     paymentPlanId: string;
     /** Unique identifier of the terminal that the payment plan is assigned to. */
-    processingTerminalId?: string;
+    processingTerminalId?: string | undefined;
     /** Name of the payment plan. */
     name: string;
     /** Description of the payment plan. */
-    description?: string;
+    description?: string | undefined;
     currency: Payroc.Currency;
     /**
      * Number of payments for the payment plan.
      *
      * To indicate that the payment plan should run indefinitely, send a value of `0`.
      */
-    length?: number;
+    length?: number | undefined;
     /**
      * Indicates how the merchant takes the payment from the customer's account.
      * - `manual` - The merchant manually collects payments from the customer.
@@ -39,7 +39,7 @@ export interface PaymentPlanBase {
      */
     onDelete: PaymentPlanBase.OnDelete;
     /** Array of custom fields that you can use in subscriptions linked to the payment plan. */
-    customFieldNames?: string[];
+    customFieldNames?: string[] | undefined;
 }
 
 export namespace PaymentPlanBase {

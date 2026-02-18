@@ -2009,7 +2009,7 @@ describe("PricingIntentsClient", () => {
             key: "key",
             country: "US",
             version: "5.0",
-            base: { annualFee: { amount: 1 }, maintenance: 500, minimum: 1, batch: 1 },
+            base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
         server
@@ -2033,7 +2033,7 @@ describe("PricingIntentsClient", () => {
                         annualFee: {
                             amount: 1,
                         },
-                        maintenance: 500,
+                        maintenance: 1,
                         minimum: 1,
                         batch: 1,
                     },
@@ -2055,7 +2055,7 @@ describe("PricingIntentsClient", () => {
             key: "key",
             country: "US",
             version: "5.0",
-            base: { annualFee: { amount: 1 }, maintenance: 500, minimum: 1, batch: 1 },
+            base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
         server
@@ -2079,7 +2079,7 @@ describe("PricingIntentsClient", () => {
                         annualFee: {
                             amount: 1,
                         },
-                        maintenance: 500,
+                        maintenance: 1,
                         minimum: 1,
                         batch: 1,
                     },
@@ -2101,7 +2101,7 @@ describe("PricingIntentsClient", () => {
             key: "key",
             country: "US",
             version: "5.0",
-            base: { annualFee: { amount: 1 }, maintenance: 500, minimum: 1, batch: 1 },
+            base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { key: "value" };
         server
@@ -2125,7 +2125,7 @@ describe("PricingIntentsClient", () => {
                         annualFee: {
                             amount: 1,
                         },
-                        maintenance: 500,
+                        maintenance: 1,
                         minimum: 1,
                         batch: 1,
                     },
@@ -2147,7 +2147,7 @@ describe("PricingIntentsClient", () => {
             key: "key",
             country: "US",
             version: "5.0",
-            base: { annualFee: { amount: 1 }, maintenance: 500, minimum: 1, batch: 1 },
+            base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
         server
@@ -2171,7 +2171,7 @@ describe("PricingIntentsClient", () => {
                         annualFee: {
                             amount: 1,
                         },
-                        maintenance: 500,
+                        maintenance: 1,
                         minimum: 1,
                         batch: 1,
                     },
@@ -2193,7 +2193,7 @@ describe("PricingIntentsClient", () => {
             key: "key",
             country: "US",
             version: "5.0",
-            base: { annualFee: { amount: 1 }, maintenance: 500, minimum: 1, batch: 1 },
+            base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
         server
@@ -2217,7 +2217,7 @@ describe("PricingIntentsClient", () => {
                         annualFee: {
                             amount: 1,
                         },
-                        maintenance: 500,
+                        maintenance: 1,
                         minimum: 1,
                         batch: 1,
                     },
@@ -2239,7 +2239,7 @@ describe("PricingIntentsClient", () => {
             key: "key",
             country: "US",
             version: "5.0",
-            base: { annualFee: { amount: 1 }, maintenance: 500, minimum: 1, batch: 1 },
+            base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
         server
@@ -2263,7 +2263,7 @@ describe("PricingIntentsClient", () => {
                         annualFee: {
                             amount: 1,
                         },
-                        maintenance: 500,
+                        maintenance: 1,
                         minimum: 1,
                         batch: 1,
                     },
@@ -2687,7 +2687,7 @@ describe("PricingIntentsClient", () => {
             key: "key",
             country: "US",
             version: "5.0",
-            base: { annualFee: { amount: 1 }, maintenance: 500, minimum: 1, batch: 1 },
+            base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
         server
@@ -2710,7 +2710,7 @@ describe("PricingIntentsClient", () => {
                         annualFee: {
                             amount: 1,
                         },
-                        maintenance: 500,
+                        maintenance: 1,
                         minimum: 1,
                         batch: 1,
                     },
@@ -2732,7 +2732,7 @@ describe("PricingIntentsClient", () => {
             key: "key",
             country: "US",
             version: "5.0",
-            base: { annualFee: { amount: 1 }, maintenance: 500, minimum: 1, batch: 1 },
+            base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
         server
@@ -2755,7 +2755,7 @@ describe("PricingIntentsClient", () => {
                         annualFee: {
                             amount: 1,
                         },
-                        maintenance: 500,
+                        maintenance: 1,
                         minimum: 1,
                         batch: 1,
                     },
@@ -2777,7 +2777,7 @@ describe("PricingIntentsClient", () => {
             key: "key",
             country: "US",
             version: "5.0",
-            base: { annualFee: { amount: 1 }, maintenance: 500, minimum: 1, batch: 1 },
+            base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { key: "value" };
         server
@@ -2800,7 +2800,7 @@ describe("PricingIntentsClient", () => {
                         annualFee: {
                             amount: 1,
                         },
-                        maintenance: 500,
+                        maintenance: 1,
                         minimum: 1,
                         batch: 1,
                     },
@@ -2822,7 +2822,7 @@ describe("PricingIntentsClient", () => {
             key: "key",
             country: "US",
             version: "5.0",
-            base: { annualFee: { amount: 1 }, maintenance: 500, minimum: 1, batch: 1 },
+            base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
         server
@@ -2845,7 +2845,7 @@ describe("PricingIntentsClient", () => {
                         annualFee: {
                             amount: 1,
                         },
-                        maintenance: 500,
+                        maintenance: 1,
                         minimum: 1,
                         batch: 1,
                     },
@@ -2867,7 +2867,7 @@ describe("PricingIntentsClient", () => {
             key: "key",
             country: "US",
             version: "5.0",
-            base: { annualFee: { amount: 1 }, maintenance: 500, minimum: 1, batch: 1 },
+            base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
         server
@@ -2890,7 +2890,7 @@ describe("PricingIntentsClient", () => {
                         annualFee: {
                             amount: 1,
                         },
-                        maintenance: 500,
+                        maintenance: 1,
                         minimum: 1,
                         batch: 1,
                     },
@@ -2912,7 +2912,7 @@ describe("PricingIntentsClient", () => {
             key: "key",
             country: "US",
             version: "5.0",
-            base: { annualFee: { amount: 1 }, maintenance: 500, minimum: 1, batch: 1 },
+            base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
         server
@@ -2935,7 +2935,7 @@ describe("PricingIntentsClient", () => {
                         annualFee: {
                             amount: 1,
                         },
-                        maintenance: 500,
+                        maintenance: 1,
                         minimum: 1,
                         batch: 1,
                     },
@@ -3254,6 +3254,1010 @@ describe("PricingIntentsClient", () => {
             apiKey: "x-api-key",
             environment: { api: server.baseUrl, identity: server.baseUrl },
         });
+        const rawRequestBody = [{ op: "remove", path: "path" }];
+        const rawResponseBody = {
+            country: "US",
+            version: "5.0",
+            base: {
+                addressVerification: 5,
+                annualFee: { billInMonth: "june", amount: 100 },
+                regulatoryAssistanceProgram: 15,
+                pciNonCompliance: 4995,
+                merchantAdvantage: 10,
+                platinumSecurity: { billingFrequency: "monthly", amount: 1295 },
+                maintenance: 500,
+                minimum: 100,
+                voiceAuthorization: 95,
+                chargeback: 2500,
+                retrieval: 1500,
+                batch: 1000,
+                earlyTermination: 57500,
+            },
+            processor: {
+                card: {
+                    planType: "interchangePlus",
+                    fees: {
+                        mastercardVisaDiscover: { volume: 1.25 },
+                        amex: { type: "optBlue", volume: 1.25, transaction: 1 },
+                        pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
+                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
+                    },
+                },
+                ach: {
+                    fees: {
+                        transaction: 50,
+                        batch: 1000,
+                        returns: 400,
+                        unauthorizedReturn: 1999,
+                        statement: 800,
+                        monthlyMinimum: 20000,
+                        accountVerification: 100,
+                        discountRateUnder10000: 5.25,
+                        discountRateAbove10000: 10,
+                    },
+                },
+            },
+            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            services: [{ name: "hardwareAdvantagePlan", enabled: true }],
+            id: "5",
+            createdDate: "2024-07-02T09:00:00Z",
+            lastUpdatedDate: "2024-07-02T09:00:00Z",
+            status: "pendingReview",
+            key: "string",
+            metadata: { yourCustomField: "abc123" },
+        };
+        server
+            .mockEndpoint()
+            .patch("/pricing-intents/5")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.boarding.pricingIntents.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            pricingIntentId: "5",
+            body: [
+                {
+                    op: "remove",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            country: "US",
+            version: "5.0",
+            base: {
+                addressVerification: 5,
+                annualFee: {
+                    billInMonth: "june",
+                    amount: 100,
+                },
+                regulatoryAssistanceProgram: 15,
+                pciNonCompliance: 4995,
+                merchantAdvantage: 10,
+                platinumSecurity: {
+                    billingFrequency: "monthly",
+                    amount: 1295,
+                },
+                maintenance: 500,
+                minimum: 100,
+                voiceAuthorization: 95,
+                chargeback: 2500,
+                retrieval: 1500,
+                batch: 1000,
+                earlyTermination: 57500,
+            },
+            processor: {
+                card: {
+                    planType: "interchangePlus",
+                    fees: {
+                        mastercardVisaDiscover: {
+                            volume: 1.25,
+                        },
+                        amex: {
+                            type: "optBlue",
+                            volume: 1.25,
+                            transaction: 1,
+                        },
+                        pinDebit: {
+                            additionalDiscount: 1.25,
+                            transaction: 1,
+                            monthlyAccess: 1,
+                        },
+                        enhancedInterchange: {
+                            enrollment: 1,
+                            creditToMerchant: 1.25,
+                        },
+                    },
+                },
+                ach: {
+                    fees: {
+                        transaction: 50,
+                        batch: 1000,
+                        returns: 400,
+                        unauthorizedReturn: 1999,
+                        statement: 800,
+                        monthlyMinimum: 20000,
+                        accountVerification: 100,
+                        discountRateUnder10000: 5.25,
+                        discountRateAbove10000: 10,
+                    },
+                },
+            },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                },
+            },
+            services: [
+                {
+                    name: "hardwareAdvantagePlan",
+                    enabled: true,
+                },
+            ],
+            id: "5",
+            createdDate: "2024-07-02T09:00:00Z",
+            lastUpdatedDate: "2024-07-02T09:00:00Z",
+            status: "pendingReview",
+            key: "string",
+            metadata: {
+                yourCustomField: "abc123",
+            },
+        });
+    });
+
+    test("partiallyUpdate (3)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "remove", path: "path" }];
+        const rawResponseBody = {
+            country: "US",
+            version: "5.0",
+            base: {
+                addressVerification: 5,
+                annualFee: { billInMonth: "june", amount: 100 },
+                regulatoryAssistanceProgram: 15,
+                pciNonCompliance: 4995,
+                merchantAdvantage: 10,
+                platinumSecurity: { billingFrequency: "monthly", amount: 1295 },
+                maintenance: 500,
+                minimum: 100,
+                voiceAuthorization: 95,
+                chargeback: 2500,
+                retrieval: 1500,
+                batch: 1000,
+                earlyTermination: 57500,
+            },
+            processor: {
+                card: {
+                    planType: "interchangePlus",
+                    fees: {
+                        mastercardVisaDiscover: { volume: 1.25 },
+                        amex: { type: "optBlue", volume: 1.25, transaction: 1 },
+                        pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
+                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
+                    },
+                },
+                ach: {
+                    fees: {
+                        transaction: 50,
+                        batch: 1000,
+                        returns: 400,
+                        unauthorizedReturn: 1999,
+                        statement: 800,
+                        monthlyMinimum: 20000,
+                        accountVerification: 100,
+                        discountRateUnder10000: 5.25,
+                        discountRateAbove10000: 10,
+                    },
+                },
+            },
+            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            services: [{ name: "hardwareAdvantagePlan", enabled: true }],
+            id: "5",
+            createdDate: "2024-07-02T09:00:00Z",
+            lastUpdatedDate: "2024-07-02T09:00:00Z",
+            status: "pendingReview",
+            key: "string",
+            metadata: { yourCustomField: "abc123" },
+        };
+        server
+            .mockEndpoint()
+            .patch("/pricing-intents/5")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.boarding.pricingIntents.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            pricingIntentId: "5",
+            body: [
+                {
+                    op: "remove",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            country: "US",
+            version: "5.0",
+            base: {
+                addressVerification: 5,
+                annualFee: {
+                    billInMonth: "june",
+                    amount: 100,
+                },
+                regulatoryAssistanceProgram: 15,
+                pciNonCompliance: 4995,
+                merchantAdvantage: 10,
+                platinumSecurity: {
+                    billingFrequency: "monthly",
+                    amount: 1295,
+                },
+                maintenance: 500,
+                minimum: 100,
+                voiceAuthorization: 95,
+                chargeback: 2500,
+                retrieval: 1500,
+                batch: 1000,
+                earlyTermination: 57500,
+            },
+            processor: {
+                card: {
+                    planType: "interchangePlus",
+                    fees: {
+                        mastercardVisaDiscover: {
+                            volume: 1.25,
+                        },
+                        amex: {
+                            type: "optBlue",
+                            volume: 1.25,
+                            transaction: 1,
+                        },
+                        pinDebit: {
+                            additionalDiscount: 1.25,
+                            transaction: 1,
+                            monthlyAccess: 1,
+                        },
+                        enhancedInterchange: {
+                            enrollment: 1,
+                            creditToMerchant: 1.25,
+                        },
+                    },
+                },
+                ach: {
+                    fees: {
+                        transaction: 50,
+                        batch: 1000,
+                        returns: 400,
+                        unauthorizedReturn: 1999,
+                        statement: 800,
+                        monthlyMinimum: 20000,
+                        accountVerification: 100,
+                        discountRateUnder10000: 5.25,
+                        discountRateAbove10000: 10,
+                    },
+                },
+            },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                },
+            },
+            services: [
+                {
+                    name: "hardwareAdvantagePlan",
+                    enabled: true,
+                },
+            ],
+            id: "5",
+            createdDate: "2024-07-02T09:00:00Z",
+            lastUpdatedDate: "2024-07-02T09:00:00Z",
+            status: "pendingReview",
+            key: "string",
+            metadata: {
+                yourCustomField: "abc123",
+            },
+        });
+    });
+
+    test("partiallyUpdate (4)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "remove", path: "path" }];
+        const rawResponseBody = {
+            country: "US",
+            version: "5.0",
+            base: {
+                addressVerification: 5,
+                annualFee: { billInMonth: "june", amount: 100 },
+                regulatoryAssistanceProgram: 15,
+                pciNonCompliance: 4995,
+                merchantAdvantage: 10,
+                platinumSecurity: { billingFrequency: "monthly", amount: 1295 },
+                maintenance: 500,
+                minimum: 100,
+                voiceAuthorization: 95,
+                chargeback: 2500,
+                retrieval: 1500,
+                batch: 1000,
+                earlyTermination: 57500,
+            },
+            processor: {
+                card: {
+                    planType: "interchangePlus",
+                    fees: {
+                        mastercardVisaDiscover: { volume: 1.25 },
+                        amex: { type: "optBlue", volume: 1.25, transaction: 1 },
+                        pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
+                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
+                    },
+                },
+                ach: {
+                    fees: {
+                        transaction: 50,
+                        batch: 1000,
+                        returns: 400,
+                        unauthorizedReturn: 1999,
+                        statement: 800,
+                        monthlyMinimum: 20000,
+                        accountVerification: 100,
+                        discountRateUnder10000: 5.25,
+                        discountRateAbove10000: 10,
+                    },
+                },
+            },
+            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            services: [{ name: "hardwareAdvantagePlan", enabled: true }],
+            id: "5",
+            createdDate: "2024-07-02T09:00:00Z",
+            lastUpdatedDate: "2024-07-02T09:00:00Z",
+            status: "pendingReview",
+            key: "string",
+            metadata: { yourCustomField: "abc123" },
+        };
+        server
+            .mockEndpoint()
+            .patch("/pricing-intents/5")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.boarding.pricingIntents.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            pricingIntentId: "5",
+            body: [
+                {
+                    op: "remove",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            country: "US",
+            version: "5.0",
+            base: {
+                addressVerification: 5,
+                annualFee: {
+                    billInMonth: "june",
+                    amount: 100,
+                },
+                regulatoryAssistanceProgram: 15,
+                pciNonCompliance: 4995,
+                merchantAdvantage: 10,
+                platinumSecurity: {
+                    billingFrequency: "monthly",
+                    amount: 1295,
+                },
+                maintenance: 500,
+                minimum: 100,
+                voiceAuthorization: 95,
+                chargeback: 2500,
+                retrieval: 1500,
+                batch: 1000,
+                earlyTermination: 57500,
+            },
+            processor: {
+                card: {
+                    planType: "interchangePlus",
+                    fees: {
+                        mastercardVisaDiscover: {
+                            volume: 1.25,
+                        },
+                        amex: {
+                            type: "optBlue",
+                            volume: 1.25,
+                            transaction: 1,
+                        },
+                        pinDebit: {
+                            additionalDiscount: 1.25,
+                            transaction: 1,
+                            monthlyAccess: 1,
+                        },
+                        enhancedInterchange: {
+                            enrollment: 1,
+                            creditToMerchant: 1.25,
+                        },
+                    },
+                },
+                ach: {
+                    fees: {
+                        transaction: 50,
+                        batch: 1000,
+                        returns: 400,
+                        unauthorizedReturn: 1999,
+                        statement: 800,
+                        monthlyMinimum: 20000,
+                        accountVerification: 100,
+                        discountRateUnder10000: 5.25,
+                        discountRateAbove10000: 10,
+                    },
+                },
+            },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                },
+            },
+            services: [
+                {
+                    name: "hardwareAdvantagePlan",
+                    enabled: true,
+                },
+            ],
+            id: "5",
+            createdDate: "2024-07-02T09:00:00Z",
+            lastUpdatedDate: "2024-07-02T09:00:00Z",
+            status: "pendingReview",
+            key: "string",
+            metadata: {
+                yourCustomField: "abc123",
+            },
+        });
+    });
+
+    test("partiallyUpdate (5)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "move", from: "from", path: "path" }];
+        const rawResponseBody = {
+            country: "US",
+            version: "5.0",
+            base: {
+                addressVerification: 5,
+                annualFee: { billInMonth: "june", amount: 100 },
+                regulatoryAssistanceProgram: 15,
+                pciNonCompliance: 4995,
+                merchantAdvantage: 10,
+                platinumSecurity: { billingFrequency: "monthly", amount: 1295 },
+                maintenance: 500,
+                minimum: 100,
+                voiceAuthorization: 95,
+                chargeback: 2500,
+                retrieval: 1500,
+                batch: 1000,
+                earlyTermination: 57500,
+            },
+            processor: {
+                card: {
+                    planType: "interchangePlus",
+                    fees: {
+                        mastercardVisaDiscover: { volume: 1.25 },
+                        amex: { type: "optBlue", volume: 1.25, transaction: 1 },
+                        pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
+                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
+                    },
+                },
+                ach: {
+                    fees: {
+                        transaction: 50,
+                        batch: 1000,
+                        returns: 400,
+                        unauthorizedReturn: 1999,
+                        statement: 800,
+                        monthlyMinimum: 20000,
+                        accountVerification: 100,
+                        discountRateUnder10000: 5.25,
+                        discountRateAbove10000: 10,
+                    },
+                },
+            },
+            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            services: [{ name: "hardwareAdvantagePlan", enabled: true }],
+            id: "5",
+            createdDate: "2024-07-02T09:00:00Z",
+            lastUpdatedDate: "2024-07-02T09:00:00Z",
+            status: "pendingReview",
+            key: "string",
+            metadata: { yourCustomField: "abc123" },
+        };
+        server
+            .mockEndpoint()
+            .patch("/pricing-intents/5")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.boarding.pricingIntents.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            pricingIntentId: "5",
+            body: [
+                {
+                    op: "move",
+                    from: "from",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            country: "US",
+            version: "5.0",
+            base: {
+                addressVerification: 5,
+                annualFee: {
+                    billInMonth: "june",
+                    amount: 100,
+                },
+                regulatoryAssistanceProgram: 15,
+                pciNonCompliance: 4995,
+                merchantAdvantage: 10,
+                platinumSecurity: {
+                    billingFrequency: "monthly",
+                    amount: 1295,
+                },
+                maintenance: 500,
+                minimum: 100,
+                voiceAuthorization: 95,
+                chargeback: 2500,
+                retrieval: 1500,
+                batch: 1000,
+                earlyTermination: 57500,
+            },
+            processor: {
+                card: {
+                    planType: "interchangePlus",
+                    fees: {
+                        mastercardVisaDiscover: {
+                            volume: 1.25,
+                        },
+                        amex: {
+                            type: "optBlue",
+                            volume: 1.25,
+                            transaction: 1,
+                        },
+                        pinDebit: {
+                            additionalDiscount: 1.25,
+                            transaction: 1,
+                            monthlyAccess: 1,
+                        },
+                        enhancedInterchange: {
+                            enrollment: 1,
+                            creditToMerchant: 1.25,
+                        },
+                    },
+                },
+                ach: {
+                    fees: {
+                        transaction: 50,
+                        batch: 1000,
+                        returns: 400,
+                        unauthorizedReturn: 1999,
+                        statement: 800,
+                        monthlyMinimum: 20000,
+                        accountVerification: 100,
+                        discountRateUnder10000: 5.25,
+                        discountRateAbove10000: 10,
+                    },
+                },
+            },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                },
+            },
+            services: [
+                {
+                    name: "hardwareAdvantagePlan",
+                    enabled: true,
+                },
+            ],
+            id: "5",
+            createdDate: "2024-07-02T09:00:00Z",
+            lastUpdatedDate: "2024-07-02T09:00:00Z",
+            status: "pendingReview",
+            key: "string",
+            metadata: {
+                yourCustomField: "abc123",
+            },
+        });
+    });
+
+    test("partiallyUpdate (6)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "copy", from: "from", path: "path" }];
+        const rawResponseBody = {
+            country: "US",
+            version: "5.0",
+            base: {
+                addressVerification: 5,
+                annualFee: { billInMonth: "june", amount: 100 },
+                regulatoryAssistanceProgram: 15,
+                pciNonCompliance: 4995,
+                merchantAdvantage: 10,
+                platinumSecurity: { billingFrequency: "monthly", amount: 1295 },
+                maintenance: 500,
+                minimum: 100,
+                voiceAuthorization: 95,
+                chargeback: 2500,
+                retrieval: 1500,
+                batch: 1000,
+                earlyTermination: 57500,
+            },
+            processor: {
+                card: {
+                    planType: "interchangePlus",
+                    fees: {
+                        mastercardVisaDiscover: { volume: 1.25 },
+                        amex: { type: "optBlue", volume: 1.25, transaction: 1 },
+                        pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
+                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
+                    },
+                },
+                ach: {
+                    fees: {
+                        transaction: 50,
+                        batch: 1000,
+                        returns: 400,
+                        unauthorizedReturn: 1999,
+                        statement: 800,
+                        monthlyMinimum: 20000,
+                        accountVerification: 100,
+                        discountRateUnder10000: 5.25,
+                        discountRateAbove10000: 10,
+                    },
+                },
+            },
+            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            services: [{ name: "hardwareAdvantagePlan", enabled: true }],
+            id: "5",
+            createdDate: "2024-07-02T09:00:00Z",
+            lastUpdatedDate: "2024-07-02T09:00:00Z",
+            status: "pendingReview",
+            key: "string",
+            metadata: { yourCustomField: "abc123" },
+        };
+        server
+            .mockEndpoint()
+            .patch("/pricing-intents/5")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.boarding.pricingIntents.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            pricingIntentId: "5",
+            body: [
+                {
+                    op: "copy",
+                    from: "from",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            country: "US",
+            version: "5.0",
+            base: {
+                addressVerification: 5,
+                annualFee: {
+                    billInMonth: "june",
+                    amount: 100,
+                },
+                regulatoryAssistanceProgram: 15,
+                pciNonCompliance: 4995,
+                merchantAdvantage: 10,
+                platinumSecurity: {
+                    billingFrequency: "monthly",
+                    amount: 1295,
+                },
+                maintenance: 500,
+                minimum: 100,
+                voiceAuthorization: 95,
+                chargeback: 2500,
+                retrieval: 1500,
+                batch: 1000,
+                earlyTermination: 57500,
+            },
+            processor: {
+                card: {
+                    planType: "interchangePlus",
+                    fees: {
+                        mastercardVisaDiscover: {
+                            volume: 1.25,
+                        },
+                        amex: {
+                            type: "optBlue",
+                            volume: 1.25,
+                            transaction: 1,
+                        },
+                        pinDebit: {
+                            additionalDiscount: 1.25,
+                            transaction: 1,
+                            monthlyAccess: 1,
+                        },
+                        enhancedInterchange: {
+                            enrollment: 1,
+                            creditToMerchant: 1.25,
+                        },
+                    },
+                },
+                ach: {
+                    fees: {
+                        transaction: 50,
+                        batch: 1000,
+                        returns: 400,
+                        unauthorizedReturn: 1999,
+                        statement: 800,
+                        monthlyMinimum: 20000,
+                        accountVerification: 100,
+                        discountRateUnder10000: 5.25,
+                        discountRateAbove10000: 10,
+                    },
+                },
+            },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                },
+            },
+            services: [
+                {
+                    name: "hardwareAdvantagePlan",
+                    enabled: true,
+                },
+            ],
+            id: "5",
+            createdDate: "2024-07-02T09:00:00Z",
+            lastUpdatedDate: "2024-07-02T09:00:00Z",
+            status: "pendingReview",
+            key: "string",
+            metadata: {
+                yourCustomField: "abc123",
+            },
+        });
+    });
+
+    test("partiallyUpdate (7)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = [{ op: "remove", path: "path" }];
+        const rawResponseBody = {
+            country: "US",
+            version: "5.0",
+            base: {
+                addressVerification: 5,
+                annualFee: { billInMonth: "june", amount: 100 },
+                regulatoryAssistanceProgram: 15,
+                pciNonCompliance: 4995,
+                merchantAdvantage: 10,
+                platinumSecurity: { billingFrequency: "monthly", amount: 1295 },
+                maintenance: 500,
+                minimum: 100,
+                voiceAuthorization: 95,
+                chargeback: 2500,
+                retrieval: 1500,
+                batch: 1000,
+                earlyTermination: 57500,
+            },
+            processor: {
+                card: {
+                    planType: "interchangePlus",
+                    fees: {
+                        mastercardVisaDiscover: { volume: 1.25 },
+                        amex: { type: "optBlue", volume: 1.25, transaction: 1 },
+                        pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
+                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
+                    },
+                },
+                ach: {
+                    fees: {
+                        transaction: 50,
+                        batch: 1000,
+                        returns: 400,
+                        unauthorizedReturn: 1999,
+                        statement: 800,
+                        monthlyMinimum: 20000,
+                        accountVerification: 100,
+                        discountRateUnder10000: 5.25,
+                        discountRateAbove10000: 10,
+                    },
+                },
+            },
+            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            services: [{ name: "hardwareAdvantagePlan", enabled: true }],
+            id: "5",
+            createdDate: "2024-07-02T09:00:00Z",
+            lastUpdatedDate: "2024-07-02T09:00:00Z",
+            status: "pendingReview",
+            key: "string",
+            metadata: { yourCustomField: "abc123" },
+        };
+        server
+            .mockEndpoint()
+            .patch("/pricing-intents/5")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.boarding.pricingIntents.partiallyUpdate({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            pricingIntentId: "5",
+            body: [
+                {
+                    op: "remove",
+                    path: "path",
+                },
+            ],
+        });
+        expect(response).toEqual({
+            country: "US",
+            version: "5.0",
+            base: {
+                addressVerification: 5,
+                annualFee: {
+                    billInMonth: "june",
+                    amount: 100,
+                },
+                regulatoryAssistanceProgram: 15,
+                pciNonCompliance: 4995,
+                merchantAdvantage: 10,
+                platinumSecurity: {
+                    billingFrequency: "monthly",
+                    amount: 1295,
+                },
+                maintenance: 500,
+                minimum: 100,
+                voiceAuthorization: 95,
+                chargeback: 2500,
+                retrieval: 1500,
+                batch: 1000,
+                earlyTermination: 57500,
+            },
+            processor: {
+                card: {
+                    planType: "interchangePlus",
+                    fees: {
+                        mastercardVisaDiscover: {
+                            volume: 1.25,
+                        },
+                        amex: {
+                            type: "optBlue",
+                            volume: 1.25,
+                            transaction: 1,
+                        },
+                        pinDebit: {
+                            additionalDiscount: 1.25,
+                            transaction: 1,
+                            monthlyAccess: 1,
+                        },
+                        enhancedInterchange: {
+                            enrollment: 1,
+                            creditToMerchant: 1.25,
+                        },
+                    },
+                },
+                ach: {
+                    fees: {
+                        transaction: 50,
+                        batch: 1000,
+                        returns: 400,
+                        unauthorizedReturn: 1999,
+                        statement: 800,
+                        monthlyMinimum: 20000,
+                        accountVerification: 100,
+                        discountRateUnder10000: 5.25,
+                        discountRateAbove10000: 10,
+                    },
+                },
+            },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                },
+            },
+            services: [
+                {
+                    name: "hardwareAdvantagePlan",
+                    enabled: true,
+                },
+            ],
+            id: "5",
+            createdDate: "2024-07-02T09:00:00Z",
+            lastUpdatedDate: "2024-07-02T09:00:00Z",
+            status: "pendingReview",
+            key: "string",
+            metadata: {
+                yourCustomField: "abc123",
+            },
+        });
+    });
+
+    test("partiallyUpdate (8)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
         const rawRequestBody = [
             { op: "remove", path: "path" },
             { op: "remove", path: "path" },
@@ -3441,7 +4445,7 @@ describe("PricingIntentsClient", () => {
         });
     });
 
-    test("partiallyUpdate (3)", async () => {
+    test("partiallyUpdate (9)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -3489,7 +4493,7 @@ describe("PricingIntentsClient", () => {
         }).rejects.toThrow(Payroc.BadRequestError);
     });
 
-    test("partiallyUpdate (4)", async () => {
+    test("partiallyUpdate (10)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -3537,7 +4541,7 @@ describe("PricingIntentsClient", () => {
         }).rejects.toThrow(Payroc.UnauthorizedError);
     });
 
-    test("partiallyUpdate (5)", async () => {
+    test("partiallyUpdate (11)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -3585,7 +4589,7 @@ describe("PricingIntentsClient", () => {
         }).rejects.toThrow(Payroc.ForbiddenError);
     });
 
-    test("partiallyUpdate (6)", async () => {
+    test("partiallyUpdate (12)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -3633,7 +4637,7 @@ describe("PricingIntentsClient", () => {
         }).rejects.toThrow(Payroc.NotFoundError);
     });
 
-    test("partiallyUpdate (7)", async () => {
+    test("partiallyUpdate (13)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -3681,7 +4685,7 @@ describe("PricingIntentsClient", () => {
         }).rejects.toThrow(Payroc.NotAcceptableError);
     });
 
-    test("partiallyUpdate (8)", async () => {
+    test("partiallyUpdate (14)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -3729,7 +4733,7 @@ describe("PricingIntentsClient", () => {
         }).rejects.toThrow(Payroc.ConflictError);
     });
 
-    test("partiallyUpdate (9)", async () => {
+    test("partiallyUpdate (15)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 

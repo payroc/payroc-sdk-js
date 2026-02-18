@@ -4,11 +4,11 @@ import type * as Payroc from "../index.js";
 
 export interface FundingAccount {
     /** Unique identifier that we assigned to the funding account. */
-    fundingAccountId?: number;
+    fundingAccountId?: number | undefined;
     /** Date and time that we received your request to create the funding account in our system. */
-    createdDate?: string;
+    createdDate?: string | undefined;
     /** Date and time that the funding account was last modified. */
-    lastModifiedDate?: string;
+    lastModifiedDate?: string | undefined;
     /**
      * Status of the funding account. The value is one of the following:
      * - `approved` - We approved the funding account.
@@ -16,7 +16,7 @@ export interface FundingAccount {
      * - `pending` - We have not yet approved the funding account.
      * - `hold` - Our Risk team have temporarily placed a hold on the funding account.
      */
-    status?: FundingAccount.Status;
+    status?: FundingAccount.Status | undefined;
     /** Type of funding account. */
     type: FundingAccount.Type;
     /**
@@ -33,9 +33,9 @@ export interface FundingAccount {
     /** Array of paymentMethod objects. */
     paymentMethods: Payroc.PaymentMethods;
     /** [Metadata](https://docs.payroc.com/api/metadata) object you can use to include custom data with your request. */
-    metadata?: Record<string, string>;
+    metadata?: Record<string, string> | undefined;
     /** Array of HATEOAS links. */
-    links?: Payroc.Link[];
+    links?: Payroc.Link[] | undefined;
 }
 
 export namespace FundingAccount {

@@ -1,1 +1,1 @@
-export type { SingleUseTokenRequest } from "./SingleUseTokenRequest.js";
+export { SingleUseTokenRequest } from "./SingleUseTokenRequest.js";

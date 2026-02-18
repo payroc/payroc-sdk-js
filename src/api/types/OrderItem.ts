@@ -36,11 +36,11 @@ export interface OrderItem {
      */
     solutionTemplateId: string;
     /** Quantity of the solution. */
-    solutionQuantity?: number;
+    solutionQuantity?: number | undefined;
     /** Indicates if the order contains a new item or a refurbished item. */
-    deviceCondition?: OrderItem.DeviceCondition;
+    deviceCondition?: OrderItem.DeviceCondition | undefined;
     /** Object that contains the settings for the solution, including gateway settings, device settings, and application settings. */
-    solutionSetup?: OrderItem.SolutionSetup;
+    solutionSetup?: OrderItem.SolutionSetup | undefined;
 }
 
 export namespace OrderItem {
@@ -60,7 +60,7 @@ export namespace OrderItem {
      * Object that contains the settings for the solution, including gateway settings, device settings, and application settings.
      */
     export interface SolutionSetup {
-        timezone?: Payroc.SchemasTimezone;
+        timezone?: Payroc.SchemasTimezone | undefined;
         /**
          * Unique identifier of the industry template you want to apply to the solution. Send one of the following values:
          * - `Retail`
@@ -68,23 +68,23 @@ export namespace OrderItem {
          * - `Moto`
          * - `Ecommerce`
          */
-        industryTemplateId?: string;
+        industryTemplateId?: string | undefined;
         /** Object that contains the gateway settings for the solution. */
-        gatewaySettings?: SolutionSetup.GatewaySettings;
+        gatewaySettings?: SolutionSetup.GatewaySettings | undefined;
         /** Object that contains the application settings for the solution. */
-        applicationSettings?: SolutionSetup.ApplicationSettings;
+        applicationSettings?: SolutionSetup.ApplicationSettings | undefined;
         /** Object that contains the device settings if the solution includes a terminal or a peripheral device such as a printer. */
-        deviceSettings?: SolutionSetup.DeviceSettings;
+        deviceSettings?: SolutionSetup.DeviceSettings | undefined;
         /** Object that contains information about when and how the terminal closes the batch. */
-        batchClosure?: Payroc.OrderItemSolutionSetupBatchClosure;
+        batchClosure?: Payroc.OrderItemSolutionSetupBatchClosure | undefined;
         /** Object that indicates if the terminal can send email receipts, text receipts, or both. */
-        receiptNotifications?: SolutionSetup.ReceiptNotifications;
+        receiptNotifications?: SolutionSetup.ReceiptNotifications | undefined;
         /** Array of tax objects that contains the taxes that apply to the merchant's transactions. */
-        taxes?: SolutionSetup.Taxes.Item[];
+        taxes?: SolutionSetup.Taxes.Item[] | undefined;
         /** Object that contains the tip options for transactions ran on the terminal. */
-        tips?: SolutionSetup.Tips;
+        tips?: SolutionSetup.Tips | undefined;
         /** Indicates if the terminal can tokenize customer's payment details. For more information about tokenization, go to [Tokenization.](https://docs.payroc.com/knowledge/basic-concepts/tokenization) */
-        tokenization?: boolean;
+        tokenization?: boolean | undefined;
     }
 
     export namespace SolutionSetup {
@@ -93,13 +93,13 @@ export namespace OrderItem {
          */
         export interface GatewaySettings {
             /** Unique identifier of the merchant portfolio. */
-            merchantPortfolioId?: string;
+            merchantPortfolioId?: string | undefined;
             /** Unique identifier of the gateway merchant template. */
-            merchantTemplateId?: string;
+            merchantTemplateId?: string | undefined;
             /** Unique identifier of the gateway user template. */
-            userTemplateId?: string;
+            userTemplateId?: string | undefined;
             /** Unique identifier of the gateway terminal template. */
-            terminalTemplateId?: string;
+            terminalTemplateId?: string | undefined;
         }
 
         /**
@@ -107,9 +107,9 @@ export namespace OrderItem {
          */
         export interface ApplicationSettings {
             /** Indicates if the terminal should prompt the clerk, for example, if the terminal should prompt when the clerk needs to enter an amount on the terminal. */
-            clerkPrompt?: boolean;
+            clerkPrompt?: boolean | undefined;
             /** Object that contains the password settings when running specific transaction types. */
-            security?: ApplicationSettings.Security;
+            security?: ApplicationSettings.Security | undefined;
         }
 
         export namespace ApplicationSettings {
@@ -118,11 +118,11 @@ export namespace OrderItem {
              */
             export interface Security {
                 /** Indicates if the terminal should prompt the clerk for a password when running a refund. */
-                refundPassword?: boolean;
+                refundPassword?: boolean | undefined;
                 /** Indicates if the terminal should prompt the clerk for a password when running a keyed sale. */
-                keyedSalePassword?: boolean;
+                keyedSalePassword?: boolean | undefined;
                 /** Indicates if the terminal should prompt the clerk for a password when cancelling a transaction. */
-                reversalPassword?: boolean;
+                reversalPassword?: boolean | undefined;
             }
         }
 
@@ -131,9 +131,9 @@ export namespace OrderItem {
          */
         export interface DeviceSettings {
             /** Number of users that we need to set up for mobile solutions. */
-            numberOfMobileUsers?: number;
+            numberOfMobileUsers?: number | undefined;
             /** Method of connection between a terminal or a peripheral device and the host. */
-            communicationType?: DeviceSettings.CommunicationType;
+            communicationType?: DeviceSettings.CommunicationType | undefined;
         }
 
         export namespace DeviceSettings {
@@ -152,9 +152,9 @@ export namespace OrderItem {
          */
         export interface ReceiptNotifications {
             /** Indicates if the terminal can send receipts by email. */
-            emailReceipt?: boolean;
+            emailReceipt?: boolean | undefined;
             /** Indicates if the terminal can send receipts by text message. */
-            smsReceipt?: boolean;
+            smsReceipt?: boolean | undefined;
         }
 
         export type Taxes = Taxes.Item[];
@@ -176,7 +176,7 @@ export namespace OrderItem {
          */
         export interface Tips {
             /** Indicates if the terminal can accept tips. */
-            enabled?: boolean;
+            enabled?: boolean | undefined;
         }
     }
 }

@@ -4,7 +4,7 @@ import type * as Payroc from "../index.js";
 
 export interface CreateProcessingAccount {
     /** Unique identifier of the processing account. */
-    processingAccountId?: string;
+    processingAccountId?: string | undefined;
     /** Trading name of the business. */
     doingBusinessAs: string;
     /**
@@ -15,7 +15,7 @@ export interface CreateProcessingAccount {
      */
     owners: Payroc.Owner[];
     /** Website address of the business. */
-    website?: string;
+    website?: string | undefined;
     /** Type of business. */
     businessType: CreateProcessingAccount.BusinessType;
     /** Merchant Category Code (MCC) for the type of business. */
@@ -25,17 +25,28 @@ export interface CreateProcessingAccount {
     /** Date that the business was established. The format of the value is **YYYY-MM-DD**. */
     businessStartDate: string;
     timezone: Payroc.Timezone;
+    /** Polymorphic object that contains address information for the processing account. */
     address: Payroc.Address;
-    /** Array of contactMethod objects. One contact method must be an email address. */
+    /**
+     * Array of polymorphic objects, which contain contact information.
+     *
+     * **Note:** You must provide an email address.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`email` - Email address
+     * -	`phone` - Phone number
+     * -	`mobile` - Mobile number
+     * -	`fax` - Fax number.
+     */
     contactMethods: Payroc.ContactMethod[];
     processing: Payroc.Processing;
     funding: Payroc.CreateFunding;
     pricing: Payroc.Pricing;
     signature: Payroc.Signature;
     /** Array of contact objects. */
-    contacts?: Payroc.Contact[];
+    contacts?: Payroc.Contact[] | undefined;
     /** Object that you can send to include custom data in the request. For more information about how to use metadata, go to [Metadata](https://docs.payroc.com/api/metadata). */
-    metadata?: Record<string, string>;
+    metadata?: Record<string, string> | undefined;
 }
 
 export namespace CreateProcessingAccount {

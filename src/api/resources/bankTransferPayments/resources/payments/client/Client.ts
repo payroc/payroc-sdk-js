@@ -83,68 +83,22 @@ export class PaymentsClient {
             after,
             limit,
         } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        _queryParams.processingTerminalId = processingTerminalId;
-        if (orderId != null) {
-            _queryParams.orderId = orderId;
-        }
-
-        if (nameOnAccount != null) {
-            _queryParams.nameOnAccount = nameOnAccount;
-        }
-
-        if (last4 != null) {
-            _queryParams.last4 = last4;
-        }
-
-        if (type_ != null) {
-            if (Array.isArray(type_)) {
-                _queryParams.type = type_.map((item) => item);
-            } else {
-                _queryParams.type = type_;
-            }
-        }
-
-        if (status != null) {
-            if (Array.isArray(status)) {
-                _queryParams.status = status.map((item) => item);
-            } else {
-                _queryParams.status = status;
-            }
-        }
-
-        if (dateFrom != null) {
-            _queryParams.dateFrom = dateFrom;
-        }
-
-        if (dateTo != null) {
-            _queryParams.dateTo = dateTo;
-        }
-
-        if (settlementState != null) {
-            _queryParams.settlementState = settlementState;
-        }
-
-        if (settlementDate != null) {
-            _queryParams.settlementDate = settlementDate;
-        }
-
-        if (paymentLinkId != null) {
-            _queryParams.paymentLinkId = paymentLinkId;
-        }
-
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            processingTerminalId,
+            orderId,
+            nameOnAccount,
+            last4,
+            type: Array.isArray(type_) ? type_.map((item) => item) : type_ != null ? type_ : undefined,
+            status: Array.isArray(status) ? status.map((item) => item) : status != null ? status : undefined,
+            dateFrom: dateFrom != null ? dateFrom : undefined,
+            dateTo: dateTo != null ? dateTo : undefined,
+            settlementState: settlementState != null ? settlementState : undefined,
+            settlementDate: settlementDate != null ? settlementDate : undefined,
+            paymentLinkId,
+            before,
+            after,
+            limit,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,

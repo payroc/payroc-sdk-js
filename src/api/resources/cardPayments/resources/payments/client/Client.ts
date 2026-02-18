@@ -90,91 +90,26 @@ export class PaymentsClient {
             after,
             limit,
         } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (processingTerminalId != null) {
-            _queryParams.processingTerminalId = processingTerminalId;
-        }
-
-        if (orderId != null) {
-            _queryParams.orderId = orderId;
-        }
-
-        if (operator != null) {
-            _queryParams.operator = operator;
-        }
-
-        if (cardholderName != null) {
-            _queryParams.cardholderName = cardholderName;
-        }
-
-        if (first6 != null) {
-            _queryParams.first6 = first6;
-        }
-
-        if (last4 != null) {
-            _queryParams.last4 = last4;
-        }
-
-        if (tender != null) {
-            _queryParams.tender = tender;
-        }
-
-        if (tipMode != null) {
-            if (Array.isArray(tipMode)) {
-                _queryParams.tipMode = tipMode.map((item) => item);
-            } else {
-                _queryParams.tipMode = tipMode;
-            }
-        }
-
-        if (type_ != null) {
-            if (Array.isArray(type_)) {
-                _queryParams.type = type_.map((item) => item);
-            } else {
-                _queryParams.type = type_;
-            }
-        }
-
-        if (status != null) {
-            if (Array.isArray(status)) {
-                _queryParams.status = status.map((item) => item);
-            } else {
-                _queryParams.status = status;
-            }
-        }
-
-        if (dateFrom != null) {
-            _queryParams.dateFrom = dateFrom;
-        }
-
-        if (dateTo != null) {
-            _queryParams.dateTo = dateTo;
-        }
-
-        if (settlementState != null) {
-            _queryParams.settlementState = settlementState;
-        }
-
-        if (settlementDate != null) {
-            _queryParams.settlementDate = settlementDate;
-        }
-
-        if (paymentLinkId != null) {
-            _queryParams.paymentLinkId = paymentLinkId;
-        }
-
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            processingTerminalId,
+            orderId,
+            operator,
+            cardholderName,
+            first6,
+            last4,
+            tender: tender != null ? tender : undefined,
+            tipMode: Array.isArray(tipMode) ? tipMode.map((item) => item) : tipMode != null ? tipMode : undefined,
+            type: Array.isArray(type_) ? type_.map((item) => item) : type_ != null ? type_ : undefined,
+            status: Array.isArray(status) ? status.map((item) => item) : status != null ? status : undefined,
+            dateFrom: dateFrom != null ? dateFrom : undefined,
+            dateTo: dateTo != null ? dateTo : undefined,
+            settlementState: settlementState != null ? settlementState : undefined,
+            settlementDate: settlementDate != null ? settlementDate : undefined,
+            paymentLinkId,
+            before,
+            after,
+            limit,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -258,18 +193,18 @@ export class PaymentsClient {
      * **Payment methods**
      *
      * - **Cards** - Credit, debit, and EBT
-     * - **Digital wallets** - [Apple Pay®](https://docs.payroc.com/guides/integrate/apple-pay) and [Google Pay®](https://docs.payroc.com/guides/integrate/google-pay)
+     * - **Digital wallets** - [Apple Pay®](https://docs.payroc.com/guides/take-payments/apple-pay) and [Google Pay®](https://docs.payroc.com/guides/take-payments/google-pay)
      * - **Tokens** - Secure tokens and single-use tokens
      *
      * **Features**
      *
      * Our Create Payment method also supports the following features:
      *
-     * - [Repeat payments](https://docs.payroc.com/guides/integrate/repeat-payments/use-your-own-software) - Run multiple payments as part of a payment schedule that you manage with your own software.
+     * - [Repeat payments](https://docs.payroc.com/guides/take-payments/repeat-payments/use-your-own-software) - Run multiple payments as part of a payment schedule that you manage with your own software.
      * - **Offline sales** - Run a sale or a pre-authorization if the terminal loses its connection to our gateway.
-     * - [Tokenization](https://docs.payroc.com/guides/integrate/save-payment-details) - Save card details to use in future transactions.
-     * - [3-D Secure](https://docs.payroc.com/guides/integrate/3-d-secure) - Verify the identity of the cardholder.
-     * - [Custom fields](https://docs.payroc.com/guides/integrate/add-custom-fields) - Add your own data to a payment.
+     * - [Tokenization](https://docs.payroc.com/guides/take-payments/save-payment-details) - Save card details to use in future transactions.
+     * - [3-D Secure](https://docs.payroc.com/guides/take-payments/3-d-secure) - Verify the identity of the cardholder.
+     * - [Custom fields](https://docs.payroc.com/guides/take-payments/add-custom-fields) - Add your own data to a payment.
      * - **Tips** - Add tips to the card payment.
      * - **Taxes** - Add local taxes to the card payment.
      * - **Surcharging** - Add a surcharge to the card payment.

@@ -2,6 +2,13 @@
 
 import type * as Payroc from "../index.js";
 
+/**
+ * Polymorphic object that contains payment card details that a device captured from the magnetic strip.
+ *
+ * The value of the dataFormat parameter determines which variant you should use:
+ * -	`encrypted` - Payment card details are encrypted.
+ * -	`plainText` - Payment card details are in plain text.
+ */
 export type SwipedCardDetailsSwipedData =
     | Payroc.SwipedCardDetailsSwipedData.Encrypted
     | Payroc.SwipedCardDetailsSwipedData.PlainText;

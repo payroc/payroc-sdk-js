@@ -4,5 +4,5 @@ import type * as Payroc from "../index.js";
 
 export interface PaginatedProcessingAccounts extends Payroc.PaginatedList {
     /** Array of processingAccount objects. */
-    data?: Payroc.ProcessingAccount[];
+    data?: Payroc.ProcessingAccount[] | undefined;
 }

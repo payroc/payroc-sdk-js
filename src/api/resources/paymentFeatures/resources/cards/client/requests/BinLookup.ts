@@ -25,6 +25,14 @@ export interface BinLookup {
     /** Transaction amount that you send to check the surcharge amount. The value is in the currency's lowest denomination, for example, cents. */
     amount?: number;
     currency?: Payroc.Currency;
-    /** Object that contains information about the card. */
+    /**
+     * Polymorphic object that contains payment details.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`card` - Payment card details
+     * -	`cardBin` - Bank identification number (BIN) of the payment card
+     * -	`secureToken` - Secure token details
+     * -	`digitalWallet` - Digital wallet details
+     */
     card: Payroc.paymentFeatures.BinLookupCard;
 }

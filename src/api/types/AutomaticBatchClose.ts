@@ -5,5 +5,5 @@
  */
 export interface AutomaticBatchClose {
     /** Time that the batch automatically closes. */
-    batchCloseTime?: string;
+    batchCloseTime?: string | undefined;
 }

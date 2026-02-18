@@ -84,9 +84,23 @@ export interface TokenizationRequest {
     mitAgreement?: TokenizationRequest.MitAgreement;
     customer?: Payroc.Customer;
     ipAddress?: Payroc.IpAddress;
-    /** Object that contains information about the payment method to tokenize. */
+    /**
+     * Polymorphic object that contains the payment method to tokenize.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`ach` - Automated Clearing House (ACH) details
+     * -	`pad` - Pre-authorized debit (PAD) details
+     * -	`card` - Payment card details
+     * -	`singleUseToken` - Single-use token details
+     */
     source: Payroc.tokenization.TokenizationRequestSource;
-    /** Object that contains information for an authentication check on the customer's payment details using the 3-D Secure protocol. */
+    /**
+     * Polymorphic object that contains authentication information from 3-D Secure.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`gatewayThreeDSecure` - Use our gateway to run a 3-D Secure check.
+     * -	`thirdPartyThreeDSecure` - Use a third party to run a 3-D Secure check.
+     */
     threeDSecure?: Payroc.tokenization.TokenizationRequestThreeDSecure;
     /** Array of customField objects. */
     customFields?: Payroc.CustomField[];

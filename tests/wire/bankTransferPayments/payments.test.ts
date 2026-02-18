@@ -790,6 +790,221 @@ describe("PaymentsClient", () => {
             environment: { api: server.baseUrl, identity: server.baseUrl },
         });
 
+        const rawResponseBody = {
+            paymentId: "E29U8OU8Q4",
+            processingTerminalId: "1234001",
+            order: {
+                orderId: "OrderRef7654",
+                dateTime: "2024-07-02T15:30:00Z",
+                description: "Large Pepperoni Pizza",
+                amount: 4999,
+                currency: "USD",
+                breakdown: {
+                    subtotal: 4347,
+                    tip: { type: "percentage", amount: 435, percentage: 10 },
+                    taxes: [{ name: "Sales Tax", rate: 5, amount: 217 }],
+                },
+            },
+            customer: {
+                notificationLanguage: "en",
+                contactMethods: [{ type: "email", value: "jane.doe@example.com" }],
+            },
+            bankAccount: {
+                type: "ach",
+                secCode: "web",
+                nameOnAccount: "Sarah Hazel Hopper",
+                accountNumber: "123456789",
+                routingNumber: "123456789",
+                secureToken: {
+                    secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+                    customerName: "Sarah Hazel Hopper",
+                    token: "296753123456",
+                    status: "notValidated",
+                    link: { rel: "previous", method: "get", href: "<uri>" },
+                },
+            },
+            refunds: [
+                {
+                    refundId: "CD3HN88U9F",
+                    dateTime: "2024-07-14T12:25:00Z",
+                    currency: "AED",
+                    amount: 4999,
+                    status: "ready",
+                    responseCode: "A",
+                    responseMessage: "Transaction refunded",
+                    link: { rel: "previous", method: "get", href: "<uri>" },
+                },
+            ],
+            returns: [
+                {
+                    paymentId: "M2MJOG6O2Y",
+                    date: "2024-07-02",
+                    returnCode: "R11",
+                    returnReason: "Customer advises not authorized",
+                    represented: false,
+                    link: {
+                        rel: "self",
+                        method: "GET",
+                        href: "https://api.payroc.com/v1/bank-transfer-payments/M2MJOG6O2Y",
+                    },
+                },
+            ],
+            representment: {
+                paymentId: "M2MJOG6O2Y",
+                dateTime: "2024-07-02T15:30:00Z",
+                currency: "AED",
+                amount: 4999,
+                status: "ready",
+                responseCode: "A",
+                responseMessage: "Transaction approved",
+                link: { rel: "previous", method: "get", href: "<uri>" },
+            },
+            transactionResult: {
+                type: "payment",
+                status: "declined",
+                authorizedAmount: 4999,
+                currency: "USD",
+                responseCode: "D",
+                responseMessage: "Payment Declined",
+                processorResponseCode: "R11",
+            },
+            customFields: [{ name: "yourCustomField", value: "abc123" }],
+        };
+        server
+            .mockEndpoint()
+            .get("/bank-transfer-payments/M2MJOG6O2Y")
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.bankTransferPayments.payments.retrieve({
+            paymentId: "M2MJOG6O2Y",
+        });
+        expect(response).toEqual({
+            paymentId: "E29U8OU8Q4",
+            processingTerminalId: "1234001",
+            order: {
+                orderId: "OrderRef7654",
+                dateTime: "2024-07-02T15:30:00Z",
+                description: "Large Pepperoni Pizza",
+                amount: 4999,
+                currency: "USD",
+                breakdown: {
+                    subtotal: 4347,
+                    tip: {
+                        type: "percentage",
+                        amount: 435,
+                        percentage: 10,
+                    },
+                    taxes: [
+                        {
+                            name: "Sales Tax",
+                            rate: 5,
+                            amount: 217,
+                        },
+                    ],
+                },
+            },
+            customer: {
+                notificationLanguage: "en",
+                contactMethods: [
+                    {
+                        type: "email",
+                        value: "jane.doe@example.com",
+                    },
+                ],
+            },
+            bankAccount: {
+                type: "ach",
+                secCode: "web",
+                nameOnAccount: "Sarah Hazel Hopper",
+                accountNumber: "123456789",
+                routingNumber: "123456789",
+                secureToken: {
+                    secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
+                    customerName: "Sarah Hazel Hopper",
+                    token: "296753123456",
+                    status: "notValidated",
+                    link: {
+                        rel: "previous",
+                        method: "get",
+                        href: "<uri>",
+                    },
+                },
+            },
+            refunds: [
+                {
+                    refundId: "CD3HN88U9F",
+                    dateTime: "2024-07-14T12:25:00Z",
+                    currency: "AED",
+                    amount: 4999,
+                    status: "ready",
+                    responseCode: "A",
+                    responseMessage: "Transaction refunded",
+                    link: {
+                        rel: "previous",
+                        method: "get",
+                        href: "<uri>",
+                    },
+                },
+            ],
+            returns: [
+                {
+                    paymentId: "M2MJOG6O2Y",
+                    date: "2024-07-02",
+                    returnCode: "R11",
+                    returnReason: "Customer advises not authorized",
+                    represented: false,
+                    link: {
+                        rel: "self",
+                        method: "GET",
+                        href: "https://api.payroc.com/v1/bank-transfer-payments/M2MJOG6O2Y",
+                    },
+                },
+            ],
+            representment: {
+                paymentId: "M2MJOG6O2Y",
+                dateTime: "2024-07-02T15:30:00Z",
+                currency: "AED",
+                amount: 4999,
+                status: "ready",
+                responseCode: "A",
+                responseMessage: "Transaction approved",
+                link: {
+                    rel: "previous",
+                    method: "get",
+                    href: "<uri>",
+                },
+            },
+            transactionResult: {
+                type: "payment",
+                status: "declined",
+                authorizedAmount: 4999,
+                currency: "USD",
+                responseCode: "D",
+                responseMessage: "Payment Declined",
+                processorResponseCode: "R11",
+            },
+            customFields: [
+                {
+                    name: "yourCustomField",
+                    value: "abc123",
+                },
+            ],
+        });
+    });
+
+    test("retrieve (3)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
         server
             .mockEndpoint()
@@ -806,7 +1021,7 @@ describe("PaymentsClient", () => {
         }).rejects.toThrow(Payroc.BadRequestError);
     });
 
-    test("retrieve (3)", async () => {
+    test("retrieve (4)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -832,7 +1047,7 @@ describe("PaymentsClient", () => {
         }).rejects.toThrow(Payroc.UnauthorizedError);
     });
 
-    test("retrieve (4)", async () => {
+    test("retrieve (5)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -858,7 +1073,7 @@ describe("PaymentsClient", () => {
         }).rejects.toThrow(Payroc.ForbiddenError);
     });
 
-    test("retrieve (5)", async () => {
+    test("retrieve (6)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -884,7 +1099,7 @@ describe("PaymentsClient", () => {
         }).rejects.toThrow(Payroc.NotFoundError);
     });
 
-    test("retrieve (6)", async () => {
+    test("retrieve (7)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -910,7 +1125,7 @@ describe("PaymentsClient", () => {
         }).rejects.toThrow(Payroc.NotAcceptableError);
     });
 
-    test("retrieve (7)", async () => {
+    test("retrieve (8)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 

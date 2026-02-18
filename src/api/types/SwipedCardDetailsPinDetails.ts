@@ -2,6 +2,9 @@
 
 import type * as Payroc from "../index.js";
 
+/**
+ * Polymorphic object that contains information about the customer's PIN.
+ */
 export type SwipedCardDetailsPinDetails = Payroc.SwipedCardDetailsPinDetails.Dukpt;
 
 export namespace SwipedCardDetailsPinDetails {

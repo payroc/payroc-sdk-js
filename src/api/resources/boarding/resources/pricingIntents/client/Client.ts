@@ -54,19 +54,11 @@ export class PricingIntentsClient {
         requestOptions?: PricingIntentsClient.RequestOptions,
     ): Promise<core.PayrocPager<Payroc.PricingIntent, Payroc.PaginatedPricingIntent>> {
         const { before, after, limit } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            before,
+            after,
+            limit,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -1108,6 +1100,38 @@ export class PricingIntentsClient {
      *                 path: "path"
      *             }, {
      *                 op: "remove",
+     *                 path: "path"
+     *             }]
+     *     })
+     *
+     * @example
+     *     await client.boarding.pricingIntents.partiallyUpdate({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         pricingIntentId: "5",
+     *         body: [{
+     *                 op: "remove",
+     *                 path: "path"
+     *             }]
+     *     })
+     *
+     * @example
+     *     await client.boarding.pricingIntents.partiallyUpdate({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         pricingIntentId: "5",
+     *         body: [{
+     *                 op: "move",
+     *                 from: "from",
+     *                 path: "path"
+     *             }]
+     *     })
+     *
+     * @example
+     *     await client.boarding.pricingIntents.partiallyUpdate({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         pricingIntentId: "5",
+     *         body: [{
+     *                 op: "copy",
+     *                 from: "from",
      *                 path: "path"
      *             }]
      *     })

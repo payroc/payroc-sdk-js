@@ -7,5 +7,5 @@ import type * as Payroc from "../index.js";
  */
 export interface PaginatedPricingIntent extends Payroc.PaginatedList {
     /** Array of pricing intent objects. */
-    data?: Payroc.PricingIntent[];
+    data?: Payroc.PricingIntent[] | undefined;
 }

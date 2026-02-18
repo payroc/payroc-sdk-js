@@ -5,19 +5,19 @@
  */
 export interface CardSummary {
     /** Masked card number. Our gateway shows only the first six digits and the last four digits of the card number, for example, `500165******0000`. */
-    cardNumber?: string;
+    cardNumber?: string | undefined;
     /**
      * Card type, for example, Visa.
      *
      * **Note:** If we can’t match a dispute to a transaction, we don’t return a type object.
      */
-    type?: CardSummary.Type;
+    type?: CardSummary.Type | undefined;
     /** Indicates whether the cardholder provided the Card Verification Value (CVV). */
-    cvvPresenceIndicator?: boolean;
+    cvvPresenceIndicator?: boolean | undefined;
     /** Indicates whether the merchant used the Address Verification Service (AVS) to verify the cardholder's address. */
-    avsRequest?: boolean;
+    avsRequest?: boolean | undefined;
     /** Response from the Address Verification Service (AVS). */
-    avsResponse?: string;
+    avsResponse?: string | undefined;
 }
 
 export namespace CardSummary {

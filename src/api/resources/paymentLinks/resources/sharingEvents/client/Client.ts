@@ -60,27 +60,13 @@ export class SharingEventsClient {
         requestOptions?: SharingEventsClient.RequestOptions,
     ): Promise<core.PayrocPager<Payroc.PaymentLinkEmailShareEvent, Payroc.SharingEventPaginatedList>> {
         const { paymentLinkId, recipientName, recipientEmail, before, after, limit } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (recipientName != null) {
-            _queryParams.recipientName = recipientName;
-        }
-
-        if (recipientEmail != null) {
-            _queryParams.recipientEmail = recipientEmail;
-        }
-
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            recipientName,
+            recipientEmail,
+            before,
+            after,
+            limit,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,

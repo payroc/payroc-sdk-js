@@ -9,21 +9,21 @@ export interface RetrievedCard {
     /** Card brand that the card is linked to. For example, Visa. */
     type: string;
     /** Method that the device used to capture the card details. */
-    entryMethod?: RetrievedCard.EntryMethod;
+    entryMethod?: RetrievedCard.EntryMethod | undefined;
     /** Cardholder’s name. */
-    cardholderName?: string;
+    cardholderName?: string | undefined;
     /** Cardholder’s signature. */
-    cardholderSignature?: string;
+    cardholderSignature?: string | undefined;
     /** Masked card number. Our gateway shows only the first six digits and the last four digits of the card number, for example, 500165******0000. */
     cardNumber: string;
     /** Expiry date of the customer's card. The format is in **MMYY**. */
     expiryDate: string;
-    secureToken?: Payroc.SecureTokenSummary;
-    securityChecks?: Payroc.SecurityCheck;
+    secureToken?: Payroc.SecureTokenSummary | undefined;
+    securityChecks?: Payroc.SecurityCheck | undefined;
     /** Array of emvTag objects. */
-    emvTags?: Payroc.EmvTag[];
+    emvTags?: Payroc.EmvTag[] | undefined;
     /** Array of cardBalance objects. Our gateway returns this array only when the customer uses an Electronic Benefit Transfer (EBT) card. */
-    balances?: Payroc.CardBalance[];
+    balances?: Payroc.CardBalance[] | undefined;
 }
 
 export namespace RetrievedCard {

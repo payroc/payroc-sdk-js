@@ -20,6 +20,12 @@ export interface RefundAdjustment {
     "Idempotency-Key": string;
     /** Operator who requested the adjustment to the refund. */
     operator?: string;
-    /** Array of objects that contain information about the adjustments to the refund. */
+    /**
+     * Array of polymorphic objects that contain information about adjustments to the refund.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`status` - Status of the transaction.
+     * -	`customer` - Customer's contact information and shipping address.
+     */
     adjustments: Payroc.cardPayments.RefundAdjustmentAdjustmentsItem[];
 }

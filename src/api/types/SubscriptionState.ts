@@ -14,7 +14,7 @@ export interface SubscriptionState {
      */
     status: SubscriptionState.Status;
     /** Date that the merchant collects the next payment. */
-    nextDueDate?: string;
+    nextDueDate?: string | undefined;
     /** Number of payments that the merchant has collected. */
     paidInvoices: number;
     /**
@@ -22,7 +22,7 @@ export interface SubscriptionState {
      * Our gateway returns a value for **outstandingInvoices** only if the subscription
      * has an end date or a fixed number of billing cycles.
      */
-    outstandingInvoices?: number;
+    outstandingInvoices?: number | undefined;
 }
 
 export namespace SubscriptionState {

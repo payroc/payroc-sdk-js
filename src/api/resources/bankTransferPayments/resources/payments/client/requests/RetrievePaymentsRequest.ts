@@ -5,6 +5,11 @@
  *     {
  *         paymentId: "M2MJOG6O2Y"
  *     }
+ *
+ * @example
+ *     {
+ *         paymentId: "M2MJOG6O2Y"
+ *     }
  */
 export interface RetrievePaymentsRequest {
     /** Unique identifier that our gateway assigned to the payment. */

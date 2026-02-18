@@ -20,6 +20,60 @@ import type * as Payroc from "../../../../../../index.js";
  *             }
  *         }
  *     }
+ *
+ * @example
+ *     {
+ *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+ *         body: {
+ *             enabled: true,
+ *             eventTypes: ["processingAccount.status.changed"],
+ *             notifications: [{
+ *                     type: "webhook",
+ *                     uri: "https://my-server/notification/endpoint",
+ *                     secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+ *                     supportEmailAddress: "supportEmailAddress"
+ *                 }],
+ *             metadata: {
+ *                 "responsiblePerson": "Jane Doe"
+ *             }
+ *         }
+ *     }
+ *
+ * @example
+ *     {
+ *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+ *         body: {
+ *             enabled: true,
+ *             eventTypes: ["processingAccount.status.changed"],
+ *             notifications: [{
+ *                     type: "webhook",
+ *                     uri: "https://my-server/notification/endpoint",
+ *                     secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+ *                     supportEmailAddress: "supportEmailAddress"
+ *                 }],
+ *             metadata: {
+ *                 "yourCustomField": "abc123"
+ *             }
+ *         }
+ *     }
+ *
+ * @example
+ *     {
+ *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+ *         body: {
+ *             enabled: true,
+ *             eventTypes: ["processingAccount.status.changed"],
+ *             notifications: [{
+ *                     type: "webhook",
+ *                     uri: "https://my-server/notification/endpoint",
+ *                     secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
+ *                     supportEmailAddress: "supportEmailAddress"
+ *                 }],
+ *             metadata: {
+ *                 "yourCustomField": "abc123"
+ *             }
+ *         }
+ *     }
  */
 export interface CreateEventSubscriptionsRequest {
     /** Unique identifier that you generate for each request. You must use the [UUID v4 format](https://www.rfc-editor.org/rfc/rfc4122) for the identifier. For more information about the idempotency key, go to [Idempotency](https://docs.payroc.com/api/idempotency). */

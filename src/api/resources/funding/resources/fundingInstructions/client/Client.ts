@@ -63,21 +63,13 @@ export class FundingInstructionsClient {
         >
     > {
         const { before, after, limit, dateFrom, dateTo } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (before != null) {
-            _queryParams.before = before;
-        }
-
-        if (after != null) {
-            _queryParams.after = after;
-        }
-
-        if (limit != null) {
-            _queryParams.limit = limit.toString();
-        }
-
-        _queryParams.dateFrom = dateFrom;
-        _queryParams.dateTo = dateTo;
+        const _queryParams: Record<string, unknown> = {
+            before,
+            after,
+            limit,
+            dateFrom,
+            dateTo,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -175,7 +167,49 @@ export class FundingInstructionsClient {
      * @example
      *     await client.funding.fundingInstructions.create({
      *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
-     *         body: {}
+     *         body: {
+     *             merchants: [{
+     *                     merchantId: "4525644354",
+     *                     recipients: [{
+     *                             fundingAccountId: 123,
+     *                             paymentMethod: "ACH",
+     *                             amount: {
+     *                                 value: 120000,
+     *                                 currency: "USD"
+     *                             },
+     *                             metadata: {
+     *                                 "yourCustomField": "abc123"
+     *                             }
+     *                         }]
+     *                 }],
+     *             metadata: {
+     *                 "yourCustomField": "abc123"
+     *             }
+     *         }
+     *     })
+     *
+     * @example
+     *     await client.funding.fundingInstructions.create({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         body: {
+     *             merchants: [{
+     *                     merchantId: "4525644354",
+     *                     recipients: [{
+     *                             fundingAccountId: 123,
+     *                             paymentMethod: "ACH",
+     *                             amount: {
+     *                                 value: 120000,
+     *                                 currency: "USD"
+     *                             },
+     *                             metadata: {
+     *                                 "supplier": "IT Support Services"
+     *                             }
+     *                         }]
+     *                 }],
+     *             metadata: {
+     *                 "instructionCreatedBy": "Jane Doe"
+     *             }
+     *         }
      *     })
      */
     public create(
@@ -391,7 +425,25 @@ export class FundingInstructionsClient {
      * @example
      *     await client.funding.fundingInstructions.update({
      *         instructionId: 1,
-     *         body: {}
+     *         body: {
+     *             merchants: [{
+     *                     merchantId: "9876543219",
+     *                     recipients: [{
+     *                             fundingAccountId: 124,
+     *                             paymentMethod: "ACH",
+     *                             amount: {
+     *                                 value: 69950,
+     *                                 currency: "USD"
+     *                             },
+     *                             metadata: {
+     *                                 "supplier": "IT Support Services"
+     *                             }
+     *                         }]
+     *                 }],
+     *             metadata: {
+     *                 "instructionCreatedBy": "Jane Doe"
+     *             }
+     *         }
      *     })
      */
     public update(

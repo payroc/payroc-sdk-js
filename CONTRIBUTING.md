@@ -75,6 +75,63 @@ These are only needed if you're building or developing features related to these
 
 ## Testing
 
+### Prerequisites for Running Tests
+
+Before running tests, ensure you have:
+
+1. **Installed project dependencies**:
+
+```bash
+pnpm install
+```
+
+That's it! No external services (Docker, WireMock, etc.) need to be started manually.
+
+### Test Framework
+
+This project uses **Vitest** as the testing framework, with the following key features:
+
+- **MSW (Mock Service Worker)** - API mocking for tests (automatically started)
+- **Projects** - Organized test suites (unit and wire tests)
+- **Node environment** - Tests run in Node.js
+
+### Running Tests
+
+**Important**: All test commands must be run from the **project root directory** (`payroc-sdk-js/`).
+
+Execute all tests:
+
+```bash
+pnpm test
+```
+
+Run only unit tests:
+
+```bash
+pnpm test:unit
+```
+
+Run only wire/integration tests:
+
+```bash
+pnpm test:wire
+```
+
+> **Note:** Tests run in watch mode by default. Press `q` to quit, or `h` to see help options.
+
+### Test Categories
+
+- **Unit Tests** (`tests/unit/`) - Fast, isolated tests for individual components and functions
+- **Wire Tests** (`tests/wire/`) - Integration tests that validate end-to-end API interactions with mock server
+
+### How Tests Work
+
+The test setup is fully automated:
+
+1. **Mock Server**: MSW (Mock Service Worker) automatically starts when wire tests run via `tests/mock-server/setup.ts`
+2. **Custom Matchers**: Test utilities are loaded via `tests/setup.ts`
+3. **No External Services**: All API calls are mocked - no Docker, WireMock, or external services required
+
 ### Prerequisites for Running Tests in VS Code
 
 To run and debug tests directly in VS Code, you'll need to:
@@ -106,39 +163,6 @@ bash scripts/vscode/setup-extensions.sh
 After running the script, reload VS Code (`Ctrl+Shift+P` > `Reload Window`) to activate the extension.
 
 > **Note:** The setup script installs the VS Code extension only. Make sure you've already run `pnpm install` in the project root to install all required dependencies.
-
-### Test Framework
-
-This project uses **Vitest** as the testing framework, with the following key features:
-
-- **MSW (Mock Service Worker)** - API mocking for tests
-- **Projects** - Organized test suites (unit and wire tests)
-- **Node environment** - Tests run in Node.js
-
-### Running Tests
-
-Execute all tests:
-
-```bash
-pnpm test
-```
-
-Run only unit tests:
-
-```bash
-pnpm test:unit
-```
-
-Run only wire/integration tests:
-
-```bash
-pnpm test:wire
-```
-
-### Test Categories
-
-- **Unit Tests** (`tests/unit/`) - Fast, isolated tests for individual components and functions
-- **Wire Tests** (`tests/wire/`) - Integration tests that validate end-to-end API interactions with mock server
 
 ## Code Quality
 

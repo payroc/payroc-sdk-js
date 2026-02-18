@@ -10,11 +10,11 @@ export interface EncryptedSwipedDataFormat {
     /** Encrypted data received from the magnetic stripe reader. */
     encryptedData: string;
     /** First digit of the of the card number. */
-    firstDigitOfPan?: string;
+    firstDigitOfPan?: string | undefined;
     /** Indicates that this is a fallback transaction. For example, if there was a technical issue with the chip on the customer's card and the merchant then swiped the card. */
-    fallback?: boolean;
+    fallback?: boolean | undefined;
     /** Reason for the fallback. */
-    fallbackReason?: EncryptedSwipedDataFormat.FallbackReason;
+    fallbackReason?: EncryptedSwipedDataFormat.FallbackReason | undefined;
 }
 
 export namespace EncryptedSwipedDataFormat {

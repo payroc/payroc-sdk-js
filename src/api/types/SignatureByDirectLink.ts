@@ -7,5 +7,5 @@ import type * as Payroc from "../index.js";
  */
 export interface SignatureByDirectLink {
     /** Object that contains links to the signed contract. */
-    link?: Payroc.Link;
+    link?: Payroc.Link | undefined;
 }

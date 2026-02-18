@@ -1,1 +1,1 @@
-export type { HostedFieldsCreateSessionRequest } from "./HostedFieldsCreateSessionRequest.js";
+export { HostedFieldsCreateSessionRequest } from "./HostedFieldsCreateSessionRequest.js";

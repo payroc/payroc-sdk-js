@@ -4,5 +4,5 @@ import type * as Payroc from "../index.js";
 
 export interface PaginatedMerchants extends Payroc.PaginatedList {
     /** Array of merchantPlatform objects. */
-    data?: Payroc.MerchantPlatform[];
+    data?: Payroc.MerchantPlatform[] | undefined;
 }

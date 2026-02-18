@@ -17,9 +17,9 @@ export interface PartiallyEncryptedKeyedDataFormat {
     /** Expiry date of the customer’s card. */
     expiryDate: string;
     /** Security code of the customer’s card. */
-    cvv?: string;
+    cvv?: string | undefined;
     /** Encrypted security code data. */
-    cvvEncrypted?: string;
+    cvvEncrypted?: string | undefined;
     /** Issue number of the customer’s card. */
-    issueNumber?: string;
+    issueNumber?: string | undefined;
 }

@@ -25,32 +25,27 @@ describe("ProcessingTerminalsClient", () => {
             batchClosure: { batchCloseType: "automatic", batchCloseTime: "23:40" },
             applicationSettings: { invoiceNumberPrompt: true, clerkPrompt: false },
             features: {
-                tips: {
-                    enabled: false,
-                    tipPrompt: false,
-                    tipAdjust: true,
-                    suggestedTips: { enabled: true, tipPercentages: ["tipPercentages", "tipPercentages"] },
-                },
+                tips: { enabled: false },
                 enhancedProcessing: {
                     enabled: true,
                     transactionDataLevel: "level2",
                     shippingAddressMode: "fullAddress",
                 },
-                ebt: { enabled: true, ebtType: "foodStamp", fnsNumber: "1234567890" },
+                ebt: { enabled: true, ebtType: "foodStamp", fnsNumber: "3456789" },
                 pinDebitCashback: false,
                 recurringPayments: true,
                 paymentLinks: { enabled: true, logoUrl: "LogoPayLink", footerNotes: "FooterNotesPayLink" },
                 preAuthorizations: true,
                 offlinePayments: true,
             },
-            taxes: [{ taxRate: 1.1, taxLabel: "taxLabel" }],
-            security: { tokenization: true, avsPrompt: true, avsLevel: "fullAddress", cvvPrompt: true },
-            receiptNotifications: { emailReceipt: true, smsReceipt: true },
+            taxes: [{ taxRate: 6, taxLabel: "Sales Tax" }],
+            security: { tokenization: false, avsPrompt: true, avsLevel: "fullAddress", cvvPrompt: true },
+            receiptNotifications: { emailReceipt: true, smsReceipt: false },
             devices: [
                 {
-                    manufacturer: "manufacturer",
-                    model: "model",
-                    serialNumber: "serialNumber",
+                    manufacturer: "Ingenico",
+                    model: "Axium Dx4000 Tsys",
+                    serialNumber: "DX400-1234",
                     communicationType: "bluetooth",
                 },
             ],
@@ -86,12 +81,6 @@ describe("ProcessingTerminalsClient", () => {
             features: {
                 tips: {
                     enabled: false,
-                    tipPrompt: false,
-                    tipAdjust: true,
-                    suggestedTips: {
-                        enabled: true,
-                        tipPercentages: ["tipPercentages", "tipPercentages"],
-                    },
                 },
                 enhancedProcessing: {
                     enabled: true,
@@ -101,7 +90,7 @@ describe("ProcessingTerminalsClient", () => {
                 ebt: {
                     enabled: true,
                     ebtType: "foodStamp",
-                    fnsNumber: "1234567890",
+                    fnsNumber: "3456789",
                 },
                 pinDebitCashback: false,
                 recurringPayments: true,
@@ -115,25 +104,25 @@ describe("ProcessingTerminalsClient", () => {
             },
             taxes: [
                 {
-                    taxRate: 1.1,
-                    taxLabel: "taxLabel",
+                    taxRate: 6,
+                    taxLabel: "Sales Tax",
                 },
             ],
             security: {
-                tokenization: true,
+                tokenization: false,
                 avsPrompt: true,
                 avsLevel: "fullAddress",
                 cvvPrompt: true,
             },
             receiptNotifications: {
                 emailReceipt: true,
-                smsReceipt: true,
+                smsReceipt: false,
             },
             devices: [
                 {
-                    manufacturer: "manufacturer",
-                    model: "model",
-                    serialNumber: "serialNumber",
+                    manufacturer: "Ingenico",
+                    model: "Axium Dx4000 Tsys",
+                    serialNumber: "DX400-1234",
                     communicationType: "bluetooth",
                 },
             ],

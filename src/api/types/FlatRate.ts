@@ -17,10 +17,10 @@ export namespace FlatRate {
     export interface Fees {
         /** Object that contains the fees for standard card transactions. */
         standardCards: Payroc.ProcessorFee;
-        /** Object that contains the fees for American Express transactions. */
-        amex?: Payroc.FlatRateFeesAmex;
-        pinDebit?: Payroc.PinDebit;
-        electronicBenefitsTransfer?: Payroc.ElectronicBenefitsTransfer;
-        specialityCards?: Payroc.SpecialityCards;
+        /** Polymorphic object that contains fees for American Express transactions. */
+        amex?: Payroc.FlatRateFeesAmex | undefined;
+        pinDebit?: Payroc.PinDebit | undefined;
+        electronicBenefitsTransfer?: Payroc.ElectronicBenefitsTransfer | undefined;
+        specialityCards?: Payroc.SpecialityCards | undefined;
     }
 }

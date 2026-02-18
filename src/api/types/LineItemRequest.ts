@@ -4,5 +4,5 @@ import type * as Payroc from "../index.js";
 
 export interface LineItemRequest extends Payroc.LineItemBase {
     /** Array of objects that contain information about each tax that applies to the item. */
-    taxes?: Payroc.Tax[];
+    taxes?: Payroc.Tax[] | undefined;
 }

@@ -2,5 +2,5 @@
 
 export interface BaseUsAnnual {
     /** Fee for the Platinum Security, this is returned in the lowest unit of currency. For example, cents. */
-    amount?: number;
+    amount?: number | undefined;
 }
