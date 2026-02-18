@@ -6,7 +6,7 @@ import { mockServerPool } from "../mock-server/MockServerPool";
 import { mockBearer } from "./mockAuth";
 
 describe("AttachmentsClient", () => {
-    test("getAttachment (1)", async () => {
+    test("retrieve (1)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -30,7 +30,7 @@ describe("AttachmentsClient", () => {
         };
         server.mockEndpoint().get("/attachments/12876").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
-        const response = await client.attachments.getAttachment({
+        const response = await client.attachments.retrieve({
             attachmentId: "12876",
         });
         expect(response).toEqual({
@@ -52,7 +52,7 @@ describe("AttachmentsClient", () => {
         });
     });
 
-    test("getAttachment (2)", async () => {
+    test("retrieve (2)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -72,13 +72,13 @@ describe("AttachmentsClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.attachments.getAttachment({
+            return await client.attachments.retrieve({
                 attachmentId: "attachmentId",
             });
         }).rejects.toThrow(Payroc.BadRequestError);
     });
 
-    test("getAttachment (3)", async () => {
+    test("retrieve (3)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -98,13 +98,13 @@ describe("AttachmentsClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.attachments.getAttachment({
+            return await client.attachments.retrieve({
                 attachmentId: "attachmentId",
             });
         }).rejects.toThrow(Payroc.UnauthorizedError);
     });
 
-    test("getAttachment (4)", async () => {
+    test("retrieve (4)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -124,13 +124,13 @@ describe("AttachmentsClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.attachments.getAttachment({
+            return await client.attachments.retrieve({
                 attachmentId: "attachmentId",
             });
         }).rejects.toThrow(Payroc.ForbiddenError);
     });
 
-    test("getAttachment (5)", async () => {
+    test("retrieve (5)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -150,13 +150,13 @@ describe("AttachmentsClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.attachments.getAttachment({
+            return await client.attachments.retrieve({
                 attachmentId: "attachmentId",
             });
         }).rejects.toThrow(Payroc.NotFoundError);
     });
 
-    test("getAttachment (6)", async () => {
+    test("retrieve (6)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -176,13 +176,13 @@ describe("AttachmentsClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.attachments.getAttachment({
+            return await client.attachments.retrieve({
                 attachmentId: "attachmentId",
             });
         }).rejects.toThrow(Payroc.NotAcceptableError);
     });
 
-    test("getAttachment (7)", async () => {
+    test("retrieve (7)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -202,7 +202,7 @@ describe("AttachmentsClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.attachments.getAttachment({
+            return await client.attachments.retrieve({
                 attachmentId: "attachmentId",
             });
         }).rejects.toThrow(Payroc.InternalServerError);

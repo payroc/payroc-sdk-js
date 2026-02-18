@@ -732,6 +732,11 @@ describe("FundingInstructionsClient", () => {
                             paymentMethod: "ACH",
                             amount: { value: 120000 },
                             metadata: { yourCustomField: "abc123" },
+                            link: {
+                                rel: "fundingAccount",
+                                method: "get",
+                                href: "https://api.payroc.com/v1/funding-accounts/123",
+                            },
                         },
                     ],
                     link: {
@@ -771,6 +776,11 @@ describe("FundingInstructionsClient", () => {
                             },
                             metadata: {
                                 yourCustomField: "abc123",
+                            },
+                            link: {
+                                rel: "fundingAccount",
+                                method: "get",
+                                href: "https://api.payroc.com/v1/funding-accounts/123",
                             },
                         },
                     ],

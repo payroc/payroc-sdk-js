@@ -6,7 +6,7 @@
  *         attachmentId: "12876"
  *     }
  */
-export interface GetAttachmentRequest {
+export interface RetrieveAttachmentsRequest {
     /** Unique identifier of the attachment */
     attachmentId: string;
 }
