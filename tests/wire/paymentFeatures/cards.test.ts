@@ -1459,7 +1459,7 @@ describe("CardsClient", () => {
             inquiryResult: { dccOffered: true, causeOfRejection: "Service unavailable" },
             dccOffer: {
                 accepted: true,
-                offerReference: "DCC123456789",
+                offerReference: "3396977e-40b9-4b26-8a3f-c25bc1280ee2",
                 fxAmount: 16125,
                 fxCurrency: "JPY",
                 fxCurrencyCode: "392",
@@ -1522,7 +1522,7 @@ describe("CardsClient", () => {
             },
             dccOffer: {
                 accepted: true,
-                offerReference: "DCC123456789",
+                offerReference: "3396977e-40b9-4b26-8a3f-c25bc1280ee2",
                 fxAmount: 16125,
                 fxCurrency: "JPY",
                 fxCurrencyCode: "392",
