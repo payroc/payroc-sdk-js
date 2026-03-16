@@ -75,60 +75,6 @@ import type * as Payroc from "../../../../../../index.js";
  *             encryptedData: "encryptedData"
  *         }
  *     }
- *
- * @example
- *     {
- *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
- *         channel: "web",
- *         processingTerminalId: "1234001",
- *         operator: "Jane",
- *         order: {
- *             orderId: "OrderRef6543",
- *             description: "Large Pepperoni Pizza",
- *             amount: 4999,
- *             currency: "USD"
- *         },
- *         customer: {
- *             firstName: "Sarah",
- *             lastName: "Hopper",
- *             billingAddress: {
- *                 address1: "1 Example Ave.",
- *                 address2: "Example Address Line 2",
- *                 address3: "Example Address Line 3",
- *                 city: "Chicago",
- *                 state: "Illinois",
- *                 country: "US",
- *                 postalCode: "60056"
- *             },
- *             shippingAddress: {
- *                 recipientName: "Sarah Hopper",
- *                 address: {
- *                     address1: "1 Example Ave.",
- *                     address2: "Example Address Line 2",
- *                     address3: "Example Address Line 3",
- *                     city: "Chicago",
- *                     state: "Illinois",
- *                     country: "US",
- *                     postalCode: "60056"
- *                 }
- *             }
- *         },
- *         paymentMethod: {
- *             type: "card",
- *             cardDetails: {
- *                 entryMethod: "raw",
- *                 device: {
- *                     model: "bbposChp",
- *                     serialNumber: "1850010868"
- *                 },
- *                 rawData: "A1B2C3D4E5F67890ABCD1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF"
- *             }
- *         },
- *         customFields: [{
- *                 name: "yourCustomField",
- *                 value: "abc123"
- *             }]
- *     }
  */
 export interface PaymentRequest {
     /** Unique identifier that you generate for each request. You must use the [UUID v4 format](https://www.rfc-editor.org/rfc/rfc4122) for the identifier. For more information about the idempotency key, go to [Idempotency](https://docs.payroc.com/api/idempotency). */

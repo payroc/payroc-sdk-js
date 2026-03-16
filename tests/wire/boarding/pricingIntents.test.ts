@@ -17,7 +17,7 @@ describe("PricingIntentsClient", () => {
         });
         const rawRequestBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 9900 },
@@ -40,7 +40,7 @@ describe("PricingIntentsClient", () => {
         };
         const rawResponseBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 100 },
@@ -63,7 +63,6 @@ describe("PricingIntentsClient", () => {
                         mastercardVisaDiscover: { volume: 1.25 },
                         amex: { type: "optBlue", volume: 1.25, transaction: 1 },
                         pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
-                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
                     },
                 },
                 ach: {
@@ -80,7 +79,16 @@ describe("PricingIntentsClient", () => {
                     },
                 },
             },
-            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
+                },
+            },
             services: [{ name: "hardwareAdvantagePlan", enabled: true }],
             id: "5",
             createdDate: "2024-07-02T09:00:00Z",
@@ -89,6 +97,7 @@ describe("PricingIntentsClient", () => {
             key: "string",
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .post("/pricing-intents")
@@ -103,7 +112,7 @@ describe("PricingIntentsClient", () => {
             "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
             body: {
                 country: "US",
-                version: "5.0",
+                version: "5.2",
                 base: {
                     addressVerification: 5,
                     annualFee: {
@@ -146,7 +155,7 @@ describe("PricingIntentsClient", () => {
         });
         expect(response).toEqual({
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: {
@@ -185,10 +194,6 @@ describe("PricingIntentsClient", () => {
                             transaction: 1,
                             monthlyAccess: 1,
                         },
-                        enhancedInterchange: {
-                            enrollment: 1,
-                            creditToMerchant: 1.25,
-                        },
                     },
                 },
                 ach: {
@@ -211,6 +216,8 @@ describe("PricingIntentsClient", () => {
                     setup: 25000,
                     perTransaction: 0,
                     perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
                 },
             },
             services: [
@@ -241,7 +248,7 @@ describe("PricingIntentsClient", () => {
         });
         const rawRequestBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 9900 },
@@ -282,7 +289,7 @@ describe("PricingIntentsClient", () => {
         };
         const rawResponseBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 100 },
@@ -305,7 +312,6 @@ describe("PricingIntentsClient", () => {
                         mastercardVisaDiscover: { volume: 1.25 },
                         amex: { type: "optBlue", volume: 1.25, transaction: 1 },
                         pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
-                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
                     },
                 },
                 ach: {
@@ -322,7 +328,16 @@ describe("PricingIntentsClient", () => {
                     },
                 },
             },
-            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
+                },
+            },
             services: [{ name: "hardwareAdvantagePlan", enabled: true }],
             id: "5",
             createdDate: "2024-07-02T09:00:00Z",
@@ -331,6 +346,7 @@ describe("PricingIntentsClient", () => {
             key: "string",
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .post("/pricing-intents")
@@ -345,7 +361,7 @@ describe("PricingIntentsClient", () => {
             "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
             body: {
                 country: "US",
-                version: "5.0",
+                version: "5.2",
                 base: {
                     addressVerification: 5,
                     annualFee: {
@@ -405,7 +421,7 @@ describe("PricingIntentsClient", () => {
         });
         expect(response).toEqual({
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: {
@@ -444,10 +460,6 @@ describe("PricingIntentsClient", () => {
                             transaction: 1,
                             monthlyAccess: 1,
                         },
-                        enhancedInterchange: {
-                            enrollment: 1,
-                            creditToMerchant: 1.25,
-                        },
                     },
                 },
                 ach: {
@@ -470,6 +482,8 @@ describe("PricingIntentsClient", () => {
                     setup: 25000,
                     perTransaction: 0,
                     perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
                 },
             },
             services: [
@@ -500,7 +514,7 @@ describe("PricingIntentsClient", () => {
         });
         const rawRequestBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 9900 },
@@ -542,7 +556,7 @@ describe("PricingIntentsClient", () => {
         };
         const rawResponseBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 100 },
@@ -565,7 +579,6 @@ describe("PricingIntentsClient", () => {
                         mastercardVisaDiscover: { volume: 1.25 },
                         amex: { type: "optBlue", volume: 1.25, transaction: 1 },
                         pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
-                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
                     },
                 },
                 ach: {
@@ -582,7 +595,16 @@ describe("PricingIntentsClient", () => {
                     },
                 },
             },
-            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
+                },
+            },
             services: [{ name: "hardwareAdvantagePlan", enabled: true }],
             id: "5",
             createdDate: "2024-07-02T09:00:00Z",
@@ -591,6 +613,7 @@ describe("PricingIntentsClient", () => {
             key: "string",
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .post("/pricing-intents")
@@ -605,7 +628,7 @@ describe("PricingIntentsClient", () => {
             "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
             body: {
                 country: "US",
-                version: "5.0",
+                version: "5.2",
                 base: {
                     addressVerification: 5,
                     annualFee: {
@@ -673,7 +696,7 @@ describe("PricingIntentsClient", () => {
         });
         expect(response).toEqual({
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: {
@@ -712,10 +735,6 @@ describe("PricingIntentsClient", () => {
                             transaction: 1,
                             monthlyAccess: 1,
                         },
-                        enhancedInterchange: {
-                            enrollment: 1,
-                            creditToMerchant: 1.25,
-                        },
                     },
                 },
                 ach: {
@@ -738,6 +757,8 @@ describe("PricingIntentsClient", () => {
                     setup: 25000,
                     perTransaction: 0,
                     perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
                 },
             },
             services: [
@@ -768,7 +789,7 @@ describe("PricingIntentsClient", () => {
         });
         const rawRequestBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 9900 },
@@ -817,7 +838,7 @@ describe("PricingIntentsClient", () => {
         };
         const rawResponseBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 100 },
@@ -840,7 +861,6 @@ describe("PricingIntentsClient", () => {
                         mastercardVisaDiscover: { volume: 1.25 },
                         amex: { type: "optBlue", volume: 1.25, transaction: 1 },
                         pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
-                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
                     },
                 },
                 ach: {
@@ -857,7 +877,16 @@ describe("PricingIntentsClient", () => {
                     },
                 },
             },
-            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
+                },
+            },
             services: [{ name: "hardwareAdvantagePlan", enabled: true }],
             id: "5",
             createdDate: "2024-07-02T09:00:00Z",
@@ -866,6 +895,7 @@ describe("PricingIntentsClient", () => {
             key: "string",
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .post("/pricing-intents")
@@ -880,7 +910,7 @@ describe("PricingIntentsClient", () => {
             "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
             body: {
                 country: "US",
-                version: "5.0",
+                version: "5.2",
                 base: {
                     addressVerification: 5,
                     annualFee: {
@@ -949,7 +979,7 @@ describe("PricingIntentsClient", () => {
         });
         expect(response).toEqual({
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: {
@@ -988,10 +1018,6 @@ describe("PricingIntentsClient", () => {
                             transaction: 1,
                             monthlyAccess: 1,
                         },
-                        enhancedInterchange: {
-                            enrollment: 1,
-                            creditToMerchant: 1.25,
-                        },
                     },
                 },
                 ach: {
@@ -1014,6 +1040,8 @@ describe("PricingIntentsClient", () => {
                     setup: 25000,
                     perTransaction: 0,
                     perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
                 },
             },
             services: [
@@ -1044,7 +1072,7 @@ describe("PricingIntentsClient", () => {
         });
         const rawRequestBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 9900 },
@@ -1095,7 +1123,7 @@ describe("PricingIntentsClient", () => {
         };
         const rawResponseBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 100 },
@@ -1118,7 +1146,6 @@ describe("PricingIntentsClient", () => {
                         mastercardVisaDiscover: { volume: 1.25 },
                         amex: { type: "optBlue", volume: 1.25, transaction: 1 },
                         pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
-                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
                     },
                 },
                 ach: {
@@ -1135,7 +1162,16 @@ describe("PricingIntentsClient", () => {
                     },
                 },
             },
-            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
+                },
+            },
             services: [{ name: "hardwareAdvantagePlan", enabled: true }],
             id: "5",
             createdDate: "2024-07-02T09:00:00Z",
@@ -1144,6 +1180,7 @@ describe("PricingIntentsClient", () => {
             key: "string",
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .post("/pricing-intents")
@@ -1158,7 +1195,7 @@ describe("PricingIntentsClient", () => {
             "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
             body: {
                 country: "US",
-                version: "5.0",
+                version: "5.2",
                 base: {
                     addressVerification: 5,
                     annualFee: {
@@ -1229,7 +1266,7 @@ describe("PricingIntentsClient", () => {
         });
         expect(response).toEqual({
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: {
@@ -1268,10 +1305,6 @@ describe("PricingIntentsClient", () => {
                             transaction: 1,
                             monthlyAccess: 1,
                         },
-                        enhancedInterchange: {
-                            enrollment: 1,
-                            creditToMerchant: 1.25,
-                        },
                     },
                 },
                 ach: {
@@ -1294,6 +1327,8 @@ describe("PricingIntentsClient", () => {
                     setup: 25000,
                     perTransaction: 0,
                     perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
                 },
             },
             services: [
@@ -1324,7 +1359,7 @@ describe("PricingIntentsClient", () => {
         });
         const rawRequestBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 9900 },
@@ -1347,7 +1382,7 @@ describe("PricingIntentsClient", () => {
         };
         const rawResponseBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 100 },
@@ -1370,7 +1405,6 @@ describe("PricingIntentsClient", () => {
                         mastercardVisaDiscover: { volume: 1.25 },
                         amex: { type: "optBlue", volume: 1.25, transaction: 1 },
                         pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
-                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
                     },
                 },
                 ach: {
@@ -1387,7 +1421,16 @@ describe("PricingIntentsClient", () => {
                     },
                 },
             },
-            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
+                },
+            },
             services: [{ name: "hardwareAdvantagePlan", enabled: true }],
             id: "5",
             createdDate: "2024-07-02T09:00:00Z",
@@ -1396,6 +1439,7 @@ describe("PricingIntentsClient", () => {
             key: "string",
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .post("/pricing-intents")
@@ -1410,7 +1454,7 @@ describe("PricingIntentsClient", () => {
             "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
             body: {
                 country: "US",
-                version: "5.0",
+                version: "5.2",
                 base: {
                     addressVerification: 5,
                     annualFee: {
@@ -1453,7 +1497,7 @@ describe("PricingIntentsClient", () => {
         });
         expect(response).toEqual({
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: {
@@ -1492,10 +1536,6 @@ describe("PricingIntentsClient", () => {
                             transaction: 1,
                             monthlyAccess: 1,
                         },
-                        enhancedInterchange: {
-                            enrollment: 1,
-                            creditToMerchant: 1.25,
-                        },
                     },
                 },
                 ach: {
@@ -1518,6 +1558,8 @@ describe("PricingIntentsClient", () => {
                     setup: 25000,
                     perTransaction: 0,
                     perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
                 },
             },
             services: [
@@ -1548,7 +1590,7 @@ describe("PricingIntentsClient", () => {
         });
         const rawRequestBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 9900 },
@@ -1571,7 +1613,7 @@ describe("PricingIntentsClient", () => {
         };
         const rawResponseBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 100 },
@@ -1594,7 +1636,6 @@ describe("PricingIntentsClient", () => {
                         mastercardVisaDiscover: { volume: 1.25 },
                         amex: { type: "optBlue", volume: 1.25, transaction: 1 },
                         pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
-                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
                     },
                 },
                 ach: {
@@ -1611,7 +1652,16 @@ describe("PricingIntentsClient", () => {
                     },
                 },
             },
-            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
+                },
+            },
             services: [{ name: "hardwareAdvantagePlan", enabled: true }],
             id: "5",
             createdDate: "2024-07-02T09:00:00Z",
@@ -1620,6 +1670,7 @@ describe("PricingIntentsClient", () => {
             key: "string",
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .post("/pricing-intents")
@@ -1634,7 +1685,7 @@ describe("PricingIntentsClient", () => {
             "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
             body: {
                 country: "US",
-                version: "5.0",
+                version: "5.2",
                 base: {
                     addressVerification: 5,
                     annualFee: {
@@ -1678,7 +1729,7 @@ describe("PricingIntentsClient", () => {
         });
         expect(response).toEqual({
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: {
@@ -1717,10 +1768,6 @@ describe("PricingIntentsClient", () => {
                             transaction: 1,
                             monthlyAccess: 1,
                         },
-                        enhancedInterchange: {
-                            enrollment: 1,
-                            creditToMerchant: 1.25,
-                        },
                     },
                 },
                 ach: {
@@ -1743,6 +1790,8 @@ describe("PricingIntentsClient", () => {
                     setup: 25000,
                     perTransaction: 0,
                     perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
                 },
             },
             services: [
@@ -1773,7 +1822,7 @@ describe("PricingIntentsClient", () => {
         });
         const rawRequestBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 9900 },
@@ -1801,7 +1850,7 @@ describe("PricingIntentsClient", () => {
         };
         const rawResponseBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 100 },
@@ -1824,7 +1873,6 @@ describe("PricingIntentsClient", () => {
                         mastercardVisaDiscover: { volume: 1.25 },
                         amex: { type: "optBlue", volume: 1.25, transaction: 1 },
                         pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
-                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
                     },
                 },
                 ach: {
@@ -1841,7 +1889,16 @@ describe("PricingIntentsClient", () => {
                     },
                 },
             },
-            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
+                },
+            },
             services: [{ name: "hardwareAdvantagePlan", enabled: true }],
             id: "5",
             createdDate: "2024-07-02T09:00:00Z",
@@ -1850,6 +1907,7 @@ describe("PricingIntentsClient", () => {
             key: "string",
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .post("/pricing-intents")
@@ -1864,7 +1922,7 @@ describe("PricingIntentsClient", () => {
             "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
             body: {
                 country: "US",
-                version: "5.0",
+                version: "5.2",
                 base: {
                     addressVerification: 5,
                     annualFee: {
@@ -1912,7 +1970,7 @@ describe("PricingIntentsClient", () => {
         });
         expect(response).toEqual({
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: {
@@ -1951,10 +2009,6 @@ describe("PricingIntentsClient", () => {
                             transaction: 1,
                             monthlyAccess: 1,
                         },
-                        enhancedInterchange: {
-                            enrollment: 1,
-                            creditToMerchant: 1.25,
-                        },
                     },
                 },
                 ach: {
@@ -1977,6 +2031,8 @@ describe("PricingIntentsClient", () => {
                     setup: 25000,
                     perTransaction: 0,
                     perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
                 },
             },
             services: [
@@ -2008,10 +2064,11 @@ describe("PricingIntentsClient", () => {
         const rawRequestBody = {
             key: "key",
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/pricing-intents")
@@ -2028,7 +2085,7 @@ describe("PricingIntentsClient", () => {
                 body: {
                     key: "key",
                     country: "US",
-                    version: "5.0",
+                    version: "5.2",
                     base: {
                         annualFee: {
                             amount: 1,
@@ -2054,10 +2111,11 @@ describe("PricingIntentsClient", () => {
         const rawRequestBody = {
             key: "key",
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/pricing-intents")
@@ -2074,7 +2132,7 @@ describe("PricingIntentsClient", () => {
                 body: {
                     key: "key",
                     country: "US",
-                    version: "5.0",
+                    version: "5.2",
                     base: {
                         annualFee: {
                             amount: 1,
@@ -2100,10 +2158,11 @@ describe("PricingIntentsClient", () => {
         const rawRequestBody = {
             key: "key",
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/pricing-intents")
@@ -2120,7 +2179,7 @@ describe("PricingIntentsClient", () => {
                 body: {
                     key: "key",
                     country: "US",
-                    version: "5.0",
+                    version: "5.2",
                     base: {
                         annualFee: {
                             amount: 1,
@@ -2146,10 +2205,11 @@ describe("PricingIntentsClient", () => {
         const rawRequestBody = {
             key: "key",
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/pricing-intents")
@@ -2166,7 +2226,7 @@ describe("PricingIntentsClient", () => {
                 body: {
                     key: "key",
                     country: "US",
-                    version: "5.0",
+                    version: "5.2",
                     base: {
                         annualFee: {
                             amount: 1,
@@ -2192,10 +2252,11 @@ describe("PricingIntentsClient", () => {
         const rawRequestBody = {
             key: "key",
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/pricing-intents")
@@ -2212,7 +2273,7 @@ describe("PricingIntentsClient", () => {
                 body: {
                     key: "key",
                     country: "US",
-                    version: "5.0",
+                    version: "5.2",
                     base: {
                         annualFee: {
                             amount: 1,
@@ -2238,10 +2299,11 @@ describe("PricingIntentsClient", () => {
         const rawRequestBody = {
             key: "key",
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/pricing-intents")
@@ -2258,7 +2320,7 @@ describe("PricingIntentsClient", () => {
                 body: {
                     key: "key",
                     country: "US",
-                    version: "5.0",
+                    version: "5.2",
                     base: {
                         annualFee: {
                             amount: 1,
@@ -2284,7 +2346,7 @@ describe("PricingIntentsClient", () => {
 
         const rawResponseBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 100 },
@@ -2307,7 +2369,6 @@ describe("PricingIntentsClient", () => {
                         mastercardVisaDiscover: { volume: 1.25 },
                         amex: { type: "optBlue", volume: 1.25, transaction: 1 },
                         pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
-                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
                     },
                 },
                 ach: {
@@ -2324,7 +2385,16 @@ describe("PricingIntentsClient", () => {
                     },
                 },
             },
-            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
+                },
+            },
             services: [{ name: "hardwareAdvantagePlan", enabled: true }],
             id: "5",
             createdDate: "2024-07-02T09:00:00Z",
@@ -2333,6 +2403,7 @@ describe("PricingIntentsClient", () => {
             key: "string",
             metadata: { yourCustomField: "abc123" },
         };
+
         server.mockEndpoint().get("/pricing-intents/5").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
         const response = await client.boarding.pricingIntents.retrieve({
@@ -2340,7 +2411,7 @@ describe("PricingIntentsClient", () => {
         });
         expect(response).toEqual({
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: {
@@ -2379,10 +2450,6 @@ describe("PricingIntentsClient", () => {
                             transaction: 1,
                             monthlyAccess: 1,
                         },
-                        enhancedInterchange: {
-                            enrollment: 1,
-                            creditToMerchant: 1.25,
-                        },
                     },
                 },
                 ach: {
@@ -2405,6 +2472,8 @@ describe("PricingIntentsClient", () => {
                     setup: 25000,
                     perTransaction: 0,
                     perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
                 },
             },
             services: [
@@ -2435,6 +2504,7 @@ describe("PricingIntentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/pricing-intents/pricingIntentId")
@@ -2461,6 +2531,7 @@ describe("PricingIntentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/pricing-intents/pricingIntentId")
@@ -2487,6 +2558,7 @@ describe("PricingIntentsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/pricing-intents/pricingIntentId")
@@ -2513,6 +2585,7 @@ describe("PricingIntentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/pricing-intents/pricingIntentId")
@@ -2539,6 +2612,7 @@ describe("PricingIntentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/pricing-intents/pricingIntentId")
@@ -2565,7 +2639,7 @@ describe("PricingIntentsClient", () => {
         });
         const rawRequestBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 9900 },
@@ -2609,7 +2683,7 @@ describe("PricingIntentsClient", () => {
             pricingIntentId: "5",
             body: {
                 country: "US",
-                version: "5.0",
+                version: "5.2",
                 base: {
                     addressVerification: 5,
                     annualFee: {
@@ -2686,10 +2760,11 @@ describe("PricingIntentsClient", () => {
         const rawRequestBody = {
             key: "key",
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/pricing-intents/pricingIntentId")
@@ -2705,7 +2780,7 @@ describe("PricingIntentsClient", () => {
                 body: {
                     key: "key",
                     country: "US",
-                    version: "5.0",
+                    version: "5.2",
                     base: {
                         annualFee: {
                             amount: 1,
@@ -2731,10 +2806,11 @@ describe("PricingIntentsClient", () => {
         const rawRequestBody = {
             key: "key",
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/pricing-intents/pricingIntentId")
@@ -2750,7 +2826,7 @@ describe("PricingIntentsClient", () => {
                 body: {
                     key: "key",
                     country: "US",
-                    version: "5.0",
+                    version: "5.2",
                     base: {
                         annualFee: {
                             amount: 1,
@@ -2776,10 +2852,11 @@ describe("PricingIntentsClient", () => {
         const rawRequestBody = {
             key: "key",
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .put("/pricing-intents/pricingIntentId")
@@ -2795,7 +2872,7 @@ describe("PricingIntentsClient", () => {
                 body: {
                     key: "key",
                     country: "US",
-                    version: "5.0",
+                    version: "5.2",
                     base: {
                         annualFee: {
                             amount: 1,
@@ -2821,10 +2898,11 @@ describe("PricingIntentsClient", () => {
         const rawRequestBody = {
             key: "key",
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/pricing-intents/pricingIntentId")
@@ -2840,7 +2918,7 @@ describe("PricingIntentsClient", () => {
                 body: {
                     key: "key",
                     country: "US",
-                    version: "5.0",
+                    version: "5.2",
                     base: {
                         annualFee: {
                             amount: 1,
@@ -2866,10 +2944,11 @@ describe("PricingIntentsClient", () => {
         const rawRequestBody = {
             key: "key",
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/pricing-intents/pricingIntentId")
@@ -2885,7 +2964,7 @@ describe("PricingIntentsClient", () => {
                 body: {
                     key: "key",
                     country: "US",
-                    version: "5.0",
+                    version: "5.2",
                     base: {
                         annualFee: {
                             amount: 1,
@@ -2911,10 +2990,11 @@ describe("PricingIntentsClient", () => {
         const rawRequestBody = {
             key: "key",
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: { annualFee: { amount: 1 }, maintenance: 1, minimum: 1, batch: 1 },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/pricing-intents/pricingIntentId")
@@ -2930,7 +3010,7 @@ describe("PricingIntentsClient", () => {
                 body: {
                     key: "key",
                     country: "US",
-                    version: "5.0",
+                    version: "5.2",
                     base: {
                         annualFee: {
                             amount: 1,
@@ -2973,6 +3053,7 @@ describe("PricingIntentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/pricing-intents/pricingIntentId")
@@ -2999,6 +3080,7 @@ describe("PricingIntentsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .delete("/pricing-intents/pricingIntentId")
@@ -3025,6 +3107,7 @@ describe("PricingIntentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/pricing-intents/pricingIntentId")
@@ -3051,6 +3134,7 @@ describe("PricingIntentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/pricing-intents/pricingIntentId")
@@ -3082,7 +3166,7 @@ describe("PricingIntentsClient", () => {
         ];
         const rawResponseBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 100 },
@@ -3105,7 +3189,6 @@ describe("PricingIntentsClient", () => {
                         mastercardVisaDiscover: { volume: 1.25 },
                         amex: { type: "optBlue", volume: 1.25, transaction: 1 },
                         pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
-                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
                     },
                 },
                 ach: {
@@ -3122,7 +3205,16 @@ describe("PricingIntentsClient", () => {
                     },
                 },
             },
-            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
+                },
+            },
             services: [{ name: "hardwareAdvantagePlan", enabled: true }],
             id: "5",
             createdDate: "2024-07-02T09:00:00Z",
@@ -3131,6 +3223,7 @@ describe("PricingIntentsClient", () => {
             key: "string",
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .patch("/pricing-intents/5")
@@ -3161,7 +3254,7 @@ describe("PricingIntentsClient", () => {
         });
         expect(response).toEqual({
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: {
@@ -3200,10 +3293,6 @@ describe("PricingIntentsClient", () => {
                             transaction: 1,
                             monthlyAccess: 1,
                         },
-                        enhancedInterchange: {
-                            enrollment: 1,
-                            creditToMerchant: 1.25,
-                        },
                     },
                 },
                 ach: {
@@ -3226,6 +3315,8 @@ describe("PricingIntentsClient", () => {
                     setup: 25000,
                     perTransaction: 0,
                     perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
                 },
             },
             services: [
@@ -3257,7 +3348,7 @@ describe("PricingIntentsClient", () => {
         const rawRequestBody = [{ op: "remove", path: "path" }];
         const rawResponseBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 100 },
@@ -3280,7 +3371,6 @@ describe("PricingIntentsClient", () => {
                         mastercardVisaDiscover: { volume: 1.25 },
                         amex: { type: "optBlue", volume: 1.25, transaction: 1 },
                         pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
-                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
                     },
                 },
                 ach: {
@@ -3297,7 +3387,16 @@ describe("PricingIntentsClient", () => {
                     },
                 },
             },
-            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
+                },
+            },
             services: [{ name: "hardwareAdvantagePlan", enabled: true }],
             id: "5",
             createdDate: "2024-07-02T09:00:00Z",
@@ -3306,6 +3405,7 @@ describe("PricingIntentsClient", () => {
             key: "string",
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .patch("/pricing-intents/5")
@@ -3328,7 +3428,7 @@ describe("PricingIntentsClient", () => {
         });
         expect(response).toEqual({
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: {
@@ -3367,10 +3467,6 @@ describe("PricingIntentsClient", () => {
                             transaction: 1,
                             monthlyAccess: 1,
                         },
-                        enhancedInterchange: {
-                            enrollment: 1,
-                            creditToMerchant: 1.25,
-                        },
                     },
                 },
                 ach: {
@@ -3393,6 +3489,8 @@ describe("PricingIntentsClient", () => {
                     setup: 25000,
                     perTransaction: 0,
                     perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
                 },
             },
             services: [
@@ -3424,7 +3522,7 @@ describe("PricingIntentsClient", () => {
         const rawRequestBody = [{ op: "remove", path: "path" }];
         const rawResponseBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 100 },
@@ -3447,7 +3545,6 @@ describe("PricingIntentsClient", () => {
                         mastercardVisaDiscover: { volume: 1.25 },
                         amex: { type: "optBlue", volume: 1.25, transaction: 1 },
                         pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
-                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
                     },
                 },
                 ach: {
@@ -3464,7 +3561,16 @@ describe("PricingIntentsClient", () => {
                     },
                 },
             },
-            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
+                },
+            },
             services: [{ name: "hardwareAdvantagePlan", enabled: true }],
             id: "5",
             createdDate: "2024-07-02T09:00:00Z",
@@ -3473,6 +3579,7 @@ describe("PricingIntentsClient", () => {
             key: "string",
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .patch("/pricing-intents/5")
@@ -3495,7 +3602,7 @@ describe("PricingIntentsClient", () => {
         });
         expect(response).toEqual({
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: {
@@ -3534,10 +3641,6 @@ describe("PricingIntentsClient", () => {
                             transaction: 1,
                             monthlyAccess: 1,
                         },
-                        enhancedInterchange: {
-                            enrollment: 1,
-                            creditToMerchant: 1.25,
-                        },
                     },
                 },
                 ach: {
@@ -3560,6 +3663,8 @@ describe("PricingIntentsClient", () => {
                     setup: 25000,
                     perTransaction: 0,
                     perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
                 },
             },
             services: [
@@ -3591,7 +3696,7 @@ describe("PricingIntentsClient", () => {
         const rawRequestBody = [{ op: "remove", path: "path" }];
         const rawResponseBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 100 },
@@ -3614,7 +3719,6 @@ describe("PricingIntentsClient", () => {
                         mastercardVisaDiscover: { volume: 1.25 },
                         amex: { type: "optBlue", volume: 1.25, transaction: 1 },
                         pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
-                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
                     },
                 },
                 ach: {
@@ -3631,7 +3735,16 @@ describe("PricingIntentsClient", () => {
                     },
                 },
             },
-            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
+                },
+            },
             services: [{ name: "hardwareAdvantagePlan", enabled: true }],
             id: "5",
             createdDate: "2024-07-02T09:00:00Z",
@@ -3640,6 +3753,7 @@ describe("PricingIntentsClient", () => {
             key: "string",
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .patch("/pricing-intents/5")
@@ -3662,7 +3776,7 @@ describe("PricingIntentsClient", () => {
         });
         expect(response).toEqual({
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: {
@@ -3701,10 +3815,6 @@ describe("PricingIntentsClient", () => {
                             transaction: 1,
                             monthlyAccess: 1,
                         },
-                        enhancedInterchange: {
-                            enrollment: 1,
-                            creditToMerchant: 1.25,
-                        },
                     },
                 },
                 ach: {
@@ -3727,6 +3837,8 @@ describe("PricingIntentsClient", () => {
                     setup: 25000,
                     perTransaction: 0,
                     perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
                 },
             },
             services: [
@@ -3758,7 +3870,7 @@ describe("PricingIntentsClient", () => {
         const rawRequestBody = [{ op: "move", from: "from", path: "path" }];
         const rawResponseBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 100 },
@@ -3781,7 +3893,6 @@ describe("PricingIntentsClient", () => {
                         mastercardVisaDiscover: { volume: 1.25 },
                         amex: { type: "optBlue", volume: 1.25, transaction: 1 },
                         pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
-                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
                     },
                 },
                 ach: {
@@ -3798,7 +3909,16 @@ describe("PricingIntentsClient", () => {
                     },
                 },
             },
-            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
+                },
+            },
             services: [{ name: "hardwareAdvantagePlan", enabled: true }],
             id: "5",
             createdDate: "2024-07-02T09:00:00Z",
@@ -3807,6 +3927,7 @@ describe("PricingIntentsClient", () => {
             key: "string",
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .patch("/pricing-intents/5")
@@ -3830,7 +3951,7 @@ describe("PricingIntentsClient", () => {
         });
         expect(response).toEqual({
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: {
@@ -3869,10 +3990,6 @@ describe("PricingIntentsClient", () => {
                             transaction: 1,
                             monthlyAccess: 1,
                         },
-                        enhancedInterchange: {
-                            enrollment: 1,
-                            creditToMerchant: 1.25,
-                        },
                     },
                 },
                 ach: {
@@ -3895,6 +4012,8 @@ describe("PricingIntentsClient", () => {
                     setup: 25000,
                     perTransaction: 0,
                     perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
                 },
             },
             services: [
@@ -3926,7 +4045,7 @@ describe("PricingIntentsClient", () => {
         const rawRequestBody = [{ op: "copy", from: "from", path: "path" }];
         const rawResponseBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 100 },
@@ -3949,7 +4068,6 @@ describe("PricingIntentsClient", () => {
                         mastercardVisaDiscover: { volume: 1.25 },
                         amex: { type: "optBlue", volume: 1.25, transaction: 1 },
                         pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
-                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
                     },
                 },
                 ach: {
@@ -3966,7 +4084,16 @@ describe("PricingIntentsClient", () => {
                     },
                 },
             },
-            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
+                },
+            },
             services: [{ name: "hardwareAdvantagePlan", enabled: true }],
             id: "5",
             createdDate: "2024-07-02T09:00:00Z",
@@ -3975,6 +4102,7 @@ describe("PricingIntentsClient", () => {
             key: "string",
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .patch("/pricing-intents/5")
@@ -3998,7 +4126,7 @@ describe("PricingIntentsClient", () => {
         });
         expect(response).toEqual({
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: {
@@ -4037,10 +4165,6 @@ describe("PricingIntentsClient", () => {
                             transaction: 1,
                             monthlyAccess: 1,
                         },
-                        enhancedInterchange: {
-                            enrollment: 1,
-                            creditToMerchant: 1.25,
-                        },
                     },
                 },
                 ach: {
@@ -4063,6 +4187,8 @@ describe("PricingIntentsClient", () => {
                     setup: 25000,
                     perTransaction: 0,
                     perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
                 },
             },
             services: [
@@ -4094,7 +4220,7 @@ describe("PricingIntentsClient", () => {
         const rawRequestBody = [{ op: "remove", path: "path" }];
         const rawResponseBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 100 },
@@ -4117,7 +4243,6 @@ describe("PricingIntentsClient", () => {
                         mastercardVisaDiscover: { volume: 1.25 },
                         amex: { type: "optBlue", volume: 1.25, transaction: 1 },
                         pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
-                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
                     },
                 },
                 ach: {
@@ -4134,7 +4259,16 @@ describe("PricingIntentsClient", () => {
                     },
                 },
             },
-            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
+                },
+            },
             services: [{ name: "hardwareAdvantagePlan", enabled: true }],
             id: "5",
             createdDate: "2024-07-02T09:00:00Z",
@@ -4143,6 +4277,7 @@ describe("PricingIntentsClient", () => {
             key: "string",
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .patch("/pricing-intents/5")
@@ -4165,7 +4300,7 @@ describe("PricingIntentsClient", () => {
         });
         expect(response).toEqual({
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: {
@@ -4204,10 +4339,6 @@ describe("PricingIntentsClient", () => {
                             transaction: 1,
                             monthlyAccess: 1,
                         },
-                        enhancedInterchange: {
-                            enrollment: 1,
-                            creditToMerchant: 1.25,
-                        },
                     },
                 },
                 ach: {
@@ -4230,6 +4361,8 @@ describe("PricingIntentsClient", () => {
                     setup: 25000,
                     perTransaction: 0,
                     perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
                 },
             },
             services: [
@@ -4268,7 +4401,7 @@ describe("PricingIntentsClient", () => {
         ];
         const rawResponseBody = {
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: { billInMonth: "june", amount: 100 },
@@ -4291,7 +4424,6 @@ describe("PricingIntentsClient", () => {
                         mastercardVisaDiscover: { volume: 1.25 },
                         amex: { type: "optBlue", volume: 1.25, transaction: 1 },
                         pinDebit: { additionalDiscount: 1.25, transaction: 1, monthlyAccess: 1 },
-                        enhancedInterchange: { enrollment: 1, creditToMerchant: 1.25 },
                     },
                 },
                 ach: {
@@ -4308,7 +4440,16 @@ describe("PricingIntentsClient", () => {
                     },
                 },
             },
-            gateway: { fees: { monthly: 1000, setup: 25000, perTransaction: 0, perDeviceMonthly: 0 } },
+            gateway: {
+                fees: {
+                    monthly: 1000,
+                    setup: 25000,
+                    perTransaction: 0,
+                    perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
+                },
+            },
             services: [{ name: "hardwareAdvantagePlan", enabled: true }],
             id: "5",
             createdDate: "2024-07-02T09:00:00Z",
@@ -4317,6 +4458,7 @@ describe("PricingIntentsClient", () => {
             key: "string",
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .patch("/pricing-intents/5")
@@ -4361,7 +4503,7 @@ describe("PricingIntentsClient", () => {
         });
         expect(response).toEqual({
             country: "US",
-            version: "5.0",
+            version: "5.2",
             base: {
                 addressVerification: 5,
                 annualFee: {
@@ -4400,10 +4542,6 @@ describe("PricingIntentsClient", () => {
                             transaction: 1,
                             monthlyAccess: 1,
                         },
-                        enhancedInterchange: {
-                            enrollment: 1,
-                            creditToMerchant: 1.25,
-                        },
                     },
                 },
                 ach: {
@@ -4426,6 +4564,8 @@ describe("PricingIntentsClient", () => {
                     setup: 25000,
                     perTransaction: 0,
                     perDeviceMonthly: 0,
+                    "3dSecurePerTransaction": 1,
+                    tapToPayPerTransaction: 1,
                 },
             },
             services: [
@@ -4459,6 +4599,7 @@ describe("PricingIntentsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/pricing-intents/pricingIntentId")
@@ -4507,6 +4648,7 @@ describe("PricingIntentsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/pricing-intents/pricingIntentId")
@@ -4555,6 +4697,7 @@ describe("PricingIntentsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .patch("/pricing-intents/pricingIntentId")
@@ -4603,6 +4746,7 @@ describe("PricingIntentsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/pricing-intents/pricingIntentId")
@@ -4651,6 +4795,7 @@ describe("PricingIntentsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/pricing-intents/pricingIntentId")
@@ -4699,6 +4844,7 @@ describe("PricingIntentsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/pricing-intents/pricingIntentId")
@@ -4747,6 +4893,7 @@ describe("PricingIntentsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/pricing-intents/pricingIntentId")

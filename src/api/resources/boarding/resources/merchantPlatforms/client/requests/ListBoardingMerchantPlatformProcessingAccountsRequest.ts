@@ -9,15 +9,6 @@
  *         limit: 1,
  *         includeClosed: true
  *     }
- *
- * @example
- *     {
- *         merchantPlatformId: "12345",
- *         before: "2571",
- *         after: "8516",
- *         limit: 1,
- *         includeClosed: true
- *     }
  */
 export interface ListBoardingMerchantPlatformProcessingAccountsRequest {
     /** Unique identifier of the merchant platform that we sent to you when you created the merchant platform. */

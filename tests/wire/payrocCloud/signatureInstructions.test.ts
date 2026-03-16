@@ -26,6 +26,7 @@ describe("SignatureInstructionsClient", () => {
             },
             signatureInstructionId: "a37439165d134678a9100ebba3b29597",
         };
+
         server
             .mockEndpoint()
             .post("/devices/1850010868/signature-instructions")
@@ -64,6 +65,7 @@ describe("SignatureInstructionsClient", () => {
         });
         const rawRequestBody = { processingTerminalId: "buzz" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/signature-instructions")
@@ -94,6 +96,7 @@ describe("SignatureInstructionsClient", () => {
         });
         const rawRequestBody = { processingTerminalId: "buzz" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/signature-instructions")
@@ -124,6 +127,7 @@ describe("SignatureInstructionsClient", () => {
         });
         const rawRequestBody = { processingTerminalId: "buzz" };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/signature-instructions")
@@ -154,6 +158,7 @@ describe("SignatureInstructionsClient", () => {
         });
         const rawRequestBody = { processingTerminalId: "buzz" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/signature-instructions")
@@ -184,6 +189,7 @@ describe("SignatureInstructionsClient", () => {
         });
         const rawRequestBody = { processingTerminalId: "buzz" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/signature-instructions")
@@ -214,6 +220,7 @@ describe("SignatureInstructionsClient", () => {
         });
         const rawRequestBody = { processingTerminalId: "buzz" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/signature-instructions")
@@ -244,6 +251,7 @@ describe("SignatureInstructionsClient", () => {
         });
         const rawRequestBody = { processingTerminalId: "buzz" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/signature-instructions")
@@ -274,6 +282,7 @@ describe("SignatureInstructionsClient", () => {
         });
         const rawRequestBody = { processingTerminalId: "buzz" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/signature-instructions")
@@ -309,6 +318,7 @@ describe("SignatureInstructionsClient", () => {
             link: { rel: "signature", method: "GET", href: "https://api.payroc.com/v1/signatures/M2MJOG6O2Y" },
             signatureInstructionId: "a37439165d134678a9100ebba3b29597",
         };
+
         server
             .mockEndpoint()
             .get("/signature-instructions/a37439165d134678a9100ebba3b29597")
@@ -343,6 +353,7 @@ describe("SignatureInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/signature-instructions/signatureInstructionId")
@@ -369,6 +380,7 @@ describe("SignatureInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/signature-instructions/signatureInstructionId")
@@ -395,6 +407,7 @@ describe("SignatureInstructionsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/signature-instructions/signatureInstructionId")
@@ -421,6 +434,7 @@ describe("SignatureInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/signature-instructions/signatureInstructionId")
@@ -447,6 +461,7 @@ describe("SignatureInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/signature-instructions/signatureInstructionId")
@@ -473,6 +488,7 @@ describe("SignatureInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/signature-instructions/signatureInstructionId")
@@ -522,6 +538,7 @@ describe("SignatureInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/signature-instructions/signatureInstructionId")
@@ -548,6 +565,7 @@ describe("SignatureInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/signature-instructions/signatureInstructionId")
@@ -574,6 +592,7 @@ describe("SignatureInstructionsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .delete("/signature-instructions/signatureInstructionId")
@@ -600,6 +619,7 @@ describe("SignatureInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/signature-instructions/signatureInstructionId")
@@ -626,6 +646,7 @@ describe("SignatureInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/signature-instructions/signatureInstructionId")
@@ -652,6 +673,7 @@ describe("SignatureInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/signature-instructions/signatureInstructionId")
@@ -678,6 +700,7 @@ describe("SignatureInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/signature-instructions/signatureInstructionId")

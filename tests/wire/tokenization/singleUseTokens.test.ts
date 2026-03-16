@@ -65,6 +65,7 @@ describe("SingleUseTokensClient", () => {
                 },
             },
         };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/1234001/single-use-tokens")
@@ -148,6 +149,7 @@ describe("SingleUseTokensClient", () => {
             source: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/single-use-tokens")
@@ -187,6 +189,7 @@ describe("SingleUseTokensClient", () => {
             source: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/single-use-tokens")
@@ -226,6 +229,7 @@ describe("SingleUseTokensClient", () => {
             source: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/single-use-tokens")
@@ -265,6 +269,7 @@ describe("SingleUseTokensClient", () => {
             source: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/single-use-tokens")
@@ -304,6 +309,7 @@ describe("SingleUseTokensClient", () => {
             source: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/single-use-tokens")
@@ -343,6 +349,7 @@ describe("SingleUseTokensClient", () => {
             source: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/single-use-tokens")
@@ -382,6 +389,7 @@ describe("SingleUseTokensClient", () => {
             source: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/single-use-tokens")

@@ -50,6 +50,7 @@ describe("ProcessingTerminalsClient", () => {
                 },
             ],
         };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/1234001")
@@ -140,6 +141,7 @@ describe("ProcessingTerminalsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId")
@@ -166,6 +168,7 @@ describe("ProcessingTerminalsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId")
@@ -192,6 +195,7 @@ describe("ProcessingTerminalsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId")
@@ -218,6 +222,7 @@ describe("ProcessingTerminalsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId")
@@ -244,6 +249,7 @@ describe("ProcessingTerminalsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId")
@@ -270,6 +276,7 @@ describe("ProcessingTerminalsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId")
@@ -321,6 +328,7 @@ describe("ProcessingTerminalsClient", () => {
                 },
             },
         };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/1234001/host-configurations")
@@ -371,6 +379,7 @@ describe("ProcessingTerminalsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/host-configurations")
@@ -397,6 +406,7 @@ describe("ProcessingTerminalsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/host-configurations")
@@ -423,6 +433,7 @@ describe("ProcessingTerminalsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/host-configurations")
@@ -449,6 +460,7 @@ describe("ProcessingTerminalsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/host-configurations")
@@ -475,6 +487,7 @@ describe("ProcessingTerminalsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/host-configurations")
@@ -501,6 +514,7 @@ describe("ProcessingTerminalsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/host-configurations")

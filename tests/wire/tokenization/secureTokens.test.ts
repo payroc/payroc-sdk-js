@@ -110,6 +110,7 @@ describe("SecureTokensClient", () => {
             status: "notValidated",
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/1234001/secure-tokens")
@@ -258,6 +259,7 @@ describe("SecureTokensClient", () => {
             source: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/secure-tokens")
@@ -295,6 +297,7 @@ describe("SecureTokensClient", () => {
             source: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/secure-tokens")
@@ -332,6 +335,7 @@ describe("SecureTokensClient", () => {
             source: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/secure-tokens")
@@ -369,6 +373,7 @@ describe("SecureTokensClient", () => {
             source: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/secure-tokens")
@@ -406,6 +411,7 @@ describe("SecureTokensClient", () => {
             source: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/secure-tokens")
@@ -443,6 +449,7 @@ describe("SecureTokensClient", () => {
             source: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/secure-tokens")
@@ -480,6 +487,7 @@ describe("SecureTokensClient", () => {
             source: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/secure-tokens")
@@ -566,6 +574,7 @@ describe("SecureTokensClient", () => {
             status: "notValidated",
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/1234001/secure-tokens/MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa")
@@ -653,6 +662,7 @@ describe("SecureTokensClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId")
@@ -680,6 +690,7 @@ describe("SecureTokensClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId")
@@ -707,6 +718,7 @@ describe("SecureTokensClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId")
@@ -734,6 +746,7 @@ describe("SecureTokensClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId")
@@ -761,6 +774,7 @@ describe("SecureTokensClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId")
@@ -788,6 +802,7 @@ describe("SecureTokensClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId")
@@ -839,6 +854,7 @@ describe("SecureTokensClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId")
@@ -866,6 +882,7 @@ describe("SecureTokensClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId")
@@ -893,6 +910,7 @@ describe("SecureTokensClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .delete("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId")
@@ -920,6 +938,7 @@ describe("SecureTokensClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId")
@@ -947,6 +966,7 @@ describe("SecureTokensClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId")
@@ -1029,6 +1049,7 @@ describe("SecureTokensClient", () => {
             status: "notValidated",
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/secure-tokens/MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa")
@@ -1184,6 +1205,7 @@ describe("SecureTokensClient", () => {
             status: "notValidated",
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/secure-tokens/MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa")
@@ -1331,6 +1353,7 @@ describe("SecureTokensClient", () => {
             status: "notValidated",
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/secure-tokens/MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa")
@@ -1478,6 +1501,7 @@ describe("SecureTokensClient", () => {
             status: "notValidated",
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/secure-tokens/MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa")
@@ -1625,6 +1649,7 @@ describe("SecureTokensClient", () => {
             status: "notValidated",
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/secure-tokens/MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa")
@@ -1773,6 +1798,7 @@ describe("SecureTokensClient", () => {
             status: "notValidated",
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/secure-tokens/MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa")
@@ -1921,6 +1947,7 @@ describe("SecureTokensClient", () => {
             status: "notValidated",
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/secure-tokens/MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa")
@@ -2075,6 +2102,7 @@ describe("SecureTokensClient", () => {
             status: "notValidated",
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/secure-tokens/MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa")
@@ -2196,6 +2224,7 @@ describe("SecureTokensClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId")
@@ -2245,6 +2274,7 @@ describe("SecureTokensClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId")
@@ -2294,6 +2324,7 @@ describe("SecureTokensClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId")
@@ -2343,6 +2374,7 @@ describe("SecureTokensClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId")
@@ -2392,6 +2424,7 @@ describe("SecureTokensClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId")
@@ -2441,6 +2474,7 @@ describe("SecureTokensClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId")
@@ -2490,6 +2524,7 @@ describe("SecureTokensClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId")
@@ -2539,6 +2574,7 @@ describe("SecureTokensClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId")
@@ -2639,6 +2675,7 @@ describe("SecureTokensClient", () => {
             status: "notValidated",
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .post(
@@ -2738,6 +2775,7 @@ describe("SecureTokensClient", () => {
             token: "blackcurrant....................................................................................................................",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId/update-account")
@@ -2775,6 +2813,7 @@ describe("SecureTokensClient", () => {
             token: "blackcurrant....................................................................................................................",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId/update-account")
@@ -2812,6 +2851,7 @@ describe("SecureTokensClient", () => {
             token: "blackcurrant....................................................................................................................",
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId/update-account")
@@ -2849,6 +2889,7 @@ describe("SecureTokensClient", () => {
             token: "blackcurrant....................................................................................................................",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId/update-account")
@@ -2886,6 +2927,7 @@ describe("SecureTokensClient", () => {
             token: "blackcurrant....................................................................................................................",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId/update-account")
@@ -2923,6 +2965,7 @@ describe("SecureTokensClient", () => {
             token: "blackcurrant....................................................................................................................",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId/update-account")
@@ -2960,6 +3003,7 @@ describe("SecureTokensClient", () => {
             token: "blackcurrant....................................................................................................................",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId/update-account")
@@ -2997,6 +3041,7 @@ describe("SecureTokensClient", () => {
             token: "blackcurrant....................................................................................................................",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId/update-account")
@@ -3034,6 +3079,7 @@ describe("SecureTokensClient", () => {
             token: "blackcurrant....................................................................................................................",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/secure-tokens/secureTokenId/update-account")

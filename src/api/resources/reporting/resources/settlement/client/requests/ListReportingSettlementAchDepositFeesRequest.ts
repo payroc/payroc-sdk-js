@@ -10,16 +10,6 @@
  *         achDepositId: 1,
  *         merchantId: "4525644354"
  *     }
- *
- * @example
- *     {
- *         before: "2571",
- *         after: "8516",
- *         limit: 1,
- *         date: "2024-07-02",
- *         achDepositId: 1,
- *         merchantId: "4525644354"
- *     }
  */
 export interface ListReportingSettlementAchDepositFeesRequest {
     /**

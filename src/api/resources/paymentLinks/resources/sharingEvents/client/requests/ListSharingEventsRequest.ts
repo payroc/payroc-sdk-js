@@ -10,16 +10,6 @@
  *         after: "8516",
  *         limit: 1
  *     }
- *
- * @example
- *     {
- *         paymentLinkId: "JZURRJBUPS",
- *         recipientName: "Sarah Hazel Hopper",
- *         recipientEmail: "sarah.hopper@example.com",
- *         before: "2571",
- *         after: "8516",
- *         limit: 1
- *     }
  */
 export interface ListSharingEventsRequest {
     /** Unique identifier that we assigned to the payment link. */

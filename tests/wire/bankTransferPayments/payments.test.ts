@@ -117,6 +117,7 @@ describe("PaymentsClient", () => {
             },
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments")
@@ -300,10 +301,11 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", amount: 1000000, currency: "AED" },
             paymentMethod: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments")
@@ -318,7 +320,11 @@ describe("PaymentsClient", () => {
             return await client.bankTransferPayments.payments.create({
                 "Idempotency-Key": "idempotencyKey",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 paymentMethod: {
                     type: "ach",
                     nameOnAccount: "x",
@@ -340,10 +346,11 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", amount: 1000000, currency: "AED" },
             paymentMethod: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments")
@@ -358,7 +365,11 @@ describe("PaymentsClient", () => {
             return await client.bankTransferPayments.payments.create({
                 "Idempotency-Key": "idempotencyKey",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 paymentMethod: {
                     type: "ach",
                     nameOnAccount: "x",
@@ -380,10 +391,11 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", amount: 1000000, currency: "AED" },
             paymentMethod: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments")
@@ -398,7 +410,11 @@ describe("PaymentsClient", () => {
             return await client.bankTransferPayments.payments.create({
                 "Idempotency-Key": "idempotencyKey",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 paymentMethod: {
                     type: "ach",
                     nameOnAccount: "x",
@@ -420,10 +436,11 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", amount: 1000000, currency: "AED" },
             paymentMethod: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments")
@@ -438,7 +455,11 @@ describe("PaymentsClient", () => {
             return await client.bankTransferPayments.payments.create({
                 "Idempotency-Key": "idempotencyKey",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 paymentMethod: {
                     type: "ach",
                     nameOnAccount: "x",
@@ -460,10 +481,11 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", amount: 1000000, currency: "AED" },
             paymentMethod: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments")
@@ -478,7 +500,11 @@ describe("PaymentsClient", () => {
             return await client.bankTransferPayments.payments.create({
                 "Idempotency-Key": "idempotencyKey",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 paymentMethod: {
                     type: "ach",
                     nameOnAccount: "x",
@@ -500,10 +526,11 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", amount: 1000000, currency: "AED" },
             paymentMethod: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments")
@@ -518,7 +545,11 @@ describe("PaymentsClient", () => {
             return await client.bankTransferPayments.payments.create({
                 "Idempotency-Key": "idempotencyKey",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 paymentMethod: {
                     type: "ach",
                     nameOnAccount: "x",
@@ -540,10 +571,11 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", amount: 1000000, currency: "AED" },
             paymentMethod: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments")
@@ -558,7 +590,11 @@ describe("PaymentsClient", () => {
             return await client.bankTransferPayments.payments.create({
                 "Idempotency-Key": "idempotencyKey",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 paymentMethod: {
                     type: "ach",
                     nameOnAccount: "x",
@@ -655,6 +691,7 @@ describe("PaymentsClient", () => {
             },
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .get("/bank-transfer-payments/M2MJOG6O2Y")
@@ -870,6 +907,7 @@ describe("PaymentsClient", () => {
             },
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .get("/bank-transfer-payments/M2MJOG6O2Y")
@@ -1006,6 +1044,7 @@ describe("PaymentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/bank-transfer-payments/paymentId")
@@ -1032,6 +1071,7 @@ describe("PaymentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/bank-transfer-payments/paymentId")
@@ -1058,6 +1098,7 @@ describe("PaymentsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/bank-transfer-payments/paymentId")
@@ -1084,6 +1125,7 @@ describe("PaymentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/bank-transfer-payments/paymentId")
@@ -1110,6 +1152,7 @@ describe("PaymentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/bank-transfer-payments/paymentId")
@@ -1136,6 +1179,7 @@ describe("PaymentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/bank-transfer-payments/paymentId")
@@ -1244,6 +1288,7 @@ describe("PaymentsClient", () => {
             },
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/M2MJOG6O2Y/represent")
@@ -1389,6 +1434,7 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/represent")
@@ -1418,6 +1464,7 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/represent")
@@ -1447,6 +1494,7 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/represent")
@@ -1476,6 +1524,7 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/represent")
@@ -1505,6 +1554,7 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/represent")
@@ -1534,6 +1584,7 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/represent")
@@ -1563,6 +1614,7 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/represent")
@@ -1592,6 +1644,7 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/represent")

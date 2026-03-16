@@ -28,6 +28,7 @@ describe("AttachmentsClient", () => {
             lastModifiedDate: "2025-09-18T10:19:18Z",
             metadata: { passportId: "123456789" },
         };
+
         server.mockEndpoint().get("/attachments/12876").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
         const response = await client.attachments.retrieve({
@@ -63,6 +64,7 @@ describe("AttachmentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/attachments/attachmentId")
@@ -89,6 +91,7 @@ describe("AttachmentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/attachments/attachmentId")
@@ -115,6 +118,7 @@ describe("AttachmentsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/attachments/attachmentId")
@@ -141,6 +145,7 @@ describe("AttachmentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/attachments/attachmentId")
@@ -167,6 +172,7 @@ describe("AttachmentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/attachments/attachmentId")
@@ -193,6 +199,7 @@ describe("AttachmentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/attachments/attachmentId")

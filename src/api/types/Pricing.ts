@@ -19,4 +19,13 @@ export namespace Pricing {
     export interface Agreement extends Payroc.PricingAgreement {
         type: "agreement";
     }
+
+    /**
+     * Polymorphic object that contains pricing information for the processing account.
+     *
+     * The value of the type parameter determines which variant you should use:
+     * -	`intent` - Use a pricing agreement template.
+     * -	`agreement` - Create a new pricing agreement.
+     */
+    export type Request = Payroc.Pricing.Intent | Payroc.Pricing.Agreement;
 }

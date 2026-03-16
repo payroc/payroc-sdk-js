@@ -6,12 +6,6 @@
  *         processingTerminalId: "1234001",
  *         subscriptionId: "SubRef7654"
  *     }
- *
- * @example
- *     {
- *         processingTerminalId: "1234001",
- *         subscriptionId: "SubRef7654"
- *     }
  */
 export interface ReactivateSubscriptionsRequest {
     /** Unique identifier that we assigned to the terminal. */

@@ -41,6 +41,7 @@ describe("SettlementClient", () => {
                 { rel: "authorizations", method: "get", href: "https://api.payroc.com/v1/authorizations?batchId=65" },
             ],
         };
+
         server.mockEndpoint().get("/batches/1").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
         const response = await client.reporting.settlement.retrieveBatch({
@@ -92,6 +93,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/batches/1").respondWith().statusCode(400).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -112,6 +114,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/batches/1").respondWith().statusCode(401).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -132,6 +135,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server.mockEndpoint().get("/batches/1").respondWith().statusCode(403).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -152,6 +156,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/batches/1").respondWith().statusCode(404).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -172,6 +177,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/batches/1").respondWith().statusCode(406).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -192,6 +198,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/batches/1").respondWith().statusCode(500).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -260,6 +267,7 @@ describe("SettlementClient", () => {
                 link: { rel: "authorization", method: "get", href: "https://api.payroc.com/v1/authorizations/303101" },
             },
         };
+
         server.mockEndpoint().get("/transactions/1").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
         const response = await client.reporting.settlement.retrieveTransaction({
@@ -342,6 +350,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/transactions/1").respondWith().statusCode(400).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -362,6 +371,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/transactions/1").respondWith().statusCode(401).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -382,6 +392,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server.mockEndpoint().get("/transactions/1").respondWith().statusCode(403).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -402,6 +413,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/transactions/1").respondWith().statusCode(404).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -422,6 +434,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/transactions/1").respondWith().statusCode(406).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -442,6 +455,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/transactions/1").respondWith().statusCode(500).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -500,6 +514,7 @@ describe("SettlementClient", () => {
                 link: { rel: "transaction", method: "get", href: "https://api.payroc.com/v1/transactions/12345" },
             },
         };
+
         server.mockEndpoint().get("/authorizations/1").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
         const response = await client.reporting.settlement.retrieveAuthorization({
@@ -565,6 +580,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/authorizations/1").respondWith().statusCode(400).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -585,6 +601,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/authorizations/1").respondWith().statusCode(401).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -605,6 +622,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server.mockEndpoint().get("/authorizations/1").respondWith().statusCode(403).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -625,6 +643,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/authorizations/1").respondWith().statusCode(404).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -645,6 +664,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/authorizations/1").respondWith().statusCode(406).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -665,6 +685,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/authorizations/1").respondWith().statusCode(500).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -687,6 +708,7 @@ describe("SettlementClient", () => {
         const rawResponseBody = [
             { disputeStatusId: 12345, status: "prearbitrationInProcess", statusDate: "2024-02-01" },
         ];
+
         server
             .mockEndpoint()
             .get("/disputes/1/statuses")
@@ -718,6 +740,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/disputes/1/statuses")
@@ -744,6 +767,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/disputes/1/statuses")
@@ -770,6 +794,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/disputes/1/statuses")
@@ -796,6 +821,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/disputes/1/statuses")
@@ -822,6 +848,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/disputes/1/statuses")
@@ -848,6 +875,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/disputes/1/statuses")
@@ -905,6 +933,7 @@ describe("SettlementClient", () => {
                 },
             ],
         };
+
         server.mockEndpoint().get("/ach-deposits/1").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
         const response = await client.reporting.settlement.retrieveAchDeposit({
@@ -955,6 +984,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/ach-deposits/1").respondWith().statusCode(400).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -975,6 +1005,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/ach-deposits/1").respondWith().statusCode(401).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -995,6 +1026,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server.mockEndpoint().get("/ach-deposits/1").respondWith().statusCode(403).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -1015,6 +1047,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/ach-deposits/1").respondWith().statusCode(404).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -1035,6 +1068,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/ach-deposits/1").respondWith().statusCode(406).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -1055,6 +1089,7 @@ describe("SettlementClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/ach-deposits/1").respondWith().statusCode(500).jsonBody(rawResponseBody).build();
 
         await expect(async () => {

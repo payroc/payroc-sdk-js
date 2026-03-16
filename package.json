@@ -1,6 +1,6 @@
 {
     "name": "payroc",
-    "version": "0.0.3923",
+    "version": "0.0.383",
     "private": false,
     "repository": {
         "type": "git",
@@ -62,6 +62,479 @@
             "types": "./dist/cjs/index.d.ts",
             "default": "./dist/cjs/index.node.js"
         },
+        "./paymentLinks": {
+            "import": {
+                "types": "./dist/esm/api/resources/paymentLinks/exports.d.mts",
+                "default": "./dist/esm/api/resources/paymentLinks/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/paymentLinks/exports.d.ts",
+                "default": "./dist/cjs/api/resources/paymentLinks/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/paymentLinks/exports.js"
+        },
+        "./hostedFields": {
+            "import": {
+                "types": "./dist/esm/api/resources/hostedFields/exports.d.mts",
+                "default": "./dist/esm/api/resources/hostedFields/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/hostedFields/exports.d.ts",
+                "default": "./dist/cjs/api/resources/hostedFields/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/hostedFields/exports.js"
+        },
+        "./applePaySessions": {
+            "import": {
+                "types": "./dist/esm/api/resources/applePaySessions/exports.d.mts",
+                "default": "./dist/esm/api/resources/applePaySessions/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/applePaySessions/exports.d.ts",
+                "default": "./dist/cjs/api/resources/applePaySessions/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/applePaySessions/exports.js"
+        },
+        "./attachments": {
+            "import": {
+                "types": "./dist/esm/api/resources/attachments/exports.d.mts",
+                "default": "./dist/esm/api/resources/attachments/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/attachments/exports.d.ts",
+                "default": "./dist/cjs/api/resources/attachments/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/attachments/exports.js"
+        },
+        "./auth": {
+            "import": {
+                "types": "./dist/esm/api/resources/auth/exports.d.mts",
+                "default": "./dist/esm/api/resources/auth/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/auth/exports.d.ts",
+                "default": "./dist/cjs/api/resources/auth/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/auth/exports.js"
+        },
+        "./funding": {
+            "import": {
+                "types": "./dist/esm/api/resources/funding/exports.d.mts",
+                "default": "./dist/esm/api/resources/funding/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/funding/exports.d.ts",
+                "default": "./dist/cjs/api/resources/funding/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/funding/exports.js"
+        },
+        "./bankTransferPayments": {
+            "import": {
+                "types": "./dist/esm/api/resources/bankTransferPayments/exports.d.mts",
+                "default": "./dist/esm/api/resources/bankTransferPayments/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/bankTransferPayments/exports.d.ts",
+                "default": "./dist/cjs/api/resources/bankTransferPayments/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/bankTransferPayments/exports.js"
+        },
+        "./bankTransferPayments/payments": {
+            "import": {
+                "types": "./dist/esm/api/resources/bankTransferPayments/resources/payments/exports.d.mts",
+                "default": "./dist/esm/api/resources/bankTransferPayments/resources/payments/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/bankTransferPayments/resources/payments/exports.d.ts",
+                "default": "./dist/cjs/api/resources/bankTransferPayments/resources/payments/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/bankTransferPayments/resources/payments/exports.js"
+        },
+        "./bankTransferPayments/refunds": {
+            "import": {
+                "types": "./dist/esm/api/resources/bankTransferPayments/resources/refunds/exports.d.mts",
+                "default": "./dist/esm/api/resources/bankTransferPayments/resources/refunds/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/bankTransferPayments/resources/refunds/exports.d.ts",
+                "default": "./dist/cjs/api/resources/bankTransferPayments/resources/refunds/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/bankTransferPayments/resources/refunds/exports.js"
+        },
+        "./boarding": {
+            "import": {
+                "types": "./dist/esm/api/resources/boarding/exports.d.mts",
+                "default": "./dist/esm/api/resources/boarding/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/boarding/exports.d.ts",
+                "default": "./dist/cjs/api/resources/boarding/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/boarding/exports.js"
+        },
+        "./boarding/owners": {
+            "import": {
+                "types": "./dist/esm/api/resources/boarding/resources/owners/exports.d.mts",
+                "default": "./dist/esm/api/resources/boarding/resources/owners/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/boarding/resources/owners/exports.d.ts",
+                "default": "./dist/cjs/api/resources/boarding/resources/owners/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/boarding/resources/owners/exports.js"
+        },
+        "./boarding/pricingIntents": {
+            "import": {
+                "types": "./dist/esm/api/resources/boarding/resources/pricingIntents/exports.d.mts",
+                "default": "./dist/esm/api/resources/boarding/resources/pricingIntents/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/boarding/resources/pricingIntents/exports.d.ts",
+                "default": "./dist/cjs/api/resources/boarding/resources/pricingIntents/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/boarding/resources/pricingIntents/exports.js"
+        },
+        "./boarding/merchantPlatforms": {
+            "import": {
+                "types": "./dist/esm/api/resources/boarding/resources/merchantPlatforms/exports.d.mts",
+                "default": "./dist/esm/api/resources/boarding/resources/merchantPlatforms/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/boarding/resources/merchantPlatforms/exports.d.ts",
+                "default": "./dist/cjs/api/resources/boarding/resources/merchantPlatforms/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/boarding/resources/merchantPlatforms/exports.js"
+        },
+        "./boarding/processingAccounts": {
+            "import": {
+                "types": "./dist/esm/api/resources/boarding/resources/processingAccounts/exports.d.mts",
+                "default": "./dist/esm/api/resources/boarding/resources/processingAccounts/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/boarding/resources/processingAccounts/exports.d.ts",
+                "default": "./dist/cjs/api/resources/boarding/resources/processingAccounts/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/boarding/resources/processingAccounts/exports.js"
+        },
+        "./boarding/processingTerminals": {
+            "import": {
+                "types": "./dist/esm/api/resources/boarding/resources/processingTerminals/exports.d.mts",
+                "default": "./dist/esm/api/resources/boarding/resources/processingTerminals/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/boarding/resources/processingTerminals/exports.d.ts",
+                "default": "./dist/cjs/api/resources/boarding/resources/processingTerminals/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/boarding/resources/processingTerminals/exports.js"
+        },
+        "./boarding/contacts": {
+            "import": {
+                "types": "./dist/esm/api/resources/boarding/resources/contacts/exports.d.mts",
+                "default": "./dist/esm/api/resources/boarding/resources/contacts/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/boarding/resources/contacts/exports.d.ts",
+                "default": "./dist/cjs/api/resources/boarding/resources/contacts/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/boarding/resources/contacts/exports.js"
+        },
+        "./boarding/terminalOrders": {
+            "import": {
+                "types": "./dist/esm/api/resources/boarding/resources/terminalOrders/exports.d.mts",
+                "default": "./dist/esm/api/resources/boarding/resources/terminalOrders/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/boarding/resources/terminalOrders/exports.d.ts",
+                "default": "./dist/cjs/api/resources/boarding/resources/terminalOrders/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/boarding/resources/terminalOrders/exports.js"
+        },
+        "./cardPayments": {
+            "import": {
+                "types": "./dist/esm/api/resources/cardPayments/exports.d.mts",
+                "default": "./dist/esm/api/resources/cardPayments/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/cardPayments/exports.d.ts",
+                "default": "./dist/cjs/api/resources/cardPayments/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/cardPayments/exports.js"
+        },
+        "./cardPayments/payments": {
+            "import": {
+                "types": "./dist/esm/api/resources/cardPayments/resources/payments/exports.d.mts",
+                "default": "./dist/esm/api/resources/cardPayments/resources/payments/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/cardPayments/resources/payments/exports.d.ts",
+                "default": "./dist/cjs/api/resources/cardPayments/resources/payments/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/cardPayments/resources/payments/exports.js"
+        },
+        "./cardPayments/refunds": {
+            "import": {
+                "types": "./dist/esm/api/resources/cardPayments/resources/refunds/exports.d.mts",
+                "default": "./dist/esm/api/resources/cardPayments/resources/refunds/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/cardPayments/resources/refunds/exports.d.ts",
+                "default": "./dist/cjs/api/resources/cardPayments/resources/refunds/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/cardPayments/resources/refunds/exports.js"
+        },
+        "./funding/fundingRecipients": {
+            "import": {
+                "types": "./dist/esm/api/resources/funding/resources/fundingRecipients/exports.d.mts",
+                "default": "./dist/esm/api/resources/funding/resources/fundingRecipients/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/funding/resources/fundingRecipients/exports.d.ts",
+                "default": "./dist/cjs/api/resources/funding/resources/fundingRecipients/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/funding/resources/fundingRecipients/exports.js"
+        },
+        "./funding/fundingAccounts": {
+            "import": {
+                "types": "./dist/esm/api/resources/funding/resources/fundingAccounts/exports.d.mts",
+                "default": "./dist/esm/api/resources/funding/resources/fundingAccounts/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/funding/resources/fundingAccounts/exports.d.ts",
+                "default": "./dist/cjs/api/resources/funding/resources/fundingAccounts/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/funding/resources/fundingAccounts/exports.js"
+        },
+        "./funding/fundingInstructions": {
+            "import": {
+                "types": "./dist/esm/api/resources/funding/resources/fundingInstructions/exports.d.mts",
+                "default": "./dist/esm/api/resources/funding/resources/fundingInstructions/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/funding/resources/fundingInstructions/exports.d.ts",
+                "default": "./dist/cjs/api/resources/funding/resources/fundingInstructions/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/funding/resources/fundingInstructions/exports.js"
+        },
+        "./funding/fundingActivity": {
+            "import": {
+                "types": "./dist/esm/api/resources/funding/resources/fundingActivity/exports.d.mts",
+                "default": "./dist/esm/api/resources/funding/resources/fundingActivity/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/funding/resources/fundingActivity/exports.d.ts",
+                "default": "./dist/cjs/api/resources/funding/resources/fundingActivity/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/funding/resources/fundingActivity/exports.js"
+        },
+        "./notifications": {
+            "import": {
+                "types": "./dist/esm/api/resources/notifications/exports.d.mts",
+                "default": "./dist/esm/api/resources/notifications/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/notifications/exports.d.ts",
+                "default": "./dist/cjs/api/resources/notifications/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/notifications/exports.js"
+        },
+        "./notifications/eventSubscriptions": {
+            "import": {
+                "types": "./dist/esm/api/resources/notifications/resources/eventSubscriptions/exports.d.mts",
+                "default": "./dist/esm/api/resources/notifications/resources/eventSubscriptions/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/notifications/resources/eventSubscriptions/exports.d.ts",
+                "default": "./dist/cjs/api/resources/notifications/resources/eventSubscriptions/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/notifications/resources/eventSubscriptions/exports.js"
+        },
+        "./paymentFeatures": {
+            "import": {
+                "types": "./dist/esm/api/resources/paymentFeatures/exports.d.mts",
+                "default": "./dist/esm/api/resources/paymentFeatures/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/paymentFeatures/exports.d.ts",
+                "default": "./dist/cjs/api/resources/paymentFeatures/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/paymentFeatures/exports.js"
+        },
+        "./paymentFeatures/cards": {
+            "import": {
+                "types": "./dist/esm/api/resources/paymentFeatures/resources/cards/exports.d.mts",
+                "default": "./dist/esm/api/resources/paymentFeatures/resources/cards/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/paymentFeatures/resources/cards/exports.d.ts",
+                "default": "./dist/cjs/api/resources/paymentFeatures/resources/cards/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/paymentFeatures/resources/cards/exports.js"
+        },
+        "./paymentFeatures/bank": {
+            "import": {
+                "types": "./dist/esm/api/resources/paymentFeatures/resources/bank/exports.d.mts",
+                "default": "./dist/esm/api/resources/paymentFeatures/resources/bank/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/paymentFeatures/resources/bank/exports.d.ts",
+                "default": "./dist/cjs/api/resources/paymentFeatures/resources/bank/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/paymentFeatures/resources/bank/exports.js"
+        },
+        "./paymentLinks/sharingEvents": {
+            "import": {
+                "types": "./dist/esm/api/resources/paymentLinks/resources/sharingEvents/exports.d.mts",
+                "default": "./dist/esm/api/resources/paymentLinks/resources/sharingEvents/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/paymentLinks/resources/sharingEvents/exports.d.ts",
+                "default": "./dist/cjs/api/resources/paymentLinks/resources/sharingEvents/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/paymentLinks/resources/sharingEvents/exports.js"
+        },
+        "./payrocCloud": {
+            "import": {
+                "types": "./dist/esm/api/resources/payrocCloud/exports.d.mts",
+                "default": "./dist/esm/api/resources/payrocCloud/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/payrocCloud/exports.d.ts",
+                "default": "./dist/cjs/api/resources/payrocCloud/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/payrocCloud/exports.js"
+        },
+        "./payrocCloud/paymentInstructions": {
+            "import": {
+                "types": "./dist/esm/api/resources/payrocCloud/resources/paymentInstructions/exports.d.mts",
+                "default": "./dist/esm/api/resources/payrocCloud/resources/paymentInstructions/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/payrocCloud/resources/paymentInstructions/exports.d.ts",
+                "default": "./dist/cjs/api/resources/payrocCloud/resources/paymentInstructions/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/payrocCloud/resources/paymentInstructions/exports.js"
+        },
+        "./payrocCloud/refundInstructions": {
+            "import": {
+                "types": "./dist/esm/api/resources/payrocCloud/resources/refundInstructions/exports.d.mts",
+                "default": "./dist/esm/api/resources/payrocCloud/resources/refundInstructions/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/payrocCloud/resources/refundInstructions/exports.d.ts",
+                "default": "./dist/cjs/api/resources/payrocCloud/resources/refundInstructions/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/payrocCloud/resources/refundInstructions/exports.js"
+        },
+        "./payrocCloud/signatureInstructions": {
+            "import": {
+                "types": "./dist/esm/api/resources/payrocCloud/resources/signatureInstructions/exports.d.mts",
+                "default": "./dist/esm/api/resources/payrocCloud/resources/signatureInstructions/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/payrocCloud/resources/signatureInstructions/exports.d.ts",
+                "default": "./dist/cjs/api/resources/payrocCloud/resources/signatureInstructions/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/payrocCloud/resources/signatureInstructions/exports.js"
+        },
+        "./payrocCloud/signatures": {
+            "import": {
+                "types": "./dist/esm/api/resources/payrocCloud/resources/signatures/exports.d.mts",
+                "default": "./dist/esm/api/resources/payrocCloud/resources/signatures/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/payrocCloud/resources/signatures/exports.d.ts",
+                "default": "./dist/cjs/api/resources/payrocCloud/resources/signatures/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/payrocCloud/resources/signatures/exports.js"
+        },
+        "./repeatPayments": {
+            "import": {
+                "types": "./dist/esm/api/resources/repeatPayments/exports.d.mts",
+                "default": "./dist/esm/api/resources/repeatPayments/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/repeatPayments/exports.d.ts",
+                "default": "./dist/cjs/api/resources/repeatPayments/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/repeatPayments/exports.js"
+        },
+        "./repeatPayments/paymentPlans": {
+            "import": {
+                "types": "./dist/esm/api/resources/repeatPayments/resources/paymentPlans/exports.d.mts",
+                "default": "./dist/esm/api/resources/repeatPayments/resources/paymentPlans/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/repeatPayments/resources/paymentPlans/exports.d.ts",
+                "default": "./dist/cjs/api/resources/repeatPayments/resources/paymentPlans/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/repeatPayments/resources/paymentPlans/exports.js"
+        },
+        "./repeatPayments/subscriptions": {
+            "import": {
+                "types": "./dist/esm/api/resources/repeatPayments/resources/subscriptions/exports.d.mts",
+                "default": "./dist/esm/api/resources/repeatPayments/resources/subscriptions/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/repeatPayments/resources/subscriptions/exports.d.ts",
+                "default": "./dist/cjs/api/resources/repeatPayments/resources/subscriptions/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/repeatPayments/resources/subscriptions/exports.js"
+        },
+        "./reporting": {
+            "import": {
+                "types": "./dist/esm/api/resources/reporting/exports.d.mts",
+                "default": "./dist/esm/api/resources/reporting/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/reporting/exports.d.ts",
+                "default": "./dist/cjs/api/resources/reporting/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/reporting/exports.js"
+        },
+        "./reporting/settlement": {
+            "import": {
+                "types": "./dist/esm/api/resources/reporting/resources/settlement/exports.d.mts",
+                "default": "./dist/esm/api/resources/reporting/resources/settlement/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/reporting/resources/settlement/exports.d.ts",
+                "default": "./dist/cjs/api/resources/reporting/resources/settlement/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/reporting/resources/settlement/exports.js"
+        },
+        "./tokenization": {
+            "import": {
+                "types": "./dist/esm/api/resources/tokenization/exports.d.mts",
+                "default": "./dist/esm/api/resources/tokenization/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/tokenization/exports.d.ts",
+                "default": "./dist/cjs/api/resources/tokenization/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/tokenization/exports.js"
+        },
+        "./tokenization/secureTokens": {
+            "import": {
+                "types": "./dist/esm/api/resources/tokenization/resources/secureTokens/exports.d.mts",
+                "default": "./dist/esm/api/resources/tokenization/resources/secureTokens/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/tokenization/resources/secureTokens/exports.d.ts",
+                "default": "./dist/cjs/api/resources/tokenization/resources/secureTokens/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/tokenization/resources/secureTokens/exports.js"
+        },
+        "./tokenization/singleUseTokens": {
+            "import": {
+                "types": "./dist/esm/api/resources/tokenization/resources/singleUseTokens/exports.d.mts",
+                "default": "./dist/esm/api/resources/tokenization/resources/singleUseTokens/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/tokenization/resources/singleUseTokens/exports.d.ts",
+                "default": "./dist/cjs/api/resources/tokenization/resources/singleUseTokens/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/tokenization/resources/singleUseTokens/exports.js"
+        },
         "./package.json": "./package.json"
     },
     "files": [
@@ -106,7 +579,8 @@
         "fs": false,
         "os": false,
         "path": false,
-        "stream": false
+        "stream": false,
+        "crypto": false
     },
     "packageManager": "pnpm@10.20.0",
     "engines": {

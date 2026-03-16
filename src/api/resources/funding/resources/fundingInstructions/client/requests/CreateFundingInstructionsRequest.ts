@@ -50,54 +50,6 @@ import type * as Payroc from "../../../../../../index.js";
  *             }
  *         }
  *     }
- *
- * @example
- *     {
- *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
- *         body: {
- *             merchants: [{
- *                     merchantId: "4525644354",
- *                     recipients: [{
- *                             fundingAccountId: 123,
- *                             paymentMethod: "ACH",
- *                             amount: {
- *                                 value: 120000,
- *                                 currency: "USD"
- *                             },
- *                             metadata: {
- *                                 "yourCustomField": "abc123"
- *                             }
- *                         }]
- *                 }],
- *             metadata: {
- *                 "yourCustomField": "abc123"
- *             }
- *         }
- *     }
- *
- * @example
- *     {
- *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
- *         body: {
- *             merchants: [{
- *                     merchantId: "4525644354",
- *                     recipients: [{
- *                             fundingAccountId: 123,
- *                             paymentMethod: "ACH",
- *                             amount: {
- *                                 value: 120000,
- *                                 currency: "USD"
- *                             },
- *                             metadata: {
- *                                 "yourCustomField": "abc123"
- *                             }
- *                         }]
- *                 }],
- *             metadata: {
- *                 "yourCustomField": "abc123"
- *             }
- *         }
- *     }
  */
 export interface CreateFundingInstructionsRequest {
     /** Unique identifier that you generate for each request. You must use the [UUID v4 format](https://www.rfc-editor.org/rfc/rfc4122) for the identifier. For more information about the idempotency key, go to [Idempotency](https://docs.payroc.com/api/idempotency). */

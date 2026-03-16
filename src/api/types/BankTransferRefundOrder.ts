@@ -7,12 +7,12 @@ import type * as Payroc from "../index.js";
  */
 export interface BankTransferRefundOrder {
     /** Unique identifier that the merchant assigned to the transaction. */
-    orderId?: string | undefined;
+    orderId: string;
     /** Date and time that we processed the transaction. We return this value in the ISO 8601 format. */
     dateTime?: string | undefined;
     /** Description of the refund. */
-    description?: string | undefined;
+    description: string;
     /** Total amount of the transaction. The value is in the currency's lowest denomination, for example, cents. */
-    amount?: number | undefined;
-    currency?: Payroc.Currency | undefined;
+    amount: number;
+    currency: Payroc.Currency;
 }

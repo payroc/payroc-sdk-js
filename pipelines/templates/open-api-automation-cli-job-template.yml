@@ -16,10 +16,10 @@ parameters:
     default: []
   - name: imageName
     type: string
-    default: 'payroc/openapi-automation-cli'
-  - name: artifactoryRepo
+    default: 'openapi-automation-cli'
+  - name: dockerRegistry
     type: string
-    default: 'dml.corp.payroc.com/feature-docker-local'
+    default: 'docker.pkgs.payroc.com/backend'
   - name: imageTag
     type: string
     default: 'latest'  # Can also be pinned to an exact version, e.g. 0.4.0.210295
@@ -35,6 +35,15 @@ parameters:
   - name: semanticVersionComponent
     type: string
     default: ''  # Optional
+  - name: CS_WORKSPACE
+    type: string
+    default: 'payroc'
+  - name: CS_REPO
+    type: string
+    default: 'backend'
+  - name: CS_SERVICE_SLUG
+    type: string
+    default: 'backend-ci-service'
 
 jobs:
 - job: ${{ parameters.jobName }}
@@ -43,12 +52,28 @@ jobs:
   dependsOn: ${{ parameters.dependsOn }}
   pool:
     name: onprem-linux-elksdx
+  workspace:
+    clean: all
 
   steps:
     - checkout: none
 
+    - task: CloudsmithCliSetupAndAuthenticate@1.2.0
+      displayName: "Cloudsmith: Authenticate via OIDC"
+      inputs:
+        authMethod: 'oidc'
+        oidcAuthOnly: false
+        pipInstall: false
+        cliVersion: '1.3.1'
+        oidcNamespace: '${{ parameters.CS_WORKSPACE }}'
+        oidcServiceSlug: '${{ parameters.CS_SERVICE_SLUG }}'
+
     - script: |
-        echo "Resolved Docker image: ${{ parameters.artifactoryRepo }}/${{ parameters.imageName }}:${{ parameters.imageTag }}"
+        echo "$(CLOUDSMITH_API_KEY)" | docker login docker.pkgs.payroc.com --username ${{ parameters.CS_SERVICE_SLUG }} --password-stdin
+      displayName: Docker Login to Cloudsmith
+
+    - script: |
+        echo "Resolved Docker image: ${{ parameters.dockerRegistry }}/${{ parameters.imageName }}:${{ parameters.imageTag }}"
         echo "Command to run: ${{ parameters.cliCommand }} --environment=Prod"
         if [ ! -z "${{ parameters.branchNameFragment }}" ]; then
           echo "With branch name fragment: ${{ parameters.branchNameFragment }}"
@@ -70,13 +95,22 @@ jobs:
 
     - script: |
         echo "Pulling Docker image..."
-        docker pull ${{ parameters.artifactoryRepo }}/${{ parameters.imageName }}:${{ parameters.imageTag }}
+        docker pull ${{ parameters.dockerRegistry }}/${{ parameters.imageName }}:${{ parameters.imageTag }}
       displayName: Pull Docker Image
+
+    - script: |
+        # Use branch name for container naming (sanitize special characters)
+        BRANCH_NAME=$(echo "$(Build.SourceBranchName)" | sed 's/[^a-zA-Z0-9._-]/-/g')
+        CONTAINER_NAME="${{ parameters.containerNamePrefix }}-${{ parameters.jobName }}-$BRANCH_NAME"
+        echo "##vso[task.setvariable variable=CONTAINER_NAME]$CONTAINER_NAME"
+        docker rm -f "$CONTAINER_NAME" 2>/dev/null || true
+      displayName: 'Cleanup & Generate Unique Name'
+      condition: always()
 
     - script: |
         echo "Running CLI container..."
         
-        cmd="docker run --rm --name \"${{ parameters.containerNamePrefix }}-${{ parameters.jobName }}\" \
+        cmd="docker run --rm --name \"$(CONTAINER_NAME)\" \
           -e \"GITHUB_BOT_USERNAME=$GITHUB_BOT_USERNAME\" \
           -e \"GITHUB_BOT_TOKEN=$GITHUB_BOT_TOKEN\" \
           -e \"GITHUB_AUTHOR_NAME=$GITHUB_AUTHOR_NAME\" \
@@ -86,9 +120,13 @@ jobs:
           -e \"POSTHOG_API_KEY=$POSTHOG_API_KEY\" \
           -e \"PAYROC_API_KEY_GENERIC=$PAYROC_API_KEY_GENERIC\" \
           -e \"PAYROC_API_KEY_PAYMENTS=$PAYROC_API_KEY_PAYMENTS\" \
+          -e \"PAYROC_API_KEY_PAYMENTS_BANK_TRANSFER=$PAYROC_API_KEY_PAYMENTS_BANK_TRANSFER\" \
           -e \"TERMINAL_ID_AVS=$TERMINAL_ID_AVS\" \
           -e \"TERMINAL_ID_NO_AVS=$TERMINAL_ID_NO_AVS\" \
-          \"${{ parameters.artifactoryRepo }}/${{ parameters.imageName }}:${{ parameters.imageTag }}\" \
+          -e \"TERMINAL_ID_AVS_PAYMENTS_BANK_TRANSFER_PAD=$TERMINAL_ID_AVS_PAYMENTS_BANK_TRANSFER_PAD\" \
+          -e \"TERMINAL_ID_AVS_PAYMENTS_BANK_TRANSFER=$TERMINAL_ID_AVS_PAYMENTS_BANK_TRANSFER\" \
+          -e \"NUGET_API_KEY=$NUGET_API_KEY\" \
+          \"${{ parameters.dockerRegistry }}/${{ parameters.imageName }}:${{ parameters.imageTag }}\" \
           \"${{ parameters.cliCommand }}\" \
           --environment=Prod"
 
@@ -120,6 +158,10 @@ jobs:
         POSTHOG_API_KEY: $(POSTHOG_API_KEY)
         PAYROC_API_KEY_GENERIC: $(PAYROC_API_KEY_GENERIC)
         PAYROC_API_KEY_PAYMENTS: $(PAYROC_API_KEY_PAYMENTS)
+        PAYROC_API_KEY_PAYMENTS_BANK_TRANSFER: $(PAYROC_API_KEY_PAYMENTS_BANK_TRANSFER)
         TERMINAL_ID_AVS: $(TERMINAL_ID_AVS)
         TERMINAL_ID_NO_AVS: $(TERMINAL_ID_NO_AVS)
+        TERMINAL_ID_AVS_PAYMENTS_BANK_TRANSFER_PAD: $(TERMINAL_ID_AVS_PAYMENTS_BANK_TRANSFER_PAD)
+        TERMINAL_ID_AVS_PAYMENTS_BANK_TRANSFER: $(TERMINAL_ID_AVS_PAYMENTS_BANK_TRANSFER)
+        NUGET_API_KEY: $(NUGET_API_KEY)
       displayName: Run CLI Command

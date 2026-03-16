@@ -17,21 +17,6 @@ import type * as Payroc from "../../../../../../index.js";
  *         after: "8516",
  *         limit: 1
  *     }
- *
- * @example
- *     {
- *         processingTerminalId: "1234001",
- *         orderId: "OrderRef6543",
- *         nameOnAccount: "Sarah%20Hazel%20Hopper",
- *         last4: "7062",
- *         dateFrom: "2024-07-01T00:00:00Z",
- *         dateTo: "2024-07-31T23:59:59Z",
- *         settlementState: "settled",
- *         settlementDate: "2024-07-15",
- *         before: "2571",
- *         after: "8516",
- *         limit: 1
- *     }
  */
 export interface ListRefundsRequest {
     /** Filter results by the unique identifier that we assigned to the terminal. */

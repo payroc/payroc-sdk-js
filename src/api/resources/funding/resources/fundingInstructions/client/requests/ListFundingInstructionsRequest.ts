@@ -9,15 +9,6 @@
  *         dateFrom: "2024-07-01",
  *         dateTo: "2024-07-03"
  *     }
- *
- * @example
- *     {
- *         before: "2571",
- *         after: "8516",
- *         limit: 1,
- *         dateFrom: "2024-07-01",
- *         dateTo: "2024-07-03"
- *     }
  */
 export interface ListFundingInstructionsRequest {
     /**

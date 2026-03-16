@@ -32,6 +32,7 @@ describe("PaymentInstructionsClient", () => {
             },
             paymentInstructionId: "a37439165d134678a9100ebba3b29597",
         };
+
         server
             .mockEndpoint()
             .post("/devices/1850010868/payment-instructions")
@@ -83,6 +84,7 @@ describe("PaymentInstructionsClient", () => {
             order: { orderId: "x", amount: 1000000, currency: "AED" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/payment-instructions")
@@ -121,6 +123,7 @@ describe("PaymentInstructionsClient", () => {
             order: { orderId: "x", amount: 1000000, currency: "AED" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/payment-instructions")
@@ -159,6 +162,7 @@ describe("PaymentInstructionsClient", () => {
             order: { orderId: "x", amount: 1000000, currency: "AED" },
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/payment-instructions")
@@ -197,6 +201,7 @@ describe("PaymentInstructionsClient", () => {
             order: { orderId: "x", amount: 1000000, currency: "AED" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/payment-instructions")
@@ -235,6 +240,7 @@ describe("PaymentInstructionsClient", () => {
             order: { orderId: "x", amount: 1000000, currency: "AED" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/payment-instructions")
@@ -273,6 +279,7 @@ describe("PaymentInstructionsClient", () => {
             order: { orderId: "x", amount: 1000000, currency: "AED" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/payment-instructions")
@@ -311,6 +318,7 @@ describe("PaymentInstructionsClient", () => {
             order: { orderId: "x", amount: 1000000, currency: "AED" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/payment-instructions")
@@ -349,6 +357,7 @@ describe("PaymentInstructionsClient", () => {
             order: { orderId: "x", amount: 1000000, currency: "AED" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/payment-instructions")
@@ -389,6 +398,7 @@ describe("PaymentInstructionsClient", () => {
             link: { rel: "payment", method: "GET", href: "https://api.payroc.com/v1/payments/M2MJOG6O2Y" },
             paymentInstructionId: "a37439165d134678a9100ebba3b29597",
         };
+
         server
             .mockEndpoint()
             .get("/payment-instructions/e743a9165d134678a9100ebba3b29597")
@@ -423,6 +433,7 @@ describe("PaymentInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/payment-instructions/paymentInstructionId")
@@ -449,6 +460,7 @@ describe("PaymentInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/payment-instructions/paymentInstructionId")
@@ -475,6 +487,7 @@ describe("PaymentInstructionsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/payment-instructions/paymentInstructionId")
@@ -501,6 +514,7 @@ describe("PaymentInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/payment-instructions/paymentInstructionId")
@@ -527,6 +541,7 @@ describe("PaymentInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/payment-instructions/paymentInstructionId")
@@ -553,6 +568,7 @@ describe("PaymentInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/payment-instructions/paymentInstructionId")
@@ -602,6 +618,7 @@ describe("PaymentInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/payment-instructions/paymentInstructionId")
@@ -628,6 +645,7 @@ describe("PaymentInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/payment-instructions/paymentInstructionId")
@@ -654,6 +672,7 @@ describe("PaymentInstructionsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .delete("/payment-instructions/paymentInstructionId")
@@ -680,6 +699,7 @@ describe("PaymentInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/payment-instructions/paymentInstructionId")
@@ -706,6 +726,7 @@ describe("PaymentInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/payment-instructions/paymentInstructionId")
@@ -732,6 +753,7 @@ describe("PaymentInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/payment-instructions/paymentInstructionId")
@@ -758,6 +780,7 @@ describe("PaymentInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/payment-instructions/paymentInstructionId")

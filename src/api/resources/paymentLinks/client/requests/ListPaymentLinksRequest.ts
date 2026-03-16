@@ -18,22 +18,6 @@ import type * as Payroc from "../../../../index.js";
  *         after: "8516",
  *         limit: 1
  *     }
- *
- * @example
- *     {
- *         processingTerminalId: "1234001",
- *         merchantReference: "LinkRef6543",
- *         linkType: "multiUse",
- *         chargeType: "preset",
- *         status: "active",
- *         recipientName: "Sarah Hazel Hopper",
- *         recipientEmail: "sarah.hopper@example.com",
- *         createdOn: "2024-07-02",
- *         expiresOn: "2024-08-02",
- *         before: "2571",
- *         after: "8516",
- *         limit: 1
- *     }
  */
 export interface ListPaymentLinksRequest {
     /** Unique identifier that we assigned to the terminal. */

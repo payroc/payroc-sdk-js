@@ -37,41 +37,6 @@ import type * as Payroc from "../../../../../../index.js";
  *         length: 12,
  *         pauseCollectionFor: 0
  *     }
- *
- * @example
- *     {
- *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
- *         processingTerminalId: "1234001",
- *         subscriptionId: "SubRef7654",
- *         paymentPlanId: "PlanRef8765",
- *         paymentMethod: {
- *             type: "secureToken",
- *             token: "1234567890123456789"
- *         },
- *         name: "Premium Club",
- *         description: "Premium Club subscription",
- *         setupOrder: {
- *             orderId: "OrderRef6543",
- *             amount: 4999,
- *             description: "Initial setup fee for Premium Club subscription"
- *         },
- *         recurringOrder: {
- *             amount: 4999,
- *             description: "Monthly Premium Club subscription",
- *             breakdown: {
- *                 subtotal: 4347,
- *                 taxes: [{
- *                         type: "rate",
- *                         rate: 5,
- *                         name: "Sales Tax"
- *                     }]
- *             }
- *         },
- *         startDate: "2024-07-02",
- *         endDate: "2025-07-01",
- *         length: 12,
- *         pauseCollectionFor: 0
- *     }
  */
 export interface SubscriptionRequest {
     /** Unique identifier that we assigned to the terminal. */

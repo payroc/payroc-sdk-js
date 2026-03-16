@@ -75,6 +75,7 @@ describe("TerminalOrdersClient", () => {
             createdDate: "2020-09-08T12:00:00Z",
             lastModifiedDate: "2020-09-09T12:00:00Z",
         };
+
         server
             .mockEndpoint()
             .get("/terminal-orders/12345")
@@ -181,6 +182,7 @@ describe("TerminalOrdersClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/terminal-orders/terminalOrderId")
@@ -207,6 +209,7 @@ describe("TerminalOrdersClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/terminal-orders/terminalOrderId")
@@ -233,6 +236,7 @@ describe("TerminalOrdersClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/terminal-orders/terminalOrderId")
@@ -259,6 +263,7 @@ describe("TerminalOrdersClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/terminal-orders/terminalOrderId")
@@ -285,6 +290,7 @@ describe("TerminalOrdersClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/terminal-orders/terminalOrderId")
@@ -311,6 +317,7 @@ describe("TerminalOrdersClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/terminal-orders/terminalOrderId")

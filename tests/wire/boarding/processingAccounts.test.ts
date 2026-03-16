@@ -113,6 +113,7 @@ describe("ProcessingAccountsClient", () => {
             metadata: { customerId: "2345" },
             links: [{ rel: "previous", method: "get", href: "<uri>" }],
         };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/38765")
@@ -285,6 +286,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId")
@@ -311,6 +313,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId")
@@ -337,6 +340,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId")
@@ -363,6 +367,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId")
@@ -389,6 +394,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId")
@@ -415,6 +421,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId")
@@ -466,6 +473,7 @@ describe("ProcessingAccountsClient", () => {
                 links: [{ rel: "parent", method: "get", href: "https://api.payroc.com/v1/processing-accounts/38765" }],
             },
         ];
+
         server
             .mockEndpoint()
             .get("/processing-accounts/38765/funding-accounts")
@@ -548,6 +556,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/funding-accounts")
@@ -574,6 +583,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/funding-accounts")
@@ -600,6 +610,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/funding-accounts")
@@ -626,6 +637,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/funding-accounts")
@@ -652,6 +664,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/funding-accounts")
@@ -678,6 +691,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/funding-accounts")
@@ -748,6 +762,7 @@ describe("ProcessingAccountsClient", () => {
                 },
             ],
         };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/38765/contacts")
@@ -867,6 +882,7 @@ describe("ProcessingAccountsClient", () => {
                 },
             ],
         };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/38765/contacts")
@@ -932,6 +948,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/contacts")
@@ -958,6 +975,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/contacts")
@@ -984,6 +1002,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/contacts")
@@ -1010,6 +1029,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/contacts")
@@ -1036,6 +1056,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/contacts")
@@ -1106,6 +1127,7 @@ describe("ProcessingAccountsClient", () => {
             gateway: { fees: { monthly: 0, setup: 0, perTransaction: 0, perDeviceMonthly: 0 } },
             services: [{ name: "hardwareAdvantagePlan", enabled: true }],
         };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/38765/pricing")
@@ -1206,6 +1228,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/pricing")
@@ -1232,6 +1255,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/pricing")
@@ -1258,6 +1282,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/pricing")
@@ -1284,6 +1309,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/pricing")
@@ -1310,6 +1336,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/pricing")
@@ -1336,6 +1363,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/pricing")
@@ -1362,6 +1390,7 @@ describe("ProcessingAccountsClient", () => {
         });
         const rawRequestBody = { type: "pricingAgreement" };
         const rawResponseBody = { type: "pricingAgreement", reminderId: "1234567" };
+
         server
             .mockEndpoint()
             .post("/processing-accounts/38765/reminders")
@@ -1396,6 +1425,7 @@ describe("ProcessingAccountsClient", () => {
         });
         const rawRequestBody = { type: "pricingAgreement" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-accounts/processingAccountId/reminders")
@@ -1428,6 +1458,7 @@ describe("ProcessingAccountsClient", () => {
         });
         const rawRequestBody = { type: "pricingAgreement" };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/processing-accounts/processingAccountId/reminders")
@@ -1460,6 +1491,7 @@ describe("ProcessingAccountsClient", () => {
         });
         const rawRequestBody = { type: "pricingAgreement" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-accounts/processingAccountId/reminders")
@@ -1492,6 +1524,7 @@ describe("ProcessingAccountsClient", () => {
         });
         const rawRequestBody = { type: "pricingAgreement" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-accounts/processingAccountId/reminders")
@@ -1524,6 +1557,7 @@ describe("ProcessingAccountsClient", () => {
         });
         const rawRequestBody = { type: "pricingAgreement" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-accounts/processingAccountId/reminders")
@@ -1616,6 +1650,7 @@ describe("ProcessingAccountsClient", () => {
                 lastModifiedDate: "2024-07-02T12:00:00Z",
             },
         ];
+
         server
             .mockEndpoint()
             .get("/processing-accounts/38765/terminal-orders")
@@ -1727,6 +1762,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/terminal-orders")
@@ -1753,6 +1789,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/terminal-orders")
@@ -1779,6 +1816,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/terminal-orders")
@@ -1805,6 +1843,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/terminal-orders")
@@ -1831,6 +1870,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/terminal-orders")
@@ -1857,6 +1897,7 @@ describe("ProcessingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-accounts/processingAccountId/terminal-orders")
@@ -1981,6 +2022,7 @@ describe("ProcessingAccountsClient", () => {
             createdDate: "2024-07-02T12:00:00Z",
             lastModifiedDate: "2024-07-02T12:00:00Z",
         };
+
         server
             .mockEndpoint()
             .post("/processing-accounts/38765/terminal-orders")
@@ -2160,6 +2202,7 @@ describe("ProcessingAccountsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-accounts/processingAccountId/terminal-orders")
@@ -2204,6 +2247,7 @@ describe("ProcessingAccountsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-accounts/processingAccountId/terminal-orders")
@@ -2248,6 +2292,7 @@ describe("ProcessingAccountsClient", () => {
             ],
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/processing-accounts/processingAccountId/terminal-orders")
@@ -2292,6 +2337,7 @@ describe("ProcessingAccountsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-accounts/processingAccountId/terminal-orders")
@@ -2336,6 +2382,7 @@ describe("ProcessingAccountsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-accounts/processingAccountId/terminal-orders")
@@ -2380,6 +2427,7 @@ describe("ProcessingAccountsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-accounts/processingAccountId/terminal-orders")

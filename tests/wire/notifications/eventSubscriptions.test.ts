@@ -43,6 +43,7 @@ describe("EventSubscriptionsClient", () => {
             ],
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .post("/event-subscriptions")
@@ -127,6 +128,7 @@ describe("EventSubscriptionsClient", () => {
             ],
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .post("/event-subscriptions")
@@ -211,6 +213,7 @@ describe("EventSubscriptionsClient", () => {
             ],
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .post("/event-subscriptions")
@@ -295,6 +298,7 @@ describe("EventSubscriptionsClient", () => {
             ],
             metadata: { responsiblePerson: "Jane Doe" },
         };
+
         server
             .mockEndpoint()
             .post("/event-subscriptions")
@@ -360,6 +364,7 @@ describe("EventSubscriptionsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/event-subscriptions")
@@ -413,6 +418,7 @@ describe("EventSubscriptionsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/event-subscriptions")
@@ -466,6 +472,7 @@ describe("EventSubscriptionsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/event-subscriptions")
@@ -519,6 +526,7 @@ describe("EventSubscriptionsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/event-subscriptions")
@@ -572,6 +580,7 @@ describe("EventSubscriptionsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/event-subscriptions")
@@ -625,6 +634,7 @@ describe("EventSubscriptionsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/event-subscriptions")
@@ -685,6 +695,7 @@ describe("EventSubscriptionsClient", () => {
             ],
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .get("/event-subscriptions/1")
@@ -726,6 +737,7 @@ describe("EventSubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/event-subscriptions/1")
@@ -752,6 +764,7 @@ describe("EventSubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/event-subscriptions/1")
@@ -778,6 +791,7 @@ describe("EventSubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/event-subscriptions/1")
@@ -804,6 +818,7 @@ describe("EventSubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/event-subscriptions/1")
@@ -889,6 +904,7 @@ describe("EventSubscriptionsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/event-subscriptions/1")
@@ -941,6 +957,7 @@ describe("EventSubscriptionsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/event-subscriptions/1")
@@ -993,6 +1010,7 @@ describe("EventSubscriptionsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/event-subscriptions/1")
@@ -1045,6 +1063,7 @@ describe("EventSubscriptionsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/event-subscriptions/1")
@@ -1097,6 +1116,7 @@ describe("EventSubscriptionsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/event-subscriptions/1")
@@ -1160,6 +1180,7 @@ describe("EventSubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/event-subscriptions/1")
@@ -1186,6 +1207,7 @@ describe("EventSubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/event-subscriptions/1")
@@ -1212,6 +1234,7 @@ describe("EventSubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/event-subscriptions/1")
@@ -1238,6 +1261,7 @@ describe("EventSubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/event-subscriptions/1")
@@ -1278,6 +1302,7 @@ describe("EventSubscriptionsClient", () => {
             ],
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .patch("/event-subscriptions/1")
@@ -1342,6 +1367,7 @@ describe("EventSubscriptionsClient", () => {
             ],
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .patch("/event-subscriptions/1")
@@ -1406,6 +1432,7 @@ describe("EventSubscriptionsClient", () => {
             ],
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .patch("/event-subscriptions/1")
@@ -1470,6 +1497,7 @@ describe("EventSubscriptionsClient", () => {
             ],
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .patch("/event-subscriptions/1")
@@ -1534,6 +1562,7 @@ describe("EventSubscriptionsClient", () => {
             ],
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .patch("/event-subscriptions/1")
@@ -1599,6 +1628,7 @@ describe("EventSubscriptionsClient", () => {
             ],
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .patch("/event-subscriptions/1")
@@ -1664,6 +1694,7 @@ describe("EventSubscriptionsClient", () => {
             ],
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .patch("/event-subscriptions/1")
@@ -1735,6 +1766,7 @@ describe("EventSubscriptionsClient", () => {
             ],
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .patch("/event-subscriptions/1")
@@ -1810,6 +1842,7 @@ describe("EventSubscriptionsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/event-subscriptions/1")
@@ -1858,6 +1891,7 @@ describe("EventSubscriptionsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/event-subscriptions/1")
@@ -1906,6 +1940,7 @@ describe("EventSubscriptionsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/event-subscriptions/1")
@@ -1954,6 +1989,7 @@ describe("EventSubscriptionsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/event-subscriptions/1")
@@ -2002,6 +2038,7 @@ describe("EventSubscriptionsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/event-subscriptions/1")
@@ -2050,6 +2087,7 @@ describe("EventSubscriptionsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/event-subscriptions/1")

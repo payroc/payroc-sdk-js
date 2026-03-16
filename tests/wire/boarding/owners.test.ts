@@ -35,6 +35,7 @@ describe("OwnersClient", () => {
             contactMethods: [{ type: "email", value: "jane.doe@example.com" }],
             relationship: { equityPercentage: 48.5, title: "CFO", isControlProng: true, isAuthorizedSignatory: false },
         };
+
         server.mockEndpoint().get("/owners/1").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
         const response = await client.boarding.owners.retrieve({
@@ -87,6 +88,7 @@ describe("OwnersClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/owners/1").respondWith().statusCode(400).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -107,6 +109,7 @@ describe("OwnersClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/owners/1").respondWith().statusCode(401).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -127,6 +130,7 @@ describe("OwnersClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server.mockEndpoint().get("/owners/1").respondWith().statusCode(403).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -147,6 +151,7 @@ describe("OwnersClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/owners/1").respondWith().statusCode(404).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -167,6 +172,7 @@ describe("OwnersClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/owners/1").respondWith().statusCode(500).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -270,6 +276,7 @@ describe("OwnersClient", () => {
             relationship: { isControlProng: true },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/owners/1")
@@ -346,6 +353,7 @@ describe("OwnersClient", () => {
             relationship: { isControlProng: true },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/owners/1")
@@ -422,6 +430,7 @@ describe("OwnersClient", () => {
             relationship: { isControlProng: true },
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .put("/owners/1")
@@ -498,6 +507,7 @@ describe("OwnersClient", () => {
             relationship: { isControlProng: true },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/owners/1")
@@ -574,6 +584,7 @@ describe("OwnersClient", () => {
             relationship: { isControlProng: true },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/owners/1")
@@ -650,6 +661,7 @@ describe("OwnersClient", () => {
             relationship: { isControlProng: true },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/owners/1")
@@ -730,6 +742,7 @@ describe("OwnersClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().delete("/owners/1").respondWith().statusCode(400).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -750,6 +763,7 @@ describe("OwnersClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().delete("/owners/1").respondWith().statusCode(401).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -770,6 +784,7 @@ describe("OwnersClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server.mockEndpoint().delete("/owners/1").respondWith().statusCode(403).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -790,6 +805,7 @@ describe("OwnersClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().delete("/owners/1").respondWith().statusCode(404).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -810,6 +826,7 @@ describe("OwnersClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().delete("/owners/1").respondWith().statusCode(500).jsonBody(rawResponseBody).build();
 
         await expect(async () => {

@@ -10,5 +10,5 @@ export interface PaymentLinkPaginatedList extends Payroc.PaginatedList {
      * -	'multiUse' - Create a link that the merchant can use to take multiple payments.
      * -	'singleUse' - Create a link that the merchant can use for only one payment.
      */
-    data?: Payroc.PaymentLinkPaginatedListDataItem[] | undefined;
+    data: Payroc.PaymentLinkPaginatedListDataItem[];
 }

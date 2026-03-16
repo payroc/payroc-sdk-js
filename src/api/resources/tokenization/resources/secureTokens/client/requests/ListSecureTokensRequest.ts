@@ -15,21 +15,6 @@
  *         after: "8516",
  *         limit: 1
  *     }
- *
- * @example
- *     {
- *         processingTerminalId: "1234001",
- *         secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
- *         customerName: "Sarah%20Hazel%20Hopper",
- *         phone: "2025550165",
- *         email: "sarah.hopper@example.com",
- *         token: "296753123456",
- *         first6: "453985",
- *         last4: "7062",
- *         before: "2571",
- *         after: "8516",
- *         limit: 1
- *     }
  */
 export interface ListSecureTokensRequest {
     /** Unique identifier that we assigned to the terminal. */

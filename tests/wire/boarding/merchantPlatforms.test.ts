@@ -185,6 +185,7 @@ describe("MerchantPlatformsClient", () => {
             metadata: { customerId: "2345" },
             links: [{ rel: "previous", method: "get", href: "<uri>" }],
         };
+
         server
             .mockEndpoint()
             .post("/merchant-platforms")
@@ -632,6 +633,7 @@ describe("MerchantPlatformsClient", () => {
             metadata: { customerId: "2345" },
             links: [{ rel: "previous", method: "get", href: "<uri>" }],
         };
+
         server
             .mockEndpoint()
             .post("/merchant-platforms")
@@ -1084,6 +1086,7 @@ describe("MerchantPlatformsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/merchant-platforms")
@@ -1559,6 +1562,7 @@ describe("MerchantPlatformsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/merchant-platforms")
@@ -2034,6 +2038,7 @@ describe("MerchantPlatformsClient", () => {
             ],
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/merchant-platforms")
@@ -2509,6 +2514,7 @@ describe("MerchantPlatformsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/merchant-platforms")
@@ -2984,6 +2990,7 @@ describe("MerchantPlatformsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/merchant-platforms")
@@ -3459,6 +3466,7 @@ describe("MerchantPlatformsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/merchant-platforms")
@@ -3803,6 +3811,7 @@ describe("MerchantPlatformsClient", () => {
             metadata: { customerId: "2345" },
             links: [{ rel: "previous", method: "get", href: "<uri>" }],
         };
+
         server
             .mockEndpoint()
             .get("/merchant-platforms/12345")
@@ -3886,6 +3895,7 @@ describe("MerchantPlatformsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/merchant-platforms/merchantPlatformId")
@@ -3912,6 +3922,7 @@ describe("MerchantPlatformsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/merchant-platforms/merchantPlatformId")
@@ -3938,6 +3949,7 @@ describe("MerchantPlatformsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/merchant-platforms/merchantPlatformId")
@@ -3964,6 +3976,7 @@ describe("MerchantPlatformsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/merchant-platforms/merchantPlatformId")
@@ -3990,6 +4003,7 @@ describe("MerchantPlatformsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/merchant-platforms/merchantPlatformId")
@@ -4016,6 +4030,7 @@ describe("MerchantPlatformsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/merchant-platforms/merchantPlatformId")
@@ -4238,6 +4253,7 @@ describe("MerchantPlatformsClient", () => {
             metadata: { customerId: "2345" },
             links: [{ rel: "previous", method: "get", href: "<uri>" }],
         };
+
         server
             .mockEndpoint()
             .post("/merchant-platforms/12345/processing-accounts")
@@ -4639,6 +4655,7 @@ describe("MerchantPlatformsClient", () => {
             signature: { type: "requestedViaDirectLink" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/merchant-platforms/merchantPlatformId/processing-accounts")
@@ -4852,6 +4869,7 @@ describe("MerchantPlatformsClient", () => {
             signature: { type: "requestedViaDirectLink" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/merchant-platforms/merchantPlatformId/processing-accounts")
@@ -5065,6 +5083,7 @@ describe("MerchantPlatformsClient", () => {
             signature: { type: "requestedViaDirectLink" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/merchant-platforms/merchantPlatformId/processing-accounts")
@@ -5278,6 +5297,7 @@ describe("MerchantPlatformsClient", () => {
             signature: { type: "requestedViaDirectLink" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/merchant-platforms/merchantPlatformId/processing-accounts")
@@ -5491,6 +5511,7 @@ describe("MerchantPlatformsClient", () => {
             signature: { type: "requestedViaDirectLink" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/merchant-platforms/merchantPlatformId/processing-accounts")
@@ -5704,6 +5725,7 @@ describe("MerchantPlatformsClient", () => {
             signature: { type: "requestedViaDirectLink" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/merchant-platforms/merchantPlatformId/processing-accounts")

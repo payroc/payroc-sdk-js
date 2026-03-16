@@ -28,6 +28,7 @@ describe("FundingAccountsClient", () => {
             metadata: { yourCustomField: "abc123" },
             links: [{ rel: "parent", method: "get", href: "https://api.payroc.com/v1/processing-accounts/4525644354" }],
         };
+
         server
             .mockEndpoint()
             .get("/funding-accounts/1")
@@ -80,6 +81,7 @@ describe("FundingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-accounts/1")
@@ -106,6 +108,7 @@ describe("FundingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-accounts/1")
@@ -132,6 +135,7 @@ describe("FundingAccountsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/funding-accounts/1")
@@ -158,6 +162,7 @@ describe("FundingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-accounts/1")
@@ -184,6 +189,7 @@ describe("FundingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-accounts/1")
@@ -253,6 +259,7 @@ describe("FundingAccountsClient", () => {
             paymentMethods: [{ type: "ach" }, { type: "ach" }],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/funding-accounts/1")
@@ -298,6 +305,7 @@ describe("FundingAccountsClient", () => {
             paymentMethods: [{ type: "ach" }, { type: "ach" }],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/funding-accounts/1")
@@ -343,6 +351,7 @@ describe("FundingAccountsClient", () => {
             paymentMethods: [{ type: "ach" }, { type: "ach" }],
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .put("/funding-accounts/1")
@@ -388,6 +397,7 @@ describe("FundingAccountsClient", () => {
             paymentMethods: [{ type: "ach" }, { type: "ach" }],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/funding-accounts/1")
@@ -433,6 +443,7 @@ describe("FundingAccountsClient", () => {
             paymentMethods: [{ type: "ach" }, { type: "ach" }],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/funding-accounts/1")
@@ -478,6 +489,7 @@ describe("FundingAccountsClient", () => {
             paymentMethods: [{ type: "ach" }, { type: "ach" }],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/funding-accounts/1")
@@ -536,6 +548,7 @@ describe("FundingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/funding-accounts/1")
@@ -562,6 +575,7 @@ describe("FundingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/funding-accounts/1")
@@ -588,6 +602,7 @@ describe("FundingAccountsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .delete("/funding-accounts/1")
@@ -614,6 +629,7 @@ describe("FundingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/funding-accounts/1")
@@ -640,6 +656,7 @@ describe("FundingAccountsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/funding-accounts/1")

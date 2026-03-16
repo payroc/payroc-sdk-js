@@ -22,5 +22,7 @@ export namespace ConsumerChoice {
         pinDebit?: Payroc.PinDebit | undefined;
         electronicBenefitsTransfer?: Payroc.ElectronicBenefitsTransfer | undefined;
         specialityCards?: Payroc.SpecialityCards | undefined;
+        /** Percentage of the total transaction amount that the processor charges the merchant. */
+        merchantChargePercentage?: number | undefined;
     }
 }
