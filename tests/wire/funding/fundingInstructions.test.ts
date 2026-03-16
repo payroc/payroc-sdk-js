@@ -62,6 +62,7 @@ describe("FundingInstructionsClient", () => {
             ],
             metadata: { instructionRef: "abc123" },
         };
+
         server
             .mockEndpoint()
             .post("/funding-instructions")
@@ -194,6 +195,7 @@ describe("FundingInstructionsClient", () => {
             ],
             metadata: { instructionRef: "abc123" },
         };
+
         server
             .mockEndpoint()
             .post("/funding-instructions")
@@ -326,6 +328,7 @@ describe("FundingInstructionsClient", () => {
             ],
             metadata: { instructionRef: "abc123" },
         };
+
         server
             .mockEndpoint()
             .post("/funding-instructions")
@@ -458,6 +461,7 @@ describe("FundingInstructionsClient", () => {
             ],
             metadata: { instructionCreatedBy: "Jane Doe" },
         };
+
         server
             .mockEndpoint()
             .post("/funding-instructions")
@@ -545,6 +549,7 @@ describe("FundingInstructionsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-instructions")
@@ -574,6 +579,7 @@ describe("FundingInstructionsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-instructions")
@@ -603,6 +609,7 @@ describe("FundingInstructionsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/funding-instructions")
@@ -632,6 +639,7 @@ describe("FundingInstructionsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-instructions")
@@ -661,6 +669,7 @@ describe("FundingInstructionsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-instructions")
@@ -690,6 +699,7 @@ describe("FundingInstructionsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-instructions")
@@ -748,6 +758,7 @@ describe("FundingInstructionsClient", () => {
             ],
             metadata: { yourCustomField: "abc123" },
         };
+
         server
             .mockEndpoint()
             .get("/funding-instructions/1")
@@ -808,6 +819,7 @@ describe("FundingInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-instructions/1")
@@ -834,6 +846,7 @@ describe("FundingInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-instructions/1")
@@ -860,6 +873,7 @@ describe("FundingInstructionsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/funding-instructions/1")
@@ -886,6 +900,7 @@ describe("FundingInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-instructions/1")
@@ -912,6 +927,7 @@ describe("FundingInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-instructions/1")
@@ -938,6 +954,7 @@ describe("FundingInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-instructions/1")
@@ -1027,6 +1044,7 @@ describe("FundingInstructionsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/funding-instructions/1")
@@ -1055,6 +1073,7 @@ describe("FundingInstructionsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/funding-instructions/1")
@@ -1083,6 +1102,7 @@ describe("FundingInstructionsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .put("/funding-instructions/1")
@@ -1111,6 +1131,7 @@ describe("FundingInstructionsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/funding-instructions/1")
@@ -1139,6 +1160,7 @@ describe("FundingInstructionsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/funding-instructions/1")
@@ -1185,6 +1207,7 @@ describe("FundingInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/funding-instructions/1")
@@ -1211,6 +1234,7 @@ describe("FundingInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/funding-instructions/1")
@@ -1237,6 +1261,7 @@ describe("FundingInstructionsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .delete("/funding-instructions/1")
@@ -1263,6 +1288,7 @@ describe("FundingInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/funding-instructions/1")
@@ -1289,6 +1315,7 @@ describe("FundingInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/funding-instructions/1")

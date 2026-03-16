@@ -60,6 +60,7 @@ describe("PaymentPlansClient", () => {
                 breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
             },
         };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/1234001/payment-plans")
@@ -174,6 +175,7 @@ describe("PaymentPlansClient", () => {
             onDelete: "complete",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/payment-plans")
@@ -220,6 +222,7 @@ describe("PaymentPlansClient", () => {
             onDelete: "complete",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/payment-plans")
@@ -266,6 +269,7 @@ describe("PaymentPlansClient", () => {
             onDelete: "complete",
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/payment-plans")
@@ -312,6 +316,7 @@ describe("PaymentPlansClient", () => {
             onDelete: "complete",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/payment-plans")
@@ -358,6 +363,7 @@ describe("PaymentPlansClient", () => {
             onDelete: "complete",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/payment-plans")
@@ -404,6 +410,7 @@ describe("PaymentPlansClient", () => {
             onDelete: "complete",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/payment-plans")
@@ -450,6 +457,7 @@ describe("PaymentPlansClient", () => {
             onDelete: "complete",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/payment-plans")
@@ -510,6 +518,7 @@ describe("PaymentPlansClient", () => {
                 breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
             },
         };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/1234001/payment-plans/PlanRef8765")
@@ -576,6 +585,7 @@ describe("PaymentPlansClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/payment-plans/paymentPlanId")
@@ -603,6 +613,7 @@ describe("PaymentPlansClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/payment-plans/paymentPlanId")
@@ -630,6 +641,7 @@ describe("PaymentPlansClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/payment-plans/paymentPlanId")
@@ -657,6 +669,7 @@ describe("PaymentPlansClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/payment-plans/paymentPlanId")
@@ -684,6 +697,7 @@ describe("PaymentPlansClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/payment-plans/paymentPlanId")
@@ -711,6 +725,7 @@ describe("PaymentPlansClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/payment-plans/paymentPlanId")
@@ -762,6 +777,7 @@ describe("PaymentPlansClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/processing-terminals/processingTerminalId/payment-plans/paymentPlanId")
@@ -789,6 +805,7 @@ describe("PaymentPlansClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/processing-terminals/processingTerminalId/payment-plans/paymentPlanId")
@@ -816,6 +833,7 @@ describe("PaymentPlansClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .delete("/processing-terminals/processingTerminalId/payment-plans/paymentPlanId")
@@ -843,6 +861,7 @@ describe("PaymentPlansClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/processing-terminals/processingTerminalId/payment-plans/paymentPlanId")
@@ -870,6 +889,7 @@ describe("PaymentPlansClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/processing-terminals/processingTerminalId/payment-plans/paymentPlanId")
@@ -923,6 +943,7 @@ describe("PaymentPlansClient", () => {
                 breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
             },
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/payment-plans/PlanRef8765")
@@ -1028,6 +1049,7 @@ describe("PaymentPlansClient", () => {
                 breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
             },
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/payment-plans/PlanRef8765")
@@ -1125,6 +1147,7 @@ describe("PaymentPlansClient", () => {
                 breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
             },
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/payment-plans/PlanRef8765")
@@ -1222,6 +1245,7 @@ describe("PaymentPlansClient", () => {
                 breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
             },
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/payment-plans/PlanRef8765")
@@ -1319,6 +1343,7 @@ describe("PaymentPlansClient", () => {
                 breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
             },
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/payment-plans/PlanRef8765")
@@ -1417,6 +1442,7 @@ describe("PaymentPlansClient", () => {
                 breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
             },
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/payment-plans/PlanRef8765")
@@ -1515,6 +1541,7 @@ describe("PaymentPlansClient", () => {
                 breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
             },
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/payment-plans/PlanRef8765")
@@ -1619,6 +1646,7 @@ describe("PaymentPlansClient", () => {
                 breakdown: { subtotal: 4347, taxes: [{ name: "Sales Tax", rate: 5, amount: 190 }] },
             },
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/payment-plans/PlanRef8765")
@@ -1719,6 +1747,7 @@ describe("PaymentPlansClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/payment-plans/paymentPlanId")
@@ -1768,6 +1797,7 @@ describe("PaymentPlansClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/payment-plans/paymentPlanId")
@@ -1817,6 +1847,7 @@ describe("PaymentPlansClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/payment-plans/paymentPlanId")
@@ -1866,6 +1897,7 @@ describe("PaymentPlansClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/payment-plans/paymentPlanId")
@@ -1915,6 +1947,7 @@ describe("PaymentPlansClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/payment-plans/paymentPlanId")
@@ -1964,6 +1997,7 @@ describe("PaymentPlansClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/payment-plans/paymentPlanId")
@@ -2013,6 +2047,7 @@ describe("PaymentPlansClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/payment-plans/paymentPlanId")
@@ -2062,6 +2097,7 @@ describe("PaymentPlansClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/payment-plans/paymentPlanId")

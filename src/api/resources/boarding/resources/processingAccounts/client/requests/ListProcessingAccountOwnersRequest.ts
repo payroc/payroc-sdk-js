@@ -8,14 +8,6 @@
  *         after: "8516",
  *         limit: 1
  *     }
- *
- * @example
- *     {
- *         processingAccountId: "38765",
- *         before: "2571",
- *         after: "8516",
- *         limit: 1
- *     }
  */
 export interface ListProcessingAccountOwnersRequest {
     /** Unique identifier that we assigned to the processing account. */

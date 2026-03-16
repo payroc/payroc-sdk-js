@@ -18,7 +18,7 @@ export interface BankTransferRefund {
      */
     bankAccount: Payroc.BankTransferRefundBankAccount;
     payment?: Payroc.PaymentSummary | undefined;
-    transactionResult: Payroc.BankTransferResult;
+    transactionResult?: Payroc.BankTransferResult | undefined;
     /** Array of customField objects. */
     customFields?: Payroc.CustomField[] | undefined;
 }

@@ -8,7 +8,7 @@ import type * as Payroc from "../../../../../../index.js";
  *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
  *         body: {
  *             country: "US",
- *             version: "5.0",
+ *             version: "5.2",
  *             base: {
  *                 addressVerification: 5,
  *                 annualFee: {
@@ -53,7 +53,7 @@ import type * as Payroc from "../../../../../../index.js";
  *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
  *         body: {
  *             country: "US",
- *             version: "5.0",
+ *             version: "5.2",
  *             base: {
  *                 addressVerification: 5,
  *                 annualFee: {
@@ -115,7 +115,7 @@ import type * as Payroc from "../../../../../../index.js";
  *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
  *         body: {
  *             country: "US",
- *             version: "5.0",
+ *             version: "5.2",
  *             base: {
  *                 addressVerification: 5,
  *                 annualFee: {
@@ -185,7 +185,7 @@ import type * as Payroc from "../../../../../../index.js";
  *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
  *         body: {
  *             country: "US",
- *             version: "5.0",
+ *             version: "5.2",
  *             base: {
  *                 addressVerification: 5,
  *                 annualFee: {
@@ -256,7 +256,7 @@ import type * as Payroc from "../../../../../../index.js";
  *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
  *         body: {
  *             country: "US",
- *             version: "5.0",
+ *             version: "5.2",
  *             base: {
  *                 addressVerification: 5,
  *                 annualFee: {
@@ -329,7 +329,7 @@ import type * as Payroc from "../../../../../../index.js";
  *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
  *         body: {
  *             country: "US",
- *             version: "5.0",
+ *             version: "5.2",
  *             base: {
  *                 addressVerification: 5,
  *                 annualFee: {
@@ -374,7 +374,7 @@ import type * as Payroc from "../../../../../../index.js";
  *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
  *         body: {
  *             country: "US",
- *             version: "5.0",
+ *             version: "5.2",
  *             base: {
  *                 addressVerification: 5,
  *                 annualFee: {
@@ -420,7 +420,7 @@ import type * as Payroc from "../../../../../../index.js";
  *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
  *         body: {
  *             country: "US",
- *             version: "5.0",
+ *             version: "5.2",
  *             base: {
  *                 addressVerification: 5,
  *                 annualFee: {

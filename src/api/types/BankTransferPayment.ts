@@ -25,7 +25,7 @@ export interface BankTransferPayment {
     returns?: Payroc.BankTransferReturnSummary[] | undefined;
     /** List of re-presented payments linked to the return. */
     representment?: Payroc.PaymentSummary | undefined;
-    transactionResult: Payroc.BankTransferResult;
+    transactionResult?: Payroc.BankTransferResult | undefined;
     /** Array of customField objects. */
     customFields?: Payroc.CustomField[] | undefined;
 }

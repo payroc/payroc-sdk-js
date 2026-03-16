@@ -17,21 +17,6 @@ import type * as Payroc from "../../../../../../index.js";
  *         after: "8516",
  *         limit: 1
  *     }
- *
- * @example
- *     {
- *         processingTerminalId: "1234001",
- *         customerName: "Sarah%20Hazel%20Hopper",
- *         last4: "7062",
- *         paymentPlan: "Premium%20Club",
- *         frequency: "weekly",
- *         status: "active",
- *         endDate: "2025-07-01",
- *         nextDueDate: "2024-08-01",
- *         before: "2571",
- *         after: "8516",
- *         limit: 1
- *     }
  */
 export interface ListSubscriptionsRequest {
     /** Unique identifier that we assigned to the terminal. */

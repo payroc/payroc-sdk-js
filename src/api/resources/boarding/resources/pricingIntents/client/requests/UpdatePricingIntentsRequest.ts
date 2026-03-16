@@ -8,7 +8,7 @@ import type * as Payroc from "../../../../../../index.js";
  *         pricingIntentId: "5",
  *         body: {
  *             country: "US",
- *             version: "5.0",
+ *             version: "5.2",
  *             base: {
  *                 addressVerification: 5,
  *                 annualFee: {

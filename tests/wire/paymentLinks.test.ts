@@ -44,6 +44,7 @@ describe("PaymentLinksClient", () => {
             expiresOn: "2024-08-02",
             credentialOnFile: { tokenize: true, mitAgreement: "unscheduled" },
         };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/1234001/payment-links")
@@ -144,6 +145,7 @@ describe("PaymentLinksClient", () => {
             expiresOn: "2024-08-02",
             credentialOnFile: { tokenize: true, mitAgreement: "unscheduled" },
         };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/1234001/payment-links")
@@ -224,6 +226,7 @@ describe("PaymentLinksClient", () => {
             paymentMethods: ["card", "card"],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/payment-links")
@@ -271,6 +274,7 @@ describe("PaymentLinksClient", () => {
             paymentMethods: ["card", "card"],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/payment-links")
@@ -318,6 +322,7 @@ describe("PaymentLinksClient", () => {
             paymentMethods: ["card", "card"],
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/payment-links")
@@ -365,6 +370,7 @@ describe("PaymentLinksClient", () => {
             paymentMethods: ["card", "card"],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/payment-links")
@@ -412,6 +418,7 @@ describe("PaymentLinksClient", () => {
             paymentMethods: ["card", "card"],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/payment-links")
@@ -459,6 +466,7 @@ describe("PaymentLinksClient", () => {
             paymentMethods: ["card", "card"],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/payment-links")
@@ -506,6 +514,7 @@ describe("PaymentLinksClient", () => {
             paymentMethods: ["card", "card"],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/payment-links")
@@ -553,6 +562,7 @@ describe("PaymentLinksClient", () => {
             paymentMethods: ["card", "card"],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/payment-links")
@@ -615,6 +625,7 @@ describe("PaymentLinksClient", () => {
             expiresOn: "2024-08-02",
             credentialOnFile: { tokenize: true, mitAgreement: "unscheduled" },
         };
+
         server
             .mockEndpoint()
             .get("/payment-links/JZURRJBUPS")
@@ -672,6 +683,7 @@ describe("PaymentLinksClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/payment-links/paymentLinkId")
@@ -698,6 +710,7 @@ describe("PaymentLinksClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/payment-links/paymentLinkId")
@@ -724,6 +737,7 @@ describe("PaymentLinksClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/payment-links/paymentLinkId")
@@ -750,6 +764,7 @@ describe("PaymentLinksClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/payment-links/paymentLinkId")
@@ -776,6 +791,7 @@ describe("PaymentLinksClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/payment-links/paymentLinkId")
@@ -802,6 +818,7 @@ describe("PaymentLinksClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/payment-links/paymentLinkId")
@@ -849,6 +866,7 @@ describe("PaymentLinksClient", () => {
             expiresOn: "2024-08-02",
             credentialOnFile: { tokenize: true, mitAgreement: "unscheduled" },
         };
+
         server
             .mockEndpoint()
             .patch("/payment-links/JZURRJBUPS")
@@ -936,6 +954,7 @@ describe("PaymentLinksClient", () => {
             expiresOn: "2024-08-02",
             credentialOnFile: { tokenize: true, mitAgreement: "unscheduled" },
         };
+
         server
             .mockEndpoint()
             .patch("/payment-links/JZURRJBUPS")
@@ -1023,6 +1042,7 @@ describe("PaymentLinksClient", () => {
             expiresOn: "2024-08-02",
             credentialOnFile: { tokenize: true, mitAgreement: "unscheduled" },
         };
+
         server
             .mockEndpoint()
             .patch("/payment-links/JZURRJBUPS")
@@ -1110,6 +1130,7 @@ describe("PaymentLinksClient", () => {
             expiresOn: "2024-08-02",
             credentialOnFile: { tokenize: true, mitAgreement: "unscheduled" },
         };
+
         server
             .mockEndpoint()
             .patch("/payment-links/JZURRJBUPS")
@@ -1197,6 +1218,7 @@ describe("PaymentLinksClient", () => {
             expiresOn: "2024-08-02",
             credentialOnFile: { tokenize: true, mitAgreement: "unscheduled" },
         };
+
         server
             .mockEndpoint()
             .patch("/payment-links/JZURRJBUPS")
@@ -1285,6 +1307,7 @@ describe("PaymentLinksClient", () => {
             expiresOn: "2024-08-02",
             credentialOnFile: { tokenize: true, mitAgreement: "unscheduled" },
         };
+
         server
             .mockEndpoint()
             .patch("/payment-links/JZURRJBUPS")
@@ -1373,6 +1396,7 @@ describe("PaymentLinksClient", () => {
             expiresOn: "2024-08-02",
             credentialOnFile: { tokenize: true, mitAgreement: "unscheduled" },
         };
+
         server
             .mockEndpoint()
             .patch("/payment-links/JZURRJBUPS")
@@ -1467,6 +1491,7 @@ describe("PaymentLinksClient", () => {
             expiresOn: "2024-08-02",
             credentialOnFile: { tokenize: true, mitAgreement: "unscheduled" },
         };
+
         server
             .mockEndpoint()
             .patch("/payment-links/JZURRJBUPS")
@@ -1558,6 +1583,7 @@ describe("PaymentLinksClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/payment-links/paymentLinkId")
@@ -1606,6 +1632,7 @@ describe("PaymentLinksClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/payment-links/paymentLinkId")
@@ -1654,6 +1681,7 @@ describe("PaymentLinksClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .patch("/payment-links/paymentLinkId")
@@ -1702,6 +1730,7 @@ describe("PaymentLinksClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/payment-links/paymentLinkId")
@@ -1750,6 +1779,7 @@ describe("PaymentLinksClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/payment-links/paymentLinkId")
@@ -1798,6 +1828,7 @@ describe("PaymentLinksClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/payment-links/paymentLinkId")
@@ -1846,6 +1877,7 @@ describe("PaymentLinksClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/payment-links/paymentLinkId")
@@ -1894,6 +1926,7 @@ describe("PaymentLinksClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/payment-links/paymentLinkId")
@@ -1960,6 +1993,7 @@ describe("PaymentLinksClient", () => {
             expiresOn: "2024-08-02",
             credentialOnFile: { tokenize: true, mitAgreement: "unscheduled" },
         };
+
         server
             .mockEndpoint()
             .post("/payment-links/JZURRJBUPS/deactivate")
@@ -2017,6 +2051,7 @@ describe("PaymentLinksClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payment-links/paymentLinkId/deactivate")
@@ -2043,6 +2078,7 @@ describe("PaymentLinksClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payment-links/paymentLinkId/deactivate")
@@ -2069,6 +2105,7 @@ describe("PaymentLinksClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/payment-links/paymentLinkId/deactivate")
@@ -2095,6 +2132,7 @@ describe("PaymentLinksClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payment-links/paymentLinkId/deactivate")
@@ -2121,6 +2159,7 @@ describe("PaymentLinksClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payment-links/paymentLinkId/deactivate")
@@ -2147,6 +2186,7 @@ describe("PaymentLinksClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payment-links/paymentLinkId/deactivate")
@@ -2173,6 +2213,7 @@ describe("PaymentLinksClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payment-links/paymentLinkId/deactivate")

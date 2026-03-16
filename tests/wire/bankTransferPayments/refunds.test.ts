@@ -92,6 +92,7 @@ describe("RefundsClient", () => {
             },
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/M2MJOG6O2Y/reverse")
@@ -230,6 +231,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/reverse")
@@ -258,6 +260,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/reverse")
@@ -286,6 +289,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/reverse")
@@ -314,6 +318,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/reverse")
@@ -342,6 +347,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/reverse")
@@ -370,6 +376,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/reverse")
@@ -398,6 +405,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/reverse")
@@ -426,6 +434,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/reverse")
@@ -529,6 +538,7 @@ describe("RefundsClient", () => {
             },
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/M2MJOG6O2Y/refund")
@@ -670,6 +680,7 @@ describe("RefundsClient", () => {
         });
         const rawRequestBody = { amount: 1000000, description: "x" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/refund")
@@ -701,6 +712,7 @@ describe("RefundsClient", () => {
         });
         const rawRequestBody = { amount: 1000000, description: "x" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/refund")
@@ -732,6 +744,7 @@ describe("RefundsClient", () => {
         });
         const rawRequestBody = { amount: 1000000, description: "x" };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/refund")
@@ -763,6 +776,7 @@ describe("RefundsClient", () => {
         });
         const rawRequestBody = { amount: 1000000, description: "x" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/refund")
@@ -794,6 +808,7 @@ describe("RefundsClient", () => {
         });
         const rawRequestBody = { amount: 1000000, description: "x" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/refund")
@@ -825,6 +840,7 @@ describe("RefundsClient", () => {
         });
         const rawRequestBody = { amount: 1000000, description: "x" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/refund")
@@ -856,6 +872,7 @@ describe("RefundsClient", () => {
         });
         const rawRequestBody = { amount: 1000000, description: "x" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/refund")
@@ -887,6 +904,7 @@ describe("RefundsClient", () => {
         });
         const rawRequestBody = { amount: 1000000, description: "x" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-payments/paymentId/refund")
@@ -985,6 +1003,7 @@ describe("RefundsClient", () => {
             },
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-refunds")
@@ -1106,10 +1125,11 @@ describe("RefundsClient", () => {
         });
         const rawRequestBody = {
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", description: "description", amount: 1000000, currency: "AED" },
             refundMethod: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-refunds")
@@ -1124,7 +1144,12 @@ describe("RefundsClient", () => {
             return await client.bankTransferPayments.refunds.create({
                 "Idempotency-Key": "idempotencyKey",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    description: "description",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 refundMethod: {
                     type: "ach",
                     nameOnAccount: "x",
@@ -1146,10 +1171,11 @@ describe("RefundsClient", () => {
         });
         const rawRequestBody = {
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", description: "description", amount: 1000000, currency: "AED" },
             refundMethod: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-refunds")
@@ -1164,7 +1190,12 @@ describe("RefundsClient", () => {
             return await client.bankTransferPayments.refunds.create({
                 "Idempotency-Key": "idempotencyKey",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    description: "description",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 refundMethod: {
                     type: "ach",
                     nameOnAccount: "x",
@@ -1186,10 +1217,11 @@ describe("RefundsClient", () => {
         });
         const rawRequestBody = {
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", description: "description", amount: 1000000, currency: "AED" },
             refundMethod: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-refunds")
@@ -1204,7 +1236,12 @@ describe("RefundsClient", () => {
             return await client.bankTransferPayments.refunds.create({
                 "Idempotency-Key": "idempotencyKey",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    description: "description",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 refundMethod: {
                     type: "ach",
                     nameOnAccount: "x",
@@ -1226,10 +1263,11 @@ describe("RefundsClient", () => {
         });
         const rawRequestBody = {
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", description: "description", amount: 1000000, currency: "AED" },
             refundMethod: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-refunds")
@@ -1244,7 +1282,12 @@ describe("RefundsClient", () => {
             return await client.bankTransferPayments.refunds.create({
                 "Idempotency-Key": "idempotencyKey",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    description: "description",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 refundMethod: {
                     type: "ach",
                     nameOnAccount: "x",
@@ -1266,10 +1309,11 @@ describe("RefundsClient", () => {
         });
         const rawRequestBody = {
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", description: "description", amount: 1000000, currency: "AED" },
             refundMethod: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-refunds")
@@ -1284,7 +1328,12 @@ describe("RefundsClient", () => {
             return await client.bankTransferPayments.refunds.create({
                 "Idempotency-Key": "idempotencyKey",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    description: "description",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 refundMethod: {
                     type: "ach",
                     nameOnAccount: "x",
@@ -1306,10 +1355,11 @@ describe("RefundsClient", () => {
         });
         const rawRequestBody = {
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", description: "description", amount: 1000000, currency: "AED" },
             refundMethod: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-refunds")
@@ -1324,7 +1374,12 @@ describe("RefundsClient", () => {
             return await client.bankTransferPayments.refunds.create({
                 "Idempotency-Key": "idempotencyKey",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    description: "description",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 refundMethod: {
                     type: "ach",
                     nameOnAccount: "x",
@@ -1346,10 +1401,11 @@ describe("RefundsClient", () => {
         });
         const rawRequestBody = {
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", description: "description", amount: 1000000, currency: "AED" },
             refundMethod: { type: "ach", nameOnAccount: "x", accountNumber: "buzz", routingNumber: "nectarine" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-refunds")
@@ -1364,7 +1420,12 @@ describe("RefundsClient", () => {
             return await client.bankTransferPayments.refunds.create({
                 "Idempotency-Key": "idempotencyKey",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    description: "description",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 refundMethod: {
                     type: "ach",
                     nameOnAccount: "x",
@@ -1434,6 +1495,7 @@ describe("RefundsClient", () => {
             },
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .get("/bank-transfer-refunds/CD3HN88U9F")
@@ -1525,6 +1587,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/bank-transfer-refunds/refundId")
@@ -1551,6 +1614,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/bank-transfer-refunds/refundId")
@@ -1577,6 +1641,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/bank-transfer-refunds/refundId")
@@ -1603,6 +1668,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/bank-transfer-refunds/refundId")
@@ -1629,6 +1695,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/bank-transfer-refunds/refundId")
@@ -1655,6 +1722,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/bank-transfer-refunds/refundId")
@@ -1729,6 +1797,7 @@ describe("RefundsClient", () => {
             },
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-refunds/CD3HN88U9F/reverse")
@@ -1822,6 +1891,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-refunds/refundId/reverse")
@@ -1850,6 +1920,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-refunds/refundId/reverse")
@@ -1878,6 +1949,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-refunds/refundId/reverse")
@@ -1906,6 +1978,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-refunds/refundId/reverse")
@@ -1934,6 +2007,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-refunds/refundId/reverse")
@@ -1962,6 +2036,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-refunds/refundId/reverse")
@@ -1990,6 +2065,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-refunds/refundId/reverse")
@@ -2018,6 +2094,7 @@ describe("RefundsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/bank-transfer-refunds/refundId/reverse")

@@ -36,6 +36,7 @@ describe("RefundInstructionsClient", () => {
             },
             refundInstructionId: "a37439165d134678a9100ebba3b29597",
         };
+
         server
             .mockEndpoint()
             .post("/devices/1850010868/refund-instructions")
@@ -87,6 +88,7 @@ describe("RefundInstructionsClient", () => {
             order: { orderId: "x", amount: 1000000, currency: "AED" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/refund-instructions")
@@ -125,6 +127,7 @@ describe("RefundInstructionsClient", () => {
             order: { orderId: "x", amount: 1000000, currency: "AED" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/refund-instructions")
@@ -163,6 +166,7 @@ describe("RefundInstructionsClient", () => {
             order: { orderId: "x", amount: 1000000, currency: "AED" },
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/refund-instructions")
@@ -201,6 +205,7 @@ describe("RefundInstructionsClient", () => {
             order: { orderId: "x", amount: 1000000, currency: "AED" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/refund-instructions")
@@ -239,6 +244,7 @@ describe("RefundInstructionsClient", () => {
             order: { orderId: "x", amount: 1000000, currency: "AED" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/refund-instructions")
@@ -277,6 +283,7 @@ describe("RefundInstructionsClient", () => {
             order: { orderId: "x", amount: 1000000, currency: "AED" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/refund-instructions")
@@ -315,6 +322,7 @@ describe("RefundInstructionsClient", () => {
             order: { orderId: "x", amount: 1000000, currency: "AED" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/refund-instructions")
@@ -353,6 +361,7 @@ describe("RefundInstructionsClient", () => {
             order: { orderId: "x", amount: 1000000, currency: "AED" },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/devices/serialNumber/refund-instructions")
@@ -393,6 +402,7 @@ describe("RefundInstructionsClient", () => {
             link: { rel: "refund", method: "GET", href: "https://api.payroc.com/v1/refunds/CD3HN88U9F" },
             refundInstructionId: "a37439165d134678a9100ebba3b29597",
         };
+
         server
             .mockEndpoint()
             .get("/refund-instructions/a37439165d134678a9100ebba3b29597")
@@ -427,6 +437,7 @@ describe("RefundInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/refund-instructions/refundInstructionId")
@@ -453,6 +464,7 @@ describe("RefundInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/refund-instructions/refundInstructionId")
@@ -479,6 +491,7 @@ describe("RefundInstructionsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/refund-instructions/refundInstructionId")
@@ -505,6 +518,7 @@ describe("RefundInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/refund-instructions/refundInstructionId")
@@ -531,6 +545,7 @@ describe("RefundInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/refund-instructions/refundInstructionId")
@@ -557,6 +572,7 @@ describe("RefundInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/refund-instructions/refundInstructionId")
@@ -606,6 +622,7 @@ describe("RefundInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/refund-instructions/refundInstructionId")
@@ -632,6 +649,7 @@ describe("RefundInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/refund-instructions/refundInstructionId")
@@ -658,6 +676,7 @@ describe("RefundInstructionsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .delete("/refund-instructions/refundInstructionId")
@@ -684,6 +703,7 @@ describe("RefundInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/refund-instructions/refundInstructionId")
@@ -710,6 +730,7 @@ describe("RefundInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/refund-instructions/refundInstructionId")
@@ -736,6 +757,7 @@ describe("RefundInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/refund-instructions/refundInstructionId")
@@ -762,6 +784,7 @@ describe("RefundInstructionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/refund-instructions/refundInstructionId")

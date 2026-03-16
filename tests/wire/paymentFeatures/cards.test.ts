@@ -69,6 +69,7 @@ describe("CardsClient", () => {
                 cardSchemeReferenceId: "cardSchemeReferenceId",
             },
         };
+
         server
             .mockEndpoint()
             .post("/cards/verify")
@@ -177,6 +178,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/verify")
@@ -223,6 +225,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/verify")
@@ -269,6 +272,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/cards/verify")
@@ -315,6 +319,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/verify")
@@ -361,6 +366,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/verify")
@@ -407,6 +413,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/verify")
@@ -453,6 +460,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/verify")
@@ -499,6 +507,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/verify")
@@ -578,6 +587,7 @@ describe("CardsClient", () => {
             responseCode: "A",
             responseMessage: "Approved",
         };
+
         server
             .mockEndpoint()
             .post("/cards/balance")
@@ -670,6 +680,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/balance")
@@ -716,6 +727,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/balance")
@@ -762,6 +774,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/cards/balance")
@@ -808,6 +821,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/balance")
@@ -854,6 +868,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/balance")
@@ -900,6 +915,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/balance")
@@ -946,6 +962,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/balance")
@@ -992,6 +1009,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/balance")
@@ -1053,6 +1071,7 @@ describe("CardsClient", () => {
                 disclosure: "A 3% surcharge is applied to cover processing fees.",
             },
         };
+
         server
             .mockEndpoint()
             .post("/cards/bin-lookup")
@@ -1107,6 +1126,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/bin-lookup")
@@ -1149,6 +1169,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/bin-lookup")
@@ -1191,6 +1212,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/cards/bin-lookup")
@@ -1233,6 +1255,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/bin-lookup")
@@ -1275,6 +1298,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/bin-lookup")
@@ -1317,6 +1341,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/bin-lookup")
@@ -1359,6 +1384,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/bin-lookup")
@@ -1401,6 +1427,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/cards/bin-lookup")
@@ -1484,6 +1511,7 @@ describe("CardsClient", () => {
                 },
             },
         };
+
         server
             .mockEndpoint()
             .post("/fx-rates")
@@ -1569,6 +1597,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/fx-rates")
@@ -1619,6 +1648,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/fx-rates")
@@ -1669,6 +1699,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/fx-rates")
@@ -1719,6 +1750,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/fx-rates")
@@ -1769,6 +1801,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/fx-rates")
@@ -1819,6 +1852,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/fx-rates")
@@ -1869,6 +1903,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/fx-rates")
@@ -1919,6 +1954,7 @@ describe("CardsClient", () => {
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/fx-rates")

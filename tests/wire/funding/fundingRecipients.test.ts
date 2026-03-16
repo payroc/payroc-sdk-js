@@ -107,6 +107,7 @@ describe("FundingRecipientsClient", () => {
                 },
             ],
         };
+
         server
             .mockEndpoint()
             .post("/funding-recipients")
@@ -332,6 +333,7 @@ describe("FundingRecipientsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients")
@@ -547,6 +549,7 @@ describe("FundingRecipientsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients")
@@ -762,6 +765,7 @@ describe("FundingRecipientsClient", () => {
             ],
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients")
@@ -977,6 +981,7 @@ describe("FundingRecipientsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients")
@@ -1192,6 +1197,7 @@ describe("FundingRecipientsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients")
@@ -1407,6 +1413,7 @@ describe("FundingRecipientsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients")
@@ -1598,6 +1605,7 @@ describe("FundingRecipientsClient", () => {
                 },
             ],
         };
+
         server
             .mockEndpoint()
             .get("/funding-recipients/1")
@@ -1680,6 +1688,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-recipients/1")
@@ -1706,6 +1715,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-recipients/1")
@@ -1732,6 +1742,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/funding-recipients/1")
@@ -1758,6 +1769,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-recipients/1")
@@ -1784,6 +1796,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-recipients/1")
@@ -1927,6 +1940,7 @@ describe("FundingRecipientsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/funding-recipients/1")
@@ -1985,6 +1999,7 @@ describe("FundingRecipientsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/funding-recipients/1")
@@ -2043,6 +2058,7 @@ describe("FundingRecipientsClient", () => {
             ],
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .put("/funding-recipients/1")
@@ -2101,6 +2117,7 @@ describe("FundingRecipientsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/funding-recipients/1")
@@ -2159,6 +2176,7 @@ describe("FundingRecipientsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/funding-recipients/1")
@@ -2217,6 +2235,7 @@ describe("FundingRecipientsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/funding-recipients/1")
@@ -2284,6 +2303,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/funding-recipients/1")
@@ -2310,6 +2330,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/funding-recipients/1")
@@ -2336,6 +2357,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .delete("/funding-recipients/1")
@@ -2362,6 +2384,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/funding-recipients/1")
@@ -2388,6 +2411,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .delete("/funding-recipients/1")
@@ -2439,6 +2463,7 @@ describe("FundingRecipientsClient", () => {
                 links: [{ rel: "parent", method: "get", href: "https://api.payroc.com/v1/funding-recipients/235" }],
             },
         ];
+
         server
             .mockEndpoint()
             .get("/funding-recipients/1/funding-accounts")
@@ -2521,6 +2546,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-recipients/1/funding-accounts")
@@ -2547,6 +2573,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-recipients/1/funding-accounts")
@@ -2573,6 +2600,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/funding-recipients/1/funding-accounts")
@@ -2599,6 +2627,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-recipients/1/funding-accounts")
@@ -2625,6 +2654,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-recipients/1/funding-accounts")
@@ -2668,6 +2698,7 @@ describe("FundingRecipientsClient", () => {
             metadata: { yourCustomField: "abc123" },
             links: [{ rel: "parent", method: "get", href: "https://api.payroc.com/v1/funding-recipients/234" }],
         };
+
         server
             .mockEndpoint()
             .post("/funding-recipients/1/funding-accounts")
@@ -2741,6 +2772,7 @@ describe("FundingRecipientsClient", () => {
             paymentMethods: [{ type: "ach" }, { type: "ach" }],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients/1/funding-accounts")
@@ -2788,6 +2820,7 @@ describe("FundingRecipientsClient", () => {
             paymentMethods: [{ type: "ach" }, { type: "ach" }],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients/1/funding-accounts")
@@ -2835,6 +2868,7 @@ describe("FundingRecipientsClient", () => {
             paymentMethods: [{ type: "ach" }, { type: "ach" }],
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients/1/funding-accounts")
@@ -2882,6 +2916,7 @@ describe("FundingRecipientsClient", () => {
             paymentMethods: [{ type: "ach" }, { type: "ach" }],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients/1/funding-accounts")
@@ -2929,6 +2964,7 @@ describe("FundingRecipientsClient", () => {
             paymentMethods: [{ type: "ach" }, { type: "ach" }],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients/1/funding-accounts")
@@ -2976,6 +3012,7 @@ describe("FundingRecipientsClient", () => {
             paymentMethods: [{ type: "ach" }, { type: "ach" }],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients/1/funding-accounts")
@@ -3023,6 +3060,7 @@ describe("FundingRecipientsClient", () => {
             paymentMethods: [{ type: "ach" }, { type: "ach" }],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients/1/funding-accounts")
@@ -3090,6 +3128,7 @@ describe("FundingRecipientsClient", () => {
                 },
             },
         ];
+
         server
             .mockEndpoint()
             .get("/funding-recipients/1/owners")
@@ -3150,6 +3189,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-recipients/1/owners")
@@ -3176,6 +3216,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-recipients/1/owners")
@@ -3202,6 +3243,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/funding-recipients/1/owners")
@@ -3228,6 +3270,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-recipients/1/owners")
@@ -3254,6 +3297,7 @@ describe("FundingRecipientsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/funding-recipients/1/owners")
@@ -3316,6 +3360,7 @@ describe("FundingRecipientsClient", () => {
             contactMethods: [{ type: "email", value: "jane.doe@example.com" }],
             relationship: { equityPercentage: 48.5, title: "CFO", isControlProng: true, isAuthorizedSignatory: false },
         };
+
         server
             .mockEndpoint()
             .post("/funding-recipients/1/owners")
@@ -3426,6 +3471,7 @@ describe("FundingRecipientsClient", () => {
             relationship: { isControlProng: true },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients/1/owners")
@@ -3504,6 +3550,7 @@ describe("FundingRecipientsClient", () => {
             relationship: { isControlProng: true },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients/1/owners")
@@ -3582,6 +3629,7 @@ describe("FundingRecipientsClient", () => {
             relationship: { isControlProng: true },
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients/1/owners")
@@ -3660,6 +3708,7 @@ describe("FundingRecipientsClient", () => {
             relationship: { isControlProng: true },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients/1/owners")
@@ -3738,6 +3787,7 @@ describe("FundingRecipientsClient", () => {
             relationship: { isControlProng: true },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients/1/owners")
@@ -3816,6 +3866,7 @@ describe("FundingRecipientsClient", () => {
             relationship: { isControlProng: true },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients/1/owners")
@@ -3894,6 +3945,7 @@ describe("FundingRecipientsClient", () => {
             relationship: { isControlProng: true },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/funding-recipients/1/owners")

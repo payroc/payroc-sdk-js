@@ -8,14 +8,6 @@
  *         after: "8516",
  *         limit: 1
  *     }
- *
- * @example
- *     {
- *         processingTerminalId: "1234001",
- *         before: "2571",
- *         after: "8516",
- *         limit: 1
- *     }
  */
 export interface ListPaymentPlansRequest {
     /** Unique identifier that we assigned to the terminal. */

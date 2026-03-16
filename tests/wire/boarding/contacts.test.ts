@@ -30,6 +30,7 @@ describe("ContactsClient", () => {
                 { type: "fax", value: "2025550110" },
             ],
         };
+
         server.mockEndpoint().get("/contacts/1").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
         const response = await client.boarding.contacts.retrieve({
@@ -79,6 +80,7 @@ describe("ContactsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/contacts/1").respondWith().statusCode(400).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -99,6 +101,7 @@ describe("ContactsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/contacts/1").respondWith().statusCode(401).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -119,6 +122,7 @@ describe("ContactsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server.mockEndpoint().get("/contacts/1").respondWith().statusCode(403).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -139,6 +143,7 @@ describe("ContactsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/contacts/1").respondWith().statusCode(404).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -159,6 +164,7 @@ describe("ContactsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/contacts/1").respondWith().statusCode(500).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -235,6 +241,7 @@ describe("ContactsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/contacts/1")
@@ -299,6 +306,7 @@ describe("ContactsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/contacts/1")
@@ -363,6 +371,7 @@ describe("ContactsClient", () => {
             ],
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .put("/contacts/1")
@@ -427,6 +436,7 @@ describe("ContactsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/contacts/1")
@@ -491,6 +501,7 @@ describe("ContactsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/contacts/1")
@@ -555,6 +566,7 @@ describe("ContactsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .put("/contacts/1")
@@ -625,6 +637,7 @@ describe("ContactsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().delete("/contacts/1").respondWith().statusCode(400).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -645,6 +658,7 @@ describe("ContactsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().delete("/contacts/1").respondWith().statusCode(401).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -665,6 +679,7 @@ describe("ContactsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server.mockEndpoint().delete("/contacts/1").respondWith().statusCode(403).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -685,6 +700,7 @@ describe("ContactsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().delete("/contacts/1").respondWith().statusCode(404).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -705,6 +721,7 @@ describe("ContactsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().delete("/contacts/1").respondWith().statusCode(500).jsonBody(rawResponseBody).build();
 
         await expect(async () => {

@@ -21,6 +21,7 @@ describe("HostedFieldsClient", () => {
             token: "abcdef1234567890abcdef1234567890",
             expiresAt: "2025-07-02T13:30:00Z",
         };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/1234001/hosted-fields-sessions")
@@ -55,6 +56,7 @@ describe("HostedFieldsClient", () => {
         });
         const rawRequestBody = { libVersion: "libVersion", scenario: "payment" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/hosted-fields-sessions")
@@ -86,6 +88,7 @@ describe("HostedFieldsClient", () => {
         });
         const rawRequestBody = { libVersion: "libVersion", scenario: "payment" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/hosted-fields-sessions")
@@ -117,6 +120,7 @@ describe("HostedFieldsClient", () => {
         });
         const rawRequestBody = { libVersion: "libVersion", scenario: "payment" };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/hosted-fields-sessions")
@@ -148,6 +152,7 @@ describe("HostedFieldsClient", () => {
         });
         const rawRequestBody = { libVersion: "libVersion", scenario: "payment" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/hosted-fields-sessions")
@@ -179,6 +184,7 @@ describe("HostedFieldsClient", () => {
         });
         const rawRequestBody = { libVersion: "libVersion", scenario: "payment" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/hosted-fields-sessions")
@@ -210,6 +216,7 @@ describe("HostedFieldsClient", () => {
         });
         const rawRequestBody = { libVersion: "libVersion", scenario: "payment" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/hosted-fields-sessions")
@@ -241,6 +248,7 @@ describe("HostedFieldsClient", () => {
         });
         const rawRequestBody = { libVersion: "libVersion", scenario: "payment" };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/hosted-fields-sessions")

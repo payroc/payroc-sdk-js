@@ -5,4 +5,4 @@ import type * as Payroc from "../index.js";
 /**
  * Polymorphic object that contains pricing intent information.
  */
-export type PricingIntent = Payroc.PricingIntent50;
+export type PricingIntent = Payroc.PricingIntent52;

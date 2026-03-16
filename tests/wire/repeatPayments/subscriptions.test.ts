@@ -92,6 +92,7 @@ describe("SubscriptionsClient", () => {
             pauseCollectionFor: 0,
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/1234001/subscriptions")
@@ -315,6 +316,7 @@ describe("SubscriptionsClient", () => {
             pauseCollectionFor: 0,
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/1234001/subscriptions")
@@ -468,6 +470,7 @@ describe("SubscriptionsClient", () => {
             startDate: "2023-01-15",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions")
@@ -509,6 +512,7 @@ describe("SubscriptionsClient", () => {
             startDate: "2023-01-15",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions")
@@ -550,6 +554,7 @@ describe("SubscriptionsClient", () => {
             startDate: "2023-01-15",
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions")
@@ -591,6 +596,7 @@ describe("SubscriptionsClient", () => {
             startDate: "2023-01-15",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions")
@@ -632,6 +638,7 @@ describe("SubscriptionsClient", () => {
             startDate: "2023-01-15",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions")
@@ -673,6 +680,7 @@ describe("SubscriptionsClient", () => {
             startDate: "2023-01-15",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions")
@@ -714,6 +722,7 @@ describe("SubscriptionsClient", () => {
             startDate: "2023-01-15",
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions")
@@ -805,6 +814,7 @@ describe("SubscriptionsClient", () => {
             pauseCollectionFor: 0,
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/1234001/subscriptions/SubRef7654")
@@ -975,6 +985,7 @@ describe("SubscriptionsClient", () => {
             pauseCollectionFor: 0,
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/1234001/subscriptions/SubRef7654")
@@ -1090,6 +1101,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/subscriptions/subscriptionId")
@@ -1117,6 +1129,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/subscriptions/subscriptionId")
@@ -1144,6 +1157,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/subscriptions/subscriptionId")
@@ -1171,6 +1185,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/subscriptions/subscriptionId")
@@ -1198,6 +1213,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/subscriptions/subscriptionId")
@@ -1225,6 +1241,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/processing-terminals/processingTerminalId/subscriptions/subscriptionId")
@@ -1311,6 +1328,7 @@ describe("SubscriptionsClient", () => {
             pauseCollectionFor: 0,
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/subscriptions/SubRef7654")
@@ -1498,6 +1516,7 @@ describe("SubscriptionsClient", () => {
             pauseCollectionFor: 0,
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/subscriptions/SubRef7654")
@@ -1677,6 +1696,7 @@ describe("SubscriptionsClient", () => {
             pauseCollectionFor: 0,
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/subscriptions/SubRef7654")
@@ -1856,6 +1876,7 @@ describe("SubscriptionsClient", () => {
             pauseCollectionFor: 0,
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/subscriptions/SubRef7654")
@@ -2035,6 +2056,7 @@ describe("SubscriptionsClient", () => {
             pauseCollectionFor: 0,
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/subscriptions/SubRef7654")
@@ -2215,6 +2237,7 @@ describe("SubscriptionsClient", () => {
             pauseCollectionFor: 0,
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/subscriptions/SubRef7654")
@@ -2395,6 +2418,7 @@ describe("SubscriptionsClient", () => {
             pauseCollectionFor: 0,
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/subscriptions/SubRef7654")
@@ -2581,6 +2605,7 @@ describe("SubscriptionsClient", () => {
             pauseCollectionFor: 0,
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/subscriptions/SubRef7654")
@@ -2786,6 +2811,7 @@ describe("SubscriptionsClient", () => {
             pauseCollectionFor: 0,
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/subscriptions/SubRef7654")
@@ -2977,6 +3003,7 @@ describe("SubscriptionsClient", () => {
             pauseCollectionFor: 0,
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/1234001/subscriptions/SubRef7654")
@@ -3112,6 +3139,7 @@ describe("SubscriptionsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/subscriptions/subscriptionId")
@@ -3161,6 +3189,7 @@ describe("SubscriptionsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/subscriptions/subscriptionId")
@@ -3210,6 +3239,7 @@ describe("SubscriptionsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/subscriptions/subscriptionId")
@@ -3259,6 +3289,7 @@ describe("SubscriptionsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/subscriptions/subscriptionId")
@@ -3308,6 +3339,7 @@ describe("SubscriptionsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/subscriptions/subscriptionId")
@@ -3357,6 +3389,7 @@ describe("SubscriptionsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/subscriptions/subscriptionId")
@@ -3406,6 +3439,7 @@ describe("SubscriptionsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/subscriptions/subscriptionId")
@@ -3455,6 +3489,7 @@ describe("SubscriptionsClient", () => {
             { op: "add", path: "path", value: { key: "value" } },
         ];
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .patch("/processing-terminals/processingTerminalId/subscriptions/subscriptionId")
@@ -3556,6 +3591,7 @@ describe("SubscriptionsClient", () => {
             pauseCollectionFor: 0,
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/1234001/subscriptions/SubRef7654/deactivate")
@@ -3671,6 +3707,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/deactivate")
@@ -3698,6 +3735,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/deactivate")
@@ -3725,6 +3763,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/deactivate")
@@ -3752,6 +3791,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/deactivate")
@@ -3779,6 +3819,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/deactivate")
@@ -3806,6 +3847,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/deactivate")
@@ -3833,6 +3875,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/deactivate")
@@ -3860,6 +3903,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/deactivate")
@@ -3942,6 +3986,7 @@ describe("SubscriptionsClient", () => {
             pauseCollectionFor: 0,
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/1234001/subscriptions/SubRef7654/reactivate")
@@ -4112,6 +4157,7 @@ describe("SubscriptionsClient", () => {
             pauseCollectionFor: 0,
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/1234001/subscriptions/SubRef7654/reactivate")
@@ -4227,6 +4273,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/reactivate")
@@ -4254,6 +4301,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/reactivate")
@@ -4281,6 +4329,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/reactivate")
@@ -4308,6 +4357,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/reactivate")
@@ -4335,6 +4385,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/reactivate")
@@ -4362,6 +4413,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/reactivate")
@@ -4389,6 +4441,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/reactivate")
@@ -4416,6 +4469,7 @@ describe("SubscriptionsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/reactivate")
@@ -4476,6 +4530,7 @@ describe("SubscriptionsClient", () => {
             currentState: { status: "active", nextDueDate: "2024-08-02", paidInvoices: 1, outstandingInvoices: 2 },
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/1234001/subscriptions/SubRef7654/pay")
@@ -4551,6 +4606,7 @@ describe("SubscriptionsClient", () => {
         });
         const rawRequestBody = { order: {} };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/pay")
@@ -4582,6 +4638,7 @@ describe("SubscriptionsClient", () => {
         });
         const rawRequestBody = { order: {} };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/pay")
@@ -4613,6 +4670,7 @@ describe("SubscriptionsClient", () => {
         });
         const rawRequestBody = { order: {} };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/pay")
@@ -4644,6 +4702,7 @@ describe("SubscriptionsClient", () => {
         });
         const rawRequestBody = { order: {} };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/pay")
@@ -4675,6 +4734,7 @@ describe("SubscriptionsClient", () => {
         });
         const rawRequestBody = { order: {} };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/pay")
@@ -4706,6 +4766,7 @@ describe("SubscriptionsClient", () => {
         });
         const rawRequestBody = { order: {} };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/pay")
@@ -4737,6 +4798,7 @@ describe("SubscriptionsClient", () => {
         });
         const rawRequestBody = { order: {} };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/pay")
@@ -4768,6 +4830,7 @@ describe("SubscriptionsClient", () => {
         });
         const rawRequestBody = { order: {} };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/processing-terminals/processingTerminalId/subscriptions/subscriptionId/pay")

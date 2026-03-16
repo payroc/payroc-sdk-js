@@ -15,5 +15,5 @@ export interface FxRate {
     baseCurrency: Payroc.Currency;
     inquiryResult: Payroc.FxRateInquiryResult;
     dccOffer?: Payroc.DccOffer | undefined;
-    cardInfo: Payroc.CardInfo;
+    cardInfo?: Payroc.CardInfo | undefined;
 }

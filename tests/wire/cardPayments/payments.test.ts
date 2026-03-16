@@ -197,6 +197,7 @@ describe("PaymentsClient", () => {
             },
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .post("/payments")
@@ -627,6 +628,7 @@ describe("PaymentsClient", () => {
             },
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .post("/payments")
@@ -1053,6 +1055,7 @@ describe("PaymentsClient", () => {
             },
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .post("/payments")
@@ -1337,13 +1340,14 @@ describe("PaymentsClient", () => {
         const rawRequestBody = {
             channel: "pos",
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", amount: 1000000, currency: "AED" },
             paymentMethod: {
                 type: "card",
                 cardDetails: { entryMethod: "raw", device: { model: "bbposChp", serialNumber: "x" }, rawData: "x" },
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments")
@@ -1359,7 +1363,11 @@ describe("PaymentsClient", () => {
                 "Idempotency-Key": "idempotencyKey",
                 channel: "pos",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 paymentMethod: {
                     type: "card",
                     cardDetails: {
@@ -1387,13 +1395,14 @@ describe("PaymentsClient", () => {
         const rawRequestBody = {
             channel: "pos",
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", amount: 1000000, currency: "AED" },
             paymentMethod: {
                 type: "card",
                 cardDetails: { entryMethod: "raw", device: { model: "bbposChp", serialNumber: "x" }, rawData: "x" },
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments")
@@ -1409,7 +1418,11 @@ describe("PaymentsClient", () => {
                 "Idempotency-Key": "idempotencyKey",
                 channel: "pos",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 paymentMethod: {
                     type: "card",
                     cardDetails: {
@@ -1437,13 +1450,14 @@ describe("PaymentsClient", () => {
         const rawRequestBody = {
             channel: "pos",
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", amount: 1000000, currency: "AED" },
             paymentMethod: {
                 type: "card",
                 cardDetails: { entryMethod: "raw", device: { model: "bbposChp", serialNumber: "x" }, rawData: "x" },
             },
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/payments")
@@ -1459,7 +1473,11 @@ describe("PaymentsClient", () => {
                 "Idempotency-Key": "idempotencyKey",
                 channel: "pos",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 paymentMethod: {
                     type: "card",
                     cardDetails: {
@@ -1487,13 +1505,14 @@ describe("PaymentsClient", () => {
         const rawRequestBody = {
             channel: "pos",
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", amount: 1000000, currency: "AED" },
             paymentMethod: {
                 type: "card",
                 cardDetails: { entryMethod: "raw", device: { model: "bbposChp", serialNumber: "x" }, rawData: "x" },
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments")
@@ -1509,7 +1528,11 @@ describe("PaymentsClient", () => {
                 "Idempotency-Key": "idempotencyKey",
                 channel: "pos",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 paymentMethod: {
                     type: "card",
                     cardDetails: {
@@ -1537,13 +1560,14 @@ describe("PaymentsClient", () => {
         const rawRequestBody = {
             channel: "pos",
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", amount: 1000000, currency: "AED" },
             paymentMethod: {
                 type: "card",
                 cardDetails: { entryMethod: "raw", device: { model: "bbposChp", serialNumber: "x" }, rawData: "x" },
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments")
@@ -1559,7 +1583,11 @@ describe("PaymentsClient", () => {
                 "Idempotency-Key": "idempotencyKey",
                 channel: "pos",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 paymentMethod: {
                     type: "card",
                     cardDetails: {
@@ -1587,13 +1615,14 @@ describe("PaymentsClient", () => {
         const rawRequestBody = {
             channel: "pos",
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", amount: 1000000, currency: "AED" },
             paymentMethod: {
                 type: "card",
                 cardDetails: { entryMethod: "raw", device: { model: "bbposChp", serialNumber: "x" }, rawData: "x" },
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments")
@@ -1609,7 +1638,11 @@ describe("PaymentsClient", () => {
                 "Idempotency-Key": "idempotencyKey",
                 channel: "pos",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 paymentMethod: {
                     type: "card",
                     cardDetails: {
@@ -1637,13 +1670,14 @@ describe("PaymentsClient", () => {
         const rawRequestBody = {
             channel: "pos",
             processingTerminalId: "buzz",
-            order: {},
+            order: { orderId: "x", amount: 1000000, currency: "AED" },
             paymentMethod: {
                 type: "card",
                 cardDetails: { entryMethod: "raw", device: { model: "bbposChp", serialNumber: "x" }, rawData: "x" },
             },
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments")
@@ -1659,7 +1693,11 @@ describe("PaymentsClient", () => {
                 "Idempotency-Key": "idempotencyKey",
                 channel: "pos",
                 processingTerminalId: "buzz",
-                order: {},
+                order: {
+                    orderId: "x",
+                    amount: 1000000,
+                    currency: "AED",
+                },
                 paymentMethod: {
                     type: "card",
                     cardDetails: {
@@ -1827,6 +1865,7 @@ describe("PaymentsClient", () => {
             },
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .get("/payments/M2MJOG6O2Y")
@@ -2057,6 +2096,7 @@ describe("PaymentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/payments/paymentId")
@@ -2083,6 +2123,7 @@ describe("PaymentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/payments/paymentId")
@@ -2109,6 +2150,7 @@ describe("PaymentsClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .get("/payments/paymentId")
@@ -2135,6 +2177,7 @@ describe("PaymentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/payments/paymentId")
@@ -2161,6 +2204,7 @@ describe("PaymentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/payments/paymentId")
@@ -2187,6 +2231,7 @@ describe("PaymentsClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .get("/payments/paymentId")
@@ -2354,6 +2399,7 @@ describe("PaymentsClient", () => {
             },
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .post("/payments/M2MJOG6O2Y/adjust")
@@ -2601,6 +2647,7 @@ describe("PaymentsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments/paymentId/adjust")
@@ -2645,6 +2692,7 @@ describe("PaymentsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments/paymentId/adjust")
@@ -2689,6 +2737,7 @@ describe("PaymentsClient", () => {
             ],
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/payments/paymentId/adjust")
@@ -2733,6 +2782,7 @@ describe("PaymentsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments/paymentId/adjust")
@@ -2777,6 +2827,7 @@ describe("PaymentsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments/paymentId/adjust")
@@ -2821,6 +2872,7 @@ describe("PaymentsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments/paymentId/adjust")
@@ -2865,6 +2917,7 @@ describe("PaymentsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments/paymentId/adjust")
@@ -2909,6 +2962,7 @@ describe("PaymentsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments/paymentId/adjust")
@@ -3099,6 +3153,7 @@ describe("PaymentsClient", () => {
             },
             customFields: [{ name: "yourCustomField", value: "abc123" }],
         };
+
         server
             .mockEndpoint()
             .post("/payments/M2MJOG6O2Y/capture")
@@ -3346,6 +3401,7 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments/paymentId/capture")
@@ -3375,6 +3431,7 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments/paymentId/capture")
@@ -3404,6 +3461,7 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/payments/paymentId/capture")
@@ -3433,6 +3491,7 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments/paymentId/capture")
@@ -3462,6 +3521,7 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments/paymentId/capture")
@@ -3491,6 +3551,7 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments/paymentId/capture")
@@ -3520,6 +3581,7 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments/paymentId/capture")
@@ -3549,6 +3611,7 @@ describe("PaymentsClient", () => {
         });
         const rawRequestBody = {};
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payments/paymentId/capture")

@@ -30,6 +30,7 @@ describe("SharingEventsClient", () => {
             message: "Dear Sarah,\n\nYou can pay for your order via the link below.\n",
             recipients: [{ name: "Sarah Hazel Hopper", email: "sarah.hopper@example.com" }],
         };
+
         server
             .mockEndpoint()
             .post("/payment-links/JZURRJBUPS/sharing-events")
@@ -88,6 +89,7 @@ describe("SharingEventsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payment-links/paymentLinkId/sharing-events")
@@ -136,6 +138,7 @@ describe("SharingEventsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payment-links/paymentLinkId/sharing-events")
@@ -184,6 +187,7 @@ describe("SharingEventsClient", () => {
             ],
         };
         const rawResponseBody = { key: "value" };
+
         server
             .mockEndpoint()
             .post("/payment-links/paymentLinkId/sharing-events")
@@ -232,6 +236,7 @@ describe("SharingEventsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payment-links/paymentLinkId/sharing-events")
@@ -280,6 +285,7 @@ describe("SharingEventsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payment-links/paymentLinkId/sharing-events")
@@ -328,6 +334,7 @@ describe("SharingEventsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payment-links/paymentLinkId/sharing-events")
@@ -376,6 +383,7 @@ describe("SharingEventsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payment-links/paymentLinkId/sharing-events")
@@ -424,6 +432,7 @@ describe("SharingEventsClient", () => {
             ],
         };
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server
             .mockEndpoint()
             .post("/payment-links/paymentLinkId/sharing-events")

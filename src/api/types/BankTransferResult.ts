@@ -15,7 +15,7 @@ export interface BankTransferResult {
      * **Note:** The amount is negative for a refund.
      */
     authorizedAmount?: number | undefined;
-    currency: Payroc.Currency;
+    currency?: Payroc.Currency | undefined;
     /**
      * Response from the processor.
      * - `A` - The processor approved the transaction.

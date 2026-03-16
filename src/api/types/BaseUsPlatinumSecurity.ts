@@ -12,20 +12,11 @@ import type * as Payroc from "../index.js";
 export type BaseUsPlatinumSecurity = Payroc.BaseUsPlatinumSecurity.Monthly | Payroc.BaseUsPlatinumSecurity.Annual;
 
 export namespace BaseUsPlatinumSecurity {
-    export interface Monthly extends Payroc.BaseUsMonthly {
+    export interface Monthly extends Payroc.PlatinumSecurityMonthly {
         billingFrequency: "monthly";
     }
 
-    export interface Annual extends Payroc.BaseUsAnnual {
+    export interface Annual extends Payroc.PlatinumSecurityAnnual {
         billingFrequency: "annual";
     }
-
-    /**
-     * Polymorphic object that contains billing details for Platinum Security.
-     *
-     * The value of the billingFrequency field determines which variant you should use:
-     * -	`monthly` - We collect the fee for Platinum Security each month.
-     * -	`annual` - We collect the fee for Platinum Security each year.
-     */
-    export type Request = Payroc.BaseUsPlatinumSecurity.Monthly | Payroc.BaseUsPlatinumSecurity.Annual;
 }

@@ -20,4 +20,12 @@ export namespace BankTransferPaymentBankAccount {
     export interface Pad extends Payroc.PadBankAccount {
         type: "pad";
     }
+
+    /**
+     * Polymorphic object that contains bank account information.
+     * The value of the type field determines which variant you should use:
+     * -	`ach` - Automated Clearing House (ACH) details
+     * -	`pad` - Pre-authorized debit (PAD) details
+     */
+    export type Request = Payroc.BankTransferPaymentBankAccount.Ach | Payroc.BankTransferPaymentBankAccount.Pad;
 }

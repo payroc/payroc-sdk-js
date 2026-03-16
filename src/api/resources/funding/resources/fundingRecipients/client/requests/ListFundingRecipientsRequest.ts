@@ -7,13 +7,6 @@
  *         after: "8516",
  *         limit: 1
  *     }
- *
- * @example
- *     {
- *         before: "2571",
- *         after: "8516",
- *         limit: 1
- *     }
  */
 export interface ListFundingRecipientsRequest {
     /**

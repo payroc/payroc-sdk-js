@@ -37,6 +37,7 @@ describe("FundingActivityClient", () => {
                 { merchantId: "9876543219", funds: 50000, pending: 0, available: 50000, currency: "USD" },
             ],
         };
+
         server.mockEndpoint().get("/funding-balance").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
         const response = await client.funding.fundingActivity.retrieveBalance({
@@ -100,6 +101,7 @@ describe("FundingActivityClient", () => {
             ],
             data: [{ merchantId: "4525644354", funds: 120000, pending: 50050, available: 69950, currency: "USD" }],
         };
+
         server.mockEndpoint().get("/funding-balance").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
         const response = await client.funding.fundingActivity.retrieveBalance({
@@ -147,6 +149,7 @@ describe("FundingActivityClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/funding-balance").respondWith().statusCode(400).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -165,6 +168,7 @@ describe("FundingActivityClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/funding-balance").respondWith().statusCode(401).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -183,6 +187,7 @@ describe("FundingActivityClient", () => {
         });
 
         const rawResponseBody = { key: "value" };
+
         server.mockEndpoint().get("/funding-balance").respondWith().statusCode(403).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -201,6 +206,7 @@ describe("FundingActivityClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/funding-balance").respondWith().statusCode(406).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
@@ -219,6 +225,7 @@ describe("FundingActivityClient", () => {
         });
 
         const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
         server.mockEndpoint().get("/funding-balance").respondWith().statusCode(500).jsonBody(rawResponseBody).build();
 
         await expect(async () => {

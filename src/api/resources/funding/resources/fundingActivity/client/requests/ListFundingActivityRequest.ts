@@ -10,16 +10,6 @@
  *         dateTo: "2024-07-03",
  *         merchantId: "4525644354"
  *     }
- *
- * @example
- *     {
- *         before: "2571",
- *         after: "8516",
- *         limit: 1,
- *         dateFrom: "2024-07-02",
- *         dateTo: "2024-07-03",
- *         merchantId: "4525644354"
- *     }
  */
 export interface ListFundingActivityRequest {
     /**
