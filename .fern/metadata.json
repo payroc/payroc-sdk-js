@@ -1,7 +1,7 @@
 {
-    "cliVersion": "4.29.0",
+    "cliVersion": "4.37.12",
     "generatorName": "fernapi/fern-typescript-sdk",
-    "generatorVersion": "3.56.0",
+    "generatorVersion": "3.59.3",
     "generatorConfig": {
         "namespaceExport": "Payroc",
         "allowCustomFetcher": true,
@@ -93,6 +93,6 @@
             }
         }
     },
-    "originGitCommit": "6d46b4d33f7a26c12a9950737bb7f220a8b8c59c",
-    "sdkVersion": "0.0.383"
+    "originGitCommit": "a0073a688dd10b5b50d5f9df2a5a279b63f9a010",
+    "sdkVersion": "0.0.559"
 }
