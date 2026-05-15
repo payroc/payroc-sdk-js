@@ -34,11 +34,6 @@ describe("AuthClient", () => {
         const response = await client.auth.retrieveToken({
             "x-api-key": "x-api-key",
         });
-        expect(response).toEqual({
-            access_token: "access_token",
-            token_type: "token_type",
-            expires_in: 1,
-            scope: "scope",
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 });

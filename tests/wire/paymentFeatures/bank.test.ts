@@ -48,10 +48,7 @@ describe("BankClient", () => {
                 institutionNumber: "543",
             },
         });
-        expect(response).toEqual({
-            processingTerminalId: "1234001",
-            verified: true,
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("verify (2)", async () => {
@@ -94,10 +91,7 @@ describe("BankClient", () => {
                 routingNumber: "123456789",
             },
         });
-        expect(response).toEqual({
-            processingTerminalId: "1234001",
-            verified: true,
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("verify (3)", async () => {

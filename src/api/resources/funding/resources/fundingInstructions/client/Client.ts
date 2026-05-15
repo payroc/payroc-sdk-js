@@ -85,12 +85,16 @@ export class FundingInstructionsClient {
             ),
             method: "GET",
             headers: _headers,
-            queryParameters: { ..._queryParams, ...requestOptions?.queryParams },
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
             fetchFn: this._options?.fetch,
             logging: this._options.logging,
+            queryString: core.url
+                .queryBuilder()
+                .addMany(_queryParams)
+                .mergeAdditional(requestOptions?.queryParams)
+                .build(),
         };
         const _sendRequest = async (request: core.Fetcher.Args) => {
             const _response = await core.fetcher<Payroc.funding.ListFundingInstructionsResponse>(request);
@@ -241,7 +245,7 @@ export class FundingInstructionsClient {
             method: "POST",
             headers: _headers,
             contentType: "application/json",
-            queryParameters: requestOptions?.queryParams,
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
             body: _body,
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
@@ -345,7 +349,7 @@ export class FundingInstructionsClient {
             ),
             method: "GET",
             headers: _headers,
-            queryParameters: requestOptions?.queryParams,
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -420,6 +424,7 @@ export class FundingInstructionsClient {
      * @throws {@link Payroc.UnauthorizedError}
      * @throws {@link Payroc.ForbiddenError}
      * @throws {@link Payroc.NotFoundError}
+     * @throws {@link Payroc.ConflictError}
      * @throws {@link Payroc.InternalServerError}
      *
      * @example
@@ -474,7 +479,7 @@ export class FundingInstructionsClient {
             method: "PUT",
             headers: _headers,
             contentType: "application/json",
-            queryParameters: requestOptions?.queryParams,
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
             body: _body,
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
@@ -501,6 +506,11 @@ export class FundingInstructionsClient {
                 case 404:
                     throw new Payroc.NotFoundError(
                         _response.error.body as Payroc.FourHundredFour,
+                        _response.rawResponse,
+                    );
+                case 409:
+                    throw new Payroc.ConflictError(
+                        _response.error.body as Payroc.FourHundredNine,
                         _response.rawResponse,
                     );
                 case 500:
@@ -541,6 +551,7 @@ export class FundingInstructionsClient {
      * @throws {@link Payroc.UnauthorizedError}
      * @throws {@link Payroc.ForbiddenError}
      * @throws {@link Payroc.NotFoundError}
+     * @throws {@link Payroc.ConflictError}
      * @throws {@link Payroc.InternalServerError}
      *
      * @example
@@ -575,7 +586,7 @@ export class FundingInstructionsClient {
             ),
             method: "DELETE",
             headers: _headers,
-            queryParameters: requestOptions?.queryParams,
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -600,6 +611,11 @@ export class FundingInstructionsClient {
                 case 404:
                     throw new Payroc.NotFoundError(
                         _response.error.body as Payroc.FourHundredFour,
+                        _response.rawResponse,
+                    );
+                case 409:
+                    throw new Payroc.ConflictError(
+                        _response.error.body as Payroc.FourHundredNine,
                         _response.rawResponse,
                     );
                 case 500:

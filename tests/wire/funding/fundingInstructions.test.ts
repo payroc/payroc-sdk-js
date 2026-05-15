@@ -99,44 +99,7 @@ describe("FundingInstructionsClient", () => {
                 },
             },
         });
-        expect(response).toEqual({
-            instructionId: 64643131,
-            createdDate: "2024-07-02T15:30:00Z",
-            lastModifiedDate: "2024-07-02T15:30:00Z",
-            status: "accepted",
-            merchants: [
-                {
-                    merchantId: "4525644354",
-                    recipients: [
-                        {
-                            fundingAccountId: 123,
-                            paymentMethod: "ACH",
-                            amount: {
-                                value: 120000,
-                                currency: "USD",
-                            },
-                            status: "accepted",
-                            metadata: {
-                                yourCustomField: "abc123",
-                            },
-                            link: {
-                                rel: "fundingAccount",
-                                method: "get",
-                                href: "https://api.payroc.com/v1/funding-accounts/123",
-                            },
-                        },
-                    ],
-                    link: {
-                        rel: "merchant",
-                        method: "get",
-                        href: "https://api.payroc.com/v1/processing-accounts/4525644354",
-                    },
-                },
-            ],
-            metadata: {
-                instructionRef: "abc123",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("create (2)", async () => {
@@ -232,44 +195,7 @@ describe("FundingInstructionsClient", () => {
                 },
             },
         });
-        expect(response).toEqual({
-            instructionId: 64643131,
-            createdDate: "2024-07-02T15:30:00Z",
-            lastModifiedDate: "2024-07-02T15:30:00Z",
-            status: "accepted",
-            merchants: [
-                {
-                    merchantId: "4525644354",
-                    recipients: [
-                        {
-                            fundingAccountId: 123,
-                            paymentMethod: "ACH",
-                            amount: {
-                                value: 120000,
-                                currency: "USD",
-                            },
-                            status: "accepted",
-                            metadata: {
-                                yourCustomField: "abc123",
-                            },
-                            link: {
-                                rel: "fundingAccount",
-                                method: "get",
-                                href: "https://api.payroc.com/v1/funding-accounts/123",
-                            },
-                        },
-                    ],
-                    link: {
-                        rel: "merchant",
-                        method: "get",
-                        href: "https://api.payroc.com/v1/processing-accounts/4525644354",
-                    },
-                },
-            ],
-            metadata: {
-                instructionRef: "abc123",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("create (3)", async () => {
@@ -365,44 +291,7 @@ describe("FundingInstructionsClient", () => {
                 },
             },
         });
-        expect(response).toEqual({
-            instructionId: 64643131,
-            createdDate: "2024-07-02T15:30:00Z",
-            lastModifiedDate: "2024-07-02T15:30:00Z",
-            status: "accepted",
-            merchants: [
-                {
-                    merchantId: "4525644354",
-                    recipients: [
-                        {
-                            fundingAccountId: 123,
-                            paymentMethod: "ACH",
-                            amount: {
-                                value: 120000,
-                                currency: "USD",
-                            },
-                            status: "accepted",
-                            metadata: {
-                                yourCustomField: "abc123",
-                            },
-                            link: {
-                                rel: "fundingAccount",
-                                method: "get",
-                                href: "https://api.payroc.com/v1/funding-accounts/123",
-                            },
-                        },
-                    ],
-                    link: {
-                        rel: "merchant",
-                        method: "get",
-                        href: "https://api.payroc.com/v1/processing-accounts/4525644354",
-                    },
-                },
-            ],
-            metadata: {
-                instructionRef: "abc123",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("create (4)", async () => {
@@ -498,44 +387,7 @@ describe("FundingInstructionsClient", () => {
                 },
             },
         });
-        expect(response).toEqual({
-            instructionId: 64643131,
-            createdDate: "2024-07-02T15:30:00Z",
-            lastModifiedDate: "2024-07-02T15:30:00Z",
-            status: "accepted",
-            merchants: [
-                {
-                    merchantId: "4525644354",
-                    recipients: [
-                        {
-                            fundingAccountId: 123,
-                            paymentMethod: "ACH",
-                            amount: {
-                                value: 120000,
-                                currency: "USD",
-                            },
-                            status: "accepted",
-                            metadata: {
-                                supplier: "IT Support Services",
-                            },
-                            link: {
-                                rel: "fundingAccount",
-                                method: "get",
-                                href: "https://api.payroc.com/v1/funding-accounts/123",
-                            },
-                        },
-                    ],
-                    link: {
-                        rel: "merchant",
-                        method: "get",
-                        href: "https://api.payroc.com/v1/processing-accounts/4525644354",
-                    },
-                },
-            ],
-            metadata: {
-                instructionCreatedBy: "Jane Doe",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("create (5)", async () => {
@@ -770,42 +622,7 @@ describe("FundingInstructionsClient", () => {
         const response = await client.funding.fundingInstructions.retrieve({
             instructionId: 1,
         });
-        expect(response).toEqual({
-            instructionId: 64643131,
-            createdDate: "2024-07-02T15:30:00Z",
-            lastModifiedDate: "2024-07-02T15:30:00Z",
-            status: "accepted",
-            merchants: [
-                {
-                    merchantId: "4525644354",
-                    recipients: [
-                        {
-                            fundingAccountId: 123,
-                            paymentMethod: "ACH",
-                            amount: {
-                                value: 120000,
-                            },
-                            metadata: {
-                                yourCustomField: "abc123",
-                            },
-                            link: {
-                                rel: "fundingAccount",
-                                method: "get",
-                                href: "https://api.payroc.com/v1/funding-accounts/123",
-                            },
-                        },
-                    ],
-                    link: {
-                        rel: "merchant",
-                        method: "get",
-                        href: "https://api.payroc.com/v1/processing-accounts/4525644354",
-                    },
-                },
-            ],
-            metadata: {
-                yourCustomField: "abc123",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("retrieve (2)", async () => {
@@ -1166,6 +983,35 @@ describe("FundingInstructionsClient", () => {
             .put("/funding-instructions/1")
             .jsonBody(rawRequestBody)
             .respondWith()
+            .statusCode(409)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.funding.fundingInstructions.update({
+                instructionId: 1,
+                body: {},
+            });
+        }).rejects.toThrow(Payroc.ConflictError);
+    });
+
+    test("update (7)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = {};
+        const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
+        server
+            .mockEndpoint()
+            .put("/funding-instructions/1")
+            .jsonBody(rawRequestBody)
+            .respondWith()
             .statusCode(500)
             .jsonBody(rawResponseBody)
             .build();
@@ -1305,6 +1151,33 @@ describe("FundingInstructionsClient", () => {
     });
 
     test("delete (6)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+
+        const rawResponseBody = { type: "type", title: "title", status: 1, detail: "detail" };
+
+        server
+            .mockEndpoint()
+            .delete("/funding-instructions/1")
+            .respondWith()
+            .statusCode(409)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.funding.fundingInstructions.delete({
+                instructionId: 1,
+            });
+        }).rejects.toThrow(Payroc.ConflictError);
+    });
+
+    test("delete (7)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 

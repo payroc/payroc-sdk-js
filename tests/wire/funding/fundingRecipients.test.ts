@@ -195,64 +195,7 @@ describe("FundingRecipientsClient", () => {
                 },
             ],
         });
-        expect(response).toEqual({
-            recipientId: 234,
-            status: "approved",
-            createdDate: "2024-07-02T15:30:00Z",
-            lastModifiedDate: "2024-07-02T15:30:00Z",
-            recipientType: "privateCorporation",
-            taxId: "123456789",
-            charityId: "charityId",
-            doingBusinessAs: "doingBusinessAs",
-            address: {
-                address1: "1 Example Ave.",
-                address2: "Example Address Line 2",
-                address3: "Example Address Line 3",
-                city: "Chicago",
-                state: "Illinois",
-                country: "US",
-                postalCode: "60056",
-            },
-            contactMethods: [
-                {
-                    type: "email",
-                    value: "jane.doe@example.com",
-                },
-            ],
-            metadata: {
-                yourCustomField: "abc123",
-            },
-            owners: [
-                {
-                    ownerId: 4564,
-                    link: {
-                        rel: "owner",
-                        href: "https://api.payroc.com/v1/owners/4564",
-                        method: "get",
-                    },
-                },
-            ],
-            fundingAccounts: [
-                {
-                    fundingAccountId: 123,
-                    status: "approved",
-                    link: {
-                        rel: "fundingAccount",
-                        href: "https://api.payroc.com/v1/funding-accounts/123",
-                        method: "get",
-                    },
-                },
-                {
-                    fundingAccountId: 124,
-                    status: "rejected",
-                    link: {
-                        rel: "fundingAccount",
-                        href: "https://api.payroc.com/v1/funding-accounts/124",
-                        method: "get",
-                    },
-                },
-            ],
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("create (2)", async () => {
@@ -1617,64 +1560,7 @@ describe("FundingRecipientsClient", () => {
         const response = await client.funding.fundingRecipients.retrieve({
             recipientId: 1,
         });
-        expect(response).toEqual({
-            recipientId: 234,
-            status: "approved",
-            createdDate: "2024-07-02T15:30:00Z",
-            lastModifiedDate: "2024-07-02T15:30:00Z",
-            recipientType: "privateCorporation",
-            taxId: "123456789",
-            charityId: "charityId",
-            doingBusinessAs: "Pizza Doe",
-            address: {
-                address1: "1 Example Ave.",
-                address2: "Example Address Line 2",
-                address3: "Example Address Line 3",
-                city: "Chicago",
-                state: "Illinois",
-                country: "US",
-                postalCode: "60056",
-            },
-            contactMethods: [
-                {
-                    type: "phone",
-                    value: "2025550164",
-                },
-            ],
-            metadata: {
-                yourCustomField: "abc123",
-            },
-            owners: [
-                {
-                    ownerId: 4564,
-                    link: {
-                        rel: "owner",
-                        href: "https://api.payroc.com/v1/owners/4564",
-                        method: "get",
-                    },
-                },
-            ],
-            fundingAccounts: [
-                {
-                    fundingAccountId: 123,
-                    status: "approved",
-                    link: {
-                        rel: "fundingAccount",
-                        href: "https://api.payroc.com/v1/funding-accounts/123",
-                        method: "get",
-                    },
-                },
-                {
-                    fundingAccountId: 124,
-                    status: "hold",
-                    link: {
-                        rel: "fundingAccount",
-                        href: "https://api.payroc.com/v1/funding-accounts/124",
-                        method: "get",
-                    },
-                },
-            ],
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("retrieve (2)", async () => {
@@ -2475,64 +2361,7 @@ describe("FundingRecipientsClient", () => {
         const response = await client.funding.fundingRecipients.listAccounts({
             recipientId: 1,
         });
-        expect(response).toEqual([
-            {
-                fundingAccountId: 123,
-                createdDate: "2024-07-02T15:30:00Z",
-                lastModifiedDate: "2024-07-02T15:30:00Z",
-                status: "approved",
-                type: "checking",
-                use: "credit",
-                nameOnAccount: "Jane Doe",
-                paymentMethods: [
-                    {
-                        type: "ach",
-                        value: {
-                            routingNumber: "123456789",
-                            accountNumber: "1234567890",
-                        },
-                    },
-                ],
-                metadata: {
-                    yourCustomField: "abc123",
-                },
-                links: [
-                    {
-                        rel: "parent",
-                        method: "get",
-                        href: "https://api.payroc.com/v1/funding-recipients/234",
-                    },
-                ],
-            },
-            {
-                fundingAccountId: 124,
-                createdDate: "2024-07-02T15:30:00Z",
-                lastModifiedDate: "2024-07-02T15:30:00Z",
-                status: "pending",
-                type: "checking",
-                use: "debit",
-                nameOnAccount: "Jane Doe",
-                paymentMethods: [
-                    {
-                        type: "ach",
-                        value: {
-                            routingNumber: "123456789",
-                            accountNumber: "1234567890",
-                        },
-                    },
-                ],
-                metadata: {
-                    yourCustomField: "abc123",
-                },
-                links: [
-                    {
-                        rel: "parent",
-                        method: "get",
-                        href: "https://api.payroc.com/v1/funding-recipients/235",
-                    },
-                ],
-            },
-        ]);
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("listAccounts (2)", async () => {
@@ -2726,34 +2555,7 @@ describe("FundingRecipientsClient", () => {
                 },
             },
         });
-        expect(response).toEqual({
-            fundingAccountId: 123,
-            createdDate: "2024-07-02T15:30:00Z",
-            lastModifiedDate: "2024-07-02T15:30:00Z",
-            status: "approved",
-            type: "checking",
-            use: "credit",
-            nameOnAccount: "Jane Doe",
-            paymentMethods: [
-                {
-                    type: "ach",
-                    value: {
-                        routingNumber: "123456789",
-                        accountNumber: "1234567890",
-                    },
-                },
-            ],
-            metadata: {
-                yourCustomField: "abc123",
-            },
-            links: [
-                {
-                    rel: "parent",
-                    method: "get",
-                    href: "https://api.payroc.com/v1/funding-recipients/234",
-                },
-            ],
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("createAccount (2)", async () => {
@@ -3140,42 +2942,7 @@ describe("FundingRecipientsClient", () => {
         const response = await client.funding.fundingRecipients.listOwners({
             recipientId: 1,
         });
-        expect(response).toEqual([
-            {
-                ownerId: 4564,
-                firstName: "Jane",
-                middleName: "Helen",
-                lastName: "Doe",
-                dateOfBirth: "1964-03-22",
-                address: {
-                    address1: "1 Example Ave.",
-                    address2: "Example Address Line 2",
-                    address3: "Example Address Line 3",
-                    city: "Chicago",
-                    state: "Illinois",
-                    country: "US",
-                    postalCode: "60056",
-                },
-                identifiers: [
-                    {
-                        type: "nationalId",
-                        value: "xxxxx4320",
-                    },
-                ],
-                contactMethods: [
-                    {
-                        type: "email",
-                        value: "jane.doe@example.com",
-                    },
-                ],
-                relationship: {
-                    equityPercentage: 48.5,
-                    title: "CFO",
-                    isControlProng: true,
-                    isAuthorizedSignatory: false,
-                },
-            },
-        ]);
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("listOwners (2)", async () => {
@@ -3410,40 +3177,7 @@ describe("FundingRecipientsClient", () => {
                 },
             },
         });
-        expect(response).toEqual({
-            ownerId: 4564,
-            firstName: "Jane",
-            middleName: "Helen",
-            lastName: "Doe",
-            dateOfBirth: "1964-03-22",
-            address: {
-                address1: "1 Example Ave.",
-                address2: "Example Address Line 2",
-                address3: "Example Address Line 3",
-                city: "Chicago",
-                state: "Illinois",
-                country: "US",
-                postalCode: "60056",
-            },
-            identifiers: [
-                {
-                    type: "nationalId",
-                    value: "xxxxx4320",
-                },
-            ],
-            contactMethods: [
-                {
-                    type: "email",
-                    value: "jane.doe@example.com",
-                },
-            ],
-            relationship: {
-                equityPercentage: 48.5,
-                title: "CFO",
-                isControlProng: true,
-                isAuthorizedSignatory: false,
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("createOwner (2)", async () => {

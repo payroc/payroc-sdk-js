@@ -40,34 +40,7 @@ describe("FundingAccountsClient", () => {
         const response = await client.funding.fundingAccounts.retrieve({
             fundingAccountId: 1,
         });
-        expect(response).toEqual({
-            fundingAccountId: 123,
-            createdDate: "2024-07-02T15:30:00Z",
-            lastModifiedDate: "2024-07-02T15:30:00Z",
-            status: "pending",
-            type: "checking",
-            use: "credit",
-            nameOnAccount: "Jane Doe",
-            paymentMethods: [
-                {
-                    type: "ach",
-                    value: {
-                        routingNumber: "123456789",
-                        accountNumber: "1234567890",
-                    },
-                },
-            ],
-            metadata: {
-                yourCustomField: "abc123",
-            },
-            links: [
-                {
-                    rel: "parent",
-                    method: "get",
-                    href: "https://api.payroc.com/v1/processing-accounts/4525644354",
-                },
-            ],
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("retrieve (2)", async () => {

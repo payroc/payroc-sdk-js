@@ -2,6 +2,7 @@
 
 import type { BaseClientOptions } from "../../../../BaseClient.js";
 import { type NormalizedClientOptionsWithAuth, normalizeClientOptionsWithAuth } from "../../../../BaseClient.js";
+import { ClosedLoopReadsClient } from "../resources/closedLoopReads/client/Client.js";
 import { PaymentInstructionsClient } from "../resources/paymentInstructions/client/Client.js";
 import { RefundInstructionsClient } from "../resources/refundInstructions/client/Client.js";
 import { SignatureInstructionsClient } from "../resources/signatureInstructions/client/Client.js";
@@ -17,6 +18,7 @@ export class PayrocCloudClient {
     protected _refundInstructions: RefundInstructionsClient | undefined;
     protected _signatureInstructions: SignatureInstructionsClient | undefined;
     protected _signatures: SignaturesClient | undefined;
+    protected _closedLoopReads: ClosedLoopReadsClient | undefined;
 
     constructor(options: PayrocCloudClient.Options) {
         this._options = normalizeClientOptionsWithAuth(options);
@@ -36,5 +38,9 @@ export class PayrocCloudClient {
 
     public get signatures(): SignaturesClient {
         return (this._signatures ??= new SignaturesClient(this._options));
+    }
+
+    public get closedLoopReads(): ClosedLoopReadsClient {
+        return (this._closedLoopReads ??= new ClosedLoopReadsClient(this._options));
     }
 }

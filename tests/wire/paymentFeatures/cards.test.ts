@@ -96,69 +96,7 @@ describe("CardsClient", () => {
                 },
             },
         });
-        expect(response).toEqual({
-            operator: "Jane",
-            processingTerminalId: "1234001",
-            card: {
-                type: "Visa Credit",
-                entryMethod: "keyed",
-                cardholderName: "Sarah Hazel Hopper",
-                cardholderSignature:
-                    "a1b1c012345678a000b000c0012345d0e0f010g10061a031i001j071k0a1b0c1d0e1234567890120f1g0h1i0j1k0a1b0123451c012d0e1f0g1h0i1j123k1a1b1c1d1e1f1g123h1i1j1k1a1b1c1d1e1f1g123h123i1j123k12340a120a12345b012c0123012d0d1e0f1g0h1i123j123k10000",
-                cardNumber: "453985******7062",
-                expiryDate: "1230",
-                secureToken: {
-                    secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
-                    customerName: "Sarah Hazel Hopper",
-                    token: "296753123456",
-                    status: "notValidated",
-                    link: {
-                        rel: "previous",
-                        method: "get",
-                        href: "<uri>",
-                    },
-                },
-                securityChecks: {
-                    cvvResult: "M",
-                    avsResult: "Y",
-                },
-                emvTags: [
-                    {
-                        hex: "9F36",
-                        value: "001234",
-                    },
-                    {
-                        hex: "5F2A",
-                        value: "0840",
-                    },
-                ],
-                balances: [
-                    {
-                        benefitCategory: "cash",
-                        amount: 50000,
-                        currency: "USD",
-                    },
-                    {
-                        benefitCategory: "foodStamp",
-                        amount: 10000,
-                        currency: "USD",
-                    },
-                ],
-            },
-            verified: true,
-            transactionResult: {
-                type: "sale",
-                ebtType: "cashPurchase",
-                status: "ready",
-                approvalCode: "approvalCode",
-                authorizedAmount: 1000000,
-                currency: "AED",
-                responseCode: "A",
-                responseMessage: "APPROVAL",
-                processorResponseCode: "00",
-                cardSchemeReferenceId: "cardSchemeReferenceId",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("verifyCard (2)", async () => {
@@ -613,53 +551,7 @@ describe("CardsClient", () => {
                 },
             },
         });
-        expect(response).toEqual({
-            processingTerminalId: "1234001",
-            operator: "Jane",
-            card: {
-                type: "Common Benefit Identification Card",
-                entryMethod: "keyed",
-                cardholderName: "Sarah Hazel Hopper",
-                cardholderSignature:
-                    "a1b1c012345678a000b000c0012345d0e0f010g10061a031i001j071k0a1b0c1d0e1234567890120f1g0h1i0j1k0a1b0123451c012d0e1f0g1h0i1j123k1a1b1c1d1e1f1g123h1i1j1k1a1b1c1d1e1f1g123h123i1j123k12340a120a12345b012c0123012d0d1e0f1g0h1i123j123k10000",
-                cardNumber: "453985******7062",
-                expiryDate: "1230",
-                secureToken: {
-                    secureTokenId: "MREF_abc1de23-f4a5-6789-bcd0-12e345678901fa",
-                    customerName: "Sarah Hazel Hopper",
-                    token: "296753123456",
-                    status: "notValidated",
-                    link: {
-                        rel: "previous",
-                        method: "get",
-                        href: "<uri>",
-                    },
-                },
-                securityChecks: {
-                    cvvResult: "M",
-                    avsResult: "Y",
-                },
-                emvTags: [
-                    {
-                        hex: "9F36",
-                        value: "001234",
-                    },
-                    {
-                        hex: "5F2A",
-                        value: "0840",
-                    },
-                ],
-                balances: [
-                    {
-                        benefitCategory: "cash",
-                        amount: 10000,
-                        currency: "USD",
-                    },
-                ],
-            },
-            responseCode: "A",
-            responseMessage: "Approved",
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("viewEbtBalance (2)", async () => {
@@ -1095,19 +987,7 @@ describe("CardsClient", () => {
                 },
             },
         });
-        expect(response).toEqual({
-            type: "MASTERCARD",
-            cardNumber: "453985******7062",
-            country: "US",
-            currency: "USD",
-            debit: false,
-            surcharging: {
-                allowed: true,
-                amount: 87,
-                percentage: 3,
-                disclosure: "A 3% surcharge is applied to cover processing fees.",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("lookupBin (2)", async () => {
@@ -1539,42 +1419,7 @@ describe("CardsClient", () => {
                 },
             },
         });
-        expect(response).toEqual({
-            processingTerminalId: "1234001",
-            operator: "Jane",
-            baseAmount: 10000,
-            baseCurrency: "EUR",
-            inquiryResult: {
-                dccOffered: true,
-                causeOfRejection: "Service unavailable",
-            },
-            dccOffer: {
-                accepted: true,
-                offerReference: "3396977e-40b9-4b26-8a3f-c25bc1280ee2",
-                fxAmount: 16125,
-                fxCurrency: "JPY",
-                fxCurrencyCode: "392",
-                fxCurrencyExponent: 0,
-                fxRate: 161.2542,
-                markup: 3,
-                markupText: "3.5% mark-up applied.",
-                provider: "FEXCO",
-                source: "REUTERS WHOLESALE INTERBANK",
-            },
-            cardInfo: {
-                type: "MASTERCARD",
-                cardNumber: "453985******7062",
-                country: "country",
-                currency: "AED",
-                debit: true,
-                surcharging: {
-                    allowed: true,
-                    amount: 87,
-                    percentage: 3,
-                    disclosure: "A 3% surcharge is applied to cover processing fees.",
-                },
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("retrieveFxRates (2)", async () => {

@@ -14,6 +14,8 @@ export interface CustomizationOptions {
      * - `deviceReadOrManualEntry` - Device prompts the cardholder to tap, swipe, or insert their card. The device also displays an option for the merchant or cardholder to manually enter card details.
      */
     entryMethod?: CustomizationOptions.EntryMethod | undefined;
+    /** Polymorphic object that indicates the type of closed-loop card that the merchant accepts. */
+    closedLoopOptions?: Payroc.CustomizationOptionsClosedLoopOptions | undefined;
 }
 
 export namespace CustomizationOptions {

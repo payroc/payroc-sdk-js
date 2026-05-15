@@ -93,46 +93,7 @@ describe("SingleUseTokensClient", () => {
                 },
             },
         });
-        expect(response).toEqual({
-            processingTerminalId: "1234001",
-            operator: "Jane",
-            paymentMethod: {
-                type: "card",
-                accountType: "checking",
-                cardDetails: {
-                    entryMethod: "raw",
-                    downgradeTo: "keyed",
-                    device: {
-                        model: "bbposChp",
-                        serialNumber: "1850010868",
-                        firmwareVersion: "v1.2.3",
-                        config: {
-                            quickChip: false,
-                        },
-                    },
-                    rawData: "A1B2C3D4E5F67890ABCD1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF",
-                    cardholderSignature:
-                        "a1b1c012345678a000b000c0012345d0e0f010g10061a031i001j071k0a1b0c1d0e1234567890120f1g0h1i0j1k0a1b0123451c012d0e1f0g1h0i1j123k1a1b1c1d1e1f1g123h1i1j1k1a1b1c1d1e1f1g123h123i1j123k12340a120a12345b012c0123012d0d1e0f1g0h1i123j123k10000",
-                },
-            },
-            token: "fa2e9e51bc5265a33a5ca41449524d53d1def596ffd8c0904f222183a71a65cdb58835120a65196a48a6375abc4deafe2b7e948689ab9d6aba919e860f32e247",
-            expiresAt: "2024-08-05T17:50:05Z",
-            source: {
-                type: "card",
-                cardholderName: "Sarah Hazel Hopper",
-                cardNumber: "4539858876047062",
-                expiryDate: "1230",
-                cardType: "cardType",
-                currency: "AED",
-                debit: true,
-                surcharging: {
-                    allowed: true,
-                    amount: 87,
-                    percentage: 3,
-                    disclosure: "A 3% surcharge is applied to cover processing fees.",
-                },
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("create (2)", async () => {

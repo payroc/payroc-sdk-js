@@ -1,5 +1,6 @@
 # Specify files that shouldn't be modified by Fern
 .gitignore
+.github/workflows/
 .github/CODEOWNERS
 src/BaseClient.ts
 src/core/pagination/PayrocPager.ts
@@ -25,3 +26,8 @@ README.md
 LICENSE
 .previewignore
 SECURITY.md
+CLAUDE.md
+**/CLAUDE.md
+
+# Prevent Fern from regenerating GitHub Actions workflows
+.github/workflows/**

@@ -95,7 +95,7 @@ export class AttachmentsClient {
             ),
             method: "POST",
             headers: _headers,
-            queryParameters: requestOptions?.queryParams,
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "file",
             duplex: _maybeEncodedRequest.duplex,
             body: _maybeEncodedRequest.body,
@@ -170,7 +170,7 @@ export class AttachmentsClient {
     /**
      * Use this method to retrieve the details of an attachment.
      *
-     * To retrieve the details of an attachment you need its attachmentId. Our gateway returned the attachmentId in the response of the method that you used to upload the attachment.
+     * To retrieve the details of an attachment you need its attachmentId. Our gateway returned the attachmentId in the response of the [Upload Attachment to Processing Account](https://docs.payroc.com/api/schema/boarding/processing-accounts/upload-to-processing-account) method.
      *
      * Our gateway returns information about the attachment, including its upload status and the entity that the attachment is linked to. Our gateway doesn't return the file that you uploaded.
      *
@@ -216,7 +216,7 @@ export class AttachmentsClient {
             ),
             method: "GET",
             headers: _headers,
-            queryParameters: requestOptions?.queryParams,
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,

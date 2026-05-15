@@ -7,6 +7,6 @@
  *     }
  */
 export interface RetrieveAttachmentsRequest {
-    /** Unique identifier of the attachment */
+    /** Unique identifier of the attachment. */
     attachmentId: string;
 }

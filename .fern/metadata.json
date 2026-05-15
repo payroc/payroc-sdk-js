@@ -1,7 +1,7 @@
 {
-    "cliVersion": "4.37.12",
+    "cliVersion": "5.23.3",
     "generatorName": "fernapi/fern-typescript-sdk",
-    "generatorVersion": "3.59.3",
+    "generatorVersion": "3.70.6",
     "generatorConfig": {
         "namespaceExport": "Payroc",
         "allowCustomFetcher": true,
@@ -90,9 +90,14 @@
                 "@sentry/react-native": {
                     "optional": true
                 }
+            },
+            "publishConfig": {
+                "access": "public"
             }
         }
     },
-    "originGitCommit": "a0073a688dd10b5b50d5f9df2a5a279b63f9a010",
-    "sdkVersion": "0.0.559"
+    "originGitCommit": "df8ac07e535641c76c018b6fac1b458437d10339",
+    "originGitCommitIsDirty": false,
+    "invokedBy": "manual",
+    "sdkVersion": "0.0.1434"
 }

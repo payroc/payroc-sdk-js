@@ -42,16 +42,7 @@ describe("SignatureInstructionsClient", () => {
             serialNumber: "1850010868",
             processingTerminalId: "1234001",
         });
-        expect(response).toEqual({
-            status: "inProgress",
-            errorMessage: "errorMessage",
-            link: {
-                rel: "self",
-                method: "GET",
-                href: "https://api.payroc.com/v1/signature-instructions/a37439165d134678a9100ebba3b29597",
-            },
-            signatureInstructionId: "a37439165d134678a9100ebba3b29597",
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("submit (2)", async () => {
@@ -330,16 +321,7 @@ describe("SignatureInstructionsClient", () => {
         const response = await client.payrocCloud.signatureInstructions.retrieve({
             signatureInstructionId: "a37439165d134678a9100ebba3b29597",
         });
-        expect(response).toEqual({
-            status: "completed",
-            errorMessage: "errorMessage",
-            link: {
-                rel: "signature",
-                method: "GET",
-                href: "https://api.payroc.com/v1/signatures/M2MJOG6O2Y",
-            },
-            signatureInstructionId: "a37439165d134678a9100ebba3b29597",
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("retrieve (2)", async () => {

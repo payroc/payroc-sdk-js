@@ -57,19 +57,7 @@ describe("SharingEventsClient", () => {
                 ],
             },
         });
-        expect(response).toEqual({
-            sharingMethod: "email",
-            sharingEventId: "GTZH5WVXK9",
-            dateTime: "2024-07-02T15:30:00Z",
-            merchantCopy: true,
-            message: "Dear Sarah,\n\nYou can pay for your order via the link below.\n",
-            recipients: [
-                {
-                    name: "Sarah Hazel Hopper",
-                    email: "sarah.hopper@example.com",
-                },
-            ],
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("share (2)", async () => {

@@ -682,9 +682,9 @@ await client.attachments.uploadToProcessingAccount({
 
 Use this method to retrieve the details of an attachment.  
 
-To retrieve the details of an attachment you need its attachmentId. Our gateway returned the attachmentId in the response of the method that you used to upload the attachment.  
+To retrieve the details of an attachment you need its attachmentId. Our gateway returned the attachmentId in the response of the [Upload Attachment to Processing Account](https://docs.payroc.com/api/schema/boarding/processing-accounts/upload-to-processing-account) method.  
 
-Our gateway returns information about the attachment, including its upload status and the entity that the attachment is linked to. Our gateway doesn't return the file that you uploaded.
+Our gateway returns information about the attachment, including its upload status and the entity that the attachment is linked to. Our gateway doesn't return the file that you uploaded.  
 </dd>
 </dl>
 </dd>
@@ -849,6 +849,8 @@ const pageableResponse = await client.bankTransferPayments.payments.list({
     orderId: "OrderRef6543",
     nameOnAccount: "Sarah%20Hazel%20Hopper",
     last4: "7890",
+    type: ["payment"],
+    status: ["ready"],
     dateFrom: "2024-07-01T00:00:00Z",
     dateTo: "2024-07-31T23:59:59Z",
     settlementState: "settled",
@@ -868,6 +870,8 @@ let page = await client.bankTransferPayments.payments.list({
     orderId: "OrderRef6543",
     nameOnAccount: "Sarah%20Hazel%20Hopper",
     last4: "7890",
+    type: ["payment"],
+    status: ["ready"],
     dateFrom: "2024-07-01T00:00:00Z",
     dateTo: "2024-07-31T23:59:59Z",
     settlementState: "settled",
@@ -1388,6 +1392,8 @@ const pageableResponse = await client.bankTransferPayments.refunds.list({
     orderId: "OrderRef6543",
     nameOnAccount: "Sarah%20Hazel%20Hopper",
     last4: "7062",
+    type: ["refund"],
+    status: ["ready"],
     dateFrom: "2024-07-01T00:00:00Z",
     dateTo: "2024-07-31T23:59:59Z",
     settlementState: "settled",
@@ -1406,6 +1412,8 @@ let page = await client.bankTransferPayments.refunds.list({
     orderId: "OrderRef6543",
     nameOnAccount: "Sarah%20Hazel%20Hopper",
     last4: "7062",
+    type: ["refund"],
+    status: ["ready"],
     dateFrom: "2024-07-01T00:00:00Z",
     dateTo: "2024-07-31T23:59:59Z",
     settlementState: "settled",
@@ -4570,6 +4578,9 @@ const pageableResponse = await client.cardPayments.payments.list({
     first6: "453985",
     last4: "7062",
     tender: "ebt",
+    tipMode: ["noTip", "prompted"],
+    type: ["sale", "preAuthorization"],
+    status: ["accepted", "ready", "complete"],
     dateFrom: "2024-07-01T15:30:00Z",
     dateTo: "2024-07-03T15:30:00Z",
     settlementState: "settled",
@@ -4592,6 +4603,9 @@ let page = await client.cardPayments.payments.list({
     first6: "453985",
     last4: "7062",
     tender: "ebt",
+    tipMode: ["noTip", "prompted"],
+    type: ["sale", "preAuthorization"],
+    status: ["accepted", "ready", "complete"],
     dateFrom: "2024-07-01T15:30:00Z",
     dateTo: "2024-07-03T15:30:00Z",
     settlementState: "settled",
@@ -5235,6 +5249,7 @@ const pageableResponse = await client.cardPayments.refunds.list({
     first6: "453985",
     last4: "7062",
     tender: "ebt",
+    status: ["accepted", "ready", "complete"],
     dateFrom: "2024-07-01T15:30:00Z",
     dateTo: "2024-07-03T15:30:00Z",
     settlementState: "settled",
@@ -5256,6 +5271,7 @@ let page = await client.cardPayments.refunds.list({
     first6: "453985",
     last4: "7062",
     tender: "ebt",
+    status: ["accepted", "ready", "complete"],
     dateFrom: "2024-07-01T15:30:00Z",
     dateTo: "2024-07-03T15:30:00Z",
     settlementState: "settled",
@@ -9197,6 +9213,78 @@ await client.payrocCloud.signatures.retrieve({
 <dd>
 
 **requestOptions:** `SignaturesClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## PayrocCloud ClosedLoopReads
+<details><summary><code>client.payrocCloud.closedLoopReads.<a href="/src/api/resources/payrocCloud/resources/closedLoopReads/client/Client.ts">retrieve</a>({ ...params }) -> Payroc.ClosedLoopResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Use this method to retrieve information that a payment device captured from a closed-loop card.  
+
+A closed-loop card is a type of card that a customer can use only with a specific merchant. Each time a payment device captures information from a closed-loop card, we store the information as a closed-loop read.  
+
+Our gateway returns the following information from a closed-loop read:  
+-	Date that the payment device captured the information.
+-	Unstructured payload from the card.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.payrocCloud.closedLoopReads.retrieve({
+    closedLoopReadId: "JDN4ILZB0T"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Payroc.payrocCloud.RetrieveClosedLoopReadsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ClosedLoopReadsClient.RequestOptions` 
     
 </dd>
 </dl>
