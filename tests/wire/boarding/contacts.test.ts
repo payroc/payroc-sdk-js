@@ -36,37 +36,7 @@ describe("ContactsClient", () => {
         const response = await client.boarding.contacts.retrieve({
             contactId: 1,
         });
-        expect(response).toEqual({
-            contactId: 1543,
-            type: "manager",
-            firstName: "Jane",
-            middleName: "Helen",
-            lastName: "Doe",
-            identifiers: [
-                {
-                    type: "nationalId",
-                    value: "xxxxx4320",
-                },
-            ],
-            contactMethods: [
-                {
-                    type: "email",
-                    value: "jane.doe@example.com",
-                },
-                {
-                    type: "phone",
-                    value: "2025550164",
-                },
-                {
-                    type: "mobile",
-                    value: "8445557624",
-                },
-                {
-                    type: "fax",
-                    value: "2025550110",
-                },
-            ],
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("retrieve (2)", async () => {

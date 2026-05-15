@@ -34,23 +34,7 @@ describe("AttachmentsClient", () => {
         const response = await client.attachments.retrieve({
             attachmentId: "12876",
         });
-        expect(response).toEqual({
-            attachmentId: "15387",
-            type: "personalIdentification",
-            uploadStatus: "accepted",
-            fileName: "oliviaDoePassport.pdf",
-            contentType: "application/pdf",
-            description: "Passport for Olivia Doe",
-            entity: {
-                type: "processingAccount",
-                id: "2585",
-            },
-            createdDate: "2025-09-18T10:19:18Z",
-            lastModifiedDate: "2025-09-18T10:19:18Z",
-            metadata: {
-                passportId: "123456789",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("retrieve (2)", async () => {

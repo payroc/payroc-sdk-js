@@ -12,6 +12,7 @@ import type * as Payroc from "../../../../../../index.js";
  *         first6: "453985",
  *         last4: "7062",
  *         tender: "ebt",
+ *         status: ["accepted", "ready", "complete"],
  *         dateFrom: "2024-07-01T15:30:00Z",
  *         dateTo: "2024-07-03T15:30:00Z",
  *         settlementState: "settled",

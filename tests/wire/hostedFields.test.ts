@@ -38,11 +38,7 @@ describe("HostedFieldsClient", () => {
             libVersion: "1.1.0.123456",
             scenario: "payment",
         });
-        expect(response).toEqual({
-            processingTerminalId: "1234001",
-            token: "abcdef1234567890abcdef1234567890",
-            expiresAt: "2025-07-02T13:30:00Z",
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("create (2)", async () => {

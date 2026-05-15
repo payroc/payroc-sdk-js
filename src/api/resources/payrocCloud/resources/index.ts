@@ -1,3 +1,5 @@
+export * from "./closedLoopReads/client/requests/index.js";
+export * as closedLoopReads from "./closedLoopReads/index.js";
 export * from "./paymentInstructions/client/requests/index.js";
 export * as paymentInstructions from "./paymentInstructions/index.js";
 export * from "./refundInstructions/client/requests/index.js";

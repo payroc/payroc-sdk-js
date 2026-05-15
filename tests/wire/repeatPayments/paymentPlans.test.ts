@@ -113,47 +113,7 @@ describe("PaymentPlansClient", () => {
                 },
             },
         });
-        expect(response).toEqual({
-            paymentPlanId: "PlanRef8765",
-            processingTerminalId: "1234001",
-            name: "Premium Club",
-            description: "Monthly Premium Club subscription",
-            currency: "USD",
-            length: 12,
-            type: "automatic",
-            frequency: "monthly",
-            onUpdate: "continue",
-            onDelete: "complete",
-            customFieldNames: ["yourCustomField"],
-            setupOrder: {
-                amount: 4999,
-                description: "Initial setup fee for Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-            recurringOrder: {
-                amount: 4999,
-                description: "Monthly Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("create (2)", async () => {
@@ -531,47 +491,7 @@ describe("PaymentPlansClient", () => {
             processingTerminalId: "1234001",
             paymentPlanId: "PlanRef8765",
         });
-        expect(response).toEqual({
-            paymentPlanId: "PlanRef8765",
-            processingTerminalId: "1234001",
-            name: "Premium Club",
-            description: "Monthly Premium Club subscription",
-            currency: "USD",
-            length: 12,
-            type: "automatic",
-            frequency: "monthly",
-            onUpdate: "continue",
-            onDelete: "complete",
-            customFieldNames: ["yourCustomField"],
-            setupOrder: {
-                amount: 4999,
-                description: "Initial setup fee for Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-            recurringOrder: {
-                amount: 4999,
-                description: "Monthly Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("retrieve (2)", async () => {
@@ -973,47 +893,7 @@ describe("PaymentPlansClient", () => {
                 },
             ],
         });
-        expect(response).toEqual({
-            paymentPlanId: "PlanRef8765",
-            processingTerminalId: "1234001",
-            name: "Premium Club",
-            description: "Monthly Premium Club subscription",
-            currency: "USD",
-            length: 12,
-            type: "automatic",
-            frequency: "monthly",
-            onUpdate: "continue",
-            onDelete: "complete",
-            customFieldNames: ["yourCustomField"],
-            setupOrder: {
-                amount: 4999,
-                description: "Initial setup fee for Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-            recurringOrder: {
-                amount: 4999,
-                description: "Monthly Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("partiallyUpdate (2)", async () => {
@@ -1071,47 +951,7 @@ describe("PaymentPlansClient", () => {
                 },
             ],
         });
-        expect(response).toEqual({
-            paymentPlanId: "PlanRef8765",
-            processingTerminalId: "1234001",
-            name: "Premium Club",
-            description: "Monthly Premium Club subscription",
-            currency: "USD",
-            length: 12,
-            type: "automatic",
-            frequency: "monthly",
-            onUpdate: "continue",
-            onDelete: "complete",
-            customFieldNames: ["yourCustomField"],
-            setupOrder: {
-                amount: 4999,
-                description: "Initial setup fee for Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-            recurringOrder: {
-                amount: 4999,
-                description: "Monthly Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("partiallyUpdate (3)", async () => {
@@ -1169,47 +1009,7 @@ describe("PaymentPlansClient", () => {
                 },
             ],
         });
-        expect(response).toEqual({
-            paymentPlanId: "PlanRef8765",
-            processingTerminalId: "1234001",
-            name: "Premium Club",
-            description: "Monthly Premium Club subscription",
-            currency: "USD",
-            length: 12,
-            type: "automatic",
-            frequency: "monthly",
-            onUpdate: "continue",
-            onDelete: "complete",
-            customFieldNames: ["yourCustomField"],
-            setupOrder: {
-                amount: 4999,
-                description: "Initial setup fee for Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-            recurringOrder: {
-                amount: 4999,
-                description: "Monthly Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("partiallyUpdate (4)", async () => {
@@ -1267,47 +1067,7 @@ describe("PaymentPlansClient", () => {
                 },
             ],
         });
-        expect(response).toEqual({
-            paymentPlanId: "PlanRef8765",
-            processingTerminalId: "1234001",
-            name: "Premium Club",
-            description: "Monthly Premium Club subscription",
-            currency: "USD",
-            length: 12,
-            type: "automatic",
-            frequency: "monthly",
-            onUpdate: "continue",
-            onDelete: "complete",
-            customFieldNames: ["yourCustomField"],
-            setupOrder: {
-                amount: 4999,
-                description: "Initial setup fee for Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-            recurringOrder: {
-                amount: 4999,
-                description: "Monthly Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("partiallyUpdate (5)", async () => {
@@ -1366,47 +1126,7 @@ describe("PaymentPlansClient", () => {
                 },
             ],
         });
-        expect(response).toEqual({
-            paymentPlanId: "PlanRef8765",
-            processingTerminalId: "1234001",
-            name: "Premium Club",
-            description: "Monthly Premium Club subscription",
-            currency: "USD",
-            length: 12,
-            type: "automatic",
-            frequency: "monthly",
-            onUpdate: "continue",
-            onDelete: "complete",
-            customFieldNames: ["yourCustomField"],
-            setupOrder: {
-                amount: 4999,
-                description: "Initial setup fee for Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-            recurringOrder: {
-                amount: 4999,
-                description: "Monthly Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("partiallyUpdate (6)", async () => {
@@ -1465,47 +1185,7 @@ describe("PaymentPlansClient", () => {
                 },
             ],
         });
-        expect(response).toEqual({
-            paymentPlanId: "PlanRef8765",
-            processingTerminalId: "1234001",
-            name: "Premium Club",
-            description: "Monthly Premium Club subscription",
-            currency: "USD",
-            length: 12,
-            type: "automatic",
-            frequency: "monthly",
-            onUpdate: "continue",
-            onDelete: "complete",
-            customFieldNames: ["yourCustomField"],
-            setupOrder: {
-                amount: 4999,
-                description: "Initial setup fee for Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-            recurringOrder: {
-                amount: 4999,
-                description: "Monthly Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("partiallyUpdate (7)", async () => {
@@ -1563,47 +1243,7 @@ describe("PaymentPlansClient", () => {
                 },
             ],
         });
-        expect(response).toEqual({
-            paymentPlanId: "PlanRef8765",
-            processingTerminalId: "1234001",
-            name: "Premium Club",
-            description: "Monthly Premium Club subscription",
-            currency: "USD",
-            length: 12,
-            type: "automatic",
-            frequency: "monthly",
-            onUpdate: "continue",
-            onDelete: "complete",
-            customFieldNames: ["yourCustomField"],
-            setupOrder: {
-                amount: 4999,
-                description: "Initial setup fee for Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-            recurringOrder: {
-                amount: 4999,
-                description: "Monthly Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("partiallyUpdate (8)", async () => {
@@ -1690,47 +1330,7 @@ describe("PaymentPlansClient", () => {
                 },
             ],
         });
-        expect(response).toEqual({
-            paymentPlanId: "PlanRef8765",
-            processingTerminalId: "1234001",
-            name: "Premium Club",
-            description: "Monthly Premium Club subscription",
-            currency: "USD",
-            length: 12,
-            type: "automatic",
-            frequency: "monthly",
-            onUpdate: "continue",
-            onDelete: "complete",
-            customFieldNames: ["yourCustomField"],
-            setupOrder: {
-                amount: 4999,
-                description: "Initial setup fee for Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-            recurringOrder: {
-                amount: 4999,
-                description: "Monthly Premium Club subscription",
-                breakdown: {
-                    subtotal: 4347,
-                    taxes: [
-                        {
-                            name: "Sales Tax",
-                            rate: 5,
-                            amount: 190,
-                        },
-                    ],
-                },
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("partiallyUpdate (9)", async () => {

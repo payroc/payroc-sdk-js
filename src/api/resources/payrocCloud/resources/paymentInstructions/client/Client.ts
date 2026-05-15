@@ -59,6 +59,24 @@ export class PaymentInstructionsClient {
      *         },
      *         autoCapture: true
      *     })
+     *
+     * @example
+     *     await client.payrocCloud.paymentInstructions.submit({
+     *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+     *         serialNumber: "1850010868",
+     *         operator: "Jane",
+     *         processingTerminalId: "1234001",
+     *         order: {
+     *             orderId: "OrderRef6543",
+     *             amount: 4999,
+     *             currency: "USD"
+     *         },
+     *         customizationOptions: {
+     *             closedLoopOptions: {
+     *                 type: "mifare"
+     *             }
+     *         }
+     *     })
      */
     public submit(
         request: Payroc.payrocCloud.PaymentInstructionRequest,
@@ -89,7 +107,7 @@ export class PaymentInstructionsClient {
             method: "POST",
             headers: _headers,
             contentType: "application/json",
-            queryParameters: requestOptions?.queryParams,
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
             body: _body,
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
@@ -204,7 +222,7 @@ export class PaymentInstructionsClient {
             ),
             method: "GET",
             headers: _headers,
-            queryParameters: requestOptions?.queryParams,
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -308,7 +326,7 @@ export class PaymentInstructionsClient {
             ),
             method: "DELETE",
             headers: _headers,
-            queryParameters: requestOptions?.queryParams,
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,

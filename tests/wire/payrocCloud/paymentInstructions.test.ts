@@ -58,7 +58,25 @@ describe("PaymentInstructionsClient", () => {
             },
             autoCapture: true,
         });
-        expect(response).toEqual({
+        expect(response).toEqual(rawResponseBody);
+    });
+
+    test("submit (2)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+        const rawRequestBody = {
+            operator: "Jane",
+            processingTerminalId: "1234001",
+            order: { orderId: "OrderRef6543", amount: 4999, currency: "USD" },
+            customizationOptions: { closedLoopOptions: { type: "mifare" } },
+        };
+        const rawResponseBody = {
             status: "inProgress",
             errorMessage: "errorMessage",
             link: {
@@ -67,10 +85,38 @@ describe("PaymentInstructionsClient", () => {
                 href: "https://api.payroc.com/v1/payment-instructions/a37439165d134678a9100ebba3b29597",
             },
             paymentInstructionId: "a37439165d134678a9100ebba3b29597",
+        };
+
+        server
+            .mockEndpoint()
+            .post("/devices/1850010868/payment-instructions")
+            .header("Idempotency-Key", "8e03978e-40d5-43e8-bc93-6894a57f9324")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.payrocCloud.paymentInstructions.submit({
+            "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+            serialNumber: "1850010868",
+            operator: "Jane",
+            processingTerminalId: "1234001",
+            order: {
+                orderId: "OrderRef6543",
+                amount: 4999,
+                currency: "USD",
+            },
+            customizationOptions: {
+                closedLoopOptions: {
+                    type: "mifare",
+                },
+            },
         });
+        expect(response).toEqual(rawResponseBody);
     });
 
-    test("submit (2)", async () => {
+    test("submit (3)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -109,7 +155,7 @@ describe("PaymentInstructionsClient", () => {
         }).rejects.toThrow(Payroc.BadRequestError);
     });
 
-    test("submit (3)", async () => {
+    test("submit (4)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -148,7 +194,7 @@ describe("PaymentInstructionsClient", () => {
         }).rejects.toThrow(Payroc.UnauthorizedError);
     });
 
-    test("submit (4)", async () => {
+    test("submit (5)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -187,7 +233,7 @@ describe("PaymentInstructionsClient", () => {
         }).rejects.toThrow(Payroc.ForbiddenError);
     });
 
-    test("submit (5)", async () => {
+    test("submit (6)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -226,7 +272,7 @@ describe("PaymentInstructionsClient", () => {
         }).rejects.toThrow(Payroc.NotFoundError);
     });
 
-    test("submit (6)", async () => {
+    test("submit (7)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -265,7 +311,7 @@ describe("PaymentInstructionsClient", () => {
         }).rejects.toThrow(Payroc.NotAcceptableError);
     });
 
-    test("submit (7)", async () => {
+    test("submit (8)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -304,7 +350,7 @@ describe("PaymentInstructionsClient", () => {
         }).rejects.toThrow(Payroc.ConflictError);
     });
 
-    test("submit (8)", async () => {
+    test("submit (9)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -343,7 +389,7 @@ describe("PaymentInstructionsClient", () => {
         }).rejects.toThrow(Payroc.UnsupportedMediaTypeError);
     });
 
-    test("submit (9)", async () => {
+    test("submit (10)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -410,19 +456,45 @@ describe("PaymentInstructionsClient", () => {
         const response = await client.payrocCloud.paymentInstructions.retrieve({
             paymentInstructionId: "e743a9165d134678a9100ebba3b29597",
         });
-        expect(response).toEqual({
-            status: "completed",
-            errorMessage: "errorMessage",
-            link: {
-                rel: "payment",
-                method: "GET",
-                href: "https://api.payroc.com/v1/payments/M2MJOG6O2Y",
-            },
-            paymentInstructionId: "a37439165d134678a9100ebba3b29597",
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("retrieve (2)", async () => {
+        const server = mockServerPool.createServer();
+        mockBearer(server);
+
+        const client = new PayrocClient({
+            maxRetries: 0,
+            apiKey: "x-api-key",
+            environment: { api: server.baseUrl, identity: server.baseUrl },
+        });
+
+        const rawResponseBody = {
+            status: "completed",
+            errorMessage: "errorMessage",
+            link: {
+                rel: "closed-loop-read",
+                method: "GET",
+                href: "https://api.payroc.com/v1/closed-loop-reads/KEO45MAC1U",
+            },
+            paymentInstructionId: "a37439165d134678a9100ebba3b29597",
+        };
+
+        server
+            .mockEndpoint()
+            .get("/payment-instructions/e743a9165d134678a9100ebba3b29597")
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.payrocCloud.paymentInstructions.retrieve({
+            paymentInstructionId: "e743a9165d134678a9100ebba3b29597",
+        });
+        expect(response).toEqual(rawResponseBody);
+    });
+
+    test("retrieve (3)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -449,7 +521,7 @@ describe("PaymentInstructionsClient", () => {
         }).rejects.toThrow(Payroc.BadRequestError);
     });
 
-    test("retrieve (3)", async () => {
+    test("retrieve (4)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -476,7 +548,7 @@ describe("PaymentInstructionsClient", () => {
         }).rejects.toThrow(Payroc.UnauthorizedError);
     });
 
-    test("retrieve (4)", async () => {
+    test("retrieve (5)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -503,7 +575,7 @@ describe("PaymentInstructionsClient", () => {
         }).rejects.toThrow(Payroc.ForbiddenError);
     });
 
-    test("retrieve (5)", async () => {
+    test("retrieve (6)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -530,7 +602,7 @@ describe("PaymentInstructionsClient", () => {
         }).rejects.toThrow(Payroc.NotFoundError);
     });
 
-    test("retrieve (6)", async () => {
+    test("retrieve (7)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 
@@ -557,7 +629,7 @@ describe("PaymentInstructionsClient", () => {
         }).rejects.toThrow(Payroc.NotAcceptableError);
     });
 
-    test("retrieve (7)", async () => {
+    test("retrieve (8)", async () => {
         const server = mockServerPool.createServer();
         mockBearer(server);
 

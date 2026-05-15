@@ -19,6 +19,24 @@ import type * as Payroc from "../../../../../../index.js";
  *         },
  *         autoCapture: true
  *     }
+ *
+ * @example
+ *     {
+ *         "Idempotency-Key": "8e03978e-40d5-43e8-bc93-6894a57f9324",
+ *         serialNumber: "1850010868",
+ *         operator: "Jane",
+ *         processingTerminalId: "1234001",
+ *         order: {
+ *             orderId: "OrderRef6543",
+ *             amount: 4999,
+ *             currency: "USD"
+ *         },
+ *         customizationOptions: {
+ *             closedLoopOptions: {
+ *                 type: "mifare"
+ *             }
+ *         }
+ *     }
  */
 export interface PaymentInstructionRequest {
     /** Serial number of the merchant’s payment device. */

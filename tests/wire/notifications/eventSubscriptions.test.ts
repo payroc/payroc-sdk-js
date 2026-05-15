@@ -72,23 +72,7 @@ describe("EventSubscriptionsClient", () => {
                 },
             },
         });
-        expect(response).toEqual({
-            id: 2565435189324,
-            enabled: true,
-            status: "registered",
-            eventTypes: ["processingAccount.status.changed"],
-            notifications: [
-                {
-                    type: "webhook",
-                    uri: "https://my-server/notification/endpoint",
-                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
-                    supportEmailAddress: "supportEmailAddress",
-                },
-            ],
-            metadata: {
-                yourCustomField: "abc123",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("create (2)", async () => {
@@ -157,23 +141,7 @@ describe("EventSubscriptionsClient", () => {
                 },
             },
         });
-        expect(response).toEqual({
-            id: 2565435189324,
-            enabled: true,
-            status: "registered",
-            eventTypes: ["processingAccount.status.changed"],
-            notifications: [
-                {
-                    type: "webhook",
-                    uri: "https://my-server/notification/endpoint",
-                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
-                    supportEmailAddress: "supportEmailAddress",
-                },
-            ],
-            metadata: {
-                yourCustomField: "abc123",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("create (3)", async () => {
@@ -242,23 +210,7 @@ describe("EventSubscriptionsClient", () => {
                 },
             },
         });
-        expect(response).toEqual({
-            id: 2565435189324,
-            enabled: true,
-            status: "registered",
-            eventTypes: ["processingAccount.status.changed"],
-            notifications: [
-                {
-                    type: "webhook",
-                    uri: "https://my-server/notification/endpoint",
-                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
-                    supportEmailAddress: "supportEmailAddress",
-                },
-            ],
-            metadata: {
-                yourCustomField: "abc123",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("create (4)", async () => {
@@ -327,23 +279,7 @@ describe("EventSubscriptionsClient", () => {
                 },
             },
         });
-        expect(response).toEqual({
-            id: 2565435189324,
-            enabled: true,
-            status: "registered",
-            eventTypes: ["processingAccount.status.changed"],
-            notifications: [
-                {
-                    type: "webhook",
-                    uri: "https://my-server/notification/endpoint",
-                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
-                    supportEmailAddress: "supportEmailAddress",
-                },
-            ],
-            metadata: {
-                responsiblePerson: "Jane Doe",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("create (5)", async () => {
@@ -707,23 +643,7 @@ describe("EventSubscriptionsClient", () => {
         const response = await client.notifications.eventSubscriptions.retrieve({
             subscriptionId: 1,
         });
-        expect(response).toEqual({
-            id: 2565435189324,
-            enabled: true,
-            status: "registered",
-            eventTypes: ["processingAccount.status.changed"],
-            notifications: [
-                {
-                    type: "webhook",
-                    uri: "https://my-server/notification/endpoint",
-                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
-                    supportEmailAddress: "supportEmailAddress",
-                },
-            ],
-            metadata: {
-                yourCustomField: "abc123",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("retrieve (2)", async () => {
@@ -1323,23 +1243,7 @@ describe("EventSubscriptionsClient", () => {
                 },
             ],
         });
-        expect(response).toEqual({
-            id: 2565435189324,
-            enabled: false,
-            status: "registered",
-            eventTypes: ["processingAccount.status.changed"],
-            notifications: [
-                {
-                    type: "webhook",
-                    uri: "https://my-server/notification/endpoint",
-                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
-                    supportEmailAddress: "supportEmailAddress",
-                },
-            ],
-            metadata: {
-                yourCustomField: "abc123",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("partiallyUpdate (2)", async () => {
@@ -1388,23 +1292,7 @@ describe("EventSubscriptionsClient", () => {
                 },
             ],
         });
-        expect(response).toEqual({
-            id: 2565435189324,
-            enabled: false,
-            status: "registered",
-            eventTypes: ["processingAccount.status.changed"],
-            notifications: [
-                {
-                    type: "webhook",
-                    uri: "https://my-server/notification/endpoint",
-                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
-                    supportEmailAddress: "supportEmailAddress",
-                },
-            ],
-            metadata: {
-                yourCustomField: "abc123",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("partiallyUpdate (3)", async () => {
@@ -1453,23 +1341,7 @@ describe("EventSubscriptionsClient", () => {
                 },
             ],
         });
-        expect(response).toEqual({
-            id: 2565435189324,
-            enabled: false,
-            status: "registered",
-            eventTypes: ["processingAccount.status.changed"],
-            notifications: [
-                {
-                    type: "webhook",
-                    uri: "https://my-server/notification/endpoint",
-                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
-                    supportEmailAddress: "supportEmailAddress",
-                },
-            ],
-            metadata: {
-                yourCustomField: "abc123",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("partiallyUpdate (4)", async () => {
@@ -1518,23 +1390,7 @@ describe("EventSubscriptionsClient", () => {
                 },
             ],
         });
-        expect(response).toEqual({
-            id: 2565435189324,
-            enabled: false,
-            status: "registered",
-            eventTypes: ["processingAccount.status.changed"],
-            notifications: [
-                {
-                    type: "webhook",
-                    uri: "https://my-server/notification/endpoint",
-                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
-                    supportEmailAddress: "supportEmailAddress",
-                },
-            ],
-            metadata: {
-                yourCustomField: "abc123",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("partiallyUpdate (5)", async () => {
@@ -1584,23 +1440,7 @@ describe("EventSubscriptionsClient", () => {
                 },
             ],
         });
-        expect(response).toEqual({
-            id: 2565435189324,
-            enabled: false,
-            status: "registered",
-            eventTypes: ["processingAccount.status.changed"],
-            notifications: [
-                {
-                    type: "webhook",
-                    uri: "https://my-server/notification/endpoint",
-                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
-                    supportEmailAddress: "supportEmailAddress",
-                },
-            ],
-            metadata: {
-                yourCustomField: "abc123",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("partiallyUpdate (6)", async () => {
@@ -1650,23 +1490,7 @@ describe("EventSubscriptionsClient", () => {
                 },
             ],
         });
-        expect(response).toEqual({
-            id: 2565435189324,
-            enabled: false,
-            status: "registered",
-            eventTypes: ["processingAccount.status.changed"],
-            notifications: [
-                {
-                    type: "webhook",
-                    uri: "https://my-server/notification/endpoint",
-                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
-                    supportEmailAddress: "supportEmailAddress",
-                },
-            ],
-            metadata: {
-                yourCustomField: "abc123",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("partiallyUpdate (7)", async () => {
@@ -1715,23 +1539,7 @@ describe("EventSubscriptionsClient", () => {
                 },
             ],
         });
-        expect(response).toEqual({
-            id: 2565435189324,
-            enabled: false,
-            status: "registered",
-            eventTypes: ["processingAccount.status.changed"],
-            notifications: [
-                {
-                    type: "webhook",
-                    uri: "https://my-server/notification/endpoint",
-                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
-                    supportEmailAddress: "supportEmailAddress",
-                },
-            ],
-            metadata: {
-                yourCustomField: "abc123",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("partiallyUpdate (8)", async () => {
@@ -1809,23 +1617,7 @@ describe("EventSubscriptionsClient", () => {
                 },
             ],
         });
-        expect(response).toEqual({
-            id: 2565435189324,
-            enabled: false,
-            status: "registered",
-            eventTypes: ["processingAccount.status.changed"],
-            notifications: [
-                {
-                    type: "webhook",
-                    uri: "https://my-server/notification/endpoint",
-                    secret: "aBcD1234eFgH5678iJkL9012mNoP3456",
-                    supportEmailAddress: "supportEmailAddress",
-                },
-            ],
-            metadata: {
-                yourCustomField: "abc123",
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("partiallyUpdate (9)", async () => {

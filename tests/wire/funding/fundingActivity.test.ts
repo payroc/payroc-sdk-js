@@ -46,39 +46,7 @@ describe("FundingActivityClient", () => {
             limit: 1,
             merchantId: "4525644354",
         });
-        expect(response).toEqual({
-            limit: 2,
-            count: 2,
-            hasMore: true,
-            links: [
-                {
-                    rel: "previous",
-                    method: "get",
-                    href: "https://api.payroc.com/v1/funding-balance?before=4525644354&limit=2",
-                },
-                {
-                    rel: "next",
-                    method: "get",
-                    href: "https://api.payroc.com/v1/funding-balance?after=9876543219&limit=2",
-                },
-            ],
-            data: [
-                {
-                    merchantId: "4525644354",
-                    funds: 120000,
-                    pending: 50050,
-                    available: 69950,
-                    currency: "USD",
-                },
-                {
-                    merchantId: "9876543219",
-                    funds: 50000,
-                    pending: 0,
-                    available: 50000,
-                    currency: "USD",
-                },
-            ],
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("retrieveBalance (2)", async () => {
@@ -110,32 +78,7 @@ describe("FundingActivityClient", () => {
             limit: 1,
             merchantId: "4525644354",
         });
-        expect(response).toEqual({
-            limit: 10,
-            count: 0,
-            hasMore: false,
-            links: [
-                {
-                    rel: "previous",
-                    method: "get",
-                    href: "<uri>",
-                },
-                {
-                    rel: "next",
-                    method: "get",
-                    href: "<uri>",
-                },
-            ],
-            data: [
-                {
-                    merchantId: "4525644354",
-                    funds: 120000,
-                    pending: 50050,
-                    available: 69950,
-                    currency: "USD",
-                },
-            ],
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("retrieveBalance (3)", async () => {

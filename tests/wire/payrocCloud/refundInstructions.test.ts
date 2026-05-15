@@ -62,16 +62,7 @@ describe("RefundInstructionsClient", () => {
                 entryMethod: "manualEntry",
             },
         });
-        expect(response).toEqual({
-            status: "inProgress",
-            errorMessage: "errorMessage",
-            link: {
-                rel: "self",
-                method: "GET",
-                href: "https://api.payroc.com/v1/refund-instructions/a37439165d134678a9100ebba3b29597",
-            },
-            refundInstructionId: "a37439165d134678a9100ebba3b29597",
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("submit (2)", async () => {
@@ -414,16 +405,7 @@ describe("RefundInstructionsClient", () => {
         const response = await client.payrocCloud.refundInstructions.retrieve({
             refundInstructionId: "a37439165d134678a9100ebba3b29597",
         });
-        expect(response).toEqual({
-            status: "completed",
-            errorMessage: "errorMessage",
-            link: {
-                rel: "refund",
-                method: "GET",
-                href: "https://api.payroc.com/v1/refunds/CD3HN88U9F",
-            },
-            refundInstructionId: "a37439165d134678a9100ebba3b29597",
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("retrieve (2)", async () => {

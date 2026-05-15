@@ -62,72 +62,7 @@ describe("ProcessingTerminalsClient", () => {
         const response = await client.boarding.processingTerminals.retrieve({
             processingTerminalId: "1234001",
         });
-        expect(response).toEqual({
-            processingTerminalId: "011234001",
-            status: "active",
-            timezone: "Pacific/Midway",
-            program: "Payroc Cloud",
-            gateway: {
-                gateway: "payroc",
-                terminalTemplateId: "Roc Services_DX8000",
-            },
-            batchClosure: {
-                batchCloseType: "automatic",
-                batchCloseTime: "23:40",
-            },
-            applicationSettings: {
-                invoiceNumberPrompt: true,
-                clerkPrompt: false,
-            },
-            features: {
-                tips: {
-                    enabled: false,
-                },
-                enhancedProcessing: {
-                    enabled: true,
-                    transactionDataLevel: "level2",
-                    shippingAddressMode: "fullAddress",
-                },
-                ebt: {
-                    enabled: true,
-                    ebtType: "foodStamp",
-                    fnsNumber: "3456789",
-                },
-                pinDebitCashback: false,
-                recurringPayments: true,
-                paymentLinks: {
-                    enabled: true,
-                    logoUrl: "LogoPayLink",
-                    footerNotes: "FooterNotesPayLink",
-                },
-                preAuthorizations: true,
-                offlinePayments: true,
-            },
-            taxes: [
-                {
-                    taxRate: 6,
-                    taxLabel: "Sales Tax",
-                },
-            ],
-            security: {
-                tokenization: false,
-                avsPrompt: true,
-                avsLevel: "fullAddress",
-                cvvPrompt: true,
-            },
-            receiptNotifications: {
-                emailReceipt: true,
-                smsReceipt: false,
-            },
-            devices: [
-                {
-                    manufacturer: "Ingenico",
-                    model: "Axium Dx4000 Tsys",
-                    serialNumber: "DX400-1234",
-                    communicationType: "bluetooth",
-                },
-            ],
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("retrieve (2)", async () => {
@@ -340,32 +275,7 @@ describe("ProcessingTerminalsClient", () => {
         const response = await client.boarding.processingTerminals.retrieveHostConfiguration({
             processingTerminalId: "1234001",
         });
-        expect(response).toEqual({
-            processingTerminalId: "0123451001",
-            processingAccountId: "23451",
-            configuration: {
-                processor: "tsys",
-                merchant: {
-                    posMid: "123456789101",
-                    chainNumber: "222222",
-                    settlementAgent: "0001",
-                    abaNumber: "967854108",
-                    binNumber: "888888",
-                    agentBankNumber: "000001",
-                    reimbursementAttribute: "Z",
-                    locationNumber: "000001",
-                },
-                terminal: {
-                    terminalId: "V500000",
-                    terminalNumber: "1111",
-                    authenticationCode: "A1B2C3",
-                    sharingGroups: "3E7HULY8NQWZG",
-                    motoAllowed: true,
-                    internetAllowed: true,
-                    cardPresentAllowed: true,
-                },
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("retrieveHostConfiguration (2)", async () => {

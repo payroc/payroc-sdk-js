@@ -47,39 +47,7 @@ describe("SettlementClient", () => {
         const response = await client.reporting.settlement.retrieveBatch({
             batchId: 1,
         });
-        expect(response).toEqual({
-            batchId: 65,
-            date: "2024-07-02",
-            createdDate: "2024-07-02",
-            lastModifiedDate: "2024-07-02",
-            saleAmount: 100,
-            heldAmount: 0,
-            returnAmount: 0,
-            transactionCount: 10,
-            currency: "USD",
-            merchant: {
-                merchantId: "4525644354",
-                doingBusinessAs: "Pizza Doe",
-                processingAccountId: 38765,
-                link: {
-                    rel: "processingAccount",
-                    method: "get",
-                    href: "https://api.payroc.com/v1/processing-accounts/38765",
-                },
-            },
-            links: [
-                {
-                    rel: "transactions",
-                    method: "get",
-                    href: "https://api.payroc.com/v1/transactions?batchId=65",
-                },
-                {
-                    rel: "authorizations",
-                    method: "get",
-                    href: "https://api.payroc.com/v1/authorizations?batchId=65",
-                },
-            ],
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("retrieveBatch (2)", async () => {
@@ -273,70 +241,7 @@ describe("SettlementClient", () => {
         const response = await client.reporting.settlement.retrieveTransaction({
             transactionId: 1,
         });
-        expect(response).toEqual({
-            transactionId: 442233,
-            type: "capture",
-            date: "2024-07-02",
-            amount: 4999,
-            entryMethod: "ecommerce",
-            createdDate: "2024-07-02",
-            lastModifiedDate: "2024-07-02",
-            status: "paid",
-            cashbackAmount: 0,
-            interchange: {
-                basisPoint: 0,
-                transactionFee: 0,
-            },
-            currency: "USD",
-            merchant: {
-                merchantId: "4525644354",
-                doingBusinessAs: "Pizza Doe",
-                processingAccountId: 38765,
-                link: {
-                    rel: "processingAccount",
-                    method: "get",
-                    href: "https://api.payroc.com/v1/processing-accounts/38765",
-                },
-            },
-            settled: {
-                settledBy: "3rd party",
-                achDate: "2024-07-02",
-                achDepositId: 99,
-                link: {
-                    rel: "achDeposit",
-                    method: "get",
-                    href: "https://api.payroc.com/v1/ach-deposits/99",
-                },
-            },
-            batch: {
-                batchId: 12,
-                date: "2024-07-02",
-                cycle: "am",
-                link: {
-                    rel: "batch",
-                    method: "get",
-                    href: "https://api.payroc.com/v1/batches/12",
-                },
-            },
-            card: {
-                cardNumber: "453985******7062",
-                type: "visa",
-                cvvPresenceIndicator: true,
-                avsRequest: true,
-                avsResponse: "",
-            },
-            authorization: {
-                authorizationId: 303101,
-                code: "A1B2C3",
-                amount: 4999,
-                avsResponseCode: "",
-                link: {
-                    rel: "authorization",
-                    method: "get",
-                    href: "https://api.payroc.com/v1/authorizations/303101",
-                },
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("retrieveTransaction (2)", async () => {
@@ -520,53 +425,7 @@ describe("SettlementClient", () => {
         const response = await client.reporting.settlement.retrieveAuthorization({
             authorizationId: 1,
         });
-        expect(response).toEqual({
-            authorizationId: 65,
-            createdDate: "2024-07-02",
-            lastModifiedDate: "2024-07-02",
-            authorizationResponse: "successful",
-            preauthorizationRequestAmount: 10000,
-            currency: "USD",
-            batch: {
-                batchId: 12,
-                date: "2024-07-02",
-                cycle: "am",
-                link: {
-                    rel: "batch",
-                    method: "get",
-                    href: "https://api.payroc.com/v1/batches/12",
-                },
-            },
-            card: {
-                cardNumber: "453985******7062",
-                type: "visa",
-                cvvPresenceIndicator: true,
-                avsRequest: true,
-                avsResponse: "Y",
-            },
-            merchant: {
-                merchantId: "4525644354",
-                doingBusinessAs: "Pizza Doe",
-                processingAccountId: 38765,
-                link: {
-                    rel: "processingAccount",
-                    method: "get",
-                    href: "https://api.payroc.com/v1/processing-accounts/38765",
-                },
-            },
-            transaction: {
-                transactionId: 442233,
-                type: "capture",
-                date: "2024-07-02",
-                entryMethod: "swiped",
-                amount: 100,
-                link: {
-                    rel: "transaction",
-                    method: "get",
-                    href: "https://api.payroc.com/v1/transactions/12345",
-                },
-            },
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("retrieveAuthorization (2)", async () => {
@@ -720,13 +579,7 @@ describe("SettlementClient", () => {
         const response = await client.reporting.settlement.listDisputesStatuses({
             disputeId: 1,
         });
-        expect(response).toEqual([
-            {
-                disputeStatusId: 12345,
-                status: "prearbitrationInProcess",
-                statusDate: "2024-02-01",
-            },
-        ]);
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("listDisputesStatuses (2)", async () => {
@@ -939,38 +792,7 @@ describe("SettlementClient", () => {
         const response = await client.reporting.settlement.retrieveAchDeposit({
             achDepositId: 1,
         });
-        expect(response).toEqual({
-            achDepositId: 99,
-            associationDate: "2024-07-02",
-            achDate: "2024-07-02",
-            paymentDate: "2024-07-02",
-            transactions: 10,
-            sales: 50000,
-            returns: 10000,
-            dailyFees: 1000,
-            heldSales: 1000,
-            achAdjustment: 1000,
-            holdback: 1000,
-            reserveRelease: 500,
-            netAmount: 36500,
-            merchant: {
-                merchantId: "4525644354",
-                doingBusinessAs: "Pizza Doe",
-                processingAccountId: 38765,
-                link: {
-                    rel: "processingAccount",
-                    method: "get",
-                    href: "https://api.payroc.com/v1/processing-accounts/38765",
-                },
-            },
-            links: [
-                {
-                    rel: "achDepositFees",
-                    method: "get",
-                    href: "https://api.payroc.com/v1/ach-deposit-fees?achDepositId=99&merchantId=4525644354",
-                },
-            ],
-        });
+        expect(response).toEqual(rawResponseBody);
     });
 
     test("retrieveAchDeposit (2)", async () => {
