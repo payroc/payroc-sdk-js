@@ -30,6 +30,8 @@ export interface SingleUseTokenPayload {
      * - `tel` – Telephone transaction.
      * - `ccd` – Corporate credit card or debit card transaction.
      * - `ppd` – Pre-arranged transaction.
+     *
+     * **Note:** This field is mandatory when the single-use token represents ACH bank account details.
      */
     secCode?: SingleUseTokenPayload.SecCode | undefined;
 }
@@ -52,6 +54,8 @@ export namespace SingleUseTokenPayload {
      * - `tel` – Telephone transaction.
      * - `ccd` – Corporate credit card or debit card transaction.
      * - `ppd` – Pre-arranged transaction.
+     *
+     * **Note:** This field is mandatory when the single-use token represents ACH bank account details.
      */
     export const SecCode = {
         Web: "web",

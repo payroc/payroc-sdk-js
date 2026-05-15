@@ -17,6 +17,8 @@ export interface AchPayload {
      * - `tel` – Telephone transaction.
      * - `ccd` – Corporate credit card or debit card transaction.
      * - `ppd` – Pre-arranged transaction.
+     *
+     * **Note:** This field is mandatory for ACH payments and unreferenced refunds.
      */
     secCode?: AchPayload.SecCode | undefined;
     /** Customer's name. */
@@ -48,6 +50,8 @@ export namespace AchPayload {
      * - `tel` – Telephone transaction.
      * - `ccd` – Corporate credit card or debit card transaction.
      * - `ppd` – Pre-arranged transaction.
+     *
+     * **Note:** This field is mandatory for ACH payments and unreferenced refunds.
      */
     export const SecCode = {
         Web: "web",

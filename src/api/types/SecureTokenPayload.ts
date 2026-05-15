@@ -19,6 +19,8 @@ export interface SecureTokenPayload {
      * - `tel` – Telephone transaction.
      * - `ccd` – Corporate credit card or debit card transaction.
      * - `ppd` – Pre-arranged transaction.
+     *
+     * **Note:** This field is mandatory when the secure token represents ACH bank account details.
      */
     secCode?: SecureTokenPayload.SecCode | undefined;
 }
@@ -41,6 +43,8 @@ export namespace SecureTokenPayload {
      * - `tel` – Telephone transaction.
      * - `ccd` – Corporate credit card or debit card transaction.
      * - `ppd` – Pre-arranged transaction.
+     *
+     * **Note:** This field is mandatory when the secure token represents ACH bank account details.
      */
     export const SecCode = {
         Web: "web",
